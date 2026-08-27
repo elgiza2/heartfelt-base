@@ -189,6 +189,7 @@ export default function ApiAppDetail({
         </div>
       )}
 
+      {app.tools.length > 0 && (
       <ToolsList
         title="Tools"
         tools={app.tools.map((t) => ({
@@ -205,6 +206,7 @@ export default function ApiAppDetail({
           onUse?.();
         }}
       />
+      )}
 
       <div dir="ltr" className="mt-6 pb-2">
         <button

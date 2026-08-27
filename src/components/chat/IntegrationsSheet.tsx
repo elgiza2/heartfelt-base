@@ -18,6 +18,8 @@ import CustomMcpList from "./integrations/CustomMcpList";
 import AgentTools from "./integrations/AgentTools";
 import AppActionsPanel from "./integrations/AppActionsPanel";
 import ApiAppsTab from "./integrations/ApiAppsTab";
+import ApiAppDetail from "./integrations/ApiAppDetail";
+import type { ApiApp } from "@/lib/apiApps/types";
 
 const DraggablePlusSheet = lazy(() =>
   import("@/pages/chat/components/DraggablePlusSheet").then((m) => ({
@@ -52,6 +54,8 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
   const [tab, setTab] = useState<Tab>("tools");
   const [busy, setBusy] = useState<string | null>(null);
   const [detail, setDetail] = useState<Integration | null>(null);
+  const [apiDetail, setApiDetail] = useState<ApiApp | null>(null);
+  const [apiReload, setApiReload] = useState(0);
   const [size, setSize] = useState({ height: 600, collapsedY: 200 });
 
   const refresh = async () => {
@@ -67,6 +71,7 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
   useEffect(() => {
     if (!open) {
       setDetail(null);
+      setApiDetail(null);
       setQuery("");
       return;
     }
@@ -133,16 +138,32 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
           <Suspense fallback={null}>
             <DraggablePlusSheet
               height={size.height}
-               collapsedY={detail ? 0 : size.collapsedY}
+               collapsedY={detail || apiDetail ? 0 : size.collapsedY}
               bottomOffset={0}
               initialExpanded={false}
-               view={detail ? `detail-${detail.id}` : tab}
+               view={apiDetail ? `api-${apiDetail.id}` : detail ? `detail-${detail.id}` : tab}
               sheetKind="integrations"
               onClose={() => onOpenChange(false)}
             >
               <div dir="rtl" className="flex min-h-full flex-col">
                 <AnimatePresence mode="wait" initial={false}>
-                  {detail ? (
+                  {apiDetail ? (
+                    <motion.div
+                      key="api-detail"
+                      initial={{ x: -24, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      exit={{ x: -24, opacity: 0 }}
+                      transition={SLIDE}
+                      className="flex min-h-full flex-col"
+                    >
+                      <ApiAppDetail
+                        app={apiDetail}
+                        onBack={() => setApiDetail(null)}
+                        onChanged={() => setApiReload((n) => n + 1)}
+                        onUse={() => onOpenChange(false)}
+                      />
+                    </motion.div>
+                  ) : detail ? (
                     <motion.div
                       key="detail"
                       initial={{ x: -24, opacity: 0 }}
@@ -227,8 +248,8 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
                         {tab === "apis" ? (
                           <ApiAppsTab
                             query={query}
-                            connected={connected}
-                            onOpen={(app) => setDetail(app)}
+                            reloadKey={apiReload}
+                            onOpen={(app) => setApiDetail(app)}
                           />
                         ) : tab === "custom" ? (
                           <div className="pb-2">
