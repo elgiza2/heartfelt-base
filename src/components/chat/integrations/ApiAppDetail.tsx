@@ -5,7 +5,7 @@
  *  a single key. All colours come from the design tokens.
  */
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Check, ChevronLeft, ChevronRight, Loader2, Trash2 } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, Loader2, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import type { ApiApp } from "@/lib/apiApps/types";
 import {
@@ -106,26 +106,17 @@ export default function ApiAppDetail({
 
   return (
     <div dir="ltr" className="flex min-h-full flex-col pb-4">
-      {/* Header */}
-      <div className="sticky top-0 z-10 -mx-1 flex shrink-0 items-center gap-2 bg-background/80 px-1 pb-2 backdrop-blur">
+      {/* Header — bare back button, no background or borders */}
+      <div className="flex shrink-0 items-center px-1 pb-2 pt-1">
         <button
           type="button"
           onClick={onBack}
           aria-label="Back"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-foreground/[0.06] text-foreground/70 transition-opacity active:opacity-60"
-          style={{ border: 0 }}
+          className="inline-flex h-8 w-8 items-center justify-center rounded-full text-foreground/70 transition-opacity active:opacity-60"
+          style={{ border: 0, background: "transparent" }}
         >
           <ChevronLeft className="h-[18px] w-[18px]" />
         </button>
-        <span className="flex-1 truncate text-[14px] font-medium text-foreground/70">
-          {app.name}
-        </span>
-        {hint && (
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/12 px-2.5 py-1 text-[11px] font-medium text-primary">
-            <Check className="h-3 w-3" />
-            Connected
-          </span>
-        )}
       </div>
 
       {/* Identity */}
