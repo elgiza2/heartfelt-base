@@ -93,8 +93,8 @@ export default function ApiAppsTab({
         <button
           type="button"
           onClick={onCreateFromChat}
-          className="mb-2 flex h-11 w-full items-center gap-2 rounded-[14px] bg-foreground/[0.05] px-3.5 text-[14px] text-foreground"
-          style={{ border: 0 }}
+          className="mb-2 flex h-11 w-full items-center gap-2 rounded-[14px] px-3.5 text-[14px] text-foreground"
+          style={{ border: 0, background: "transparent" }}
         >
           <MessageSquarePlus className="h-4 w-4" />
           Create from chat
