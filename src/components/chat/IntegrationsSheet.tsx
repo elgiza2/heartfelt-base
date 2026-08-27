@@ -249,9 +249,31 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
                             query={query}
                             reloadKey={apiReload}
                             onOpen={(app) => setApiDetail(app)}
+                            onCreateFromChat={() => {
+                              window.dispatchEvent(
+                                new CustomEvent("megsy:composer-insert", {
+                                  detail: {
+                                    text: "Connect an API app for me: ",
+                                  },
+                                }),
+                              );
+                              onOpenChange(false);
+                            }}
                           />
                         ) : tab === "mcp" ? (
-                          <McpTab query={query} />
+                          <McpTab
+                            query={query}
+                            onCreateFromChat={() => {
+                              window.dispatchEvent(
+                                new CustomEvent("megsy:composer-insert", {
+                                  detail: {
+                                    text: "Add an MCP server for me: ",
+                                  },
+                                }),
+                              );
+                              onOpenChange(false);
+                            }}
+                          />
                         ) : list.length === 0 ? (
                           <EmptyConnectors label="No results" />
                         ) : (

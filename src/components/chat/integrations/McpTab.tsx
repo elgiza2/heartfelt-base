@@ -5,6 +5,7 @@ import {
   CheckCircle2,
   Loader2,
   Lock,
+  MessageSquarePlus,
   Plus,
   RefreshCw,
   Server,
@@ -70,7 +71,13 @@ function State({ server }: { server: McpServer }) {
   return <span className="text-[11.5px] text-foreground/40">Checking…</span>;
 }
 
-export default function McpTab({ query = "" }: { query?: string }) {
+export default function McpTab({
+  query = "",
+  onCreateFromChat,
+}: {
+  query?: string;
+  onCreateFromChat?: () => void;
+}) {
   const [servers, setServers] = useState<McpServer[]>([]);
   const [loading, setLoading] = useState(true);
   const [busyId, setBusyId] = useState<string | null>(null);
@@ -197,49 +204,66 @@ export default function McpTab({ query = "" }: { query?: string }) {
   return (
     <div dir="ltr" className="pb-4">
       {adding ? (
-        <div className="rounded-[18px] bg-foreground/[0.04] p-3.5">
-          <div className="mb-3 flex items-center justify-between">
-            <p className="text-[13px] font-medium text-foreground">New MCP server</p>
+        <div className="rounded-[22px] bg-foreground/[0.035] p-4 ring-1 ring-inset ring-foreground/[0.06]">
+          <div className="mb-4 flex items-center gap-2.5">
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-foreground/[0.06]">
+              <Server className="h-4 w-4 text-foreground/60" />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="text-[14px] font-medium text-foreground">New MCP server</p>
+              <p className="text-[12px] text-foreground/45">Paste the server URL to connect it</p>
+            </div>
             <button
               type="button"
               onClick={() => setAdding(false)}
-              className="grid h-7 w-7 place-items-center rounded-full text-foreground/50"
+              className="grid h-8 w-8 place-items-center rounded-full text-foreground/50 transition-colors active:bg-foreground/[0.06]"
               style={{ border: 0, background: "transparent" }}
             >
               <X className="h-4 w-4" />
             </button>
           </div>
 
-          <div className="space-y-2">
-            <input
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              placeholder="https://example.com/mcp"
-              className="h-11 w-full rounded-[13px] bg-background px-3.5 text-[14px] text-foreground outline-none placeholder:text-foreground/35"
-              style={{ border: 0 }}
-            />
-            <input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Name (optional)"
-              className="h-11 w-full rounded-[13px] bg-background px-3.5 text-[14px] text-foreground outline-none placeholder:text-foreground/35"
-              style={{ border: 0 }}
-            />
-            <textarea
-              value={headersText}
-              onChange={(e) => setHeadersText(e.target.value)}
-              placeholder={'Headers (optional)\nAuthorization: Bearer …'}
-              rows={2}
-              className="w-full resize-none rounded-[13px] bg-background px-3.5 py-2.5 text-[13px] text-foreground outline-none placeholder:text-foreground/35"
-              style={{ border: 0 }}
-            />
+          <div className="space-y-2.5">
+            <div>
+              <p className="mb-1 px-1 text-[12px] text-foreground/45">Server URL</p>
+              <input
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                placeholder="https://example.com/mcp"
+                autoComplete="off"
+                className="h-11 w-full rounded-[13px] bg-background px-3.5 text-[14px] text-foreground outline-none placeholder:text-foreground/35"
+                style={{ border: 0 }}
+              />
+            </div>
+            <div>
+              <p className="mb-1 px-1 text-[12px] text-foreground/45">Name (optional)</p>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="My server"
+                autoComplete="off"
+                className="h-11 w-full rounded-[13px] bg-background px-3.5 text-[14px] text-foreground outline-none placeholder:text-foreground/35"
+                style={{ border: 0 }}
+              />
+            </div>
+            <div>
+              <p className="mb-1 px-1 text-[12px] text-foreground/45">Headers (optional)</p>
+              <textarea
+                value={headersText}
+                onChange={(e) => setHeadersText(e.target.value)}
+                placeholder="Authorization: Bearer …"
+                rows={2}
+                className="w-full resize-none rounded-[13px] bg-background px-3.5 py-2.5 text-[13px] text-foreground outline-none placeholder:text-foreground/35"
+                style={{ border: 0 }}
+              />
+            </div>
           </div>
 
           <button
             type="button"
             onClick={() => void onAdd()}
-            disabled={saving}
-            className="mt-3 flex h-11 w-full items-center justify-center gap-2 rounded-[13px] bg-primary text-[14px] font-medium text-primary-foreground disabled:opacity-60"
+            disabled={saving || url.trim().length < 8}
+            className="mt-3.5 flex h-11 w-full items-center justify-center gap-2 rounded-[13px] bg-primary text-[14px] font-medium text-primary-foreground disabled:opacity-50"
             style={{ border: 0 }}
           >
             {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
@@ -247,15 +271,28 @@ export default function McpTab({ query = "" }: { query?: string }) {
           </button>
         </div>
       ) : (
-        <button
-          type="button"
-          onClick={() => setAdding(true)}
-          className="flex h-11 w-full items-center gap-2 rounded-[14px] bg-foreground/[0.05] px-3.5 text-[14px] text-foreground"
-          style={{ border: 0 }}
-        >
-          <Plus className="h-4 w-4" />
-          Add an MCP server
-        </button>
+        <div className="space-y-2">
+          <button
+            type="button"
+            onClick={() => setAdding(true)}
+            className="flex h-11 w-full items-center gap-2 rounded-[14px] bg-foreground/[0.05] px-3.5 text-[14px] text-foreground"
+            style={{ border: 0 }}
+          >
+            <Plus className="h-4 w-4" />
+            Add an MCP server
+          </button>
+          {onCreateFromChat ? (
+            <button
+              type="button"
+              onClick={onCreateFromChat}
+              className="flex h-11 w-full items-center gap-2 rounded-[14px] bg-foreground/[0.05] px-3.5 text-[14px] text-foreground"
+              style={{ border: 0 }}
+            >
+              <MessageSquarePlus className="h-4 w-4" />
+              Create from chat
+            </button>
+          ) : null}
+        </div>
       )}
 
       <div className="mt-3 space-y-2">
