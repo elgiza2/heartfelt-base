@@ -286,8 +286,14 @@ function flagshipScore(id: string): number {
   const k = key(id);
   const parts = k.split(":");
   const service = parts.slice(1).join(":");
-  const flagship = FLAGSHIP_SERVICES.some((s) => service.includes(s)) ? 0 : 4;
-  return flagship + (parts.length > 1 ? 1 : 0) + Math.min(9, Math.floor(k.length / 24));
+  let flagship = FLAGSHIP_SERVICES.length;
+  for (let i = 0; i < FLAGSHIP_SERVICES.length; i += 1) {
+    if (service.includes(FLAGSHIP_SERVICES[i]!)) {
+      flagship = i;
+      break;
+    }
+  }
+  return flagship * 10 + (parts.length > 1 ? 1 : 0) + Math.min(9, Math.floor(k.length / 24));
 }
 
 /**
