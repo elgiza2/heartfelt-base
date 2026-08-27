@@ -113,7 +113,9 @@ export async function handleApiApp(_req: Request, admin: any, body: any): Promis
         baseUrl: String(row.spec.baseUrl),
         auth: (row.spec.auth ?? null) as Auth | null,
         authTemplate: (row.spec.authTemplate ?? null) as AuthTemplate | null,
+        basic: Boolean(row.spec.basic),
         tool: saved,
+
       };
     }
     if (!spec?.baseUrl) return json({ ok: false, error: "Missing request details" }, 400);
