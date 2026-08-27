@@ -363,62 +363,6 @@ export const API_APPS: ApiApp[] = [
     ],
   },
   {
-    id: "youtube",
-    name: "YouTube Data",
-    category: "media",
-    description: "Search videos and read channel stats",
-    docsUrl: "https://developers.google.com/youtube/v3/docs",
-    keyUrl: "https://console.cloud.google.com/apis/credentials",
-    baseUrl: "https://www.googleapis.com/youtube/v3",
-    auth: { type: "query", name: "key" },
-    logo: "https://cdn.simpleicons.org/youtube",
-    tools: [
-      {
-        name: "Search videos",
-        description: "Search videos, channels and playlists",
-        method: "GET",
-        path: "/search",
-        params: [
-          { name: "q", in: "query", required: true, description: "Search query" },
-          { name: "part", in: "query", required: true, description: "Use snippet" },
-        ],
-      },
-      {
-        name: "Video details",
-        description: "Stats and details of one video",
-        method: "GET",
-        path: "/videos",
-        params: [
-          { name: "id", in: "query", required: true, description: "Video ID" },
-          { name: "part", in: "query", required: true, description: "Use snippet,statistics" },
-        ],
-      },
-    ],
-  },
-  {
-    id: "google-search",
-    name: "Google Programmable Search",
-    category: "search",
-    description: "Web search results for a query",
-    docsUrl: "https://developers.google.com/custom-search/v1/overview",
-    keyUrl: "https://developers.google.com/custom-search/v1/introduction",
-    baseUrl: "https://www.googleapis.com/customsearch",
-    auth: { type: "query", name: "key" },
-    logo: "https://cdn.simpleicons.org/google",
-    tools: [
-      {
-        name: "Web search",
-        description: "Search the web",
-        method: "GET",
-        path: "/v1",
-        params: [
-          { name: "q", in: "query", required: true, description: "Search query" },
-          { name: "cx", in: "query", required: true, description: "Search engine ID" },
-        ],
-      },
-    ],
-  },
-  {
     id: "serpapi",
     name: "SerpApi",
     category: "search",
