@@ -93,6 +93,34 @@ export function curatedEntry(id: string) {
   return CURATED.get(id);
 }
 
+/** Spacing fixes for names rebuilt from ids, plus known acronyms. */
+const WORD_FIXES: [RegExp, string][] = [
+  [/Git Hub/g, "GitHub"],
+  [/You Tube/g, "YouTube"],
+  [/Big Query/g, "BigQuery"],
+  [/Ad Sense/g, "AdSense"],
+  [/Dynamo DB/g, "DynamoDB"],
+  [/Speech To Text/g, "Speech-to-Text"],
+  [/Text To Speech/g, "Text-to-Speech"],
+  [/Sql/g, "SQL"],
+  [/Dns/g, "DNS"],
+  [/Api/g, "API"],
+  [/Sdk/g, "SDK"],
+  [/Iam/g, "IAM"],
+  [/V(\d)/g, "v$1"],
+  [/\s*Management Client$/i, ""],
+  [/\s*Client$/i, ""],
+  [/\s+API API/g, " API"],
+];
+
+function polish(name: string): string {
+  let out = name;
+  for (const [pattern, replacement] of WORD_FIXES) out = out.replace(pattern, replacement);
+  // Drop a brand repeated twice ("GitHub GitHub v3").
+  out = out.replace(/^(\S+)\s+\1\b/i, "$1");
+  return out.replace(/\s+/g, " ").trim();
+}
+
 /** The name a person recognises for one directory entry. */
 export function displayName(id: string, rawTitle: string): string {
   const curated = CURATED.get(id);
@@ -106,7 +134,7 @@ export function displayName(id: string, rawTitle: string): string {
   for (const pattern of NOISE) title = title.replace(pattern, " ");
   title = title.replace(/\s+/g, " ").trim();
 
-  if (!brand) return title || titleCase(service || key);
+  if (!brand) return polish(title || titleCase(service || key));
 
   // "Twilio - Api" / "Azure ... " → brand + the service part of the id.
   const dashed = title.replace(new RegExp(`^${brand}\\s*[-–:]\\s*`, "i"), "").trim();
@@ -115,9 +143,9 @@ export function displayName(id: string, rawTitle: string): string {
     : titleCase(service);
   const cleaned = titleCase(label || service);
 
-  return cleaned.toLowerCase().startsWith(brand.toLowerCase())
-    ? cleaned
-    : `${brand} ${cleaned}`.trim();
+  return polish(
+    cleaned.toLowerCase().startsWith(brand.toLowerCase()) ? cleaned : `${brand} ${cleaned}`,
+  );
 }
 
 /** A short, plain description for one directory entry. */
