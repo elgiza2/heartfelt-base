@@ -38,9 +38,40 @@ function rootDomain(h) {
   return parts.slice(-2).join(".");
 }
 
+/** Doc hosts that say nothing about which service an entry belongs to. */
+const GENERIC_HOSTS = [
+  "github.com",
+  "github.io",
+  "gitlab.com",
+  "gitlab.io",
+  "readthedocs.io",
+  "readthedocs.org",
+  "netlify.app",
+  "vercel.app",
+  "gitbook.io",
+  "gitbook.com",
+  "herokuapp.com",
+  "rapidapi.com",
+  "getpostman.com",
+  "postman.com",
+  "google.com",
+  "notion.site",
+  "docs.rs",
+  "apache.org",
+  "wordpress.com",
+  "medium.com",
+  "pages.dev",
+  "surge.sh",
+  "firebaseapp.com",
+  "web.app",
+  "azurewebsites.net",
+];
+
 function guruKeyFor(url) {
   const h = host(url);
-  return byDomain.get(h) ?? byDomain.get(rootDomain(h)) ?? null;
+  const root = rootDomain(h);
+  if (GENERIC_HOSTS.includes(h) || GENERIC_HOSTS.includes(root)) return null;
+  return byDomain.get(h) ?? byDomain.get(root) ?? null;
 }
 
 const sections = md.split(/^### /m).slice(1);

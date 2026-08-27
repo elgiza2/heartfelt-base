@@ -153,7 +153,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:getpostman.com",
+    "id": null,
     "name": "eBird",
     "category": "Animals",
     "description": "Retrieve recent or notable birding observations within a region",
@@ -193,7 +193,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "MeowFacts",
     "category": "Animals",
     "description": "Get random cat facts",
@@ -201,7 +201,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Movebank",
     "category": "Animals",
     "description": "Movement and Migration data of animals",
@@ -305,7 +305,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "AniList",
     "category": "Anime",
     "description": "Anime discovery & tracking",
@@ -313,7 +313,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "AnimeChan",
     "category": "Anime",
     "description": "Anime quotes (over 10k+)",
@@ -377,7 +377,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Mangapi",
     "category": "Anime",
     "description": "Translate manga pages from one language to another",
@@ -465,7 +465,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Safe Browsing",
     "category": "Anti-Malware",
     "description": "Google Link/Domain Flagging",
@@ -513,7 +513,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "NoPhishy",
     "category": "Anti-Malware",
     "description": "Check links to see if they're known phishing attempts",
@@ -625,7 +625,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "EmojiHub",
     "category": "Art & Design",
     "description": "Get emojis by categories and groups",
@@ -641,7 +641,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Harvard Art Museums",
     "category": "Art & Design",
     "description": "Art",
@@ -873,7 +873,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Get Started with Web3",
     "category": "Blockchain",
     "description": "Bilingual Web3 lessons, glossary search and role-based learning paths",
@@ -985,7 +985,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Crossref Metadata Search",
     "category": "Books",
     "description": "Books & Articles Metadata",
@@ -1001,7 +1001,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Books",
     "category": "Books",
     "description": "Books",
@@ -1009,7 +1009,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "GurbaniNow",
     "category": "Books",
     "description": "Fast and Accurate Gurbani RESTful API",
@@ -1049,7 +1049,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "PoetryDB",
     "category": "Books",
     "description": "Enables you to get instant data from our vast poetry collection",
@@ -1073,7 +1073,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Quran-api",
     "category": "Books",
     "description": "Free Quran API Service with 90+ different languages and 400+ translations",
@@ -1129,7 +1129,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:apache.org",
+    "id": null,
     "name": "Apache Superset",
     "category": "Business",
     "description": "API to manage your BI dashboards and data sources on Superset",
@@ -1177,7 +1177,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Gmail",
     "category": "Business",
     "description": "Flexible, RESTful access to the user's inbox",
@@ -1185,7 +1185,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Analytics",
     "category": "Business",
     "description": "Collect, configure and analyze your data to reach the right audience",
@@ -1417,7 +1417,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Calendar",
     "category": "Calendar",
     "description": "Display, create and modify Google calendar events",
@@ -1465,7 +1465,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Non-Working Days",
     "category": "Calendar",
     "description": "Database of ICS files for non working days",
@@ -1481,7 +1481,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Russian Calendar",
     "category": "Calendar",
     "description": "Check if a date is a Russian holiday or not",
@@ -1537,7 +1537,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "FileUp",
     "category": "Cloud Storage & File Sharing",
     "description": "Temporary file hosting with upload API, expiration times, and view limits",
@@ -1553,7 +1553,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Drive",
     "category": "Cloud Storage & File Sharing",
     "description": "File Sharing and Storage",
@@ -1729,7 +1729,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Binance",
     "category": "Cryptocurrency",
     "description": "Exchange for Trading Cryptocurrencies based in China",
@@ -2001,7 +2001,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:getpostman.com",
+    "id": null,
     "name": "CoinStats",
     "category": "Cryptocurrency",
     "description": "Crypto Tracker",
@@ -2057,7 +2057,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Ethplorer",
     "category": "Cryptocurrency",
     "description": "Ethereum tokens, balances, addresses, history of transactions, contracts, and custom structures",
@@ -2065,7 +2065,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:getpostman.com",
+    "id": null,
     "name": "EXMO",
     "category": "Cryptocurrency",
     "description": "Cryptocurrencies exchange based in UK",
@@ -2105,7 +2105,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Hyperliquid Market Data",
     "category": "Cryptocurrency",
     "description": "Hyperliquid open interest, funding and cross-venue predicted rates per coin",
@@ -2121,7 +2121,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Indodax",
     "category": "Cryptocurrency",
     "description": "Trade your Bitcoin and other assets with rupiah",
@@ -2361,7 +2361,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Currency-api",
     "category": "Currency Exchange",
     "description": "Free Currency Exchange Rates API with 150+ Currencies & No Rate Limits",
@@ -2513,7 +2513,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "SchemaShield",
     "category": "Data Validation",
     "description": "Read-only preflight for breaking schema changes and downstream query impact",
@@ -2729,7 +2729,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Ciprand",
     "category": "Development",
     "description": "Secure random string generator",
@@ -2745,7 +2745,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Cloudflare Trace",
     "category": "Development",
     "description": "Get IP Address, Timestamp, User Agent, Country Code, IATA, HTTP Version, TLS/SSL Version & More",
@@ -2753,7 +2753,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Codex",
     "category": "Development",
     "description": "Online Compiler for Various Languages",
@@ -2769,7 +2769,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "CORS Proxy",
     "category": "Development",
     "description": "Get around the dreaded CORS error by using this proxy as a middle man",
@@ -2889,7 +2889,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "GitHub",
     "category": "Development",
     "description": "Make use of GitHub repositories, code and user info programmatically",
@@ -2897,7 +2897,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:gitlab.com",
+    "id": null,
     "name": "Gitlab",
     "category": "Development",
     "description": "Automate GitLab interaction programmatically",
@@ -2921,7 +2921,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Docs",
     "category": "Development",
     "description": "API to read, write, and format Google Docs documents",
@@ -2929,7 +2929,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Firebase",
     "category": "Development",
     "description": "Google's mobile application development platform that helps build, improve, and grow app",
@@ -2937,7 +2937,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Fonts",
     "category": "Development",
     "description": "Metadata for all families served by Google Fonts",
@@ -2945,7 +2945,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Keep",
     "category": "Development",
     "description": "API to read, write, and format Google Keep notes",
@@ -2953,7 +2953,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Sheets",
     "category": "Development",
     "description": "API to read, write, and format Google Sheets data",
@@ -2961,7 +2961,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Slides",
     "category": "Development",
     "description": "API to read, write, and format Google Slides presentations",
@@ -3145,7 +3145,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "jsDelivr",
     "category": "Development",
     "description": "Package info and download stats on jsDelivr CDN",
@@ -3193,7 +3193,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "License-API",
     "category": "Development",
     "description": "Unofficial REST API for choosealicense.com",
@@ -3297,7 +3297,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "npm Registry",
     "category": "Development",
     "description": "Query information about your favorite Node.js libraries programatically",
@@ -3601,7 +3601,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Sonar",
     "category": "Development",
     "description": "Project Sonar DNS Enumeration API",
@@ -3697,7 +3697,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Wandbox",
     "category": "Development",
     "description": "Code compiler supporting 35+ languages mentioned at wandbox.org",
@@ -3705,7 +3705,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Web Metadata & Contact Extractor",
     "category": "Development",
     "description": "Extract SEO metadata, contact emails, social links, and tech stack (<200ms)",
@@ -4337,7 +4337,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Corporate Buzz Words",
     "category": "Entertainment",
     "description": "REST API for Corporate Buzz Words",
@@ -4409,7 +4409,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "NaMoMemes",
     "category": "Entertainment",
     "description": "Memes on Narendra Modi",
@@ -4449,7 +4449,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Yo Momma Jokes",
     "category": "Entertainment",
     "description": "REST API for Yo Momma Jokes",
@@ -4777,7 +4777,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Filingrail",
     "category": "Finance",
     "description": "SEC EDGAR filings, XBRL financials, Form 4 insider trades, 8-K events and 13F holdings",
@@ -4985,7 +4985,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Real Time Finance",
     "category": "Finance",
     "description": "Websocket API to access realtime stock data",
@@ -5177,7 +5177,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Foodish",
     "category": "Food & Drink",
     "description": "Random pictures of food dishes",
@@ -5265,7 +5265,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "TacoFancy",
     "category": "Food & Drink",
     "description": "Community-driven taco database",
@@ -5273,7 +5273,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Tasty",
     "category": "Food & Drink",
     "description": "API to query data about recipe, plan, ingredients",
@@ -5281,7 +5281,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "The Report of the Week",
     "category": "Food & Drink",
     "description": "Food & Drink Reviews",
@@ -5361,7 +5361,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Autochess VNG",
     "category": "Games & Comics",
     "description": "Rest Api for Autochess VNG",
@@ -5369,7 +5369,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Barter.VG",
     "category": "Games & Comics",
     "description": "Provides information about Game, DLC, Bundles, Giveaways, Trading",
@@ -5505,7 +5505,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:getpostman.com",
+    "id": null,
     "name": "Digimon TCG",
     "category": "Games & Comics",
     "description": "Search for Digimon cards in digimoncard.io",
@@ -5633,7 +5633,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Geek-Jokes",
     "category": "Games & Comics",
     "description": "Fetch a random geeky/programming related joke for use in all sorts of applications",
@@ -5657,7 +5657,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "GraphQL Pokemon",
     "category": "Games & Comics",
     "description": "GraphQL powered Pokemon API. Supports generations 1 through 8",
@@ -5673,7 +5673,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "GW2Spidy",
     "category": "Games & Comics",
     "description": "GW2Spidy API, Items data on the Guild Wars 2 Trade Market",
@@ -5697,7 +5697,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "X-Mashape-Key"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Humble Bundle",
     "category": "Games & Comics",
     "description": "Humble Bundle's current bundles",
@@ -5721,7 +5721,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Hyrule Compendium",
     "category": "Games & Comics",
     "description": "Data on all interactive items from The Legend of Zelda: BOTW",
@@ -5881,7 +5881,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "PokéAPI (GraphQL)",
     "category": "Games & Comics",
     "description": "The Unofficial GraphQL for PokeAPI",
@@ -5921,7 +5921,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Puyo Nexus",
     "category": "Games & Comics",
     "description": "Puyo Puyo information from Puyo Nexus Wiki",
@@ -5993,7 +5993,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Sakura CardCaptor",
     "category": "Games & Comics",
     "description": "Sakura CardCaptor Cards Information",
@@ -6105,7 +6105,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "When is next MCU film",
     "category": "Games & Comics",
     "description": "Upcoming MCU film information",
@@ -6145,7 +6145,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "administrative-divisons-db",
     "category": "Geocoding",
     "description": "Get all administrative divisions of a country",
@@ -6225,7 +6225,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Cartes.io",
     "category": "Geocoding",
     "description": "Create maps and markers for anything",
@@ -6377,7 +6377,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Earth Engine",
     "category": "Geocoding",
     "description": "A cloud-based platform for planetary-scale environmental data analysis",
@@ -6385,7 +6385,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Maps",
     "category": "Geocoding",
     "description": "Create/customize digital maps based on Google Maps data",
@@ -6393,7 +6393,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Graph Countries",
     "category": "Geocoding",
     "description": "Country-related data like currencies, languages, flags, regions+subregions and bordering countries",
@@ -6625,7 +6625,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Mexico",
     "category": "Geocoding",
     "description": "Mexico RESTful zip codes API",
@@ -6761,7 +6761,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Rwanda Locations",
     "category": "Geocoding",
     "description": "Rwanda Provences, Districts, Cities, Capital City, Sector, cells, villages and streets",
@@ -6769,7 +6769,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "SLF",
     "category": "Geocoding",
     "description": "German city, country, river, database",
@@ -6785,7 +6785,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Telize",
     "category": "Geocoding",
     "description": "Telize offers location information from any IP address",
@@ -7769,7 +7769,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Covid-19 Live Data",
     "category": "Health",
     "description": "Global and countrywise data of Covid 19 daily Summary, confirmed cases, recovered and deaths",
@@ -7777,7 +7777,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Covid-19 Philippines",
     "category": "Health",
     "description": "Unofficial Covid-19 Web API for Philippines from data collected by DOH",
@@ -7913,7 +7913,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:getpostman.com",
+    "id": null,
     "name": "MyVaccination",
     "category": "Health",
     "description": "Vaccination data for Malaysia",
@@ -7993,7 +7993,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:getpostman.com",
+    "id": null,
     "name": "Arbeitnow",
     "category": "Jobs",
     "description": "API for Job board aggregator in Europe / Remote",
@@ -8097,7 +8097,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Open Skills",
     "category": "Jobs",
     "description": "Job titles, skills and related jobs data",
@@ -8177,7 +8177,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "BRAINIALL",
     "category": "Machine Learning",
     "description": "PT-BR and Spanish audio transcription with diarization and SRT/VTT",
@@ -8217,7 +8217,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Dialogflow",
     "category": "Machine Learning",
     "description": "Natural Language Processing",
@@ -8289,7 +8289,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Inferdo",
     "category": "Machine Learning",
     "description": "Computer Vision services like Facial detection, Image labeling, NSFW classification",
@@ -8505,7 +8505,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Gaana",
     "category": "Music",
     "description": "API to retrieve song information from Gaana",
@@ -8545,7 +8545,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "JioSaavn",
     "category": "Music",
     "description": "API to retrieve song information, album meta data and many more from JioSaavn",
@@ -8705,7 +8705,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Verome",
     "category": "Music",
     "description": "Music API for searching, streaming and exploring music data from YouTube Music, YouTube, and Last.fm",
@@ -8753,7 +8753,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Feedbin",
     "category": "News",
     "description": "RSS reader",
@@ -8761,7 +8761,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Florida Man",
     "category": "News",
     "description": "Static JSON dataset of 10,000+ Florida Man headlines by date",
@@ -8785,7 +8785,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Inshorts News",
     "category": "News",
     "description": "Provides news from inshorts",
@@ -8833,7 +8833,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "NewsX",
     "category": "News",
     "description": "Get or Search Latest Breaking News with ML Powered Summaries 🤖",
@@ -8873,7 +8873,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "The Old Reader",
     "category": "News",
     "description": "RSS reader",
@@ -9065,7 +9065,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Lowy Asia Power Index",
     "category": "Open Data",
     "description": "Get measure resources and influence to rank the relative power of states in Asia",
@@ -9169,7 +9169,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "PeakMetrics",
     "category": "Open Data",
     "description": "News articles and public datasets",
@@ -9241,7 +9241,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Universities List",
     "category": "Open Data",
     "description": "University names, countries and domains",
@@ -9361,7 +9361,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "GitHub ReadMe Stats",
     "category": "Open Source Projects",
     "description": "Add dynamically generated statistics to your GitHub profile ReadMe",
@@ -9449,7 +9449,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Dictum",
     "category": "Personality",
     "description": "API to get access to the collection of the most inspiring expressions of mankind",
@@ -9513,7 +9513,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Medium",
     "category": "Personality",
     "description": "Community of readers and writers offering unique perspectives on ideas",
@@ -9529,7 +9529,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Programming Quotes",
     "category": "Personality",
     "description": "Programming Quotes API for open source projects",
@@ -9537,7 +9537,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Quotable Quotes",
     "category": "Personality",
     "description": "Quotable is a free, open source quotations API",
@@ -9569,7 +9569,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Stoicism Quote",
     "category": "Personality",
     "description": "Quotes about Stoicism",
@@ -9633,7 +9633,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Phone Specification",
     "category": "Phone",
     "description": "Rest Api for Phone specifications",
@@ -9745,7 +9745,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Photos",
     "category": "Photography",
     "description": "Integrate Google Photos with your apps or devices",
@@ -9833,7 +9833,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Readme typing SVG",
     "category": "Photography",
     "description": "Customizable typing and deleting text SVG",
@@ -9993,7 +9993,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "iDigBio",
     "category": "Science & Math",
     "description": "Access millions of museum specimens from organizations around the world",
@@ -10001,7 +10001,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "inspirehep.net",
     "category": "Science & Math",
     "description": "High Energy Physics info. system",
@@ -10153,7 +10153,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Remote Calc",
     "category": "Science & Math",
     "description": "Decodes base64 encoding and parses it to return a solution to the calculation in JSON",
@@ -10169,7 +10169,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "SpaceX",
     "category": "Science & Math",
     "description": "Company, vehicle, launchpad and launch data",
@@ -10193,7 +10193,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Times Adder",
     "category": "Science & Math",
     "description": "With this API you can add each of the times introduced in the array sended",
@@ -10249,7 +10249,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Application Environment Verification",
     "category": "Security",
     "description": "Android library and API to verify the safety of user devices, detect rooted devices and other risks",
@@ -10273,7 +10273,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Botd",
     "category": "Security",
     "description": "Botd is a browser library for JavaScript bot detection",
@@ -10337,7 +10337,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Dehash.lt",
     "category": "Security",
     "description": "Hash decryption MD5, SHA1, SHA3, SHA256, SHA384, SHA512",
@@ -10361,7 +10361,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Escape",
     "category": "Security",
     "description": "An API for escaping different kind of queries",
@@ -10457,7 +10457,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Intelligence X",
     "category": "Security",
     "description": "Perform OSINT via Intelligence X",
@@ -10489,7 +10489,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Mozilla http scanner",
     "category": "Security",
     "description": "Mozilla observatory http scanner",
@@ -10497,7 +10497,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Mozilla tls scanner",
     "category": "Security",
     "description": "Mozilla observatory tls scanner",
@@ -10513,7 +10513,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Passwordinator",
     "category": "Security",
     "description": "Generate random passwords of varying complexities",
@@ -10569,7 +10569,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "SSL Domain Health Check",
     "category": "Security",
     "description": "SSL certificate validity, domain WHOIS status, and DNS record checks for any domain",
@@ -10753,7 +10753,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "4chan",
     "category": "Social",
     "description": "Simple image-based bulletin board dedicated to a variety of topics",
@@ -10777,7 +10777,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Blogger",
     "category": "Social",
     "description": "The Blogger APIs allows client applications to view and update Blogger content",
@@ -10873,7 +10873,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "HackerNews",
     "category": "Social",
     "description": "Social news for CS and entrepreneurship",
@@ -10905,7 +10905,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Lanyard",
     "category": "Social",
     "description": "Retrieve your presence on Discord through an HTTP REST API or WebSocket",
@@ -11257,7 +11257,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Football",
     "category": "Sports & Fitness",
     "description": "A simple Open Source Football API to get squads’ stats, best scorers and more",
@@ -11281,7 +11281,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Football Standings",
     "category": "Sports & Fitness",
     "description": "Display football standings e.g epl, la liga, serie a etc. The data is based on espn site",
@@ -11321,7 +11321,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "NBA Data",
     "category": "Sports & Fitness",
     "description": "All NBA Stats DATA, Games, Livescore, Standings, Statistics",
@@ -11337,7 +11337,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:gitlab.com",
+    "id": null,
     "name": "NHL Records and Stats",
     "category": "Sports & Fitness",
     "description": "NHL historical data and statistics",
@@ -11393,7 +11393,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Premier League Standings",
     "category": "Sports & Fitness",
     "description": "All Current Premier League Standings and Statistics",
@@ -11817,7 +11817,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "Google Cloud Natural",
     "category": "Text Analysis",
     "description": "Natural language understanding technology, including sentiment, entity and syntax analysis",
@@ -11865,7 +11865,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Lecto Translation",
     "category": "Text Analysis",
     "description": "Translation API with free tier and reasonable prices",
@@ -12105,7 +12105,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Community Transit",
     "category": "Transportation",
     "description": "Transitland API",
@@ -12113,7 +12113,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "Compare Flight Prices",
     "category": "Transportation",
     "description": "API for comparing flight prices across platforms",
@@ -12329,7 +12329,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Transport for Berlin, Germany",
     "category": "Transportation",
     "description": "Third-party VBB API",
@@ -12585,7 +12585,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "1pt",
     "category": "URL Shorteners",
     "description": "A simple URL shortener",
@@ -12657,7 +12657,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "GoTiny",
     "category": "URL Shorteners",
     "description": "A lightweight URL shortener, focused on ease-of-use for the developer and end-user",
@@ -12705,7 +12705,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Short Link",
     "category": "URL Shorteners",
     "description": "Short URLs support so many domains",
@@ -12849,7 +12849,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Breaking Bad Quotes",
     "category": "Video",
     "description": "Some Breaking Bad quotes",
@@ -12889,7 +12889,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "OAuth"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Dune",
     "category": "Video",
     "description": "A simple API which provides you with book, character, movie and quotes JSON data",
@@ -12937,7 +12937,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "IMDbOT",
     "category": "Video",
     "description": "Unofficial IMDb Movie / Series Information",
@@ -12961,7 +12961,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Lucifer Quotes",
     "category": "Video",
     "description": "Returns Lucifer quotes",
@@ -12969,7 +12969,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "MCU Countdown",
     "category": "Video",
     "description": "A Countdown to the next MCU Film",
@@ -12985,7 +12985,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Movie Quote",
     "category": "Video",
     "description": "Random Movie and Series Quotes",
@@ -13017,7 +13017,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Ron Swanson Quotes",
     "category": "Video",
     "description": "Television",
@@ -13049,7 +13049,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Stranger Things Quotes",
     "category": "Video",
     "description": "Returns Stranger Things quotes",
@@ -13153,7 +13153,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:rapidapi.com:ecowetter",
+    "id": null,
     "name": "uNoGS",
     "category": "Video",
     "description": "Unofficial Netflix Online Global Search, Search all netflix regions in one place",
@@ -13185,7 +13185,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "Web Series Quotes Generator",
     "category": "Video",
     "description": "API generates various Web Series Quote Images",
@@ -13193,7 +13193,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "No"
   },
   {
-    "id": "dir:google.com",
+    "id": null,
     "name": "YouTube",
     "category": "Video",
     "description": "Add YouTube functionality to your sites and apps",
@@ -13449,7 +13449,7 @@ export const publicApis: PublicApiEntry[] = [
     "auth": "apiKey"
   },
   {
-    "id": "dir:github.com",
+    "id": null,
     "name": "weather-api",
     "category": "Weather",
     "description": "A RESTful free API to check the weather",
@@ -13500,87 +13500,37 @@ export const publicApis: PublicApiEntry[] = [
 
 /** Ids of curated entries that ship an OpenAPI description, in curated order. */
 export const publicApiIds: string[] = [
-  "dir:getpostman.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:rapidapi.com:ecowetter",
-  "dir:google.com",
-  "dir:rapidapi.com:ecowetter",
-  "dir:github.com",
   "dir:europeana.eu",
-  "dir:github.com",
   "dir:icons8.com",
   "dir:thenounproject.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:google.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:apache.org",
   "dir:orghunter.com",
   "dir:domainsdb.info",
-  "dir:google.com",
-  "dir:google.com",
   "dir:squareup.com",
   "dir:trello.com",
-  "dir:google.com",
-  "dir:github.com",
   "dir:abstractapi.com:geolocation",
-  "dir:github.com",
   "dir:box.com",
-  "dir:github.com",
-  "dir:google.com",
   "dir:microsoft.com:graph",
   "dir:microsoft.com:graph",
   "dir:circleci.com",
-  "dir:github.com",
-  "dir:getpostman.com",
-  "dir:github.com",
-  "dir:getpostman.com",
-  "dir:rapidapi.com:ecowetter",
-  "dir:github.com",
   "dir:1forge.com",
-  "dir:github.com",
   "dir:exchangerate-api.com",
-  "dir:rapidapi.com:ecowetter",
   "dir:apis.guru",
   "dir:microsoft.com:graph",
   "dir:atlassian.com:jira",
   "dir:browshot.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
   "dir:digitalocean.com",
   "dir:docker.com:dvp",
   "dir:domainsdb.info",
   "dir:extendsclass.com:json-storage",
-  "dir:github.com",
-  "dir:gitlab.com",
-  "dir:google.com",
-  "dir:google.com",
-  "dir:google.com",
-  "dir:google.com",
-  "dir:google.com",
-  "dir:google.com",
   "dir:httpbin.org",
   "dir:image-charts.com",
   "dir:import.io:rss",
   "dir:ip2whois.com",
-  "dir:github.com",
-  "dir:github.com",
   "dir:netlify.com",
-  "dir:github.com",
   "dir:proxykingdom.com",
   "dir:quickchart.io",
   "dir:abstractapi.com:geolocation",
-  "dir:github.com",
   "dir:stackexchange.com",
-  "dir:github.com",
-  "dir:rapidapi.com:ecowetter",
   "dir:webscraping.ai",
   "dir:oxforddictionaries.com",
   "dir:wordnik.com",
@@ -13593,67 +13543,37 @@ export const publicApiIds: string[] = [
   "dir:abstractapi.com:geolocation",
   "dir:mailboxvalidator.com:checker",
   "dir:sendgrid.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
   "dir:nrel.gov:building-case-studies",
   "dir:ticketmaster.com:publish",
-  "dir:rapidapi.com:ecowetter",
   "dir:klarna.com:openai",
   "dir:nordigen.com",
   "dir:openfigi.com",
   "dir:plaid.com",
   "dir:polygon.io",
   "dir:portfoliooptimizer.io",
-  "dir:github.com",
   "dir:abstractapi.com:geolocation",
   "dir:youneedabudget.com",
   "dir:chompthis.com",
-  "dir:github.com",
   "dir:spoonacular.com",
-  "dir:github.com",
-  "dir:rapidapi.com:ecowetter",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:getpostman.com",
   "dir:dnd5eapi.co",
   "dir:evetech.net",
   "dir:funtranslations.com:index",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
   "dir:haloapi.com:ugc",
-  "dir:rapidapi.com:ecowetter",
-  "dir:github.com",
   "dir:jokes.one",
   "dir:pandascore.co",
-  "dir:github.com",
-  "dir:github.com",
   "dir:rawg.io",
-  "dir:github.com",
   "dir:tcgdex.net",
-  "dir:github.com",
   "dir:xkcd.com",
-  "dir:github.com",
   "dir:microsoft.com:graph",
   "dir:getthedata.com:bng2latlong",
-  "dir:github.com",
   "dir:geodatasource.com",
-  "dir:google.com",
-  "dir:google.com",
-  "dir:github.com",
   "dir:here.com:tracking",
   "dir:abstractapi.com:geolocation",
   "dir:ip2location.com:geolocation",
   "dir:ip2location.com:geolocation",
   "dir:ipinfodb.com",
-  "dir:github.com",
   "dir:opencagedata.com",
   "dir:inpe.br:dados-abertos",
-  "dir:rapidapi.com:ecowetter",
-  "dir:github.com",
-  "dir:rapidapi.com:ecowetter",
   "dir:tomtom.com:maps",
   "dir:uebermaps.com",
   "dir:data.gov",
@@ -13661,89 +13581,43 @@ export const publicApiIds: string[] = [
   "dir:epa.gov:air",
   "dir:fec.gov",
   "dir:data.gov",
-  "dir:github.com",
-  "dir:github.com",
   "dir:dataflowkit.com",
   "dir:healthcare.gov",
   "dir:infermedica.com",
-  "dir:getpostman.com",
   "dir:hhs.gov",
   "dir:quarantine.country",
-  "dir:getpostman.com",
-  "dir:github.com",
-  "dir:github.com",
   "dir:cloudmersive.com:ocr",
-  "dir:google.com",
-  "dir:rapidapi.com:ecowetter",
   "dir:nlpcloud.io",
   "dir:wolframalpha.com",
   "dir:swaggerhub.com",
   "dir:freesound.org",
-  "dir:github.com",
   "dir:apple.com:app-store-connect",
-  "dir:github.com",
   "dir:musixmatch.com",
   "dir:soundcloud.com",
   "dir:spotify.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
   "dir:nytimes.com:archive",
-  "dir:rapidapi.com:ecowetter",
   "dir:npr.org:identity",
-  "dir:github.com",
   "dir:apisetu.gov.in:csc",
   "dir:readme.io",
-  "dir:github.com",
-  "dir:rapidapi.com:ecowetter",
-  "dir:github.com",
-  "dir:github.com",
   "dir:uspto.gov:bdss",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
   "dir:abstractapi.com:geolocation",
   "dir:flickr.com",
   "dir:gettyimages.com",
   "dir:giphy.com",
-  "dir:google.com",
-  "dir:github.com",
   "dir:remove.bg",
   "dir:shutterstock.com",
   "dir:core.ac.uk",
-  "dir:github.com",
-  "dir:github.com",
   "dir:nasa.gov:apod",
   "dir:nasa.gov:apod",
   "dir:math.tools",
   "dir:osf.io",
-  "dir:github.com",
   "dir:osf.io",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
   "dir:fraudlabspro.com:fraud-detection",
-  "dir:github.com",
   "dir:microsoft.com:graph",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
   "dir:readme.io",
-  "dir:rapidapi.com:ecowetter",
   "dir:threatjammer.com",
   "dir:ebay.com:buy-deal",
-  "dir:github.com",
-  "dir:google.com",
-  "dir:github.com",
   "dir:instagram.com",
-  "dir:github.com",
   "dir:microsoft.com:graph",
   "dir:microsoft.com:graph",
   "dir:slack.com",
@@ -13753,53 +13627,28 @@ export const publicApiIds: string[] = [
   "dir:twitter.com:legacy",
   "dir:balldontlie.io",
   "dir:collegefootballdata.com",
-  "dir:rapidapi.com:ecowetter",
-  "dir:github.com",
-  "dir:rapidapi.com:ecowetter",
-  "dir:gitlab.com",
-  "dir:rapidapi.com:ecowetter",
   "dir:randommer.io",
   "dir:cloudmersive.com:ocr",
-  "dir:google.com",
-  "dir:rapidapi.com:ecowetter",
   "dir:readme.io",
   "dir:tisane.ai",
   "dir:airport-web.appspot.com",
   "dir:amadeus.com",
-  "dir:github.com",
-  "dir:rapidapi.com:ecowetter",
   "dir:graphhopper.com",
   "dir:impala.travel:hotels",
   "dir:refugerestrooms.org",
-  "dir:github.com",
   "dir:deutschebahn.com:fasta",
   "dir:wmata.com:bus-route",
-  "dir:github.com",
   "dir:clickmeter.com",
-  "dir:github.com",
-  "dir:github.com",
   "dir:mercedes-benz.com:image",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
   "dir:json2video.com",
-  "dir:github.com",
-  "dir:github.com",
-  "dir:github.com",
   "dir:omdbapi.com",
-  "dir:github.com",
   "dir:shotstack.io",
-  "dir:github.com",
   "dir:thetvdb.com",
   "dir:tvmaze.com",
-  "dir:rapidapi.com:ecowetter",
   "dir:vimeo.com",
-  "dir:github.com",
-  "dir:google.com",
   "dir:oceandrivers.com",
   "dir:openuv.io",
   "dir:stormglass.io",
   "dir:visualcrossing.com:weather",
-  "dir:github.com",
   "dir:weatherbit.io"
 ];
