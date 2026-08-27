@@ -54,13 +54,14 @@ export default function ApiAppLogo({ app, size = 38 }: { app: ApiApp; size?: num
   if (failed || !sources.length) {
     return (
       <span
-        className="flex shrink-0 items-center justify-center font-semibold text-foreground/70"
-        style={{ width: size, height: size, borderRadius: radius, fontSize: size * 0.42 }}
+        className="flex shrink-0 items-center justify-center bg-foreground/[0.06] font-semibold text-foreground/60 ring-1 ring-inset ring-foreground/[0.08]"
+        style={{ width: size, height: size, borderRadius: radius, fontSize: size * 0.4 }}
       >
         {app.name.charAt(0).toUpperCase()}
       </span>
     );
   }
+
 
   return (
     <span
