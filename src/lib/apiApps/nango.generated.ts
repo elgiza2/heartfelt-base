@@ -25,13 +25,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/models",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:ashby",
@@ -58,8 +67,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/apiKey.info",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:hibob-service-user",
@@ -86,8 +104,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/company/named-lists",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:openai",
@@ -107,13 +134,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/models",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:sap-odata-oauth2-cc",
@@ -140,8 +176,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:ukg-pro",
@@ -175,12 +212,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:workday",
@@ -221,8 +259,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:1password-events",
@@ -249,12 +288,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/auth/introspect",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:1password-scim",
@@ -281,12 +329,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:1password-users",
@@ -327,8 +384,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:3cx",
@@ -362,8 +420,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:8x8",
@@ -390,8 +449,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:a-leads",
@@ -411,12 +471,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:active-campaign",
@@ -443,12 +504,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/3/users/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "api-token": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:acumatica",
@@ -482,8 +552,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:addepar-basic",
@@ -517,8 +588,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:adobe-commerce",
@@ -552,12 +624,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:adoxx-cc",
@@ -584,8 +657,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:adp",
@@ -612,8 +686,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:adyntel",
@@ -633,8 +708,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/domain-keywords",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:affinity",
@@ -661,8 +745,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/auth/whoami",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:affinity-v2",
@@ -682,12 +775,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/auth/whoami",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:agencyzoom",
@@ -714,8 +816,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:agentcard",
@@ -742,8 +845,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:agentline",
@@ -763,12 +867,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/agents",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:agiloft-cc",
@@ -802,8 +915,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:aimfox",
@@ -823,12 +937,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/campaigns",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:aircall-basic",
@@ -855,8 +978,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/ping",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:airtable-pat",
@@ -876,12 +1008,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:algolia",
@@ -908,13 +1041,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-algolia-application-id": "${APP_ID}",
         "x-algolia-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:altrata",
@@ -955,12 +1089,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:amplitude",
@@ -969,7 +1104,7 @@ export const NANGO_APPS: ApiApp[] = [
     "description": "analytics API — connect with your own credentials",
     "docsUrl": "https://nango.dev/docs/api-integrations/amplitude/connect",
     "keyUrl": "https://nango.dev/docs/api-integrations/amplitude/connect",
-    "baseUrl": "https://${hostname} || https://amplitude.com",
+    "baseUrl": "https://${hostname}",
     "logo": "https://app.nango.dev/images/template-logos/amplitude.svg",
     "credentials": [
       {
@@ -994,8 +1129,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/2/events/list",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:anrok",
@@ -1015,12 +1159,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:anthropic-admin",
@@ -1040,13 +1185,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/organizations/users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:anvil",
@@ -1073,8 +1227,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:apify",
@@ -1094,12 +1249,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:apollo",
@@ -1119,12 +1275,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:apple-app-store",
@@ -1158,8 +1315,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:apple-business-manager",
@@ -1193,8 +1351,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": false
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:appstle-subscriptions",
@@ -1214,12 +1373,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:asana-scim",
@@ -1239,12 +1399,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/1.0/scim/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:aspire",
@@ -1278,8 +1447,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:athenahealth",
@@ -1313,8 +1483,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:atlas-so",
@@ -1334,12 +1505,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:atlassian-admin",
@@ -1359,12 +1531,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:atlassian-service-account-api-token",
@@ -1391,8 +1564,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:atlassian-service-account-oauth2",
@@ -1419,8 +1593,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:attention",
@@ -1440,13 +1615,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/conversations?size=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:auth0-cc",
@@ -1473,8 +1657,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:autosana",
@@ -1494,12 +1679,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/suites",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:autotask",
@@ -1526,12 +1720,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1.0/Companies/entityinformation",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "secret": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:auvik",
@@ -1565,8 +1768,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/authentication/verify",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:availity",
@@ -1593,8 +1805,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:avalara",
@@ -1621,12 +1834,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/utilities/subscriptions",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:avalara-sandbox",
@@ -1653,12 +1875,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/utilities/subscriptions",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:avanan",
@@ -1692,13 +1923,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-av-app-id": "${appId}",
         "x-av-date": "${now:YYYY-MM-DDTHH:mm:ss}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:avoma",
@@ -1718,12 +1950,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:aws-scim",
@@ -1750,14 +1991,23 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/json",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:aws-iam",
@@ -1784,13 +2034,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "${awsSigV4(${username}, ${password}, us-east-1, iam)}",
         "x-amz-date": "${now:YYYYMMDDTHHmmss[Z]}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:aws-inspector2",
@@ -1824,13 +2075,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "${awsSigV4(${username}, ${password}, ${region}, inspector2, inspector2.${region}.amazonaws.com)}",
         "x-amz-date": "${now:YYYYMMDDTHHmmss[Z]}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:aws-multi-service",
@@ -1871,13 +2123,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "${awsSigV4(${username}, ${password}, ${region}, ${service}, ${service}.${region}.amazonaws.com)}",
         "x-amz-date": "${now:YYYYMMDDTHHmmss[Z]}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:axiom",
@@ -1904,12 +2157,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:azure-devops",
@@ -1943,8 +2197,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:back-market",
@@ -1971,13 +2226,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/ws/listings",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Basic ${apiKey}",
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:bamboohr-basic",
@@ -2011,8 +2275,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/meta/fields",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:baserow",
@@ -2039,12 +2312,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Token ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:basin",
@@ -2064,12 +2338,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/forms",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Token ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:beehiiv",
@@ -2096,12 +2379,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/posts",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:bettercontact",
@@ -2121,12 +2413,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/account",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:bigchange",
@@ -2153,8 +2454,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:bird",
@@ -2181,12 +2483,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "AccessKey ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:bitdefender",
@@ -2220,8 +2523,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:blackbaud-basic",
@@ -2255,12 +2559,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "content-type": "application/soap+xml; charset=utf-8"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:blandai",
@@ -2280,12 +2585,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/calls",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:bliro",
@@ -2312,8 +2626,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:booking-com",
@@ -2347,8 +2662,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:braze",
@@ -2375,12 +2691,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:breezy-hr",
@@ -2407,8 +2724,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:brevo-api-key",
@@ -2428,12 +2746,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/account",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:brex-api-key",
@@ -2453,12 +2780,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:brightcrowd",
@@ -2478,8 +2806,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:builder-io-private",
@@ -2506,12 +2835,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/api/v1/write/page",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:builder-io-public",
@@ -2538,8 +2876,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v1/content/page",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:buildium",
@@ -2559,12 +2906,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/rentals",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-buildium-client-secret": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:builtwith",
@@ -2584,8 +2940,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:cal-com-v1",
@@ -2605,8 +2962,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:cal-com-v2",
@@ -2626,12 +2992,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:callrail",
@@ -2651,13 +3026,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v3/a.json",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Token token=${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:canny",
@@ -2677,8 +3061,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/boards/list",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:canva-scim",
@@ -2698,14 +3091,23 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/json",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:cdw",
@@ -2732,12 +3134,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "subscription-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:cerby",
@@ -2764,12 +3167,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:certn",
@@ -2789,12 +3193,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/teams",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:certn-partner",
@@ -2814,12 +3227,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/teams",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:chargebee",
@@ -2853,8 +3275,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/business_entities",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:chartboost",
@@ -2881,8 +3312,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:chatarmin",
@@ -2902,12 +3334,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/public/contacts?limit=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:chatgpt-enterprise",
@@ -2934,14 +3375,23 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/scim+json",
         "content-type": "application/scim+json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:chattermill",
@@ -2968,14 +3418,23 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/projects",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/json",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:checkhq",
@@ -2995,12 +3454,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:checkout-com",
@@ -3020,13 +3480,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "content-type": "application/json",
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:checkout-com-sandbox",
@@ -3046,13 +3507,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "content-type": "application/json",
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:chili-piper",
@@ -3072,12 +3534,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/org/health/ping",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:chorus",
@@ -3097,12 +3568,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v1/users/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:cin7-core",
@@ -3122,12 +3602,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "api-auth-applicationkey": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:circle-so",
@@ -3147,12 +3636,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Token ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:cisco-duo-admin",
@@ -3186,12 +3676,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "date": "${now:ddd, DD MMM YYYY HH:mm:ss ZZ}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:clari-copilot",
@@ -3211,12 +3702,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/calls",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:clay",
@@ -3236,12 +3736,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v3/my-workspaces",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:clerk",
@@ -3261,12 +3770,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/jwks",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:clickhouse",
@@ -3293,8 +3811,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/organizations",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:clicksend",
@@ -3321,8 +3848,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v3/account",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:cloudentity",
@@ -3363,8 +3899,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:cloudflare",
@@ -3384,12 +3921,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:cloudtalk",
@@ -3416,8 +3954,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/contacts/index.json?limit=1",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:coda",
@@ -3437,12 +3984,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/whoami",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:codeclimate",
@@ -3469,13 +4025,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/user",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "accept": "application/vnd.api+json",
         "authorization": "Token token=${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:codegen",
@@ -3495,12 +4060,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/organizations",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:commercetools",
@@ -3541,8 +4115,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:companycam",
@@ -3562,12 +4137,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/company",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:conductorone",
@@ -3601,8 +4185,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:confluence-basic",
@@ -3636,12 +4221,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/wiki/api/v2/spaces",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:connectsecure",
@@ -3675,12 +4269,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/w/authorize",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:connectwise-psa",
@@ -3689,16 +4292,9 @@ export const NANGO_APPS: ApiApp[] = [
     "description": "customer support API — connect with your own credentials",
     "docsUrl": "https://nango.dev/docs/api-integrations/connectwise-psa/connect",
     "keyUrl": "https://nango.dev/docs/api-integrations/connectwise-psa/connect",
-    "baseUrl": "https://${hostname}/v4_6_release/apis/3.0 || https://${subdomain}.myconnectwise.net/v4_6_release/apis/3.0",
+    "baseUrl": "https://${hostname}/v4_6_release/apis/3.0",
     "logo": "https://app.nango.dev/images/template-logos/connectwise-psa.svg",
     "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Subdomain",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
       {
         "name": "hostname",
         "label": "Hostname",
@@ -3721,8 +4317,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:connectwise-psa-staging",
@@ -3749,8 +4346,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:connectwise-rmm",
@@ -3784,8 +4382,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:contactout",
@@ -3805,13 +4404,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/stats",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "basic",
         "token": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:copper-api-key",
@@ -3831,14 +4439,23 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/account",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-pw-accesstoken": "${apiKey}",
         "x-pw-application": "developer_api",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:coupa-compass",
@@ -3865,8 +4482,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:crisp",
@@ -3893,12 +4511,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/plugin/connect/account",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-crisp-tier": "plugin"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:crowdstrike",
@@ -3925,8 +4552,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:crunchbase",
@@ -3946,12 +4574,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v4/data/autocompletes?query=instantly&limit=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-cb-user-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:cursor",
@@ -3971,12 +4608,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v0/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:cursor-admin",
@@ -4003,8 +4649,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/teams/members",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:customer-io",
@@ -4038,8 +4693,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:cyberimpact",
@@ -4059,12 +4715,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/ping",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:databricks-account",
@@ -4091,8 +4756,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:databricks-workspace",
@@ -4119,8 +4785,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:datacandy",
@@ -4154,8 +4821,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:datadog",
@@ -4182,12 +4850,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/validate",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "dd-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:datto-rmm-password-grant",
@@ -4235,8 +4912,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:dayforce",
@@ -4245,7 +4923,7 @@ export const NANGO_APPS: ApiApp[] = [
     "description": "HR API — connect with your own credentials",
     "docsUrl": "https://nango.dev/docs/api-integrations/dayforce/connect",
     "keyUrl": "https://nango.dev/docs/api-integrations/dayforce/connect",
-    "baseUrl": "https://${clientHostname}/api || https://www.dayforcehcm.com/api",
+    "baseUrl": "https://${clientHostname}/api",
     "logo": "https://app.nango.dev/images/template-logos/dayforce.svg",
     "credentials": [
       {
@@ -4270,8 +4948,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:demodesk",
@@ -4291,12 +4970,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:devin",
@@ -4316,12 +4996,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/sessions",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:dialpad-wfm",
@@ -4341,12 +5030,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:diffbot",
@@ -4366,8 +5056,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v4/account",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:discolike",
@@ -4387,12 +5086,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/count",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-discolike-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:discourse",
@@ -4419,13 +5127,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "api-key": "${apiKey}",
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:dixa",
@@ -4452,12 +5161,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/agents",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:document360",
@@ -4477,12 +5195,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "api_token": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:docuware",
@@ -4516,8 +5235,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:domo",
@@ -4544,8 +5264,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:dope-security",
@@ -4572,8 +5293,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:drata",
@@ -4593,12 +5315,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:drupal",
@@ -4639,8 +5362,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": false
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:dynamic-mockups",
@@ -4660,13 +5384,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/mockups",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}",
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:dynatrace",
@@ -4693,12 +5426,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Api-Token ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:dynatrace-oauth",
@@ -4725,8 +5459,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:e-conomic",
@@ -4753,12 +5488,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:easypost",
@@ -4785,8 +5521,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:ecu360",
@@ -4820,8 +5557,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:elevenlabs",
@@ -4841,12 +5579,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/user",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "xi-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:elevio",
@@ -4866,12 +5613,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:emarsys-oauth",
@@ -4891,8 +5639,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:emarsys",
@@ -4919,12 +5668,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/settings",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:embat",
@@ -4951,8 +5709,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:epc-gov-uk",
@@ -4972,13 +5731,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/codes",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:entrata",
@@ -5012,8 +5780,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:epost-klara",
@@ -5033,12 +5802,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:ergo",
@@ -5058,12 +5828,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/meetings?limit=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:evaluagent",
@@ -5097,8 +5876,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/ping",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:everflow",
@@ -5125,12 +5913,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-eflow-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:exa",
@@ -5150,12 +5939,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:expensify",
@@ -5182,12 +5972,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "content-type": "application/x-www-form-urlencoded"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:facebook-system-user",
@@ -5207,12 +5998,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v22.0/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:factorial-api-key",
@@ -5232,12 +6032,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/2026-07-01/resources/api_public/credentials",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:fairing",
@@ -5257,12 +6066,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/questions",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:falai",
@@ -5282,12 +6100,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/fal-ai/fast-sdxl",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Key ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:fathom",
@@ -5307,12 +6134,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/external/v1/teams",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:fellow",
@@ -5339,12 +6175,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:fern",
@@ -5371,12 +6216,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "fern_api_key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:fiber-ai",
@@ -5396,8 +6242,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/get-org-credits",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:figma-scim",
@@ -5431,12 +6286,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:fillout-api-key",
@@ -5463,12 +6327,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/api/forms",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:findymail",
@@ -5488,12 +6361,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:firefish",
@@ -5513,8 +6387,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:fireflies",
@@ -5534,12 +6409,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/graphql?query=%7B__schema%7Btypes%7Bname%7D%7D%7D",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:firstbase",
@@ -5559,12 +6443,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/orders?size=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "ApiKey ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:fiserv-api-key",
@@ -5584,12 +6477,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/sandbox/exp/v1/authorisations",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:fiserv",
@@ -5616,8 +6518,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:float",
@@ -5637,12 +6540,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v3/tasks",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:folk",
@@ -5662,12 +6574,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/users/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:freepik",
@@ -5687,12 +6608,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/resources",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-freepik-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:freshdesk",
@@ -5726,8 +6656,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/settings/helpdesk",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:freshsales",
@@ -5736,16 +6675,9 @@ export const NANGO_APPS: ApiApp[] = [
     "description": "CRM API — connect with your own credentials",
     "docsUrl": "https://nango.dev/docs/api-integrations/freshsales/connect",
     "keyUrl": "https://nango.dev/docs/api-integrations/freshsales/connect",
-    "baseUrl": "https://${bundleAlias} || https://${subdomain}.freshsales.io",
+    "baseUrl": "https://${bundleAlias}",
     "logo": "https://app.nango.dev/images/template-logos/freshsales.svg",
     "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Subdomain",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
       {
         "name": "bundleAlias",
         "label": "Bundle Alias",
@@ -5761,12 +6693,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/settings/leads/fields",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Token token=${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:freshservice",
@@ -5800,8 +6741,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/tickets",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:freshteam",
@@ -5828,13 +6778,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:front-api-key",
@@ -5854,12 +6805,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:fullenrich",
@@ -5879,12 +6839,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/account/credits",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:gainsight-cc",
@@ -5911,8 +6880,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:gamma",
@@ -5932,13 +6902,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1.0/folders",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:gebruder-weiss",
@@ -5958,12 +6937,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "accept-language": "en-US"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:gem",
@@ -5983,12 +6963,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v0/users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:gerrit",
@@ -6022,8 +7011,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/config/server/version",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:ghost-admin",
@@ -6050,12 +7048,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:ghost-content",
@@ -6082,8 +7089,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/tags",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:github-pat",
@@ -6103,13 +7119,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/user",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/vnd.github+json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:gitlab-pat",
@@ -6136,12 +7161,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v4/users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "private-token": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:glean",
@@ -6168,12 +7202,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:glyphic",
@@ -6193,13 +7228,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/test/ping",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:gong",
@@ -6226,8 +7270,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:google-gemini",
@@ -6247,12 +7292,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/models",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:google-maps",
@@ -6272,8 +7326,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:google-service-account",
@@ -6314,8 +7369,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": false
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:gorgias-basic",
@@ -6349,8 +7405,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:grafana",
@@ -6377,12 +7434,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/access-control/user/permissions",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:grain-api-key",
@@ -6402,12 +7468,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/_/public-api/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:grammarly",
@@ -6427,8 +7502,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/analytics/users",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:grammarly-scim",
@@ -6448,12 +7532,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/scim/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:granola",
@@ -6473,12 +7566,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/notes?page_size=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:greenhouse-assessment",
@@ -6512,8 +7614,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/list_tests",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:greenhouse-basic",
@@ -6547,8 +7658,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/candidates/",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:greenhouse-harvest",
@@ -6575,8 +7695,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/candidates",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:greenhouse-job-board",
@@ -6603,8 +7732,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:greenhouse-onboarding",
@@ -6631,8 +7761,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/graphql?query=%7B__schema%7Btypes%7Bname,kind,fields%7Bname%7D%7D%7D%7D",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:greenhouse-harvest-oauth2-cc",
@@ -6659,8 +7798,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:grist",
@@ -6687,12 +7827,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/orgs",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:guru",
@@ -6719,8 +7868,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/whoami",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:guru-scim",
@@ -6747,12 +7905,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "content-type": "application/scim+json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:hackerrank-work",
@@ -6779,8 +7946,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/x/api/v3/users?limit=10&offset=10",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:hail",
@@ -6800,12 +7976,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/calls",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:haileyhr",
@@ -6832,12 +8017,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:halo-psa",
@@ -6871,8 +8057,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:heap",
@@ -6899,8 +8086,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:helpscout-docs",
@@ -6927,8 +8115,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/sites",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:hex",
@@ -6955,12 +8152,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:heymarket",
@@ -6987,12 +8185,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/team",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:heyreach",
@@ -7012,12 +8219,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/public/auth/CheckApiKey",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:holded",
@@ -7037,12 +8253,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/invoicing/v1/contacts",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:holded-v2",
@@ -7062,12 +8287,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:humaans-io",
@@ -7087,12 +8313,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:huntress",
@@ -7119,8 +8346,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/organizations",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:icypeas",
@@ -7140,12 +8376,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/email-search",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:ids-fulfillment",
@@ -7165,12 +8410,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "apikey": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:immybot",
@@ -7204,12 +8450,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:incident-io",
@@ -7229,12 +8476,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/identity",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:ingenious-build",
@@ -7268,8 +8524,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:ingenious-build-pat",
@@ -7296,12 +8553,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/pub/contacts?page=1&limit=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "accesstoken": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:insightly",
@@ -7335,8 +8601,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v3.1/Contacts",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:instantly",
@@ -7356,12 +8631,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:ironclad-cc",
@@ -7388,8 +8664,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:itglue",
@@ -7416,13 +8693,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/organizations",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}",
         "content-type": "application/vnd.api+json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:jamf-basic",
@@ -7456,8 +8742,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:jamf",
@@ -7484,8 +8771,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:jamie",
@@ -7505,12 +8793,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:jazzhr",
@@ -7530,8 +8819,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:jiminny",
@@ -7558,12 +8848,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:jira-basic",
@@ -7597,8 +8896,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/rest/api/3/myself",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:jira-data-center-api-key",
@@ -7625,12 +8933,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:jira-data-center-basic",
@@ -7664,8 +8973,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:jobdiva",
@@ -7699,8 +9009,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:jobvite",
@@ -7720,12 +9031,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/candidate",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-jvi-api": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:jotform",
@@ -7745,12 +9065,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "apikey": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:judgeme",
@@ -7770,12 +9091,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v1/reviews",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-token": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:jumpcloud",
@@ -7795,12 +9125,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/organizations",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:juniper-mist",
@@ -7827,12 +9166,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v1/self",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Token ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:kandji",
@@ -7859,12 +9207,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:keeper-scim",
@@ -7891,12 +9240,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:kintone-user-api",
@@ -7923,12 +9281,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/users.json",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:klaviyo",
@@ -7948,13 +9315,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/accounts",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Klaviyo-API-Key ${apiKey}",
         "revision": "2024-07-15"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:klicktipp",
@@ -7974,8 +9350,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:klipfolio",
@@ -7995,12 +9372,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/1.0/profile",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "kf-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:kno-commerce",
@@ -8027,8 +9413,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:knowbe4",
@@ -8055,12 +9442,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:konnektive",
@@ -8087,8 +9475,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:kustomer",
@@ -8115,12 +9504,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:lagrowthmachine",
@@ -8140,8 +9530,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:lastpass",
@@ -8168,8 +9559,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:lattice",
@@ -8189,14 +9581,15 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/json",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:leadfeeder",
@@ -8216,12 +9609,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/accounts",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:leadmagic",
@@ -8241,12 +9643,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/credits",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:leapsome",
@@ -8266,8 +9677,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:lemlist",
@@ -8294,8 +9706,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/team",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:lessonly",
@@ -8322,8 +9743,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:lever-basic-sandbox",
@@ -8350,8 +9772,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:lever-basic",
@@ -8378,8 +9801,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:lightfield",
@@ -8399,13 +9823,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/auth/validate",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "lightfield-version": "2026-03-01"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:listmonk",
@@ -8439,12 +9872,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/lists",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:listrak",
@@ -8471,8 +9913,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:livetennisapi",
@@ -8492,13 +9935,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/public/v1/matches",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}",
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:lob",
@@ -8525,8 +9977,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/addresses",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:looker",
@@ -8560,8 +10021,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:loom-scim",
@@ -8588,12 +10050,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:loop-returns",
@@ -8613,12 +10084,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:loops-so",
@@ -8638,13 +10110,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/api-key",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "accept": "application/json",
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:lucid-scim",
@@ -8664,14 +10145,23 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/json",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:luma",
@@ -8691,12 +10181,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/public/v1/user/get-self",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-luma-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:luma-v2",
@@ -8716,12 +10215,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/users/get-self",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-luma-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:lumos",
@@ -8741,12 +10249,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:mailgun",
@@ -8780,8 +10289,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v4/domains",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:mailjet",
@@ -8808,8 +10326,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v3/REST/myprofile",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:make",
@@ -8836,12 +10363,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/users/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Token ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:malwarebytes",
@@ -8861,8 +10397,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:manatal",
@@ -8882,12 +10419,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Token ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:mandrill",
@@ -8907,8 +10453,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/1.3/users/ping",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:marketo",
@@ -8935,8 +10490,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:mattermost",
@@ -8963,12 +10519,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v4/users/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:maxio",
@@ -9002,8 +10567,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/subscriptions.json",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:medallia",
@@ -9012,16 +10586,9 @@ export const NANGO_APPS: ApiApp[] = [
     "description": "CRM API — connect with your own credentials",
     "docsUrl": "https://nango.dev/docs/integrations/all/medallia/connect",
     "keyUrl": "https://nango.dev/docs/integrations/all/medallia/connect",
-    "baseUrl": "https://${apiHostUrl} || https://${gatewayUrl}.apis.medallia.com",
+    "baseUrl": "https://${apiHostUrl}",
     "logo": "https://app.nango.dev/images/template-logos/medallia.svg",
     "credentials": [
-      {
-        "name": "gatewayUrl",
-        "label": "GatewayUrl",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
       {
         "name": "apiHostUrl",
         "label": "API Host URL",
@@ -9037,8 +10604,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:meilisearch",
@@ -9065,12 +10633,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/version",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:metabase",
@@ -9079,16 +10656,9 @@ export const NANGO_APPS: ApiApp[] = [
     "description": "analytics API — connect with your own credentials",
     "docsUrl": "https://nango.dev/docs/api-integrations/metabase/connect",
     "keyUrl": "https://nango.dev/docs/api-integrations/metabase/connect",
-    "baseUrl": "https://${hostname} || https://${domain}.com",
+    "baseUrl": "https://${hostname}",
     "logo": "https://app.nango.dev/images/template-logos/metabase.svg",
     "credentials": [
-      {
-        "name": "domain",
-        "label": "Domain",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
       {
         "name": "hostname",
         "label": "Hostname",
@@ -9104,12 +10674,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/database",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:microsoft-oauth2-cc-cert",
@@ -9150,8 +10729,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": false
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:microsoft-oauth2-cc",
@@ -9171,8 +10751,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:microsoft-business-central",
@@ -9206,8 +10787,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:microsoft-dynamics-365-finance-and-operations-cc",
@@ -9234,8 +10816,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:millionverifier",
@@ -9255,8 +10838,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v3/credits",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:mimecast",
@@ -9276,8 +10868,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:mindbody",
@@ -9297,12 +10890,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/public/v6/site/locations",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:minimax",
@@ -9322,12 +10924,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:mip-cloud",
@@ -9361,8 +10964,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": false
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:mip-on-premise",
@@ -9396,8 +11000,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": false
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:miro-scim",
@@ -9417,12 +11022,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/scim/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:missive",
@@ -9442,12 +11056,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "api_token": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:mixpanel",
@@ -9474,8 +11089,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:modjo-ai",
@@ -9495,12 +11111,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/users?page=1&perPage=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:modmed",
@@ -9548,13 +11173,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "accept": "application/fhir+json",
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:momentum-io",
@@ -9574,12 +11200,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/meetings?from=1970-01-01T00:00:00.000Z&pageSize=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:nable-ncentral",
@@ -9606,8 +11241,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/auth/validate",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:n8n",
@@ -9634,12 +11278,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-n8n-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:namely-pat",
@@ -9666,12 +11311,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:neon",
@@ -9691,12 +11337,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/users/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:nerdio",
@@ -9730,8 +11385,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:next-cloud-ocs",
@@ -9765,12 +11421,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "ocs-apirequest": "true"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:nexthink",
@@ -9811,8 +11468,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:ninety-io",
@@ -9832,12 +11490,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/teams",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:ninjaone-rmm",
@@ -9846,7 +11513,7 @@ export const NANGO_APPS: ApiApp[] = [
     "description": "customer support API — connect with your own credentials",
     "docsUrl": "https://nango.dev/docs/integrations/all/ninjaone-rmm/connect",
     "keyUrl": "https://nango.dev/docs/integrations/all/ninjaone-rmm/connect",
-    "baseUrl": "https://${instance} || https://app.ninjarmm.com",
+    "baseUrl": "https://${instance}",
     "logo": "https://app.nango.dev/images/template-logos/ninjaone-rmm.svg",
     "credentials": [
       {
@@ -9871,8 +11538,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:ninjaone-saas-backup",
@@ -9899,12 +11567,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/accounts",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-access-token": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:nocrm",
@@ -9931,12 +11608,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/ping",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:northbeam",
@@ -9963,12 +11649,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/exports/attribution-models",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:notion-scim",
@@ -9988,12 +11683,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:nyne-ai",
@@ -10013,14 +11717,23 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/person/events",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}",
         "x-api-secret": "${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:ocean-io",
@@ -10040,12 +11753,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/credits/balance",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-token": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:odoo-api-key",
@@ -10072,13 +11794,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "bearer ${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:odoo-cc",
@@ -10112,8 +11835,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:okta-api-key",
@@ -10140,12 +11864,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v1/users/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "SSWS ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:okta-cc",
@@ -10154,16 +11887,9 @@ export const NANGO_APPS: ApiApp[] = [
     "description": "developer tools API — connect with your own credentials",
     "docsUrl": "https://nango.dev/docs/api-integrations/okta-cc/connect",
     "keyUrl": "https://nango.dev/docs/api-integrations/okta-cc/connect",
-    "baseUrl": "https://${hostname} || https://${subdomain}.okta.com",
+    "baseUrl": "https://${hostname}",
     "logo": "https://app.nango.dev/images/template-logos/okta-cc.svg",
     "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Subdomain",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
       {
         "name": "hostname",
         "label": "Okta Domain",
@@ -10186,8 +11912,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:omni",
@@ -10214,12 +11941,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/whoami",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:onelogin",
@@ -10246,8 +11982,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:onlogist",
@@ -10267,12 +12004,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:oomnitza",
@@ -10299,13 +12037,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v3/assets/meta",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization2": "${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:open-hands",
@@ -10325,12 +12072,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/conversations",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:openai-admin",
@@ -10350,13 +12106,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/organization/users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:optum-real",
@@ -10390,8 +12155,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:oracle-cloud-identity",
@@ -10418,8 +12184,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:oracle-hcm",
@@ -10453,12 +12220,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "content-type": "application/vnd.oracle.adf.resourceitem+json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:orange-logic",
@@ -10492,8 +12260,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:ordinal",
@@ -10513,13 +12282,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/workspace",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:ory",
@@ -10546,8 +12324,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:paddle",
@@ -10574,12 +12353,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:paligo",
@@ -10613,8 +12393,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/groups?page=1&per_page=1",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:pandadoc-api-key",
@@ -10634,12 +12423,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/public/v1/members/current",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "API-Key ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:passportal",
@@ -10680,8 +12478,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": false
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/documents?resultsPerPage=1",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:pave",
@@ -10701,12 +12508,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/ping",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:pax8",
@@ -10726,8 +12542,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:paychex",
@@ -10754,8 +12571,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:paycom",
@@ -10782,8 +12600,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:paylocity-nextgen",
@@ -10810,8 +12629,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:paylocity",
@@ -10838,8 +12658,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:pendo",
@@ -10859,12 +12680,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v1/page",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-pendo-integration-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:pendo-oauth",
@@ -10891,8 +12721,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:pennylane-company-api",
@@ -10912,12 +12743,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/external/v2/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:peopledatalabs",
@@ -10937,8 +12777,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:perdoo",
@@ -10958,13 +12799,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/user",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:perimeter81",
@@ -10984,8 +12834,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:perplexity",
@@ -11005,12 +12856,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:personio",
@@ -11030,8 +12882,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:personio-v2",
@@ -11051,12 +12904,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "content-type": "application/x-www-form-urlencoded"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:personio-recruiting",
@@ -11076,12 +12930,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/xml?language=en",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:phrase",
@@ -11108,12 +12971,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "token ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:pingboard",
@@ -11133,8 +12997,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:pingone-cc",
@@ -11161,8 +13026,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:pipedream",
@@ -11182,12 +13048,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/users/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:pipedream-oauth2-cc",
@@ -11207,8 +13082,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:pipelinecrm",
@@ -11228,8 +13104,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v3/admin/users",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:pivotaltracker",
@@ -11249,12 +13134,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/accounts",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-trackertoken": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:plain",
@@ -11274,12 +13168,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1?query=%7B__schema%7Btypes%7Bname,kind,fields%7Bname%7D%7D%7D%7D",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:planning-center-online-pat",
@@ -11306,12 +13209,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/current/v2/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:podscribe",
@@ -11331,12 +13243,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:posthog",
@@ -11363,12 +13276,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:postscript",
@@ -11388,12 +13302,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:private-api-basic",
@@ -11420,8 +13343,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:private-api-bearer",
@@ -11441,12 +13365,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:private-api-generic",
@@ -11466,8 +13391,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:prive",
@@ -11487,13 +13413,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:prospeo",
@@ -11513,12 +13440,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/account-information",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:provenexpert",
@@ -11545,8 +13481,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/v1/rating/summary/get",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:prtg-classic",
@@ -11573,8 +13518,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/table.json?content=sensors&count=1",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:pushpay-chms-v1",
@@ -11608,8 +13562,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:pverify",
@@ -11643,12 +13598,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "client-api-id": "${clientId}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:pylon",
@@ -11668,13 +13624,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "*/*"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:qualia",
@@ -11708,8 +13673,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:quentn",
@@ -11736,12 +13702,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/terms",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:quickbase",
@@ -11761,12 +13736,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "QB-USER-TOKEN ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:quipteams",
@@ -11786,12 +13762,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v1/quotes",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:ragieai",
@@ -11811,12 +13796,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/documents",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:rapidapi",
@@ -11843,13 +13837,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-rapidapi-key": "${apiKey}",
         "x-rapidapi-host": "${subdomain}.p.rapidapi.com"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:razorpay",
@@ -11876,8 +13871,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/orders",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:readwise",
@@ -11897,12 +13901,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/auth",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Token ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:readwise-reader",
@@ -11922,12 +13935,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/auth",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Token ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:recall-ai",
@@ -11954,12 +13976,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/calendar-events",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:recharge",
@@ -11979,12 +14010,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-recharge-access-token": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:recruitcrm",
@@ -12004,12 +14036,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/candidates/search",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:recruitee",
@@ -12036,12 +14077,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/departments",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:recruiterflow",
@@ -12061,12 +14111,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/external/user/list",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "rf-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:redo",
@@ -12093,12 +14152,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:redtail-crm-sandbox",
@@ -12132,8 +14192,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:refiner",
@@ -12153,12 +14214,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/account",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:render-mcp",
@@ -12178,12 +14248,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:replicate",
@@ -12203,12 +14274,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/account",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:reply-io",
@@ -12228,12 +14308,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v3/whoami",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:researchdesk",
@@ -12267,8 +14356,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:resend",
@@ -12288,12 +14378,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/domains?limit=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:resova",
@@ -12320,12 +14419,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/items",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:retell-ai",
@@ -12345,13 +14453,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:revivn",
@@ -12378,8 +14487,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:ringover",
@@ -12399,12 +14509,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:rippling",
@@ -12424,13 +14535,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "user-agent": "Node.js/20.12.2 (linux; x64)"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:roam-scim",
@@ -12450,14 +14562,23 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/json",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:rock-gym-pro",
@@ -12484,8 +14605,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/ping",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:rocketlane",
@@ -12505,12 +14635,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/1.0/users/?pageSize=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:rocketreach",
@@ -12530,12 +14669,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:roller",
@@ -12562,8 +14702,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:rootly",
@@ -12583,12 +14724,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/users/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:rydoo",
@@ -12615,8 +14765,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sage-300-cre",
@@ -12657,12 +14808,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-dppkey": "${dppKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:sage-hr",
@@ -12689,12 +14841,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/employees",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-auth-token": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:sage-intacct",
@@ -12742,8 +14903,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sage-intacct-cc",
@@ -12770,8 +14932,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sage-member",
@@ -12791,8 +14954,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:salesforce-cc",
@@ -12819,8 +14983,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:salesforce-cdp",
@@ -12847,8 +15012,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:salesforce-jwt",
@@ -12896,8 +15062,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:salesmsg",
@@ -12917,8 +15084,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sap-ariba",
@@ -12945,12 +15113,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "apikey": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:sap-business-one",
@@ -12984,8 +15153,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sap-concur",
@@ -13012,8 +15182,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sap-concur-password",
@@ -13061,8 +15232,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sap-fieldglass",
@@ -13103,8 +15275,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sap-odata-basic",
@@ -13138,8 +15311,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sap-success-factors",
@@ -13173,8 +15347,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": false
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:scrapedo",
@@ -13194,8 +15369,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sedna-basic",
@@ -13229,8 +15405,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sedna",
@@ -13257,8 +15434,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sellercloud",
@@ -13299,8 +15477,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sellsy-oauth2-cc",
@@ -13327,8 +15506,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:semble",
@@ -13355,8 +15535,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:semrush",
@@ -13376,8 +15557,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/management/v1/projects",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:sendgrid",
@@ -13397,12 +15587,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:sentinelone",
@@ -13429,14 +15620,23 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/web/api/v2.1/sites?limit=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "ApiToken ${apiKey}",
         "accept": "application/json",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:sentry",
@@ -13463,12 +15663,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:servicenow-oauth2-cc",
@@ -13477,16 +15678,9 @@ export const NANGO_APPS: ApiApp[] = [
     "description": "productivity API — connect with your own credentials",
     "docsUrl": "https://nango.dev/docs/api-integrations/servicenow-oauth2-cc/connect",
     "keyUrl": "https://nango.dev/docs/api-integrations/servicenow-oauth2-cc/connect",
-    "baseUrl": "https://${hostname} || https://${subdomain}.service-now.com",
+    "baseUrl": "https://${hostname}",
     "logo": "https://app.nango.dev/images/template-logos/servicenow-oauth2-cc.svg",
     "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Subdomain",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
       {
         "name": "hostname",
         "label": "ServiceNow Domain",
@@ -13509,8 +15703,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:servicenow-jwt",
@@ -13565,8 +15760,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": false
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:setmore",
@@ -13586,8 +15782,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sharepoint-online-oauth2-cc",
@@ -13607,8 +15804,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:sharepoint-online-v1",
@@ -13642,12 +15840,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "accept": "application/json;odata=verbose"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:shipbob-pat",
@@ -13674,12 +15873,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/2026-01/channel",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:shippo",
@@ -13699,12 +15907,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/parcel-templates?page=1&results=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "ShippoToken ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:shipstation",
@@ -13731,8 +15948,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/users",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:shipstation-v2",
@@ -13752,12 +15978,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/users?page_size=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:shopify-api-key",
@@ -13784,13 +16019,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/admin/api/2024-10/graphql.json?query=%7B__schema%7Btypes%7Bname%2Ckind%2Cfields%7Bname%7D%7D%7D%7D",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-shopify-access-token": "${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:shopify-cc",
@@ -13824,8 +16068,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:shopify-scim",
@@ -13845,14 +16090,23 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/json",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:shopify-partner",
@@ -13879,13 +16133,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/2026-04/graphql.json",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-shopify-access-token": "${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:shopline",
@@ -13912,12 +16175,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:shopvox",
@@ -13944,8 +16208,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:shopware",
@@ -13979,8 +16244,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:shopworks",
@@ -14014,8 +16280,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:shortcut",
@@ -14035,12 +16302,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v3/member",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "shortcut-token": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:skio",
@@ -14060,12 +16336,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "API ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:slab",
@@ -14085,13 +16362,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:smartlead-ai",
@@ -14111,8 +16389,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/client",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:smartrecruiters-api-key",
@@ -14132,12 +16419,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/feed/publications",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-smarttoken": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:snipe-it",
@@ -14164,14 +16460,15 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/json",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:snowflake-jwt",
@@ -14212,13 +16509,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/api/v2/statements",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "accept": "application/json",
         "x-snowflake-authorization-token-type": "KEYPAIR_JWT"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:sophos-central",
@@ -14245,8 +16551,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:splunk",
@@ -14273,12 +16580,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/services/authentication/current-context?output_mode=json",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:spotify-oauth2-cc",
@@ -14298,8 +16614,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:statamic",
@@ -14326,12 +16643,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:statista",
@@ -14351,12 +16669,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/statistics?q=*",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:statsig",
@@ -14376,12 +16703,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/console/v1/users?limit=1&page=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "statsig-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:stay-ai",
@@ -14401,12 +16737,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-retextion-access-token": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:stedi",
@@ -14426,12 +16763,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/2024-04-01/payers?pageSize=10",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:store-leads",
@@ -14451,12 +16797,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:store-census",
@@ -14476,12 +16823,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v1/apps?page=1&pageSize=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:streak",
@@ -14508,8 +16864,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/users/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:streamline-ai",
@@ -14550,14 +16915,23 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v0/request-forms",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Signature keyid=\"${username}\"",
         "content-type": "application/json",
         "signature-input": "sig=(\"@method\" \"@target-uri\" \"content-digest\" \"content-type\");alg=\"ed25519\";created=${now:X};expires=${now+1:minutes:X};keyid=\"${username}\""
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:stripe-api-key",
@@ -14584,8 +16958,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:supabase",
@@ -14612,13 +16987,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "apikey": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:supabase-mcp",
@@ -14638,13 +17014,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:surecontact",
@@ -14664,12 +17041,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:swoogo",
@@ -14696,8 +17074,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:syncore",
@@ -14717,12 +17096,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/orders/product-indices",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:tableau",
@@ -14770,13 +17158,14 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": false
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "accept": "application/json",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:tailscale-api-key",
@@ -14796,12 +17185,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:tailscale",
@@ -14828,8 +17218,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:talentlms",
@@ -14856,12 +17247,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/users?page[size]=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:tally",
@@ -14881,12 +17281,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/forms?limit=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:tanium",
@@ -14913,13 +17322,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/session/current",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "session": "${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:tapclicks",
@@ -14939,8 +17357,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:teamtailor",
@@ -14967,13 +17386,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Token token=${apiKey}",
         "x-api-version": "20210218"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:telegram",
@@ -14993,8 +17421,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/getMe",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:terraform",
@@ -15014,12 +17451,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/organizations",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:the-swarm",
@@ -15039,12 +17485,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/v2/profiles/search",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:theirstack",
@@ -15064,12 +17519,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v0/billing/credit-balance",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:thomson-reuters-legal-tracker",
@@ -15103,8 +17567,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:thrivecart-api-key",
@@ -15124,12 +17589,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/ping",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:timetastic",
@@ -15149,12 +17623,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:timify",
@@ -15188,8 +17671,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:tldv",
@@ -15209,12 +17693,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:toast",
@@ -15248,8 +17733,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:toggl",
@@ -15276,8 +17762,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v9/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:torii",
@@ -15297,12 +17792,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1.0/orgs/my",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:trading-economics",
@@ -15322,12 +17826,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/country/mexico",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:trafft",
@@ -15361,8 +17874,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:trakstar-hire",
@@ -15389,8 +17903,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/openings",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:transporeon-oauth2-cc",
@@ -15417,8 +17940,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:transporeon-carrier-basic",
@@ -15452,8 +17976,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/transport",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:transporeon-carrier-oauth2-cc",
@@ -15487,8 +18020,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/transport",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:trello-scim",
@@ -15508,12 +18050,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/users?sortBy=displayName&count=10",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:trigger-dev",
@@ -15540,12 +18091,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:triple-whale",
@@ -15565,13 +18117,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/users/api-keys/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}",
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:tripletex",
@@ -15605,8 +18166,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:trustpilot-cc",
@@ -15633,8 +18195,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:twenty-crm",
@@ -15654,12 +18217,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/companies",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:twenty-crm-self-hosted",
@@ -15686,12 +18258,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/companies",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:twilio",
@@ -15718,8 +18299,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:twitter-oauth2-cc",
@@ -15739,8 +18321,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:typefully",
@@ -15760,12 +18343,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/notifications/",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:typefully-v2",
@@ -15785,12 +18377,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:ukg-pro-wfm-ropc",
@@ -15838,8 +18439,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:ukg-pro-cc",
@@ -15873,8 +18475,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:ukg-ready",
@@ -15901,8 +18504,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:adobe-umapi",
@@ -15922,8 +18526,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:unanet",
@@ -15950,8 +18555,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/projects",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:unipile",
@@ -15985,12 +18599,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v1/accounts",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:upsales",
@@ -16010,8 +18633,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/users",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:valley-api-key",
@@ -16031,12 +18663,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/auth/verify-api-key",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:valley",
@@ -16063,8 +18704,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:vanta",
@@ -16084,8 +18726,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:vantage-apparel",
@@ -16112,8 +18755,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:veed",
@@ -16133,12 +18777,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/fabric-1.0",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Key ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:veeva-vault",
@@ -16179,12 +18832,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:veeva-vault-oauth",
@@ -16218,12 +18872,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "accept": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:vercel",
@@ -16243,12 +18898,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/user",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:viewpoint-vista",
@@ -16268,12 +18932,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-application-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:vimeo-basic",
@@ -16300,8 +18965,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:vtex",
@@ -16328,12 +19002,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-vtex-api-apptoken": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:wappalyzer",
@@ -16353,12 +19028,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/credits/balance/",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:webinarjam",
@@ -16378,8 +19062,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/webinars",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:wejam",
@@ -16399,12 +19092,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:whatsapp-business",
@@ -16424,13 +19118,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v21.0/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:wise-api-key",
@@ -16450,12 +19153,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/profiles",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:wiza",
@@ -16475,12 +19187,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/meta/credits",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:woocommerce",
@@ -16514,8 +19235,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/wp-json/wc/v3/customers",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:workable",
@@ -16542,12 +19272,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:workato",
@@ -16574,12 +19305,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:workday-cc",
@@ -16613,8 +19345,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:workday-refresh-token",
@@ -16655,8 +19388,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:workday-adaptive-planning",
@@ -16697,8 +19431,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:workday-adaptive-planning-basic",
@@ -16725,8 +19460,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:workos",
@@ -16746,12 +19482,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/organizations?limit=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:workpath",
@@ -16771,12 +19516,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v3/kpis",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:workramp",
@@ -16803,12 +19557,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/users?limit=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:xai",
@@ -16828,13 +19591,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/api-key",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:xero-oauth2-cc",
@@ -16854,8 +19626,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:yokoy",
@@ -16889,12 +19662,13 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [],
     "authTemplate": {
       "headers": {
         "x-yk-auth-method": "yokoy"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:yotpo",
@@ -16914,8 +19688,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:youcanbook-me",
@@ -16942,8 +19717,17 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/profiles",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
   },
   {
     "id": "nango:zapier-scim",
@@ -16963,14 +19747,23 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "accept": "application/json, application/scim+json",
         "content-type": "application/json"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:zendesk-api-key",
@@ -17004,12 +19797,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/users.json?per_page=1&page=1",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Basic ${base64(${username}/token:${password})}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:zero",
@@ -17029,12 +19831,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/workspaces",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:zigpoll",
@@ -17054,12 +19865,21 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/me",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "${apiKey}"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:zoom-cc",
@@ -17086,8 +19906,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:zoominfo",
@@ -17107,8 +19928,9 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   },
   {
     "id": "nango:zorus",
@@ -17128,13 +19950,22 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/api/customers/search",
+        "params": []
+      }
+    ],
     "authTemplate": {
       "headers": {
         "authorization": "Impersonation ${apiKey}",
         "zorus-api-version": "1.0"
       }
-    },
-    "tools": []
+    }
   },
   {
     "id": "nango:zuora",
@@ -17161,7 +19992,8 @@ export const NANGO_APPS: ApiApp[] = [
         "secret": true
       }
     ],
-    "authTemplate": {},
-    "tools": []
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
   }
 ];
