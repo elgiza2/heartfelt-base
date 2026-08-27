@@ -263,7 +263,6 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
                         ) : (
                           <>
                             <div className="mb-3">
-                              <p className="px-2 pb-1 pt-2 text-[12px] text-foreground/40">Currently connected</p>
                               <AgentTools query={query} onOpenApp={(item) => setDetail(item)} />
                             </div>
 
