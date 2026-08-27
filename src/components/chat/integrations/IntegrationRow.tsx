@@ -55,19 +55,17 @@ export default function IntegrationRow({ item, connected, busy, onOpen }: RowPro
   return (
     <button
       type="button"
+      dir="ltr"
       onClick={onOpen}
       data-integration-row
-      className="flex w-full items-center gap-3 rounded-[14px] px-2 py-2.5 text-right transition-colors active:bg-foreground/[0.05]"
+      className="flex w-full items-center gap-3 rounded-[14px] px-2 py-2.5 text-left transition-colors active:bg-foreground/[0.05]"
       style={{ border: 0, background: "transparent", minHeight: 58 }}
     >
       <IntegrationLogo item={item} />
       <span className="min-w-0 flex-1">
         <span className="block truncate text-[14.5px] font-medium text-foreground">{item.name}</span>
-        <span
-          dir="auto"
-          className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/40"
-        >
-          {`Use ${item.name} right inside your chats`}
+        <span className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/40">
+          {item.description}
         </span>
       </span>
       <span className="shrink-0 text-foreground/35">
@@ -76,9 +74,10 @@ export default function IntegrationRow({ item, connected, busy, onOpen }: RowPro
         ) : connected ? (
           <Check style={{ width: 18, height: 18 }} className="text-primary" />
         ) : (
-          <ChevronLeft className="h-[18px] w-[18px]" />
+          <ChevronRight className="h-[18px] w-[18px]" />
         )}
       </span>
     </button>
   );
 }
+
