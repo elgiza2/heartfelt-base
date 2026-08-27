@@ -5,7 +5,7 @@
  *  the user pastes a key the endpoints are callable from chat.
  */
 import { useEffect, useMemo, useState } from "react";
-import { Check, ChevronLeft } from "lucide-react";
+import { Check, ChevronRight } from "lucide-react";
 import { MANUS_APPS } from "@/lib/apiApps/manus";
 import { NANGO_APPS } from "@/lib/apiApps/nango.generated";
 import { listApiApps } from "@/lib/apiApps/client";
@@ -106,15 +106,17 @@ export default function ApiAppsTab({
                 {row.name}
               </span>
               <span className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/40">
-                {hasKey ? "API key saved" : `Use ${row.name} right inside your chats`}
+                {hasKey ? "API key saved" : row.description}
               </span>
+
 
             </span>
             {hasKey ? (
               <Check className="h-[18px] w-[18px] shrink-0 text-primary" />
             ) : (
-              <ChevronLeft className="h-[18px] w-[18px] shrink-0 text-foreground/35" />
+              <ChevronRight className="h-[18px] w-[18px] shrink-0 text-foreground/35" />
             )}
+
           </button>
           </div>
         );
