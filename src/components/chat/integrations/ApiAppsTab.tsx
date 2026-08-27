@@ -5,7 +5,7 @@
  *  the user pastes a key the endpoints are callable from chat.
  */
 import { useEffect, useMemo, useState } from "react";
-import { Check, ChevronLeft } from "lucide-react";
+import { Check, ChevronRight } from "lucide-react";
 import { MANUS_APPS } from "@/lib/apiApps/manus";
 import { NANGO_APPS } from "@/lib/apiApps/nango.generated";
 import { listApiApps } from "@/lib/apiApps/client";
