@@ -8,7 +8,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Check, ChevronLeft, Loader2 } from "lucide-react";
 import { toast } from "sonner";
-import { API_APPS } from "@/lib/apiApps/catalog";
 import { fetchDirectory, loadDirectoryApp, type DirectoryEntry } from "@/lib/apiApps/directory";
 import { rankEntries, TOP_SECTION } from "@/lib/apiApps/ranked";
 import { displayDescription, displayName } from "@/lib/apiApps/display";
