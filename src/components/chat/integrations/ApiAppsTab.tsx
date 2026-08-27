@@ -10,7 +10,7 @@ import { Check, ChevronLeft, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { API_APPS } from "@/lib/apiApps/catalog";
 import { fetchDirectory, loadDirectoryApp, type DirectoryEntry } from "@/lib/apiApps/directory";
-import { rankEntries } from "@/lib/apiApps/ranked";
+import { rankEntries, TOP_SECTION } from "@/lib/apiApps/ranked";
 import { listApiApps } from "@/lib/apiApps/client";
 import type { ApiApp } from "@/lib/apiApps/types";
 import ApiAppLogo from "./ApiAppLogo";
@@ -130,11 +130,18 @@ export default function ApiAppsTab({
         <span>{loading ? "Loading…" : `${list.length.toLocaleString()} APIs`}</span>
       </div>
 
-      {visible.map((row) => {
+      {visible.map((row, index) => {
         const hasKey = Boolean(saved[row.id]);
+        const divider = !query.trim() && index === TOP_SECTION;
         return (
+          <div key={row.id}>
+          {divider && (
+            <p key="divider" className="px-2 pb-1 pt-4 text-[12px] text-foreground/35">
+              More APIs
+            </p>
+          )}
           <button
-            key={row.id}
+
             type="button"
             onClick={() => void open(row)}
             data-api-integration={row.id}
@@ -158,6 +165,7 @@ export default function ApiAppsTab({
               <ChevronLeft className="h-[18px] w-[18px] shrink-0 text-foreground/35" />
             )}
           </button>
+          </div>
         );
       })}
 
