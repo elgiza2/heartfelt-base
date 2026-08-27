@@ -26,10 +26,12 @@ export default function ApiAppsTab({
   query = "",
   reloadKey = 0,
   onOpen,
+  onCreateFromChat,
 }: {
   query?: string;
   reloadKey?: number;
   onOpen: (app: ApiApp) => void;
+  onCreateFromChat?: () => void;
 }) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [saved, setSaved] = useState<Record<string, boolean>>({});
