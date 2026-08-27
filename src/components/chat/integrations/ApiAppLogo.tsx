@@ -13,12 +13,12 @@ function domain(app: ApiApp): string | null {
   }
 }
 
-/** Logo candidates, best first: the registry mark, then the brand's own logo. */
+/** Prefer the service favicon because registry artwork often includes a baked-in tile. */
 function sourcesFor(app: ApiApp): string[] {
   const host = domain(app);
   return [
-    app.logo,
     host ? `https://icons.duckduckgo.com/ip3/${host}.ico` : null,
+    app.logo,
   ].filter(Boolean) as string[];
 }
 
@@ -32,7 +32,7 @@ export default function ApiAppLogo({ app, size = 38 }: { app: ApiApp; size?: num
   if (failed || !sources.length) {
     return (
       <span
-        className="flex shrink-0 items-center justify-center bg-foreground/[0.06] font-semibold text-foreground/70"
+        className="flex shrink-0 items-center justify-center font-semibold text-foreground/70"
         style={{ width: size, height: size, borderRadius: radius, fontSize: size * 0.42 }}
       >
         {app.name.charAt(0).toUpperCase()}
@@ -50,7 +50,7 @@ export default function ApiAppLogo({ app, size = 38 }: { app: ApiApp; size?: num
         alt={app.name}
         loading="lazy"
         onError={() => setStep((current) => current + 1)}
-        style={{ width: size * 0.62, height: size * 0.62, objectFit: "contain" }}
+        style={{ width: size * 0.68, height: size * 0.68, objectFit: "contain", background: "transparent" }}
       />
     </span>
   );

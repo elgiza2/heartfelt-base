@@ -189,9 +189,6 @@ export default function ApiAppDetail({
               <p className="text-[13px] font-medium text-foreground">
                 {fields.length > 1 ? "Your credentials" : "Your API key"}
               </p>
-              <p className="mt-0.5 text-[11.5px] text-foreground/40">
-                Stored for your account only
-              </p>
             </div>
             {app.keyUrl && (
               <button
