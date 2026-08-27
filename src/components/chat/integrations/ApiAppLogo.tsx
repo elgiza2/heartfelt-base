@@ -2,20 +2,29 @@
 import { useState } from "react";
 import type { ApiApp } from "@/lib/apiApps/types";
 
-/** Favicon of the service's own domain: works for any app whose logo 404s. */
-function favicon(app: ApiApp): string | null {
-  const source = [app.baseUrl, app.docsUrl].find((url) => url && !url.includes("${")) || "";
+/** The service's own domain, used to look its brand mark up. */
+function domain(app: ApiApp): string | null {
+  const source =
+    [app.baseUrl, app.docsUrl, app.keyUrl].find((url) => url && !url.includes("${")) || "";
   try {
-    const host = new URL(source).hostname.replace(/^(api|www|app)\./, "");
-    return `https://icons.duckduckgo.com/ip3/${host}.ico`;
+    return new URL(source).hostname.replace(/^(api|api-m|www|app|console|dashboard|graph|open)\./, "");
   } catch {
     return null;
   }
 }
 
+/** Logo candidates, best first: the registry mark, then the brand's own logo. */
+function sourcesFor(app: ApiApp): string[] {
+  const host = domain(app);
+  return [
+    app.logo,
+    host ? `https://icons.duckduckgo.com/ip3/${host}.ico` : null,
+  ].filter(Boolean) as string[];
+}
+
 export default function ApiAppLogo({ app, size = 38 }: { app: ApiApp; size?: number }) {
   const [step, setStep] = useState(0);
-  const sources = [app.logo, favicon(app)].filter(Boolean) as string[];
+  const sources = sourcesFor(app);
   const src = sources[step];
   const failed = !src;
   const radius = Math.round(size * 0.28);
