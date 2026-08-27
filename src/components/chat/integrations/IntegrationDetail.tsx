@@ -331,3 +331,46 @@ function ResourceRow({
     </button>
   );
 }
+
+function SettingRow({
+  label,
+  hint,
+  checked,
+  onChange,
+  last,
+}: {
+  label: string;
+  hint: string;
+  checked: boolean;
+  onChange: (v: boolean) => void;
+  last?: boolean;
+}) {
+  return (
+    <div
+      className="flex items-center gap-3 px-4 py-3.5"
+      style={last ? undefined : { boxShadow: "inset 0 -1px 0 hsl(var(--foreground) / 0.05)" }}
+    >
+      <div className="min-w-0 flex-1">
+        <p className="text-[14px] text-foreground">{label}</p>
+        <p className="mt-0.5 text-[12px] leading-[1.5] text-foreground/40">{hint}</p>
+      </div>
+      <button
+        type="button"
+        role="switch"
+        aria-checked={checked}
+        aria-label={label}
+        onClick={() => onChange(!checked)}
+        className={`relative h-[26px] w-[44px] shrink-0 rounded-full transition-colors ${
+          checked ? "bg-primary" : "bg-foreground/15"
+        }`}
+        style={{ border: 0 }}
+      >
+        <span
+          className={`absolute top-[3px] h-[20px] w-[20px] rounded-full transition-all ${
+            checked ? "left-[21px] bg-primary-foreground" : "left-[3px] bg-foreground/70"
+          }`}
+        />
+      </button>
+    </div>
+  );
+}
