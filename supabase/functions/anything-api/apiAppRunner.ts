@@ -82,8 +82,15 @@ export async function handleApiApp(_req: Request, admin: any, body: any): Promis
 
     const appId = String(body?.app ?? "");
     let spec = body?.spec as
-      | { baseUrl: string; auth?: Auth | null; authTemplate?: AuthTemplate | null; tool: ToolSpec }
+      | {
+          baseUrl: string;
+          auth?: Auth | null;
+          authTemplate?: AuthTemplate | null;
+          basic?: boolean;
+          tool: ToolSpec;
+        }
       | undefined;
+
     if (!appId || !spec?.tool) {
       return json({ ok: false, error: "Missing request details" }, 400);
     }
