@@ -106,8 +106,9 @@ export default function ApiAppsTab({
                 {row.name}
               </span>
               <span className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/40">
-                {hasKey ? "API key saved" : row.description}
+                {hasKey ? "API key saved" : `Use ${row.name} right inside your chats`}
               </span>
+
             </span>
             {hasKey ? (
               <Check className="h-[18px] w-[18px] shrink-0 text-primary" />
