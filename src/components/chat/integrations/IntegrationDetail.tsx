@@ -23,10 +23,53 @@ interface Props {
   children?: ReactNode;
 }
 
+export interface IntegrationSettings {
+  enabledInChat: boolean;
+  confirmBeforeRun: boolean;
+}
+
+const DEFAULT_SETTINGS: IntegrationSettings = { enabledInChat: true, confirmBeforeRun: false };
+
+const settingsKey = (app: string) => `integration:settings:${app}`;
+
+export function readIntegrationSettings(app: string): IntegrationSettings {
+  if (typeof window === "undefined") return DEFAULT_SETTINGS;
+  try {
+    const raw = window.localStorage.getItem(settingsKey(app));
+    if (!raw) return DEFAULT_SETTINGS;
+    return { ...DEFAULT_SETTINGS, ...(JSON.parse(raw) as Partial<IntegrationSettings>) };
+  } catch {
+    return DEFAULT_SETTINGS;
+  }
+}
+
 /** Level 2 — connector detail. Scrolling is owned by the sheet container. */
 export default function IntegrationDetail({ item, connected, busy, onBack, onToggle, children }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [confirmDisconnect, setConfirmDisconnect] = useState(false);
+  const [settings, setSettings] = useState<IntegrationSettings>(DEFAULT_SETTINGS);
   const menuRef = useRef<HTMLDivElement>(null);
+  const settingsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setSettings(readIntegrationSettings(item.app));
+    setShowSettings(false);
+    setConfirmDisconnect(false);
+  }, [item.app]);
+
+  const patchSettings = (patch: Partial<IntegrationSettings>) => {
+    setSettings((prev) => {
+      const next = { ...prev, ...patch };
+      try {
+        window.localStorage.setItem(settingsKey(item.app), JSON.stringify(next));
+        window.dispatchEvent(new CustomEvent("integration-settings-changed", { detail: { app: item.app, settings: next } }));
+      } catch {
+        /* storage unavailable */
+      }
+      return next;
+    });
+  };
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -36,6 +79,10 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
     document.addEventListener("mousedown", onDown);
     return () => document.removeEventListener("mousedown", onDown);
   }, [menuOpen]);
+
+  useEffect(() => {
+    if (showSettings) settingsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [showSettings]);
 
   const site = item.domain ? `https://${item.domain}` : undefined;
 
@@ -69,7 +116,7 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
                 type="button"
                 onClick={() => {
                   setMenuOpen(false);
-                  if (site) window.open(site, "_blank", "noopener");
+                  setShowSettings(true);
                 }}
                 className="flex w-full items-center justify-between gap-2 rounded-[13px] bg-transparent px-3 py-2.5 text-[14px] text-foreground"
                 style={{ border: 0 }}
@@ -79,10 +126,10 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
               </button>
               <button
                 type="button"
-                disabled={!connected}
+                disabled={!connected || busy}
                 onClick={() => {
                   setMenuOpen(false);
-                  onToggle();
+                  setConfirmDisconnect(true);
                 }}
                 className="flex w-full items-center justify-between gap-2 rounded-[13px] bg-transparent px-3 py-2.5 text-[14px] text-destructive disabled:opacity-40"
                 style={{ border: 0 }}
@@ -94,6 +141,7 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
           )}
         </div>
       </div>
+
 
       {/* Identity — logo, name, one honest line, live status */}
       <div dir="ltr" className="flex flex-col items-center pt-3 text-center">
