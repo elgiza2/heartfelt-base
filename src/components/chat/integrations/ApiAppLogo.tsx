@@ -42,8 +42,8 @@ export default function ApiAppLogo({ app, size = 38 }: { app: ApiApp; size?: num
 
   return (
     <span
-      className="flex shrink-0 items-center justify-center overflow-hidden bg-foreground/[0.04]"
-      style={{ width: size, height: size, borderRadius: radius }}
+      className="flex shrink-0 items-center justify-center overflow-hidden"
+      style={{ width: size, height: size, borderRadius: radius, background: "transparent" }}
     >
       <img
         src={src}
