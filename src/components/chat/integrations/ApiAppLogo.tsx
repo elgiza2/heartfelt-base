@@ -4,7 +4,7 @@ import type { ApiApp } from "@/lib/apiApps/types";
 
 /** Favicon of the service's own domain: works for any app whose logo 404s. */
 function favicon(app: ApiApp): string | null {
-  const source = app.baseUrl || app.docsUrl || "";
+  const source = [app.baseUrl, app.docsUrl].find((url) => url && !url.includes("${")) || "";
   try {
     const host = new URL(source).hostname.replace(/^(api|www|app)\./, "");
     return `https://icons.duckduckgo.com/ip3/${host}.ico`;
