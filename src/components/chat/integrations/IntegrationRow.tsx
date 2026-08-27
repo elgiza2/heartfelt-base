@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Check, ChevronLeft, Loader2 } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
 import type { Integration } from "@/lib/integrationsData";
 
 /** Ordered logo sources: Simple Icons → Unavatar → Google favicon. */
