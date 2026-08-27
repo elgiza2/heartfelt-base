@@ -24,8 +24,8 @@ export function IntegrationLogo({ item, size = 40 }: { item: Integration; size?:
 
   return (
     <span
-      className="inline-flex shrink-0 items-center justify-center overflow-hidden rounded-[11px] bg-foreground/[0.06]"
-      style={{ width: size, height: size }}
+      className="inline-flex shrink-0 items-center justify-center overflow-hidden"
+      style={{ width: size, height: size, background: "transparent" }}
     >
       {src ? (
         <img
@@ -33,7 +33,7 @@ export function IntegrationLogo({ item, size = 40 }: { item: Integration; size?:
           alt={item.name}
           loading="lazy"
           className="object-contain"
-          style={{ width: size * 0.6, height: size * 0.6 }}
+          style={{ width: size * 0.68, height: size * 0.68, background: "transparent" }}
           onError={() => setIdx((i) => i + 1)}
         />
       ) : (
