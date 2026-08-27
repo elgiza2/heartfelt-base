@@ -114,8 +114,9 @@ export default function ApiAppsTab({
             {hasKey ? (
               <Check className="h-[18px] w-[18px] shrink-0 text-primary" />
             ) : (
-              <ChevronLeft className="h-[18px] w-[18px] shrink-0 text-foreground/35" />
+              <ChevronRight className="h-[18px] w-[18px] shrink-0 text-foreground/35" />
             )}
+
           </button>
           </div>
         );
