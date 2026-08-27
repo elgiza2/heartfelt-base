@@ -79,7 +79,9 @@ export async function handleApiApp(_req: Request, admin: any, body: any): Promis
     if (userErr || !userId) return json({ ok: false, error: "Not signed in" }, 401);
 
     const appId = String(body?.app ?? "");
-    let spec = body?.spec as { baseUrl: string; auth: Auth; tool: ToolSpec } | undefined;
+    let spec = body?.spec as
+      | { baseUrl: string; auth?: Auth | null; authTemplate?: AuthTemplate | null; tool: ToolSpec }
+      | undefined;
     if (!appId || !spec?.tool) {
       return json({ ok: false, error: "Missing request details" }, 400);
     }
@@ -98,14 +100,39 @@ export async function handleApiApp(_req: Request, admin: any, body: any): Promis
     if (row.spec?.baseUrl) {
       const saved = (row.spec.tools ?? []).find((t: ToolSpec) => t.name === spec!.tool.name);
       if (!saved) return json({ ok: false, error: "Unknown action" }, 400);
-      spec = { baseUrl: String(row.spec.baseUrl), auth: row.spec.auth as Auth, tool: saved };
+      spec = {
+        baseUrl: String(row.spec.baseUrl),
+        auth: (row.spec.auth ?? null) as Auth | null,
+        authTemplate: (row.spec.authTemplate ?? null) as AuthTemplate | null,
+        tool: saved,
+      };
     }
     if (!spec?.baseUrl) return json({ ok: false, error: "Missing request details" }, 400);
 
-    const key = String(row.key_value);
+    // Credentials are stored either as one raw key or as a map of named fields.
+    const raw = String(row.key_value);
+    let creds: Record<string, string> = {};
+    if (raw.startsWith("{")) {
+      try {
+        const parsed = JSON.parse(raw);
+        for (const [name, value] of Object.entries(parsed)) creds[name] = String(value);
+      } catch {
+        creds = { apiKey: raw };
+      }
+    } else {
+      creds = { apiKey: raw };
+    }
+    const key = creds["apiKey"] ?? Object.values(creds)[0] ?? "";
+    /** Fills `${field}` slots from the saved credentials. */
+    const fill = (value: string) =>
+      value.replace(/\$\{([\w.]+)\}/g, (_m, name: string) => {
+        const field = name.split(".").pop() as string;
+        return creds[field] ?? "";
+      });
 
     const params = (body?.params ?? {}) as Record<string, unknown>;
     const auth = spec.auth;
+    const template = spec.authTemplate;
     const tool = spec.tool;
 
     // Build the path, filling {placeholders} from params (and the key when needed).
@@ -118,10 +145,12 @@ export async function handleApiApp(_req: Request, admin: any, body: any): Promis
       }
       path = path.replaceAll(`{${p.name}}`, encodeURIComponent(String(v)));
     }
-    if (auth.type === "path") path = path.replaceAll(`{${auth.name}}`, encodeURIComponent(key));
+    if (auth?.type === "path") path = path.replaceAll(`{${auth.name}}`, encodeURIComponent(key));
     if (/\{[^}]+\}/.test(path)) return json({ ok: false, error: "Missing path value" }, 400);
 
-    const url = new URL(spec.baseUrl.replace(/\/$/, "") + path);
+    const base = fill(spec.baseUrl.replace(/\/$/, ""));
+    if (base.includes("${")) return json({ ok: false, error: "Missing account details" }, 400);
+    const url = new URL(base + path);
     const trusted = ALLOWED_HOSTS.has(url.hostname);
     if (!trusted && !isPublicHttpsHost(url)) {
       return json({ ok: false, error: "This service is not allowed" }, 400);
@@ -136,11 +165,18 @@ export async function handleApiApp(_req: Request, admin: any, body: any): Promis
       }
       url.searchParams.set(p.name, String(v));
     }
-    if (auth.type === "query") url.searchParams.set(auth.name, key);
+    if (auth?.type === "query") url.searchParams.set(auth.name, key);
+    for (const [name, value] of Object.entries(template?.params ?? {})) {
+      url.searchParams.set(name, fill(value));
+    }
 
     const headers: Record<string, string> = { Accept: "application/json" };
-    if (auth.type === "header") headers[auth.name] = `${auth.prefix ?? ""}${key}`;
+    if (auth?.type === "header") headers[auth.name] = `${auth.prefix ?? ""}${key}`;
+    for (const [name, value] of Object.entries(template?.headers ?? {})) {
+      headers[name] = fill(value);
+    }
     if (appId === "notion") headers["Notion-Version"] = "2022-06-28";
+
 
     let payload: string | undefined;
     if (tool.method === "POST") {
