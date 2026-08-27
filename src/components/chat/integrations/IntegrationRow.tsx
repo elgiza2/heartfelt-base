@@ -50,34 +50,29 @@ interface RowProps {
   onOpen: () => void;
 }
 
-/** Flat connector row — no card, sits directly on the sheet surface. */
+/** Flat connector row — logo button only, no text, no background, no borders. */
 export default function IntegrationRow({ item, connected, busy, onOpen }: RowProps) {
   return (
     <button
       type="button"
       onClick={onOpen}
       data-integration-row
-      className="flex w-full items-center gap-3 rounded-[14px] px-2 py-2.5 text-right transition-colors active:bg-foreground/[0.05]"
-      style={{ border: 0, background: "transparent", minHeight: 58 }}
+      aria-label={item.name}
+      aria-pressed={connected}
+      className="flex w-full items-center justify-center rounded-[14px] px-2 py-2 transition-transform active:scale-[0.97]"
+      style={{ border: 0, background: "transparent", minHeight: 56 }}
     >
-      <IntegrationLogo item={item} />
-      <span className="min-w-0 flex-1">
-        <span className="block truncate text-[14.5px] font-medium text-foreground">{item.name}</span>
-        <span
-          dir="auto"
-          className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/40"
-        >
-          {`Use ${item.name} right inside your chats`}
-        </span>
-      </span>
-      <span className="shrink-0 text-foreground/35">
-        {busy ? (
-          <Loader2 className="h-4 w-4 animate-spin" />
-        ) : connected ? (
-          <Check style={{ width: 18, height: 18 }} className="text-primary" />
-        ) : (
-          <ChevronLeft className="h-[18px] w-[18px]" />
+      <span className="relative">
+        <IntegrationLogo item={item} />
+        {connected && (
+          <span
+            className="absolute -bottom-0.5 -left-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-primary-foreground"
+            style={{ border: "2px solid var(--background, #0f172a)" }}
+          >
+            <Check style={{ width: 10, height: 10 }} />
+          </span>
         )}
+        {busy && <Loader2 className="absolute -bottom-0.5 -left-0.5 h-4 w-4 animate-spin text-foreground/60" />}
       </span>
     </button>
   );
