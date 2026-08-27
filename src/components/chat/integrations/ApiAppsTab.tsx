@@ -7,10 +7,7 @@
  */
 import { useEffect, useMemo, useState } from "react";
 import { Check, ChevronLeft, Loader2 } from "lucide-react";
-import { toast } from "sonner";
-import { fetchDirectory, loadDirectoryApp, type DirectoryEntry } from "@/lib/apiApps/directory";
-import { rankEntries, TOP_SECTION } from "@/lib/apiApps/ranked";
-import { displayDescription, displayName } from "@/lib/apiApps/display";
+import { MANUS_APPS } from "@/lib/apiApps/manus";
 import { listApiApps } from "@/lib/apiApps/client";
 import type { ApiApp } from "@/lib/apiApps/types";
 import ApiAppLogo from "./ApiAppLogo";
@@ -22,7 +19,6 @@ type Row = {
   name: string;
   description: string;
   logo: string;
-  entry?: DirectoryEntry;
   app?: ApiApp;
 };
 
@@ -37,23 +33,8 @@ export default function ApiAppsTab({
 }) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [saved, setSaved] = useState<Record<string, boolean>>({});
-  const [entries, setEntries] = useState<DirectoryEntry[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [opening, setOpening] = useState<string | null>(null);
-
-  useEffect(() => {
-    let alive = true;
-    void fetchDirectory()
-      .then((list) => {
-        if (alive) setEntries(list);
-      })
-      .finally(() => {
-        if (alive) setLoading(false);
-      });
-    return () => {
-      alive = false;
-    };
-  }, []);
+  const [opening] = useState<string | null>(null);
+  const loading = false;
 
   useEffect(() => {
     let alive = true;
@@ -70,25 +51,17 @@ export default function ApiAppsTab({
     };
   }, [reloadKey]);
 
-  const rows = useMemo<Row[]>(() => {
-    const directory: Row[] = rankEntries(entries).map((entry) => ({
-      id: entry.id,
-      name: displayName(entry.id, entry.name),
-      description: displayDescription(entry.id, entry.description),
-      logo: entry.logo,
-      entry,
-    }));
-    // One row per recognisable name.
-    const unique: Row[] = [];
-    const names = new Set<string>();
-    for (const row of directory) {
-      const name = row.name.trim().toLowerCase();
-      if (names.has(name)) continue;
-      names.add(name);
-      unique.push(row);
-    }
-    return unique;
-  }, [entries]);
+  const rows = useMemo<Row[]>(
+    () =>
+      MANUS_APPS.map((app) => ({
+        id: app.id,
+        name: app.name,
+        description: app.description,
+        logo: app.logo,
+        app,
+      })),
+    [],
+  );
 
   const list = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -107,20 +80,8 @@ export default function ApiAppsTab({
 
   useEffect(() => setVisibleCount(PAGE_SIZE), [query]);
 
-  const open = async (row: Row) => {
-    if (row.app) {
-      onOpen(row.app);
-      return;
-    }
-    if (!row.entry) return;
-    setOpening(row.id);
-    try {
-      onOpen(await loadDirectoryApp(row.entry));
-    } catch (e: any) {
-      toast.error(e?.message || "Could not read this service");
-    } finally {
-      setOpening(null);
-    }
+  const open = (row: Row) => {
+    if (row.app) onOpen(row.app);
   };
 
   const visible = list.slice(0, visibleCount);
@@ -134,7 +95,7 @@ export default function ApiAppsTab({
 
       {visible.map((row, index) => {
         const hasKey = Boolean(saved[row.id]);
-        const divider = !query.trim() && index === TOP_SECTION;
+        const divider = false;
         return (
           <div key={row.id}>
           {divider && (
@@ -145,7 +106,7 @@ export default function ApiAppsTab({
           <button
 
             type="button"
-            onClick={() => void open(row)}
+            onClick={() => open(row)}
             data-api-integration={row.id}
             className="flex w-full items-center gap-3 px-2 py-2.5 text-left transition-opacity active:opacity-60"
             style={{ border: 0, background: "transparent", minHeight: 58 }}
