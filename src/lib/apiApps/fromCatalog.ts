@@ -47,8 +47,10 @@ export const KEY_API_APPS: ApiApp[] = generatedIntegrations.map((item) => ({
   baseUrl: item.domain ? `https://api.${item.domain}` : "",
   auth: { type: "header", name: "Authorization", prefix: "Bearer " },
   logo: item.domain
-    ? `https://cdn.brandfetch.io/${item.domain}/w/64/h/64?c=1idV2Ea1EFCzWjnWtGB`
-    : "",
+    ? `https://www.google.com/s2/favicons?domain=${item.domain}&sz=128`
+    : `https://cdn.simpleicons.org/${(item.pipedreamSlug || item.app)
+        .toLowerCase()
+        .replace(/[_\s]+/g, "")}`,
   tools: [],
 }));
 
