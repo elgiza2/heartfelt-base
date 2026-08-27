@@ -1,6 +1,8 @@
 // Integrations catalog — uses real brand logos via Clearbit Logo API (logo.clearbit.com/<domain>).
 // Clearbit returns the real, color-accurate logo for nearly every public company.
 
+import { generatedIntegrations } from "./integrationsCatalog.generated";
+
 export type IntegrationType = "oauth" | "notification" | "service" | "pipedream";
 
 export interface Integration {
