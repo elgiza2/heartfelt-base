@@ -13,7 +13,7 @@ function domain(app: ApiApp): string | null {
   }
 }
 
-/** Prefer the service favicon because registry artwork often includes a baked-in tile. */
+/** Ordered logo sources: Simple Icons → Unavatar → Google favicon → registry art. */
 function sourcesFor(app: ApiApp): string[] {
   const host = domain(app);
   const simpleIconAliases: Record<string, string> = {
@@ -23,17 +23,26 @@ function sourcesFor(app: ApiApp): string[] {
     "google sheets": "googlesheets",
     "google docs": "googledocs",
     "microsoft teams": "microsoftteams",
-    "facebook": "facebook",
+    "microsoft excel": "microsoftexcel",
+    "google contacts": "googlecontacts",
+    "google slides": "googleslides",
+    facebook: "facebook",
   };
   const simpleIconSlug =
     simpleIconAliases[app.name.trim().toLowerCase()] ??
-    app.name.toLowerCase().replace(/\([^)]*\)/g, "").replace(/[^a-z0-9]/g, "");
+    app.name
+      .toLowerCase()
+      .replace(/\([^)]*\)/g, "")
+      .replace(/[^a-z0-9]/g, "");
   return [
     simpleIconSlug ? `https://cdn.simpleicons.org/${simpleIconSlug}` : null,
+    host ? `https://unavatar.io/${host}?fallback=false` : null,
+    host ? `https://www.google.com/s2/favicons?domain=${host}&sz=128` : null,
     host ? `https://icons.duckduckgo.com/ip3/${host}.ico` : null,
     app.logo,
   ].filter(Boolean) as string[];
 }
+
 
 export default function ApiAppLogo({ app, size = 38 }: { app: ApiApp; size?: number }) {
   const [step, setStep] = useState(0);
