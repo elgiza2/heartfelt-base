@@ -16,6 +16,7 @@
  *    a key could never make them work.
  *  - Everything else stays, ranked by publisher familiarity.
  */
+import { publicApiIds } from "./publicApis.generated";
 
 /** Hand-picked ranking of the APIs that matter most, best first. */
 const TOP_IDS = [
@@ -193,7 +194,10 @@ const TOP_IDS = [
   "ote-godaddy.com:domains",
 ];
 
-/** Publisher familiarity for everything outside `TOP_IDS`. */
+/** Imported curated index (public-apis repo): recognised consumer services. */
+const IMPORTED_IDS = publicApiIds;
+
+/** Publisher familiarity for everything outside the curated lists. */
 const BRANDS = [
   "googleapis.com",
   "microsoft.com",
@@ -251,6 +255,11 @@ const DEMOTED = [
 export const TOP_SECTION = 500;
 
 const TOP_INDEX = new Map(TOP_IDS.map((id, index) => [id, index]));
+const IMPORTED_INDEX = new Map<string, number>();
+IMPORTED_IDS.forEach((id, index) => {
+  const k = id.replace(/^dir:/, "").toLowerCase();
+  if (!IMPORTED_INDEX.has(k)) IMPORTED_INDEX.set(k, index);
+});
 
 function key(id: string): string {
   return id.replace(/^dir:/, "").toLowerCase();
@@ -292,9 +301,12 @@ export function scoreOf(id: string): number {
   const k = key(id);
   const top = TOP_INDEX.get(k);
   if (top !== undefined) return top;
+  const imported = IMPORTED_INDEX.get(k);
+  if (imported !== undefined) return TOP_IDS.length + imported;
   const demoted = DEMOTED.some((bad) => k.includes(bad)) ? 100_000 : 0;
   const duplicate = isDuplicateFlavour(k) ? 50_000 : 0;
-  return TOP_IDS.length + brandRank(k) * 100 + duplicate + demoted;
+  const base = TOP_IDS.length + IMPORTED_IDS.length;
+  return base + brandRank(k) * 100 + duplicate + demoted;
 }
 
 /**
@@ -328,7 +340,7 @@ export function rankEntries<T extends { id: string; name: string }>(entries: T[]
   for (const entry of unique) {
     const provider = providerOf(entry.id);
     const used = perProvider.get(provider) ?? 0;
-    const curated = TOP_INDEX.has(key(entry.id));
+    const curated = TOP_INDEX.has(key(entry.id)) || IMPORTED_INDEX.has(key(entry.id));
     if (top.length < TOP_SECTION && (curated || used < cap)) {
       perProvider.set(provider, used + 1);
       top.push(entry);

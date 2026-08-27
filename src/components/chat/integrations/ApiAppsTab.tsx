@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { API_APPS } from "@/lib/apiApps/catalog";
 import { fetchDirectory, loadDirectoryApp, type DirectoryEntry } from "@/lib/apiApps/directory";
 import { rankEntries, TOP_SECTION } from "@/lib/apiApps/ranked";
+import { displayDescription, displayName } from "@/lib/apiApps/display";
 import { listApiApps } from "@/lib/apiApps/client";
 import type { ApiApp } from "@/lib/apiApps/types";
 import ApiAppLogo from "./ApiAppLogo";
@@ -80,12 +81,21 @@ export default function ApiAppsTab({
     }));
     const directory: Row[] = rankEntries(entries).map((entry) => ({
       id: entry.id,
-      name: entry.name,
-      description: entry.description,
+      name: displayName(entry.id, entry.name),
+      description: displayDescription(entry.id, entry.description),
       logo: entry.logo,
       entry,
     }));
-    return [...curated, ...directory];
+    // One row per recognisable name, curated apps winning ties.
+    const unique: Row[] = [];
+    const names = new Set<string>();
+    for (const row of [...curated, ...directory]) {
+      const name = row.name.trim().toLowerCase();
+      if (names.has(name)) continue;
+      names.add(name);
+      unique.push(row);
+    }
+    return unique;
   }, [entries]);
 
   const list = useMemo(() => {
