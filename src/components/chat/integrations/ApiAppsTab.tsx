@@ -72,13 +72,6 @@ export default function ApiAppsTab({
   }, [reloadKey]);
 
   const rows = useMemo<Row[]>(() => {
-    const curated: Row[] = API_APPS.map((app) => ({
-      id: app.id,
-      name: app.name,
-      description: app.description,
-      logo: app.logo,
-      app,
-    }));
     const directory: Row[] = rankEntries(entries).map((entry) => ({
       id: entry.id,
       name: displayName(entry.id, entry.name),
@@ -86,10 +79,10 @@ export default function ApiAppsTab({
       logo: entry.logo,
       entry,
     }));
-    // One row per recognisable name, curated apps winning ties.
+    // One row per recognisable name.
     const unique: Row[] = [];
     const names = new Set<string>();
-    for (const row of [...curated, ...directory]) {
+    for (const row of directory) {
       const name = row.name.trim().toLowerCase();
       if (names.has(name)) continue;
       names.add(name);
