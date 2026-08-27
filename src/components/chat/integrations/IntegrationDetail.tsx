@@ -23,10 +23,53 @@ interface Props {
   children?: ReactNode;
 }
 
+export interface IntegrationSettings {
+  enabledInChat: boolean;
+  confirmBeforeRun: boolean;
+}
+
+const DEFAULT_SETTINGS: IntegrationSettings = { enabledInChat: true, confirmBeforeRun: false };
+
+const settingsKey = (app: string) => `integration:settings:${app}`;
+
+export function readIntegrationSettings(app: string): IntegrationSettings {
+  if (typeof window === "undefined") return DEFAULT_SETTINGS;
+  try {
+    const raw = window.localStorage.getItem(settingsKey(app));
+    if (!raw) return DEFAULT_SETTINGS;
+    return { ...DEFAULT_SETTINGS, ...(JSON.parse(raw) as Partial<IntegrationSettings>) };
+  } catch {
+    return DEFAULT_SETTINGS;
+  }
+}
+
 /** Level 2 — connector detail. Scrolling is owned by the sheet container. */
 export default function IntegrationDetail({ item, connected, busy, onBack, onToggle, children }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [confirmDisconnect, setConfirmDisconnect] = useState(false);
+  const [settings, setSettings] = useState<IntegrationSettings>(DEFAULT_SETTINGS);
   const menuRef = useRef<HTMLDivElement>(null);
+  const settingsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setSettings(readIntegrationSettings(item.app));
+    setShowSettings(false);
+    setConfirmDisconnect(false);
+  }, [item.app]);
+
+  const patchSettings = (patch: Partial<IntegrationSettings>) => {
+    setSettings((prev) => {
+      const next = { ...prev, ...patch };
+      try {
+        window.localStorage.setItem(settingsKey(item.app), JSON.stringify(next));
+        window.dispatchEvent(new CustomEvent("integration-settings-changed", { detail: { app: item.app, settings: next } }));
+      } catch {
+        /* storage unavailable */
+      }
+      return next;
+    });
+  };
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -36,6 +79,10 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
     document.addEventListener("mousedown", onDown);
     return () => document.removeEventListener("mousedown", onDown);
   }, [menuOpen]);
+
+  useEffect(() => {
+    if (showSettings) settingsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [showSettings]);
 
   const site = item.domain ? `https://${item.domain}` : undefined;
 
@@ -69,7 +116,7 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
                 type="button"
                 onClick={() => {
                   setMenuOpen(false);
-                  if (site) window.open(site, "_blank", "noopener");
+                  setShowSettings(true);
                 }}
                 className="flex w-full items-center justify-between gap-2 rounded-[13px] bg-transparent px-3 py-2.5 text-[14px] text-foreground"
                 style={{ border: 0 }}
@@ -79,10 +126,10 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
               </button>
               <button
                 type="button"
-                disabled={!connected}
+                disabled={!connected || busy}
                 onClick={() => {
                   setMenuOpen(false);
-                  onToggle();
+                  setConfirmDisconnect(true);
                 }}
                 className="flex w-full items-center justify-between gap-2 rounded-[13px] bg-transparent px-3 py-2.5 text-[14px] text-destructive disabled:opacity-40"
                 style={{ border: 0 }}
@@ -94,6 +141,7 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
           )}
         </div>
       </div>
+
 
       {/* Identity — logo, name, one honest line, live status */}
       <div dir="ltr" className="flex flex-col items-center pt-3 text-center">
@@ -150,7 +198,74 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
         )}
       </div>
 
+      {confirmDisconnect && (
+        <div dir="ltr" className="mt-4 rounded-[20px] bg-destructive/10 p-4 ring-1 ring-destructive/25">
+          <p className="text-[13.5px] font-medium text-foreground">Disconnect {item.name}?</p>
+          <p className="mt-1 text-[12.5px] leading-[1.6] text-foreground/50">
+            Its actions stop being available in chat until you connect again.
+          </p>
+          <div className="mt-3 flex gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                setConfirmDisconnect(false);
+                onToggle();
+              }}
+              disabled={busy}
+              className="inline-flex h-10 flex-1 items-center justify-center rounded-[13px] bg-destructive text-[13.5px] font-semibold text-destructive-foreground disabled:opacity-60"
+              style={{ border: 0 }}
+            >
+              {busy ? <Loader2 className="h-[16px] w-[16px] animate-spin" /> : "Disconnect"}
+            </button>
+            <button
+              type="button"
+              onClick={() => setConfirmDisconnect(false)}
+              className="inline-flex h-10 flex-1 items-center justify-center rounded-[13px] bg-foreground/[0.07] text-[13.5px] font-semibold text-foreground"
+              style={{ border: 0 }}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
+      {showSettings && (
+        <div
+          dir="ltr"
+          ref={settingsRef}
+          className="mt-5 overflow-hidden rounded-[20px] bg-card/60 ring-1 ring-foreground/[0.05]"
+        >
+          <div className="flex items-center justify-between px-4 pb-2 pt-3.5">
+            <span className="text-[12px] font-medium uppercase tracking-wider text-foreground/40">
+              Settings
+            </span>
+            <button
+              type="button"
+              onClick={() => setShowSettings(false)}
+              className="bg-transparent text-[12.5px] text-foreground/50"
+              style={{ border: 0 }}
+            >
+              Done
+            </button>
+          </div>
+          <SettingRow
+            label="Enabled in chat"
+            hint={`Let the assistant use ${item.name} actions.`}
+            checked={settings.enabledInChat}
+            onChange={(v) => patchSettings({ enabledInChat: v })}
+          />
+          <SettingRow
+            label="Ask before running"
+            hint="Require your confirmation before each action."
+            checked={settings.confirmBeforeRun}
+            onChange={(v) => patchSettings({ confirmBeforeRun: v })}
+            last
+          />
+        </div>
+      )}
+
       {children}
+
 
       {/* Resources — quiet, icon-led, no label/value table */}
       <div className="mt-7 overflow-hidden rounded-[20px] bg-card/60 ring-1 ring-foreground/[0.05]">
@@ -214,5 +329,48 @@ function ResourceRow({
       <span className="flex-1 text-[14px] text-foreground/85">{label}</span>
       <ArrowUpRight className="h-[16px] w-[16px] shrink-0 text-foreground/30" />
     </button>
+  );
+}
+
+function SettingRow({
+  label,
+  hint,
+  checked,
+  onChange,
+  last,
+}: {
+  label: string;
+  hint: string;
+  checked: boolean;
+  onChange: (v: boolean) => void;
+  last?: boolean;
+}) {
+  return (
+    <div
+      className="flex items-center gap-3 px-4 py-3.5"
+      style={last ? undefined : { boxShadow: "inset 0 -1px 0 hsl(var(--foreground) / 0.05)" }}
+    >
+      <div className="min-w-0 flex-1">
+        <p className="text-[14px] text-foreground">{label}</p>
+        <p className="mt-0.5 text-[12px] leading-[1.5] text-foreground/40">{hint}</p>
+      </div>
+      <button
+        type="button"
+        role="switch"
+        aria-checked={checked}
+        aria-label={label}
+        onClick={() => onChange(!checked)}
+        className={`relative h-[26px] w-[44px] shrink-0 rounded-full transition-colors ${
+          checked ? "bg-primary" : "bg-foreground/15"
+        }`}
+        style={{ border: 0 }}
+      >
+        <span
+          className={`absolute top-[3px] h-[20px] w-[20px] rounded-full transition-all ${
+            checked ? "left-[21px] bg-primary-foreground" : "left-[3px] bg-foreground/70"
+          }`}
+        />
+      </button>
+    </div>
   );
 }
