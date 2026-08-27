@@ -587,4 +587,11 @@ export const API_APPS: ApiApp[] = [
   },
 ];
 
-export const findApiApp = (id: string) => API_APPS.find((a) => a.id === id);
+import { MANUS_APPS } from "./manus";
+import { NANGO_APPS } from "./nango.generated";
+
+/** Any connectable app: curated catalog, the Manus line-up, or the wider registry. */
+export const findApiApp = (id: string) =>
+  API_APPS.find((a) => a.id === id) ??
+  MANUS_APPS.find((a) => a.id === id) ??
+  NANGO_APPS.find((a) => a.id === id);

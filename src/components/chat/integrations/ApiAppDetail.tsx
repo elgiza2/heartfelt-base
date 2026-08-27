@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 import { ArrowUpLeft, ChevronRight, Loader2, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import type { ApiApp } from "@/lib/apiApps/types";
-import { listApiApps, removeApiApp, saveApiAppKey, setApiAppEnabled } from "@/lib/apiApps/client";
+import {
+  listApiApps,
+  removeApiApp,
+  saveApiAppCredentials,
+  setApiAppEnabled,
+} from "@/lib/apiApps/client";
 import ApiAppLogo from "./ApiAppLogo";
 import ToolsList from "./ToolsList";
 
@@ -20,7 +25,12 @@ export default function ApiAppDetail({
 }) {
   const [hint, setHint] = useState<string | null>(null);
   const [enabled, setEnabled] = useState(true);
-  const [value, setValue] = useState("");
+  const fields =
+    app.credentials && app.credentials.length > 0
+      ? app.credentials
+      : [{ name: "apiKey", label: "API key", secret: true }];
+  const [values, setValues] = useState<Record<string, string>>({});
+  const complete = fields.every((field) => (values[field.name] ?? "").trim().length > 0);
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -43,18 +53,17 @@ export default function ApiAppDetail({
   const save = async () => {
     setSaving(true);
     try {
-      await saveApiAppKey(
-        app.id,
-        value,
-        app.id.startsWith("dir:")
-          ? {
-              name: app.name,
-              logo: app.logo,
-              spec: { baseUrl: app.baseUrl, auth: app.auth, tools: app.tools },
-            }
-          : undefined,
-      );
-      setValue("");
+      await saveApiAppCredentials(app.id, values, {
+        name: app.name,
+        logo: app.logo,
+        spec: {
+          baseUrl: app.baseUrl,
+          auth: app.auth ?? null,
+          authTemplate: app.authTemplate ?? null,
+          tools: app.tools,
+        },
+      });
+      setValues({});
       await load();
       onChanged?.();
       toast.success(`${app.name} is ready`);
@@ -160,27 +169,40 @@ export default function ApiAppDetail({
             <span className="text-[13.5px] text-foreground/70">Get your API key</span>
             <ArrowUpLeft className="h-[18px] w-[18px] text-foreground/40" />
           </button>
-          <div className="flex items-center gap-2 px-2">
-            <input
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              placeholder="Paste your API key"
-              autoComplete="off"
-              spellCheck={false}
-              className="h-11 w-full flex-1 text-[14px] text-foreground outline-none placeholder:text-foreground/35"
-              style={{
-                border: 0,
-                background: "transparent",
-                boxShadow: "none",
-                borderRadius: 0,
-                padding: 0,
-              }}
-            />
+          <div className="flex flex-col gap-1 px-2">
+            {fields.map((field) => (
+              <label key={field.name} className="flex flex-col gap-0.5 py-1.5">
+                <span className="text-[11.5px] font-medium text-foreground/45">{field.label}</span>
+                <input
+                  value={values[field.name] ?? ""}
+                  onChange={(e) =>
+                    setValues((current) => ({ ...current, [field.name]: e.target.value }))
+                  }
+                  type={field.secret ? "password" : "text"}
+                  placeholder={field.example || field.label}
+                  autoComplete="off"
+                  spellCheck={false}
+                  className="h-9 w-full text-[14px] text-foreground outline-none placeholder:text-foreground/30"
+                  style={{
+                    border: 0,
+                    background: "transparent",
+                    boxShadow: "none",
+                    borderRadius: 0,
+                    padding: 0,
+                  }}
+                />
+                {field.description && (
+                  <span className="text-[11px] leading-[1.5] text-foreground/35">
+                    {field.description}
+                  </span>
+                )}
+              </label>
+            ))}
             <button
               type="button"
-              disabled={saving || value.trim().length < 6}
+              disabled={saving || !complete}
               onClick={() => void save()}
-              className="inline-flex h-9 shrink-0 items-center justify-center rounded-[12px] bg-foreground px-4 text-[13.5px] font-semibold text-background disabled:opacity-40"
+              className="mt-2 inline-flex h-10 items-center justify-center rounded-[12px] bg-foreground px-4 text-[13.5px] font-semibold text-background disabled:opacity-40"
               style={{ border: 0 }}
             >
               {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : "Save"}
