@@ -5,7 +5,7 @@
  *  the user pastes a key the endpoints are callable from chat.
  */
 import { useEffect, useMemo, useState } from "react";
-import { Check, ChevronRight } from "lucide-react";
+import { Check, ChevronRight, MessageSquarePlus } from "lucide-react";
 import { MANUS_APPS } from "@/lib/apiApps/manus";
 import { NANGO_APPS } from "@/lib/apiApps/nango.generated";
 import { listApiApps } from "@/lib/apiApps/client";
@@ -89,6 +89,17 @@ export default function ApiAppsTab({
 
   return (
     <div dir="ltr" className="pb-3">
+      {onCreateFromChat && !query.trim() ? (
+        <button
+          type="button"
+          onClick={onCreateFromChat}
+          className="mb-2 flex h-11 w-full items-center gap-2 rounded-[14px] bg-foreground/[0.05] px-3.5 text-[14px] text-foreground"
+          style={{ border: 0 }}
+        >
+          <MessageSquarePlus className="h-4 w-4" />
+          Create from chat
+        </button>
+      ) : null}
       <div className="pt-1" />
 
       {visible.map((row) => {
