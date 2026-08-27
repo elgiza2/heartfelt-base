@@ -138,10 +138,11 @@ export function displayName(id: string, rawTitle: string): string {
 
   // "Twilio - Api" / "Azure ... " → brand + the service part of the id.
   const dashed = title.replace(new RegExp(`^${brand}\\s*[-–:]\\s*`, "i"), "").trim();
-  const label = dashed && dashed.toLowerCase() !== brand.toLowerCase()
-    ? dashed
-    : titleCase(service);
-  const cleaned = titleCase(label || service);
+  // Keep a real title as written; only rebuild from the id when there is none.
+  const cleaned =
+    dashed && dashed.toLowerCase() !== brand.toLowerCase()
+      ? dashed
+      : titleCase(service);
 
   return polish(
     cleaned.toLowerCase().startsWith(brand.toLowerCase()) ? cleaned : `${brand} ${cleaned}`,
