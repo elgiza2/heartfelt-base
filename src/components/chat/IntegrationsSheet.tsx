@@ -13,8 +13,7 @@ import {
 import IntegrationRow from "./integrations/IntegrationRow";
 import IntegrationDetail from "./integrations/IntegrationDetail";
 import EmptyConnectors from "./integrations/EmptyConnectors";
-import CustomApiKeys from "./integrations/CustomApiKeys";
-import CustomMcpList from "./integrations/CustomMcpList";
+import McpTab from "./integrations/McpTab";
 import AgentTools from "./integrations/AgentTools";
 import AppActionsPanel from "./integrations/AppActionsPanel";
 import ApiAppsTab from "./integrations/ApiAppsTab";
@@ -32,12 +31,12 @@ interface Props {
   onOpenChange: (open: boolean) => void;
 }
 
-type Tab = "tools" | "apis" | "custom";
+type Tab = "tools" | "apis" | "mcp";
 
 const TABS: { id: Tab; label: string }[] = [
   { id: "tools", label: "Tools" },
   { id: "apis", label: "APIs" },
-  { id: "custom", label: "Custom" },
+  { id: "mcp", label: "MCP" },
 ];
 
 
@@ -251,13 +250,8 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
                             reloadKey={apiReload}
                             onOpen={(app) => setApiDetail(app)}
                           />
-                        ) : tab === "custom" ? (
-                          <div className="pb-2">
-                            <p className="px-2 pb-1 pt-2 text-[12px] text-foreground/40">API keys</p>
-                            <CustomApiKeys />
-                            <p className="px-2 pb-1 pt-5 text-[12px] text-foreground/40">MCP servers</p>
-                            <CustomMcpList onNavigate={() => onOpenChange(false)} />
-                          </div>
+                        ) : tab === "mcp" ? (
+                          <McpTab query={query} />
                         ) : list.length === 0 ? (
                           <EmptyConnectors label="No results" />
                         ) : (
