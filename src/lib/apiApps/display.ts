@@ -111,6 +111,16 @@ const WORD_FIXES: [RegExp, string][] = [
   [/\s*Management Client$/i, ""],
   [/\s*Client$/i, ""],
   [/\s+API API/g, " API"],
+  [/([a-z])([A-Z])/g, "$1 $2"],
+  [/\s*Management$/i, ""],
+  [/^AWS Amazon\s+/, "AWS "],
+  [/^Twilio Api$/, "Twilio"],
+  [/^Sendgrid$/, "SendGrid"],
+  [/^Docker HUB API$/, "Docker Hub"],
+  [/^GitHub v3$/, "GitHub"],
+  [/^JIRA$/, "Jira"],
+  [/^DigitalOcean Status$/, "DigitalOcean"],
+  [/^Telegram MTProto$/, "Telegram"],
 ];
 
 function polish(name: string): string {
