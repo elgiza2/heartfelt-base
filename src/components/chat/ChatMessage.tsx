@@ -35,6 +35,7 @@ import ThinkingLoader from "./ThinkingLoader";
 import ParallelAgentsPanel, { type ParallelAgentTask } from "./ParallelAgentsPanel";
 import { detectLang, langDir } from "@/lib/detectLang";
 import { parseLearnSegments, hasLearnCards } from "@/lib/learnCardParser";
+import { parseConnectSegments, hasConnectCards } from "@/lib/chat/connectCardParser";
 import { useSmoothText } from "@/hooks/useSmoothText";
 
 // Heavy / conditionally-rendered components — lazy load
@@ -46,6 +47,7 @@ const CoderStudioModal = lazy(() => import("@/components/coder/CoderStudioModal"
 const CoderProjectCard = lazy(() => import("@/components/coder/CoderProjectCard"));
 const DeepResearchCard = lazy(() => import("@/components/chat/DeepResearchCard"));
 const LearnCard = lazy(() => import("@/components/learn/LearnCard"));
+const ConnectCard = lazy(() => import("@/components/chat/ConnectCard"));
 
 // Per-card error boundary so a single malformed/edge-case card never
 // takes down the entire learn message. Silent by design — a broken card
@@ -989,6 +991,7 @@ const ChatMessage = ({
   const displayContent = useSmoothText(rawDisplayContent, role === "assistant" && !!isStreaming);
   const learnRenderContent = role === "assistant" ? rawDisplayContent : displayContent;
   const hasLearnCardContent = role === "assistant" && hasLearnCards(learnRenderContent);
+  const hasConnectCardContent = role === "assistant" && hasConnectCards(learnRenderContent);
 
   const structuredBlocks = useMemo(() => {
     if (role === "user" || isStreaming) return null;
@@ -1462,7 +1465,32 @@ const ChatMessage = ({
             ))}
           </div>
         )}
-        {hasLearnCardContent ? (
+        {hasConnectCardContent ? (
+          <div className="space-y-2">
+            <Suspense fallback={null}>
+              {parseConnectSegments(learnRenderContent).map((seg, idx) => {
+                if (seg.type === "connect") return <ConnectCard key={idx} spec={seg.spec} />;
+                const txt = seg.text.trim();
+                if (!txt) return null;
+                const bl = detectLang(txt);
+                return (
+                  <div
+                    key={idx}
+                    dir={langDir(bl)}
+                    lang={bl === "ar" ? "ar" : bl === "en" ? "en" : undefined}
+                    className={`prose-chat text-foreground lang-${bl}`}
+                  >
+                    <MarkdownRenderer
+                      content={txt}
+                      onLinkClick={handleLinkClick}
+                      onPreviewCode={handlePreviewCode}
+                    />
+                  </div>
+                );
+              })}
+            </Suspense>
+          </div>
+        ) : hasLearnCardContent ? (
           <div className="space-y-3">
             <Suspense fallback={null}>
               {parseLearnSegments(learnRenderContent).map((seg, idx) => {
