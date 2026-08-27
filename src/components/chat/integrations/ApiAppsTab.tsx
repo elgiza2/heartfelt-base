@@ -1,16 +1,12 @@
-/** The APIs tab: real REST services you connect with your own API key.
+/** The APIs tab: the Manus connector line-up, connected with your own API key.
  *
- *  Every row is backed by a published OpenAPI description (curated apps first,
- *  then the live APIs.guru directory), so opening one reads its real base URL,
- *  auth scheme and endpoints. The moment the user pastes their key the endpoints
- *  become callable from chat — nothing here is a placeholder entry.
+ *  Rows come from `manus.ts` — the same apps Manus ships as connectors — each
+ *  wired to its real REST base URL, auth header and endpoints, so the moment
+ *  the user pastes a key the endpoints are callable from chat.
  */
 import { useEffect, useMemo, useState } from "react";
-import { Check, ChevronLeft, Loader2 } from "lucide-react";
-import { toast } from "sonner";
-import { fetchDirectory, loadDirectoryApp, type DirectoryEntry } from "@/lib/apiApps/directory";
-import { rankEntries, TOP_SECTION } from "@/lib/apiApps/ranked";
-import { displayDescription, displayName } from "@/lib/apiApps/display";
+import { Check, ChevronLeft } from "lucide-react";
+import { MANUS_APPS } from "@/lib/apiApps/manus";
 import { listApiApps } from "@/lib/apiApps/client";
 import type { ApiApp } from "@/lib/apiApps/types";
 import ApiAppLogo from "./ApiAppLogo";
@@ -22,7 +18,6 @@ type Row = {
   name: string;
   description: string;
   logo: string;
-  entry?: DirectoryEntry;
   app?: ApiApp;
 };
 
@@ -37,23 +32,6 @@ export default function ApiAppsTab({
 }) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [saved, setSaved] = useState<Record<string, boolean>>({});
-  const [entries, setEntries] = useState<DirectoryEntry[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [opening, setOpening] = useState<string | null>(null);
-
-  useEffect(() => {
-    let alive = true;
-    void fetchDirectory()
-      .then((list) => {
-        if (alive) setEntries(list);
-      })
-      .finally(() => {
-        if (alive) setLoading(false);
-      });
-    return () => {
-      alive = false;
-    };
-  }, []);
 
   useEffect(() => {
     let alive = true;
@@ -70,25 +48,17 @@ export default function ApiAppsTab({
     };
   }, [reloadKey]);
 
-  const rows = useMemo<Row[]>(() => {
-    const directory: Row[] = rankEntries(entries).map((entry) => ({
-      id: entry.id,
-      name: displayName(entry.id, entry.name),
-      description: displayDescription(entry.id, entry.description),
-      logo: entry.logo,
-      entry,
-    }));
-    // One row per recognisable name.
-    const unique: Row[] = [];
-    const names = new Set<string>();
-    for (const row of directory) {
-      const name = row.name.trim().toLowerCase();
-      if (names.has(name)) continue;
-      names.add(name);
-      unique.push(row);
-    }
-    return unique;
-  }, [entries]);
+  const rows = useMemo<Row[]>(
+    () =>
+      MANUS_APPS.map((app) => ({
+        id: app.id,
+        name: app.name,
+        description: app.description,
+        logo: app.logo,
+        app,
+      })),
+    [],
+  );
 
   const list = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -107,20 +77,8 @@ export default function ApiAppsTab({
 
   useEffect(() => setVisibleCount(PAGE_SIZE), [query]);
 
-  const open = async (row: Row) => {
-    if (row.app) {
-      onOpen(row.app);
-      return;
-    }
-    if (!row.entry) return;
-    setOpening(row.id);
-    try {
-      onOpen(await loadDirectoryApp(row.entry));
-    } catch (e: any) {
-      toast.error(e?.message || "Could not read this service");
-    } finally {
-      setOpening(null);
-    }
+  const open = (row: Row) => {
+    if (row.app) onOpen(row.app);
   };
 
   const visible = list.slice(0, visibleCount);
@@ -129,23 +87,16 @@ export default function ApiAppsTab({
     <div dir="ltr" className="pb-3">
       <div className="flex items-center justify-between px-2 pb-2 pt-2 text-[12px] text-foreground/40">
         <span>Paste your API key and it works right away</span>
-        <span>{loading ? "Loading…" : `${list.length.toLocaleString()} APIs`}</span>
+        <span>{`${list.length} apps`}</span>
       </div>
 
-      {visible.map((row, index) => {
+      {visible.map((row) => {
         const hasKey = Boolean(saved[row.id]);
-        const divider = !query.trim() && index === TOP_SECTION;
         return (
           <div key={row.id}>
-          {divider && (
-            <p key="divider" className="px-2 pb-1 pt-4 text-[12px] text-foreground/35">
-              More APIs
-            </p>
-          )}
           <button
-
             type="button"
-            onClick={() => void open(row)}
+            onClick={() => open(row)}
             data-api-integration={row.id}
             className="flex w-full items-center gap-3 px-2 py-2.5 text-left transition-opacity active:opacity-60"
             style={{ border: 0, background: "transparent", minHeight: 58 }}
@@ -159,9 +110,7 @@ export default function ApiAppsTab({
                 {hasKey ? "API key saved" : row.description}
               </span>
             </span>
-            {opening === row.id ? (
-              <Loader2 className="h-[18px] w-[18px] shrink-0 animate-spin text-foreground/45" />
-            ) : hasKey ? (
+            {hasKey ? (
               <Check className="h-[18px] w-[18px] shrink-0 text-primary" />
             ) : (
               <ChevronLeft className="h-[18px] w-[18px] shrink-0 text-foreground/35" />
@@ -182,7 +131,7 @@ export default function ApiAppsTab({
         </button>
       )}
 
-      {!loading && list.length === 0 && (
+      {list.length === 0 && (
         <p className="py-8 text-center text-[13px] text-foreground/40">No results</p>
       )}
     </div>
