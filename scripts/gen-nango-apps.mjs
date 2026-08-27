@@ -82,6 +82,9 @@ const title = (name) =>
     .map((part) => (part.length <= 3 ? part.toUpperCase() : part[0].toUpperCase() + part.slice(1)))
     .join(" ");
 
+/** `${connectionConfig.subdomain}` → `${subdomain}` so one lookup fills them all. */
+const plain = (value) => String(value).replace(/\$\{[\w.]*?([\w]+)\}/g, "${$1}");
+
 const templates = (value) => Array.from(String(value).matchAll(/\$\{([\w.]+)\}/g), (m) => m[1]);
 
 const res = await fetch(SOURCE);
@@ -93,7 +96,7 @@ for (const [id, provider] of Object.entries(providers)) {
   if (!provider || typeof provider !== "object") continue;
   if (!MODES.has(provider.auth_mode)) continue;
   const baseUrl = provider.proxy?.base_url;
-  if (!baseUrl || baseUrl.includes("${")) continue; // needs a per-tenant subdomain
+  if (!baseUrl) continue;
 
   const creds = provider.credentials ?? {};
   const fields = Object.entries(creds)
@@ -116,18 +119,32 @@ for (const [id, provider] of Object.entries(providers)) {
     fields.push({ name: "apiKey", label: "API key", description: "", example: "", secret: true });
   }
 
+  // Some services live on a per-customer host: ask for that part of the URL too.
+  const hostVars = templates(baseUrl).map((v) => v.split(".").pop());
+  for (const name of hostVars) {
+    if (fields.some((f) => f.name === name)) continue;
+    const spec = provider.connection_config?.[name] ?? {};
+    fields.unshift({
+      name,
+      label: spec.title || title(name),
+      description: (spec.description || "").replace(/\s+/g, " ").trim(),
+      example: typeof spec.example === "string" ? spec.example : "",
+      secret: false,
+    });
+  }
+
   // How the credential travels on every request, straight from Nango's proxy config.
   const headers = {};
   for (const [name, value] of Object.entries(provider.proxy?.headers ?? {})) {
     if (typeof value !== "string") continue;
-    const needed = templates(value);
-    if (needed.some((n) => !fields.some((f) => f.name === n.split(".").pop()))) continue;
-    headers[name] = value;
+    const needed = templates(value).map((n) => n.split(".").pop());
+    if (needed.some((n) => !fields.some((f) => f.name === n))) continue;
+    headers[name] = plain(value);
   }
   const params = {};
   for (const [name, value] of Object.entries(provider.proxy?.query_params ?? {})) {
     if (typeof value !== "string") continue;
-    params[name] = value;
+    params[name] = plain(value);
   }
 
   const cats = provider.categories ?? [];
@@ -141,7 +158,7 @@ for (const [id, provider] of Object.entries(providers)) {
     description: label ? `${label} API — connect with your own credentials` : "Connect with your own API credentials",
     docsUrl: provider.docs_connect || provider.docs || "https://www.nango.dev/integrations",
     keyUrl: provider.setup_guide_url || provider.docs_connect || provider.docs || "",
-    baseUrl: baseUrl.replace(/\/$/, ""),
+    baseUrl: plain(baseUrl).replace(/\/$/, ""),
     logo: `https://app.nango.dev/images/template-logos/${id}.svg`,
     credentials: fields,
     authTemplate: {
