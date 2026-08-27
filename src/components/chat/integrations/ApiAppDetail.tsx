@@ -1,6 +1,11 @@
-/** @doc Detail view of one ready-made API app: key setup + its tools list. */
+/** @doc Detail view of one ready-made API app: credentials setup + its tools.
+ *
+ *  Layout is a single column of quiet cards — identity, connection, actions —
+ *  so a service with five named credential fields reads as calmly as one with
+ *  a single key. All colours come from the design tokens.
+ */
 import { useEffect, useState } from "react";
-import { ArrowUpLeft, ChevronRight, Loader2, Trash2 } from "lucide-react";
+import { ArrowUpRight, Check, ChevronLeft, ChevronRight, Loader2, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import type { ApiApp } from "@/lib/apiApps/types";
 import {
@@ -10,7 +15,9 @@ import {
   setApiAppEnabled,
 } from "@/lib/apiApps/client";
 import ApiAppLogo from "./ApiAppLogo";
-import ToolsList from "./ToolsList";
+
+const CARD =
+  "rounded-[18px] bg-foreground/[0.035] px-4 py-4 ring-1 ring-inset ring-foreground/[0.06]";
 
 export default function ApiAppDetail({
   app,
@@ -28,7 +35,7 @@ export default function ApiAppDetail({
   const fields =
     app.credentials && app.credentials.length > 0
       ? app.credentials
-      : [{ name: "apiKey", label: "API key", secret: true }];
+      : [{ name: "apiKey", label: "API key", secret: true, description: "", example: "" }];
   const [values, setValues] = useState<Record<string, string>>({});
   const complete = fields.every((field) => (values[field.name] ?? "").trim().length > 0);
   const [saving, setSaving] = useState(false);
@@ -69,7 +76,7 @@ export default function ApiAppDetail({
       onChanged?.();
       toast.success(`${app.name} is ready`);
     } catch (e: any) {
-      toast.error(e?.message || "Could not save the key");
+      toast.error(e?.message || "Could not save the credentials");
     } finally {
       setSaving(false);
     }
@@ -98,82 +105,113 @@ export default function ApiAppDetail({
   };
 
   return (
-    <div className="flex min-h-full flex-col">
-      <div className="relative flex shrink-0 items-center justify-between pb-1">
+    <div dir="ltr" className="flex min-h-full flex-col pb-4">
+      {/* Header */}
+      <div className="sticky top-0 z-10 -mx-1 flex shrink-0 items-center gap-2 bg-background/80 px-1 pb-2 backdrop-blur">
         <button
           type="button"
           onClick={onBack}
           aria-label="Back"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-transparent text-foreground/70"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-foreground/[0.06] text-foreground/70 transition-opacity active:opacity-60"
           style={{ border: 0 }}
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronLeft className="h-[18px] w-[18px]" />
         </button>
-        <span className="text-[15px] font-semibold text-foreground">{app.name}</span>
-        <span className="h-8 w-8" />
+        <span className="flex-1 truncate text-[14px] font-medium text-foreground/70">
+          {app.name}
+        </span>
+        {hint && (
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/12 px-2.5 py-1 text-[11px] font-medium text-primary">
+            <Check className="h-3 w-3" />
+            Connected
+          </span>
+        )}
       </div>
 
-      <div className="flex flex-col items-center pt-4 text-center">
-        <ApiAppLogo app={app} size={72} />
-        <h3 className="mt-3 text-[19px] font-semibold text-foreground">{app.name}</h3>
-        <p dir="ltr" className="mt-2 max-w-[34ch] text-[13px] leading-[1.7] text-foreground/50">
-          {app.description}
-        </p>
+      {/* Identity */}
+      <div className="flex items-center gap-3.5 px-1 pt-3">
+        <ApiAppLogo app={app} size={56} />
+        <div className="min-w-0 flex-1">
+          <h3 className="truncate text-[18px] font-semibold leading-tight text-foreground">
+            {app.name}
+          </h3>
+          <p className="mt-1 text-[12.5px] leading-[1.5] text-foreground/45">{app.description}</p>
+        </div>
       </div>
 
       {loading ? (
-        <div className="flex items-center justify-center py-8 text-foreground/40">
+        <div className="flex items-center justify-center py-10 text-foreground/40">
           <Loader2 className="h-4 w-4 animate-spin" />
         </div>
       ) : hint ? (
-        <div dir="ltr" className="mt-5">
-          <div className="flex items-center justify-between gap-2 px-2 py-3">
-            <span className="truncate text-[13.5px] text-foreground/70">Key {hint}</span>
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                role="switch"
-                aria-checked={enabled}
-                aria-label={`Use ${app.name} in chat`}
-                onClick={() => void toggle()}
-                className={`relative h-6 w-10 shrink-0 rounded-full transition-colors ${
-                  enabled ? "bg-primary" : "bg-foreground/15"
-                }`}
-                style={{ border: 0 }}
-              >
-                <span
-                  className={`absolute top-0.5 h-5 w-5 rounded-full bg-background transition-all ${
-                    enabled ? "start-[18px]" : "start-0.5"
-                  }`}
-                />
-              </button>
-              <button
-                type="button"
-                onClick={() => void remove()}
-                aria-label="Remove key"
-                className="text-destructive"
-                style={{ border: 0, background: "transparent" }}
-              >
-                <Trash2 className="h-[18px] w-[18px]" />
-              </button>
+        <div className={`mt-4 ${CARD}`}>
+          <div className="flex items-center justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-[13px] font-medium text-foreground">Credentials saved</p>
+              <p className="mt-0.5 truncate text-[12px] text-foreground/40">{hint}</p>
             </div>
+            <button
+              type="button"
+              onClick={() => void remove()}
+              aria-label="Remove credentials"
+              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-destructive/10 text-destructive transition-opacity active:opacity-60"
+              style={{ border: 0 }}
+            >
+              <Trash2 className="h-[16px] w-[16px]" />
+            </button>
+          </div>
+
+          <div className="mt-3 flex items-center justify-between gap-3 border-t border-foreground/[0.06] pt-3">
+            <span className="text-[12.5px] text-foreground/55">Use in chat</span>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={enabled}
+              aria-label={`Use ${app.name} in chat`}
+              onClick={() => void toggle()}
+              className={`relative h-6 w-10 shrink-0 rounded-full transition-colors ${
+                enabled ? "bg-primary" : "bg-foreground/15"
+              }`}
+              style={{ border: 0 }}
+            >
+              <span
+                className={`absolute top-0.5 h-5 w-5 rounded-full bg-background transition-all ${
+                  enabled ? "start-[18px]" : "start-0.5"
+                }`}
+              />
+            </button>
           </div>
         </div>
       ) : (
-        <div dir="ltr" className="mt-5">
-          <button
-            type="button"
-            onClick={() => window.open(app.keyUrl, "_blank", "noopener")}
-            className="flex w-full items-center justify-between bg-transparent px-2 py-3 text-left"
-            style={{ border: 0 }}
-          >
-            <span className="text-[13.5px] text-foreground/70">Get your API key</span>
-            <ArrowUpLeft className="h-[18px] w-[18px] text-foreground/40" />
-          </button>
-          <div className="flex flex-col gap-1 px-2">
+        <div className={`mt-4 ${CARD}`}>
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="text-[13px] font-medium text-foreground">
+                {fields.length > 1 ? "Your credentials" : "Your API key"}
+              </p>
+              <p className="mt-0.5 text-[11.5px] text-foreground/40">
+                Stored for your account only
+              </p>
+            </div>
+            {app.keyUrl && (
+              <button
+                type="button"
+                onClick={() => window.open(app.keyUrl, "_blank", "noopener")}
+                className="inline-flex shrink-0 items-center gap-1 rounded-full bg-foreground/[0.06] px-2.5 py-1 text-[11.5px] font-medium text-foreground/70 transition-opacity active:opacity-60"
+                style={{ border: 0 }}
+              >
+                Where to find it
+                <ArrowUpRight className="h-3 w-3" />
+              </button>
+            )}
+          </div>
+
+          <div className="mt-3 flex flex-col gap-3">
             {fields.map((field) => (
-              <label key={field.name} className="flex flex-col gap-0.5 py-1.5">
-                <span className="text-[11.5px] font-medium text-foreground/45">{field.label}</span>
+              <label key={field.name} className="block">
+                <span className="mb-1.5 block text-[11.5px] font-medium text-foreground/50">
+                  {field.label}
+                </span>
                 <input
                   value={values[field.name] ?? ""}
                   onChange={(e) =>
@@ -183,65 +221,76 @@ export default function ApiAppDetail({
                   placeholder={field.example || field.label}
                   autoComplete="off"
                   spellCheck={false}
-                  className="h-9 w-full text-[14px] text-foreground outline-none placeholder:text-foreground/30"
-                  style={{
-                    border: 0,
-                    background: "transparent",
-                    boxShadow: "none",
-                    borderRadius: 0,
-                    padding: 0,
-                  }}
+                  className="h-10 w-full rounded-[12px] bg-background/60 px-3 text-[13.5px] text-foreground outline-none ring-1 ring-inset ring-foreground/[0.08] transition-shadow placeholder:text-foreground/25 focus:ring-primary/50"
+                  style={{ border: 0, boxShadow: "none" }}
                 />
                 {field.description && (
-                  <span className="text-[11px] leading-[1.5] text-foreground/35">
+                  <span className="mt-1.5 block text-[11px] leading-[1.55] text-foreground/35">
                     {field.description}
                   </span>
                 )}
               </label>
             ))}
-            <button
-              type="button"
-              disabled={saving || !complete}
-              onClick={() => void save()}
-              className="mt-2 inline-flex h-10 items-center justify-center rounded-[12px] bg-foreground px-4 text-[13.5px] font-semibold text-background disabled:opacity-40"
-              style={{ border: 0 }}
-            >
-              {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : "Save"}
-            </button>
           </div>
+
+          <button
+            type="button"
+            disabled={saving || !complete}
+            onClick={() => void save()}
+            className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-[14px] bg-primary text-[13.5px] font-semibold text-primary-foreground transition-opacity active:opacity-70 disabled:opacity-35"
+            style={{ border: 0 }}
+          >
+            {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : "Connect"}
+          </button>
         </div>
       )}
 
       {app.tools.length > 0 && (
-      <ToolsList
-        title="Tools"
-        tools={app.tools.map((t) => ({
-          key: `${app.id}:${t.name}`,
-          name: t.name,
-          description: t.description,
-        }))}
-        onPick={(tool) => {
-          window.dispatchEvent(
-            new CustomEvent("megsy:composer-insert", {
-              detail: { text: `Use ${app.name} → ${tool.name}: ` },
-            }),
-          );
-          onUse?.();
-        }}
-      />
+        <div className={`mt-3 ${CARD} px-0 py-0`}>
+          <div className="flex items-center justify-between px-4 pb-1 pt-3.5">
+            <span className="text-[13px] font-medium text-foreground">What it can do</span>
+            <span className="text-[11.5px] text-foreground/35">{app.tools.length}</span>
+          </div>
+          <div className="pb-2">
+            {app.tools.map((tool) => (
+              <button
+                key={tool.name}
+                type="button"
+                onClick={() => {
+                  window.dispatchEvent(
+                    new CustomEvent("megsy:composer-insert", {
+                      detail: { text: `Use ${app.name} → ${tool.name}: ` },
+                    }),
+                  );
+                  onUse?.();
+                }}
+                className="flex w-full items-center gap-3 px-4 py-2.5 text-left transition-colors active:bg-foreground/[0.04]"
+                style={{ border: 0, background: "transparent" }}
+              >
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-[13px] font-medium text-foreground/85">
+                    {tool.name}
+                  </span>
+                  <span className="mt-0.5 block truncate text-[11.5px] text-foreground/40">
+                    {tool.description}
+                  </span>
+                </span>
+                <ChevronRight className="h-4 w-4 shrink-0 text-foreground/25" />
+              </button>
+            ))}
+          </div>
+        </div>
       )}
 
-      <div dir="ltr" className="mt-6 pb-2">
-        <button
-          type="button"
-          onClick={() => window.open(app.docsUrl, "_blank", "noopener")}
-          className="flex w-full items-center justify-between bg-transparent px-2 py-3 text-left"
-          style={{ border: 0 }}
-        >
-          <span className="text-[13px] text-foreground/45">Documentation</span>
-          <ArrowUpLeft className="h-[18px] w-[18px] text-foreground/40" />
-        </button>
-      </div>
+      <button
+        type="button"
+        onClick={() => window.open(app.docsUrl, "_blank", "noopener")}
+        className="mt-3 inline-flex h-11 items-center justify-center gap-1.5 rounded-[14px] bg-foreground/[0.04] text-[12.5px] font-medium text-foreground/55 transition-opacity active:opacity-60"
+        style={{ border: 0 }}
+      >
+        Documentation
+        <ArrowUpRight className="h-3.5 w-3.5" />
+      </button>
     </div>
   );
 }
