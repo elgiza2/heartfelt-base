@@ -144,6 +144,8 @@ export async function handleApiApp(_req: Request, admin: any, body: any): Promis
     const params = (body?.params ?? {}) as Record<string, unknown>;
     const auth = spec.auth;
     const template = spec.authTemplate;
+    const basicAuth = Boolean(spec.basic);
+
     const tool = spec.tool;
 
     // Build the path, filling {placeholders} from params (and the key when needed).
