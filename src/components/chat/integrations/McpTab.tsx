@@ -70,7 +70,13 @@ function State({ server }: { server: McpServer }) {
   return <span className="text-[11.5px] text-foreground/40">Checking…</span>;
 }
 
-export default function McpTab({ query = "" }: { query?: string }) {
+export default function McpTab({
+  query = "",
+  onCreateFromChat,
+}: {
+  query?: string;
+  onCreateFromChat?: () => void;
+}) {
   const [servers, setServers] = useState<McpServer[]>([]);
   const [loading, setLoading] = useState(true);
   const [busyId, setBusyId] = useState<string | null>(null);
