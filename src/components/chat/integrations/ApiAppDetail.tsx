@@ -60,6 +60,7 @@ export default function ApiAppDetail({
           baseUrl: app.baseUrl,
           auth: app.auth ?? null,
           authTemplate: app.authTemplate ?? null,
+          basic: app.basic ?? false,
           tools: app.tools,
         },
       });

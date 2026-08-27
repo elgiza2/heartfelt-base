@@ -121,6 +121,7 @@ export async function runApiTool(
         baseUrl: app.baseUrl,
         auth: app.auth ?? null,
         authTemplate: app.authTemplate ?? null,
+        basic: app.basic ?? false,
         tool: spec,
       },
     },
