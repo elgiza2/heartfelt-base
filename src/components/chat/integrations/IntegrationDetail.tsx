@@ -198,7 +198,74 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
         )}
       </div>
 
+      {confirmDisconnect && (
+        <div dir="ltr" className="mt-4 rounded-[20px] bg-destructive/10 p-4 ring-1 ring-destructive/25">
+          <p className="text-[13.5px] font-medium text-foreground">Disconnect {item.name}?</p>
+          <p className="mt-1 text-[12.5px] leading-[1.6] text-foreground/50">
+            Its actions stop being available in chat until you connect again.
+          </p>
+          <div className="mt-3 flex gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                setConfirmDisconnect(false);
+                onToggle();
+              }}
+              disabled={busy}
+              className="inline-flex h-10 flex-1 items-center justify-center rounded-[13px] bg-destructive text-[13.5px] font-semibold text-destructive-foreground disabled:opacity-60"
+              style={{ border: 0 }}
+            >
+              {busy ? <Loader2 className="h-[16px] w-[16px] animate-spin" /> : "Disconnect"}
+            </button>
+            <button
+              type="button"
+              onClick={() => setConfirmDisconnect(false)}
+              className="inline-flex h-10 flex-1 items-center justify-center rounded-[13px] bg-foreground/[0.07] text-[13.5px] font-semibold text-foreground"
+              style={{ border: 0 }}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
+      {showSettings && (
+        <div
+          dir="ltr"
+          ref={settingsRef}
+          className="mt-5 overflow-hidden rounded-[20px] bg-card/60 ring-1 ring-foreground/[0.05]"
+        >
+          <div className="flex items-center justify-between px-4 pb-2 pt-3.5">
+            <span className="text-[12px] font-medium uppercase tracking-wider text-foreground/40">
+              Settings
+            </span>
+            <button
+              type="button"
+              onClick={() => setShowSettings(false)}
+              className="bg-transparent text-[12.5px] text-foreground/50"
+              style={{ border: 0 }}
+            >
+              Done
+            </button>
+          </div>
+          <SettingRow
+            label="Enabled in chat"
+            hint={`Let the assistant use ${item.name} actions.`}
+            checked={settings.enabledInChat}
+            onChange={(v) => patchSettings({ enabledInChat: v })}
+          />
+          <SettingRow
+            label="Ask before running"
+            hint="Require your confirmation before each action."
+            checked={settings.confirmBeforeRun}
+            onChange={(v) => patchSettings({ confirmBeforeRun: v })}
+            last
+          />
+        </div>
+      )}
+
       {children}
+
 
       {/* Resources — quiet, icon-led, no label/value table */}
       <div className="mt-7 overflow-hidden rounded-[20px] bg-card/60 ring-1 ring-foreground/[0.05]">
