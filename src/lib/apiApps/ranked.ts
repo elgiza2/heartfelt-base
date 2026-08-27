@@ -1,188 +1,240 @@
-/** @doc Ranking for the APIs tab.
+/** @doc Ordering and de-duplication for the APIs tab.
  *
- *  Every entry in the tab is a service that publishes a real OpenAPI
- *  description, so its base URL, auth scheme and endpoints come from the spec
- *  itself. This file only decides the order: the first ~500 rows are the
- *  services people and companies actually use every day, and the rest of the
- *  directory follows so nothing is lost.
+ *  Every row in the tab is a service that publishes a real OpenAPI
+ *  description, so its base URL, auth scheme and endpoints come from the spec.
+ *  This file decides which ones come first and removes the noise:
+ *
+ *  - `TOP_IDS` is a hand-checked ranking of the APIs that businesses and
+ *    developers actually build on (payments, email/SMS, the Google and
+ *    Microsoft work suites, the big clouds, CRM, accounting, commerce,
+ *    dev tooling, maps, media). Every id was verified to exist in the
+ *    directory.
+ *  - Duplicates are dropped: one row per service, so the same API does not
+ *    appear once per version, per hosting flavour (GitHub Enterprise), or per
+ *    regional clone.
+ *  - Fake/private hosts (`*.local`) and self-test specs are hidden because
+ *    a key could never make them work.
+ *  - Everything else stays, ranked by publisher familiarity.
  */
 
-/** Brands ordered by real-world adoption. Matched against the entry id. */
+/** Hand-picked ranking of the APIs that matter most, best first. */
+const TOP_IDS = [
+  // Payments and finance
+  "stripe.com",
+  "adyen.com:CheckoutService",
+  "adyen.com:PaymentService",
+  "plaid.com",
+  "squareup.com",
+  "mastercard.com:MDES",
+  "klarna.com:openai",
+  "nordigen.com",
+  "qualpay.com",
+  // Dev platforms
+  "github.com",
+  "gitlab.com",
+  "docker.com:hub",
+  "docker.com:engine",
+  "atlassian.com:jira",
+  "digitalocean.com",
+  "kubernetes.io",
+  // Messaging and email
+  "slack.com",
+  "twilio.com:api",
+  "sendgrid.com",
+  "nexmo.com:sms",
+  "nexmo.com:messages-olympus",
+  "nexmo.com:verify",
+  "nexmo.com:voice",
+  "twilio.com:twilio_conversations_v1",
+  "twilio.com:twilio_messaging_v1",
+  "twilio.com:twilio_verify_v2",
+  "twilio.com:twilio_video_v1",
+  "telegram.org",
+  "zoom.us",
+  // Google Workspace and Cloud
+  "googleapis.com:gmail",
+  "googleapis.com:drive",
+  "googleapis.com:sheets",
+  "googleapis.com:calendar",
+  "googleapis.com:docs",
+  "googleapis.com:slides",
+  "googleapis.com:forms",
+  "googleapis.com:people",
+  "googleapis.com:tasks",
+  "googleapis.com:admin",
+  "googleapis.com:youtube",
+  "googleapis.com:searchconsole",
+  "googleapis.com:analyticsdata",
+  "googleapis.com:analyticsadmin",
+  "googleapis.com:bigquery",
+  "googleapis.com:storage",
+  "googleapis.com:translate",
+  "googleapis.com:vision",
+  "googleapis.com:speech",
+  "googleapis.com:texttospeech",
+  "googleapis.com:customsearch",
+  "googleapis.com:pubsub",
+  "googleapis.com:cloudfunctions",
+  "googleapis.com:run",
+  "googleapis.com:compute",
+  "googleapis.com:sqladmin",
+  "googleapis.com:firebase",
+  "googleapis.com:firebasedatabase",
+  "googleapis.com:fcm",
+  "googleapis.com:adsense",
+  "googleapis.com:shoppingcontent",
+  "googleapis.com:dns",
+  "googleapis.com:calendar",
+  // Microsoft
+  "microsoft.com:graph",
+  "microsoft.com:graph-beta",
+  "microsoft.com:cognitiveservices-ComputerVision",
+  "azure.com:cognitiveservices-TextAnalytics",
+  "microsoft.com:cognitiveservices-SpellCheck",
+  "azure.com:storage-blob",
+  "azure.com:keyvault-secrets",
+  "azure.com:cosmos-db",
+  "azure.com:sql-servers",
+  "azure.com:web-WebApps",
+  "azure.com:compute",
+  "azure.com:monitor-metrics_API",
+  "azure.com:resources",
+  "azure.com:containerservice-managedClusters",
+  // AWS
+  "amazonaws.com:s3",
+  "amazonaws.com:ec2",
+  "amazonaws.com:lambda",
+  "amazonaws.com:dynamodb",
+  "amazonaws.com:sns",
+  "amazonaws.com:sqs",
+  "amazonaws.com:sesv2",
+  "amazonaws.com:rds",
+  "amazonaws.com:cloudfront",
+  "amazonaws.com:cognito-idp",
+  "amazonaws.com:iam",
+  "amazonaws.com:eks",
+  "amazonaws.com:ecs",
+  "amazonaws.com:secretsmanager",
+  "amazonaws.com:states",
+  "amazonaws.com:logs",
+  "amazonaws.com:transcribe",
+  "amazonaws.com:polly",
+  "amazonaws.com:translate",
+  "amazonaws.com:rekognition",
+  "amazonaws.com:textract",
+  // Productivity and work
+  "notion.com",
+  "asana.com",
+  "trello.com",
+  "clickup.com",
+  "box.com",
+  "zapier.com:nla",
+  "docusign.net",
+  // CRM, sales, support, HR
+  "hubapi.com:crm",
+  "hubapi.com:marketing",
+  "hubapi.com:conversations",
+  "hubapi.com:automation",
+  "hubapi.com:analytics",
+  "apideck.com:crm",
+  "apideck.com:accounting",
+  "apideck.com:hris",
+  "apideck.com:ats",
+  "apideck.com:file-storage",
+  "apideck.com:customer-support",
+  "apideck.com:ecommerce",
+  "apideck.com:sms",
+  "codat.io:accounting",
+  "codat.io:banking",
+  // Accounting and commerce
+  "xero.com:xero_accounting",
+  "xero.com:xero-payroll-au",
+  "xero.com:xero_files",
+  "ebay.com:buy-browse",
+  "ebay.com:sell-listing",
+  "ebay.com:sell-fulfillment",
+  "ebay.com:sell-marketing",
+  "api.ebay.com:sell-account",
+  "apiz.ebay.com:sell-finances",
+  "walmart.com:order",
+  "walmart.com:item",
+  "walmart.com:inventory",
+  "walmart.com:price",
+  "shop.app",
+  // AI
+  "openai.com",
+  // Maps, travel, logistics
+  "tomtom.com:search",
+  "tomtom.com:maps",
+  "tomtom.com:routing",
+  "here.com:positioning",
+  "here.com:tracking",
+  "amadeus.com:amadeus-flight-offers-price",
+  "amadeus.com:amadeus-hotel-search",
+  "amadeus.com:amadeus-hotel-booking",
+  "lyft.com",
+  "ticketmaster.com:discovery",
+  // Media, content, data
+  "spotify.com",
+  "vimeo.com",
+  "giphy.com",
+  "webflow.com",
+  "instagram.com",
+  "twitter.com:current",
+  "nytimes.com:article_search",
+  "nytimes.com:most_popular_api",
+  "nytimes.com:books_api",
+  "npr.org:listening",
+  "bbc.com",
+  "polygon.io",
+  "nasa.gov:apod",
+  "visualcrossing.com:weather",
+  "weatherbit.io",
+  "ote-godaddy.com:domains",
+];
+
+/** Publisher familiarity for everything outside `TOP_IDS`. */
 const BRANDS = [
   "googleapis.com",
   "microsoft.com",
   "azure.com",
   "amazonaws.com",
-  "stripe.com",
-  "github.com",
-  "slack.com",
-  "shopify",
   "twilio.com",
-  "sendgrid.com",
-  "hubapi.com",
-  "hubspot",
-  "salesforce",
-  "zoom.us",
-  "atlassian.com",
-  "jira",
-  "notion",
-  "asana.com",
-  "trello",
-  "dropbox.com",
-  "box.com",
-  "openai.com",
-  "mailchimp.com",
-  "sentry.io",
-  "digitalocean.com",
-  "cloudflare.com",
-  "docker.com",
-  "gitlab.com",
-  "bitbucket.org",
-  "circleci.com",
-  "netlify.com",
-  "vercel.com",
-  "heroku.com",
-  "paypal.com",
-  "adyen.com",
-  "square",
-  "mastercard.com",
-  "visa",
-  "plaid.com",
-  "xero.com",
-  "quickbooks",
-  "intuit",
-  "docusign",
-  "zendesk.com",
-  "intercom.com",
-  "pipedrive.com",
-  "mailgun",
-  "postmark",
-  "twitter.com",
-  "instagram.com",
-  "linkedin.com",
-  "youtube",
-  "spotify.com",
-  "apple.com",
-  "meta.com",
-  "facebook",
-  "tiktok",
-  "pinterest",
-  "reddit",
-  "discord",
-  "telegram",
-  "whatsapp",
   "nexmo.com",
   "vonage.com",
+  "adyen.com",
+  "mastercard.com",
+  "hubapi.com",
+  "apideck.com",
+  "xero.com",
+  "codat.io",
   "ebay.com",
   "walmart.com",
-  "amazon.com",
-  "bigcommerce",
-  "vtex",
-  "magento",
-  "woocommerce",
-  "klarna",
-  "airtable",
-  "monday.com",
-  "clickup",
-  "calendly",
-  "hellosign",
-  "surveymonkey",
-  "typeform",
-  "zapier",
-  "segment",
-  "mixpanel",
-  "amplitude",
-  "datadog",
-  "newrelic",
-  "pagerduty",
-  "statuspage",
-  "okta",
-  "auth0",
-  "onelogin",
-  "duo",
-  "cloudinary",
-  "imgix",
-  "unsplash",
-  "giphy",
-  "openweathermap.org",
-  "weatherapi",
+  "amadeus.com",
   "tomtom.com",
   "here.com",
-  "mapbox",
-  "uber",
-  "lyft",
-  "doordash",
-  "booking",
-  "expedia",
-  "amadeus.com",
-  "ticketmaster.com",
   "nytimes.com",
   "npr.org",
-  "bbc",
-  "guardian",
-  "coinbase",
-  "binance",
-  "kraken",
-  "coinmarketcap",
-  "alphavantage",
-  "polygon.io",
-  "twelvedata",
-  "iexcloud",
-  "fedex",
-  "ups.com",
-  "dhl",
-  "shippo",
-  "easypost",
-  "sendinblue",
-  "brevo",
-  "klaviyo",
-  "activecampaign",
-  "constantcontact",
-  "freshdesk",
-  "servicenow",
-  "workday",
-  "bamboohr",
-  "greenhouse",
-  "lever",
-  "gusto",
-  "adp",
-  "netsuite",
-  "sap",
-  "oracle",
-  "ibm.com",
-  "redhat",
-  "elastic",
-  "mongodb",
-  "snowflake",
-  "databricks",
-  "supabase",
-  "firebase",
-  "algolia",
-  "meilisearch",
-  "twitch",
-  "vimeo",
-  "wistia",
-  "zoominfo",
-  "clearbit",
-  "apollo.io",
-  "crunchbase",
-  "figma",
-  "canva",
-  "miro",
-  "webflow",
-  "wordpress",
-  "wix",
-  "squarespace",
-  "godaddy",
-  "namecheap",
-  "apideck.com",
-  "codat.io",
-  "rapidapi.com",
+  "ticketmaster.com",
+  "docker.com",
+  "atlassian.com",
+  "github.com",
+  "gitlab.com",
 ];
 
-/** Clearly niche or regional publishers: kept in the tab, ranked below brands. */
-const DEMOTED = [
+/** Never shown: private hosts and self-test specs a key could not unlock. */
+const HIDDEN = [
   ".local",
+  "localhost",
+  "example.com",
+  "getsandbox.com",
+  "hetras-certification.net",
+  "seldon",
+  "presalytics",
+];
+
+/** Ranked below everything else: niche, regional or government-only APIs. */
+const DEMOTED = [
   ".gov",
   "gov.",
   "apisetu",
@@ -192,132 +244,93 @@ const DEMOTED = [
   "fungenerators",
   "funtranslations",
   "letmc",
-  "hetras",
-  "presalytics",
-  "seldon",
   "amentum",
-  "certification",
-  "sandbox",
-  "test",
-  "staging",
 ];
 
-/** How many APIs one publisher may place in the highlighted top section. */
-const PER_BRAND_CAP = 6;
 /** Size of the highlighted top section. */
 export const TOP_SECTION = 500;
+
+const TOP_INDEX = new Map(TOP_IDS.map((id, index) => [id, index]));
 
 function key(id: string): string {
   return id.replace(/^dir:/, "").toLowerCase();
 }
 
 export function providerOf(id: string): string {
-  return key(id).split(":")[0] ?? key(id);
+  const k = key(id);
+  return k.split(":")[0] ?? k;
 }
 
-/** Lower is better. Unknown brands rank after every known brand. */
-export function brandRank(id: string): number {
+/** True for entries that can never work, so they are removed from the tab. */
+export function isHidden(id: string): boolean {
+  const k = key(id);
+  return HIDDEN.some((bad) => k.includes(bad));
+}
+
+/** Duplicate flavours of one API: versions, enterprise clones, legacy specs. */
+function isDuplicateFlavour(id: string): boolean {
+  const k = key(id);
+  return (
+    /:ghes[-.]/.test(k) ||
+    /:ghec/.test(k) ||
+    /\.\d{4}-\d{2}-\d{2}$/.test(k) ||
+    /:.*legacy/.test(k) ||
+    /[-_]v\d+(\.\d+)?$/.test(k)
+  );
+}
+
+function brandRank(id: string): number {
   const k = key(id);
   for (let i = 0; i < BRANDS.length; i += 1) {
     if (k.includes(BRANDS[i]!)) return i;
   }
-  const demoted = DEMOTED.some((bad) => k.includes(bad));
-  return BRANDS.length + (demoted ? 1000 : 0);
+  return BRANDS.length;
 }
 
-/** Sub-services people actually reach for inside the very large clouds. */
-const FLAGSHIP_SERVICES = [
-  "gmail",
-  "drive",
-  "sheets",
-  "docs",
-  "slides",
-  "calendar",
-  "youtube",
-  "analytics",
-  "bigquery",
-  "translate",
-  "storage",
-  "vision",
-  "speech",
-  "maps",
-  "ads",
-  "adsense",
-  "firebase",
-  "people",
-  "tasks",
-  "forms",
-  "chat",
-  "gemini",
-  "graph",
-  "outlook",
-  "teams",
-  "onedrive",
-  "sharepoint",
-  "dynamics",
-  "s3",
-  "ec2",
-  "lambda",
-  "sns",
-  "sqs",
-  "rds",
-  "dynamodb",
-  "cloudfront",
-  "ses",
-  "iam",
-  "cognito",
-  "eks",
-  "blob",
-  "cosmos",
-  "keyvault",
-  "openai",
-  "monitor",
-  "sql",
-  "compute",
-  "resources",
-  "search",
-  "payments",
-  "checkout",
-  "billing",
-];
-
-/** Within one publisher, its flagship API first. */
-function flagshipScore(id: string): number {
+/** Lower sorts earlier. Curated top ids win, then brands, then the long tail. */
+export function scoreOf(id: string): number {
   const k = key(id);
-  const parts = k.split(":");
-  const service = parts.slice(1).join(":");
-  let flagship = FLAGSHIP_SERVICES.length;
-  for (let i = 0; i < FLAGSHIP_SERVICES.length; i += 1) {
-    if (service.includes(FLAGSHIP_SERVICES[i]!)) {
-      flagship = i;
-      break;
-    }
-  }
-  return flagship * 10 + (parts.length > 1 ? 1 : 0) + Math.min(9, Math.floor(k.length / 24));
+  const top = TOP_INDEX.get(k);
+  if (top !== undefined) return top;
+  const demoted = DEMOTED.some((bad) => k.includes(bad)) ? 100_000 : 0;
+  const duplicate = isDuplicateFlavour(k) ? 50_000 : 0;
+  return TOP_IDS.length + brandRank(k) * 100 + duplicate + demoted;
 }
 
 /**
- * Order entries so the top `TOP_SECTION` rows are the widely used services,
- * with no single publisher flooding them, and keep everything else afterwards.
+ * Order entries so the top rows are the widely used services, drop unusable
+ * and duplicate specs, and keep the rest of the directory below.
  */
 export function rankEntries<T extends { id: string; name: string }>(entries: T[]): T[] {
-  const sorted = [...entries].sort((a, b) => {
-    const brand = brandRank(a.id) - brandRank(b.id);
-    if (brand !== 0) return brand;
-    const flagship = flagshipScore(a.id) - flagshipScore(b.id);
-    if (flagship !== 0) return flagship;
+  const usable = entries.filter((entry) => !isHidden(entry.id));
+
+  const sorted = [...usable].sort((a, b) => {
+    const score = scoreOf(a.id) - scoreOf(b.id);
+    if (score !== 0) return score;
     return a.name.localeCompare(b.name);
   });
 
+  // One row per service: same publisher + same title is the same API.
+  const seenTitles = new Set<string>();
+  const unique: T[] = [];
+  for (const entry of sorted) {
+    const fingerprint = `${providerOf(entry.id)}|${entry.name.trim().toLowerCase()}`;
+    if (seenTitles.has(fingerprint)) continue;
+    seenTitles.add(fingerprint);
+    unique.push(entry);
+  }
+
+  // Keep the highlighted section varied: no publisher floods it.
+  const cap = 12;
   const top: T[] = [];
   const rest: T[] = [];
-  const seen = new Map<string, number>();
-
-  for (const entry of sorted) {
+  const perProvider = new Map<string, number>();
+  for (const entry of unique) {
     const provider = providerOf(entry.id);
-    const used = seen.get(provider) ?? 0;
-    if (top.length < TOP_SECTION && used < PER_BRAND_CAP) {
-      seen.set(provider, used + 1);
+    const used = perProvider.get(provider) ?? 0;
+    const curated = TOP_INDEX.has(key(entry.id));
+    if (top.length < TOP_SECTION && (curated || used < cap)) {
+      perProvider.set(provider, used + 1);
       top.push(entry);
     } else {
       rest.push(entry);
