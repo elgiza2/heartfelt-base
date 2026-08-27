@@ -119,7 +119,8 @@
     "vite-plugin-compression2": "^2.5.3",
     "vite-plugin-pwa": "^1.3.0",
     "vitest": "^4.1.8",
-    "workbox-window": "^7.4.1"
+    "workbox-window": "^7.4.1",
+    "yaml": "^2.9.0"
   },
   "overrides": {
     "@tanstack/query-core": "5.101.4"
