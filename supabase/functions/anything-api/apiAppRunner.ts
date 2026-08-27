@@ -40,6 +40,8 @@ const ALLOWED_HOSTS = new Set([
 ]);
 
 type Auth = { type: "header" | "query" | "path"; name: string; prefix?: string };
+type AuthTemplate = { headers?: Record<string, string>; params?: Record<string, string> };
+
 type Param = { name: string; in: "query" | "path" | "body"; required: boolean };
 type ToolSpec = { name: string; method: "GET" | "POST"; path: string; params: Param[] };
 
