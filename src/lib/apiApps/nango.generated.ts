@@ -152,35 +152,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:sap-odata-oauth2-cc",
-    "name": "SAP S/4HANA Cloud (Client Credentials)",
-    "category": "data",
-    "description": "ERP API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/sap-odata-oauth2-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/sap-odata-oauth2-cc/connect",
-    "baseUrl": "https://${apiServer}",
-    "logo": "https://app.nango.dev/images/template-logos/sap-odata-oauth2-cc.svg",
-    "credentials": [
-      {
-        "name": "apiServer",
-        "label": "API Server",
-        "description": "The API base URL of the SAP S/4HANA cloud API service you want to connect to",
-        "example": "eu10.cfapps.eu10.hana.ondemand.com",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:ukg-pro",
     "name": "UKG Pro",
     "category": "data",
@@ -264,122 +235,26 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:1password-events",
-    "name": "1Password (Events API)",
+    "id": "nango:sap-odata-oauth2-cc",
+    "name": "SAP S/4HANA Cloud",
     "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/1password-events/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/1password-events/connect",
-    "baseUrl": "https://${domain}",
-    "logo": "https://app.nango.dev/images/template-logos/1password-events.svg",
+    "description": "ERP API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/sap-odata-oauth2-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/sap-odata-oauth2-cc/connect",
+    "baseUrl": "https://${apiServer}",
+    "logo": "https://app.nango.dev/images/template-logos/sap-odata-oauth2-cc.svg",
     "credentials": [
       {
-        "name": "domain",
-        "label": "Events API Domain",
-        "description": "The regional Events API domain for your 1Password account.",
-        "example": "",
+        "name": "apiServer",
+        "label": "API Server",
+        "description": "The API base URL of the SAP S/4HANA cloud API service you want to connect to",
+        "example": "eu10.cfapps.eu10.hana.ondemand.com",
         "secret": false
       },
       {
         "name": "apiKey",
-        "label": "Bearer Token",
-        "description": "Your 1Password Events Reporting bearer token",
-        "example": "eyJhbGciOiJF*************.*************CJ9.eyJ**************************************************.***********",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/api/v2/auth/introspect",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:1password-scim",
-    "name": "1Password (SCIM)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/1password-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/1password-scim/connect",
-    "baseUrl": "https://${domain}/scim",
-    "logo": "https://app.nango.dev/images/template-logos/1password-scim.svg",
-    "credentials": [
-      {
-        "name": "domain",
-        "label": "1Password SCIM Bridge URL",
-        "description": "The domain for your 1Password SCIM Bridge. Note this URL is a service hosted in your infrastructure so needs to be setup already by your IT team. Please see the instructions for more info.",
-        "example": "scim.example.com",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "Your 1Password SCIM API Key",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:1password-users",
-    "name": "1Password (Users API)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/1password-users/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/1password-users/connect",
-    "baseUrl": "https://${domain}/v1beta1/accounts/${accountId}",
-    "logo": "https://app.nango.dev/images/template-logos/1password-users.svg",
-    "credentials": [
-      {
-        "name": "accountId",
-        "label": "Account ID",
-        "description": "Your 1Password account ID.",
-        "example": "XLQMR47VZPBKJHSGWNCYFDE3T9",
-        "secret": false
-      },
-      {
-        "name": "domain",
-        "label": "API Domain",
-        "description": "The regional API domain for your 1Password account.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "Your 1Password OAuth application Client ID.",
-        "example": "5ab87915-2deb-429c-a1e2-8b0495900f45",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Client Secret",
-        "description": "Your 1Password OAuth application Client Secret.",
+        "label": "API key",
+        "description": "",
         "example": "",
         "secret": true
       }
@@ -557,42 +432,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:addepar-basic",
-    "name": "Addepar (Basic Auth)",
-    "category": "data",
-    "description": "analytics API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/addepar-basic/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/addepar-basic/connect",
-    "baseUrl": "https://${subdomain}.addepar.com/api",
-    "logo": "https://app.nango.dev/images/template-logos/addepar-basic.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Firm Domain",
-        "description": "Your Addepar Firm domain",
-        "example": "myfirm",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "API Key",
-        "description": "Your Addepar API Key",
-        "example": "5ab87915-2deb-429c-a1e2-8b0495900f45",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "API Secret",
-        "description": "Your Addepar API Secret",
-        "example": "zidcISqfSGh05JsWwuY9ZdSCkXrhANHvCX0U0gkE",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:adobe-commerce",
     "name": "Adobe Commerce",
     "category": "data",
@@ -631,35 +470,6 @@ export const NANGO_APPS: ApiApp[] = [
         "authorization": "Bearer ${apiKey}"
       }
     }
-  },
-  {
-    "id": "nango:adoxx-cc",
-    "name": "ADOXX (Client Credentials)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/adoxx-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/adoxx-cc/connect",
-    "baseUrl": "https://${baseUrl}/rest",
-    "logo": "https://app.nango.dev/images/template-logos/adoxx-cc.svg",
-    "credentials": [
-      {
-        "name": "baseUrl",
-        "label": "Base URL",
-        "description": "The base URL of your ADOXX instance, including the product/version path segment.",
-        "example": "yourcompany.com:8000/ADOXX",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
   },
   {
     "id": "nango:adp",
@@ -719,77 +529,6 @@ export const NANGO_APPS: ApiApp[] = [
       }
     ],
     "authTemplate": {}
-  },
-  {
-    "id": "nango:affinity",
-    "name": "Affinity (v1)",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/affinity/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/affinity/connect",
-    "baseUrl": "https://api.affinity.co",
-    "logo": "https://app.nango.dev/images/template-logos/affinity.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "API Key",
-        "description": "Your Affinity API Key",
-        "example": "nrlW2KR5m-qUCA-rTqKb_EUK1swERlenqn70KNMMrTM",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/auth/whoami",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:affinity-v2",
-    "name": "Affinity (v2)",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/affinity-v2/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/affinity-v2/connect",
-    "baseUrl": "https://api.affinity.co",
-    "logo": "https://app.nango.dev/images/template-logos/affinity-v2.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API Key for your Affinity account",
-        "example": "nrlW2KR5m-qUCA-rTqKb_EUK1swERlenqn70KNMMrTM",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v2/auth/whoami",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
   },
   {
     "id": "nango:agencyzoom",
@@ -884,42 +623,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:agiloft-cc",
-    "name": "Agiloft (Client Credentials)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/agiloft-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/agiloft-cc/connect",
-    "baseUrl": "https://${hostname}",
-    "logo": "https://app.nango.dev/images/template-logos/agiloft-cc.svg",
-    "credentials": [
-      {
-        "name": "hostname",
-        "label": "Hostname",
-        "description": "The hostname of your Agiloft instance.",
-        "example": "example.agiloft.com",
-        "secret": false
-      },
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "The Client ID from your Agiloft API application settings.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Client Secret",
-        "description": "The Client Secret from your Agiloft API application settings.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:aimfox",
     "name": "Aimfox",
     "category": "data",
@@ -947,69 +650,6 @@ export const NANGO_APPS: ApiApp[] = [
         "params": []
       }
     ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:aircall-basic",
-    "name": "Aircall (Basic Auth)",
-    "category": "comms",
-    "description": "customer support API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/aircall-basic/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/aircall-basic/connect",
-    "baseUrl": "https://api.aircall.io",
-    "logo": "https://app.nango.dev/images/template-logos/aircall-basic.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "API ID",
-        "description": "The Application ID (API ID) for your Aircall account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "API Token",
-        "description": "The Admin API Key (API Token) for your Aircall account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/ping",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:airtable-pat",
-    "name": "Airtable (Personal Access Token)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/airtable-pat/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/airtable-pat/connect",
-    "baseUrl": "https://api.airtable.com",
-    "logo": "https://app.nango.dev/images/template-logos/airtable-pat.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "Personal Access Token",
-        "description": "The Personal Access Token for your Airtable account",
-        "example": "patoXxYzA1B2C3D4Ef.98a7b6c5d4e3f2g1h0i9j8k7l6m5n4o3p2q1r0s9t8u7v6w5x4y3z2a1b0cdef",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
@@ -1096,50 +736,6 @@ export const NANGO_APPS: ApiApp[] = [
         "x-api-key": "${apiKey}"
       }
     }
-  },
-  {
-    "id": "nango:amplitude",
-    "name": "Amplitude (Event Streaming API)",
-    "category": "data",
-    "description": "analytics API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/amplitude/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/amplitude/connect",
-    "baseUrl": "https://${hostname}",
-    "logo": "https://app.nango.dev/images/template-logos/amplitude.svg",
-    "credentials": [
-      {
-        "name": "hostname",
-        "label": "Hostname",
-        "description": "The hostname associated with your server residency.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "API Key",
-        "description": "Your Amplitude API Key",
-        "example": "64371a39e74ad915af75674c0696e356",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Secret Key",
-        "description": "Your Amplitude secret key",
-        "example": "6GhPfVz47PKJGSLcDDc9jL5E4Mn",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/api/2/events/list",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
   },
   {
     "id": "nango:anrok",
@@ -1258,32 +854,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:apollo",
-    "name": "Apollo (API Key)",
-    "category": "comms",
-    "description": "marketing API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/apollo/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/apollo/connect",
-    "baseUrl": "https://app.apollo.io/api",
-    "logo": "https://app.nango.dev/images/template-logos/apollo.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Apollo account",
-        "example": "eh_3LUIFtj04rG4KF_FoFw",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "x-api-key": "${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:apple-app-store",
     "name": "Apple App Store",
     "category": "data",
@@ -1378,40 +948,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {
       "headers": {
         "x-api-key": "${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:asana-scim",
-    "name": "Asana (SCIM API)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/asana-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/asana-scim/connect",
-    "baseUrl": "https://app.asana.com/api",
-    "logo": "https://app.nango.dev/images/template-logos/asana-scim.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Asana scim account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/1.0/scim/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
       }
     }
   },
@@ -1540,64 +1076,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:atlassian-service-account-api-token",
-    "name": "Atlassian Service Account (API Token)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/atlassian-service-account-api-token/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/atlassian-service-account-api-token/connect",
-    "baseUrl": "https://api.atlassian.com",
-    "logo": "https://app.nango.dev/images/template-logos/atlassian-service-account-api-token.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "Service Account Email",
-        "description": "The email address of your Atlassian service account",
-        "example": "bot@serviceaccount.atlassian.com",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "API Token",
-        "description": "Your Atlassian service account API token",
-        "example": "ATSTT3xFfGF07SUw*******************************RvxLUHWs8ZV58TfHI=610694C8",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:atlassian-service-account-oauth2",
-    "name": "Atlassian Service Account (OAuth 2.0)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/atlassian-service-account-oauth2/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/atlassian-service-account-oauth2/connect",
-    "baseUrl": "https://api.atlassian.com",
-    "logo": "https://app.nango.dev/images/template-logos/atlassian-service-account-oauth2.svg",
-    "credentials": [
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "The OAuth 2.0 client ID from your service account credential",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Client Secret",
-        "description": "The OAuth 2.0 client secret from your service account credential",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:attention",
     "name": "Attention",
     "category": "data",
@@ -1631,35 +1109,6 @@ export const NANGO_APPS: ApiApp[] = [
         "content-type": "application/json"
       }
     }
-  },
-  {
-    "id": "nango:auth0-cc",
-    "name": "Auth0 (Client Credentials)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/auth0-cc/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/auth0-cc/connect",
-    "baseUrl": "https://${hostname}",
-    "logo": "https://app.nango.dev/images/template-logos/auth0-cc.svg",
-    "credentials": [
-      {
-        "name": "hostname",
-        "label": "HostName",
-        "description": "Your Auth0 host name",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
   },
   {
     "id": "nango:autosana",
@@ -1851,47 +1300,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:avalara-sandbox",
-    "name": "Avalara (Sandbox)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/avalara-sandbox/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/avalara-sandbox/connect",
-    "baseUrl": "https://sandbox-rest.avatax.com/api/v2",
-    "logo": "https://app.nango.dev/images/template-logos/avalara-sandbox.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "User Name / Account ID",
-        "description": "Avalara User Name / Account ID",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password / License Key",
-        "description": "Avalara Password / License Key",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/utilities/subscriptions",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "content-type": "application/json"
-      }
-    }
-  },
-  {
     "id": "nango:avanan",
     "name": "Avanan",
     "category": "data",
@@ -1963,49 +1371,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:aws-scim",
-    "name": "AWS (SCIM)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/aws-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/aws-scim/connect",
-    "baseUrl": "${scimEndpoint}",
-    "logo": "https://app.nango.dev/images/template-logos/aws-scim.svg",
-    "credentials": [
-      {
-        "name": "scimEndpoint",
-        "label": "SCIM Endpoint",
-        "description": "The SCIM Endpoint mentioned in the AWS IAM Identity Center",
-        "example": "https://scim.ap-south-1.amazonaws.com/lSweb811432-ac8a-4a86-8332-f29hha4f5650/scim/v2",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "SCIM Access Token",
-        "description": "The SCIM Access Token generated from your AWS IAM Identity Center",
-        "example": "878374852-dea1-47d5-9ae0-4d00a0bdbb13:ff7d4f04-7385-4add-befe-a9ed18341d0d:l6uepDQrHfNOiOYXZ7HYZL8hlvsYHSG7Cnx104tkRLmDbO8l/p5GxLv6Id5BCLicmjeKvhrlqrPvL6VMcAnJS6oitQrz3ZiZr18rnybzyISRlyjxktYtIK1R80YJXBH6U7NSvwGsu5gDbUZDGlCDeh+FFhL8tmUuHytvxuhz3jNhsh&8X9xiLBg=:ICn/+PhEST+8/pizxTmoA0DW9JcQTL4EVRh0z6DpJwQ4vFQ+iwAxNjh16SHdUovAJyMjT+TPDwI8gN63DLE+9EV+lcV+i2H/OTDE4x7L18WRz3ndMf/4dY98mJ41qRYBgh63Pi8PdXkAex2l8HJLMkzjjPirN+8DCBfPVKK+z/nCc04RXWIz6XOmqwgB1sV5jwfAxPhuV6vqgVosoSngSw7Y2Zon70PiI5UbTTZffF6QWFU7i9b3dgMMDAH6f9vm11EB6YpJt/XC74L1pDvKXiSzhel7b7dYzGvrXK0rN29cnjn0o58VYCOgk9c05p/nRsEaSs2Y/v7BqgxXUvI+Aw==",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}",
-        "accept": "application/json",
-        "content-type": "application/json"
       }
     }
   },
@@ -2242,50 +1607,6 @@ export const NANGO_APPS: ApiApp[] = [
         "accept": "application/json"
       }
     }
-  },
-  {
-    "id": "nango:bamboohr-basic",
-    "name": "BambooHR (Basic Auth)",
-    "category": "data",
-    "description": "HR API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/bamboohr-basic/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/bamboohr-basic/connect",
-    "baseUrl": "https://api.bamboohr.com/api/gateway.php/${subdomain}",
-    "logo": "https://app.nango.dev/images/template-logos/bamboohr-basic.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "BambooHR Domain",
-        "description": "The subdomain of your BambooHR account",
-        "example": "domain",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "API key",
-        "description": "The API Key of your BambooHR account",
-        "example": "59d783083fb25565aba21744e6bba90de8634de0",
-        "secret": true
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Password",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/meta/fields",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
   },
   {
     "id": "nango:baserow",
@@ -2528,46 +1849,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:blackbaud-basic",
-    "name": "Blackbaud (Basic Auth)",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/blackbaud-basic",
-    "keyUrl": "https://nango.dev/docs/integrations/all/blackbaud-basic",
-    "baseUrl": "https://${hostName}",
-    "logo": "https://app.nango.dev/images/template-logos/blackbaud-basic.svg",
-    "credentials": [
-      {
-        "name": "hostName",
-        "label": "Host Name",
-        "description": "Your Blackbaud host name",
-        "example": "https://altrurig01bo3.blackbaudhosting.com",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "Your Username",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Your Password",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "content-type": "application/soap+xml; charset=utf-8"
-      }
-    }
-  },
-  {
     "id": "nango:blandai",
     "name": "BlandAI",
     "category": "comms",
@@ -2763,32 +2044,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:brex-api-key",
-    "name": "Brex (API Key)",
-    "category": "finance",
-    "description": "banking API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/brex-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/brex-api-key/connect",
-    "baseUrl": "https://platform.brexapis.com",
-    "logo": "https://app.nango.dev/images/template-logos/brex-api-key.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Token",
-        "description": "The API Token to your Brex account",
-        "example": "bxt_vRUwQT3snBmA1IDVq5iK1kXc4N0bhxr377z4",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:brightcrowd",
     "name": "BrightCrowd",
     "category": "media",
@@ -2808,84 +2063,6 @@ export const NANGO_APPS: ApiApp[] = [
     ],
     "basic": false,
     "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:builder-io-private",
-    "name": "Builder.io (Private)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/builder-io-private/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/builder-io-private/connect",
-    "baseUrl": "https://${domain}",
-    "logo": "https://app.nango.dev/images/template-logos/builder-io-private.svg",
-    "credentials": [
-      {
-        "name": "domain",
-        "label": "Domain",
-        "description": "The domain used to access your Builder.io write API.",
-        "example": "builder.io",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The private key for your Builder.io account.",
-        "example": "bpk-****************************",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "POST",
-        "path": "/api/v1/write/page",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:builder-io-public",
-    "name": "Builder.io (Public)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/builder-io-public/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/builder-io-public/connect",
-    "baseUrl": "https://${domain}",
-    "logo": "https://app.nango.dev/images/template-logos/builder-io-public.svg",
-    "credentials": [
-      {
-        "name": "domain",
-        "label": "Domain",
-        "description": "The domain used to access your Builder.io content API.",
-        "example": "cdn.builder.io",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The public api key for your Builder.io account.",
-        "example": "bb209fb71eh2412dbe0114bdae18fd15",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/api/v1/content/page",
-        "params": []
-      }
-    ],
     "authTemplate": {}
   },
   {
@@ -2943,70 +2120,6 @@ export const NANGO_APPS: ApiApp[] = [
     "basic": false,
     "tools": [],
     "authTemplate": {}
-  },
-  {
-    "id": "nango:cal-com-v1",
-    "name": "Cal.com (v1)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/cal-com-v1/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/cal-com-v1/connect",
-    "baseUrl": "https://api.cal.com/v1",
-    "logo": "https://app.nango.dev/images/template-logos/cal-com-v1.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Cal.com account",
-        "example": "cal_xxxxxx",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/me",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:cal-com-v2",
-    "name": "Cal.com (v2)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/cal-com-v2/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/cal-com-v2/connect",
-    "baseUrl": "https://api.cal.com/v2",
-    "logo": "https://app.nango.dev/images/template-logos/cal-com-v2.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Cal.com account",
-        "example": "cal_xxxxxx",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/me",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
   },
   {
     "id": "nango:callrail",
@@ -3072,42 +2185,6 @@ export const NANGO_APPS: ApiApp[] = [
       }
     ],
     "authTemplate": {}
-  },
-  {
-    "id": "nango:canva-scim",
-    "name": "Canva (SCIM API)",
-    "category": "media",
-    "description": "design API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/canva-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/canva-scim/connect",
-    "baseUrl": "https://www.canva.com/_scim",
-    "logo": "https://app.nango.dev/images/template-logos/canva-scim.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Canva scim account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v2/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}",
-        "accept": "application/json",
-        "content-type": "application/json"
-      }
-    }
   },
   {
     "id": "nango:cdw",
@@ -3351,49 +2428,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:chatgpt-enterprise",
-    "name": "ChatGPT Enterprise (SCIM API)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/chatgpt-enterprise/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/chatgpt-enterprise/connect",
-    "baseUrl": "https://${scimEndpoint}",
-    "logo": "https://app.nango.dev/images/template-logos/chatgpt-enterprise.svg",
-    "credentials": [
-      {
-        "name": "scimEndpoint",
-        "label": "SCIM Endpoint",
-        "description": "The SCIM endpoint URL.",
-        "example": "api.workos.com/scim/v2.0/acme",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "SCIM Token",
-        "description": "Your SCIM API token.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}",
-        "accept": "application/scim+json",
-        "content-type": "application/scim+json"
-      }
-    }
-  },
-  {
     "id": "nango:chattermill",
     "name": "Chattermill",
     "category": "comms",
@@ -3471,33 +2505,6 @@ export const NANGO_APPS: ApiApp[] = [
     "keyUrl": "https://nango.dev/docs/integrations/all/checkout-com/connect",
     "baseUrl": "https://api.checkout.com",
     "logo": "https://app.nango.dev/images/template-logos/checkout-com.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "content-type": "application/json",
-        "accept": "application/json"
-      }
-    }
-  },
-  {
-    "id": "nango:checkout-com-sandbox",
-    "name": "Checkout.com (Sandbox)",
-    "category": "finance",
-    "description": "payments API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/checkout-com-sandbox/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/checkout-com-sandbox/connect",
-    "baseUrl": "https://api.sandbox.checkout.com",
-    "logo": "https://app.nango.dev/images/template-logos/checkout-com-sandbox.svg",
     "credentials": [
       {
         "name": "apiKey",
@@ -4190,54 +3197,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:confluence-basic",
-    "name": "Confluence (Basic Auth)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/confluence-basic/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/confluence-basic/connect",
-    "baseUrl": "https://${subdomain}.atlassian.net",
-    "logo": "https://app.nango.dev/images/template-logos/confluence-basic.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Confluence Subdomain",
-        "description": "The subdomain of your Confluence account",
-        "example": "subdomain",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "Email Address",
-        "description": "The email address for your Confluence account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "API token",
-        "description": "The API token for your Confluence account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/wiki/api/v2/spaces",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "content-type": "application/json"
-      }
-    }
-  },
-  {
     "id": "nango:connectsecure",
     "name": "ConnectSecure",
     "category": "data",
@@ -4322,35 +3281,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:connectwise-psa-staging",
-    "name": "ConnectWise PSA (Staging)",
-    "category": "comms",
-    "description": "customer support API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/connectwise-psa-staging",
-    "keyUrl": "https://nango.dev/docs/integrations/all/connectwise-psa-staging",
-    "baseUrl": "https://api-staging.connectwisedev.com/v4_6_release/apis/3.0",
-    "logo": "https://app.nango.dev/images/template-logos/connectwise-psa-staging.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:connectwise-rmm",
     "name": "ConnectWise RMM",
     "category": "comms",
@@ -4418,42 +3348,6 @@ export const NANGO_APPS: ApiApp[] = [
       "headers": {
         "authorization": "basic",
         "token": "${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:copper-api-key",
-    "name": "Copper (API Key)",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/copper-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/copper-api-key/connect",
-    "baseUrl": "https://api.copper.com/developer_api",
-    "logo": "https://app.nango.dev/images/template-logos/copper-api-key.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Copper account",
-        "example": "4f3c12efb9659a0b5c123b568745dbf9",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/account",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "x-pw-accesstoken": "${apiKey}",
-        "x-pw-application": "developer_api",
-        "content-type": "application/json"
       }
     }
   },
@@ -4732,64 +3626,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:databricks-account",
-    "name": "Databricks (Account Level)",
-    "category": "data",
-    "description": "analytics API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/databricks-account",
-    "keyUrl": "https://nango.dev/docs/integrations/all/databricks-account",
-    "baseUrl": "https://accounts.cloud.databricks.com/api/2.0/accounts/${accountId}",
-    "logo": "https://app.nango.dev/images/template-logos/databricks-account.svg",
-    "credentials": [
-      {
-        "name": "accountId",
-        "label": "Account ID",
-        "description": "The ID to your account",
-        "example": "123e4567-e89b-12d3-a456-426614174000",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:databricks-workspace",
-    "name": "Databricks (Workspace Level)",
-    "category": "data",
-    "description": "analytics API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/databricks-workspace",
-    "keyUrl": "https://nango.dev/docs/integrations/all/databricks-workspace",
-    "baseUrl": "https://${databricksInstance}/api/2.0",
-    "logo": "https://app.nango.dev/images/template-logos/databricks-workspace.svg",
-    "credentials": [
-      {
-        "name": "databricksInstance",
-        "label": "Databricks Instance",
-        "description": "The instance to your databricks deployment",
-        "example": "dbc-a1b2345c-d6e7.cloud.databricks.com",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:datacandy",
     "name": "DataCandy",
     "category": "finance",
@@ -4865,56 +3701,6 @@ export const NANGO_APPS: ApiApp[] = [
         "dd-api-key": "${apiKey}"
       }
     }
-  },
-  {
-    "id": "nango:datto-rmm-password-grant",
-    "name": "Datto RMM (Password Grant)",
-    "category": "comms",
-    "description": "customer support API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/datto-rmm-password-grant/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/datto-rmm-password-grant/connect",
-    "baseUrl": "https://${platform}-api.centrastage.net/api",
-    "logo": "https://app.nango.dev/images/template-logos/datto-rmm-password-grant.svg",
-    "credentials": [
-      {
-        "name": "platform",
-        "label": "Platform",
-        "description": "The Datto RMM platform (region) for your account.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "default_username",
-        "label": "Default_username",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "default_password",
-        "label": "Default_password",
-        "description": "",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "username",
-        "label": "API Key",
-        "description": "Your Datto RMM API Key",
-        "example": "AB7KLM90PQW4XJ8H2TUVN1YZ3R5C6FDG",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "API Secret Key",
-        "description": "Your Datto RMM Secret Key",
-        "example": "9XQ7MZB4H1L2WKC0RDFTPY5J8VUNSG3E",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
   },
   {
     "id": "nango:dayforce",
@@ -5435,35 +4221,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:dynatrace-oauth",
-    "name": "Dynatrace (OAuth)",
-    "category": "data",
-    "description": "analytics API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/dynatrace-oauth/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/dynatrace-oauth/connect",
-    "baseUrl": "https://api.dynatrace.com",
-    "logo": "https://app.nango.dev/images/template-logos/dynatrace-oauth.svg",
-    "credentials": [
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "Your Dynatrace OAuth client ID.",
-        "example": "dt0s03.****************",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Client Secret",
-        "description": "Your Dynatrace OAuth client secret.",
-        "example": "dt0s03.5NJ******.GYWJPBF******************",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:e-conomic",
     "name": "e-conomic",
     "category": "finance",
@@ -5522,42 +4279,6 @@ export const NANGO_APPS: ApiApp[] = [
       }
     ],
     "basic": true,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:ecu360",
-    "name": "ECU360 (Test)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/ecu360/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/ecu360/connect",
-    "baseUrl": "https://apim-test.ecu360.com",
-    "logo": "https://app.nango.dev/images/template-logos/ecu360.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "Your ECU360 API Key",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "userName",
-        "label": "Username",
-        "description": "Your ECU360 username",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Your ECU360 password",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
     "tools": [],
     "authTemplate": {}
   },
@@ -5622,69 +4343,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:emarsys-oauth",
-    "name": "Emarsys (OAuth)",
-    "category": "comms",
-    "description": "marketing API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/emarsys-oauth/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/emarsys-oauth/connect",
-    "baseUrl": "https://api.emarsys.net",
-    "logo": "https://app.nango.dev/images/template-logos/emarsys-oauth.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:emarsys",
-    "name": "Emarsys Core API (WSSE)",
-    "category": "comms",
-    "description": "marketing API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/emarsys",
-    "keyUrl": "https://nango.dev/docs/integrations/all/emarsys",
-    "baseUrl": "https://api.emarsys.net",
-    "logo": "https://app.nango.dev/images/template-logos/emarsys.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "ID",
-        "description": "The ID of your Emarsys WSSE API Credentials",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Client Secret",
-        "description": "The Client Secret of your Emarsys WSSE API Credentials",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/api/v2/settings",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "content-type": "application/json"
-      }
-    }
-  },
-  {
     "id": "nango:embat",
     "name": "Embat",
     "category": "finance",
@@ -5712,41 +4370,6 @@ export const NANGO_APPS: ApiApp[] = [
     "basic": false,
     "tools": [],
     "authTemplate": {}
-  },
-  {
-    "id": "nango:epc-gov-uk",
-    "name": "Energy Performance Certificates (Gov.UK)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/epc-gov-uk/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/epc-gov-uk/connect",
-    "baseUrl": "https://api.get-energy-performance-data.communities.gov.uk",
-    "logo": "https://app.nango.dev/images/template-logos/epc-gov-uk.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API bearer token of your account.",
-        "example": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/api/codes",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}",
-        "accept": "application/json"
-      }
-    }
   },
   {
     "id": "nango:entrata",
@@ -5783,32 +4406,6 @@ export const NANGO_APPS: ApiApp[] = [
     "basic": true,
     "tools": [],
     "authTemplate": {}
-  },
-  {
-    "id": "nango:epost-klara",
-    "name": "ePost (KLARA)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/epost-klara/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/epost-klara/connect",
-    "baseUrl": "https://api.klara.ch",
-    "logo": "https://app.nango.dev/images/template-logos/epost-klara.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "Your KLARA API key.",
-        "example": "0b6df221-****-****-****-********e06d",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "x-api-key": "${apiKey}"
-      }
-    }
   },
   {
     "id": "nango:ergo",
@@ -5981,74 +4578,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:facebook-system-user",
-    "name": "Facebook (System User Token)",
-    "category": "comms",
-    "description": "marketing API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/facebook-system-user/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/facebook-system-user/connect",
-    "baseUrl": "https://graph.facebook.com",
-    "logo": "https://app.nango.dev/images/template-logos/facebook-system-user.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "System User Access Token",
-        "description": "A long-lived access token generated for a system user.",
-        "example": "EAAM5b*******************TgZDZD",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v22.0/me",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:factorial-api-key",
-    "name": "Factorial (API Key)",
-    "category": "data",
-    "description": "HR API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/factorial-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/factorial-api-key/connect",
-    "baseUrl": "https://api.factorialhr.com/api",
-    "logo": "https://app.nango.dev/images/template-logos/factorial-api-key.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API Key generated from your Factorial account",
-        "example": "eyJraWQiOiJmYWN.******************************.*****************************",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/2026-07-01/resources/api_public/credentials",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "x-api-key": "${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:fairing",
     "name": "Fairing",
     "category": "comms",
@@ -6192,39 +4721,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:fern",
-    "name": "Fern (Public API)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/fern/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/fern/connect",
-    "baseUrl": "https://${baseUrl}",
-    "logo": "https://app.nango.dev/images/template-logos/fern.svg",
-    "credentials": [
-      {
-        "name": "baseUrl",
-        "label": "Docs URL",
-        "description": "The domain of your Fern docs site.",
-        "example": "docs.example.com",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "Fern API key",
-        "description": "Your Fern API key.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "fern_api_key": "${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:fiber-ai",
     "name": "Fiber AI",
     "category": "data",
@@ -6253,95 +4749,6 @@ export const NANGO_APPS: ApiApp[] = [
       }
     ],
     "authTemplate": {}
-  },
-  {
-    "id": "nango:figma-scim",
-    "name": "Figma (SCIM)",
-    "category": "media",
-    "description": "design API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/figma-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/figma-scim/connect",
-    "baseUrl": "https://${host}/scim/v2/${tenantId}",
-    "logo": "https://app.nango.dev/images/template-logos/figma-scim.svg",
-    "credentials": [
-      {
-        "name": "tenantId",
-        "label": "Tenant ID",
-        "description": "The tenant ID of your Figma account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "host",
-        "label": "Host",
-        "description": "The Figma host for your account.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API Token",
-        "description": "The API token for your Figma account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:fillout-api-key",
-    "name": "Fillout (API Key)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/fillout-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/fillout-api-key/connect",
-    "baseUrl": "https://${hostname}",
-    "logo": "https://app.nango.dev/images/template-logos/fillout-api-key.svg",
-    "credentials": [
-      {
-        "name": "hostname",
-        "label": "Hostname",
-        "description": "The hostname of your Fillout account",
-        "example": "api.fillout.com",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Fillout account",
-        "example": "sk_prod_n5ZEod5AwJQCtG3ncuzgXvpSWx19joz4KMSJlC2nVul9B48zhkCLuPc9Kq97tK7smlOcMChnk1uyaUeZ5Gm4GVrUUnDMxHI7TZH_31032",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/api/forms",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
   },
   {
     "id": "nango:findymail",
@@ -6458,69 +4865,6 @@ export const NANGO_APPS: ApiApp[] = [
         "authorization": "ApiKey ${apiKey}"
       }
     }
-  },
-  {
-    "id": "nango:fiserv-api-key",
-    "name": "Fiserv (API Key)",
-    "category": "finance",
-    "description": "banking API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/fiserv-api-key",
-    "keyUrl": "https://nango.dev/docs/integrations/all/fiserv-api-key",
-    "baseUrl": "https://prod.emea.api.fiservapps.com",
-    "logo": "https://app.nango.dev/images/template-logos/fiserv-api-key.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Fiserv account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/sandbox/exp/v1/authorisations",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "api-key": "${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:fiserv",
-    "name": "Fiserv (OAuth)",
-    "category": "finance",
-    "description": "banking API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/fiserv",
-    "keyUrl": "https://nango.dev/docs/integrations/all/fiserv",
-    "baseUrl": "https://${hostUrl}",
-    "logo": "https://app.nango.dev/images/template-logos/fiserv.svg",
-    "credentials": [
-      {
-        "name": "hostUrl",
-        "label": "Domain",
-        "description": "The domain of your Fiserv account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
   },
   {
     "id": "nango:float",
@@ -6788,40 +5132,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:front-api-key",
-    "name": "Front (API Key)",
-    "category": "comms",
-    "description": "customer support API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/front-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/front-api-key/connect",
-    "baseUrl": "https://api2.frontapp.com",
-    "logo": "https://app.nango.dev/images/template-logos/front-api-key.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Token",
-        "description": "Your Front API token.",
-        "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.****",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/me",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:fullenrich",
     "name": "FullEnrich",
     "category": "data",
@@ -7024,160 +5334,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:ghost-admin",
-    "name": "Ghost (Admin API)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/ghost-admin",
-    "keyUrl": "https://nango.dev/docs/integrations/all/ghost-admin",
-    "baseUrl": "https://${adminDomain}/ghost/api/admin",
-    "logo": "https://app.nango.dev/images/template-logos/ghost-admin.svg",
-    "credentials": [
-      {
-        "name": "adminDomain",
-        "label": "Ghost Admin Domain",
-        "description": "The domain of your Ghost Admin which can be different from your main domain",
-        "example": "mock.ghost.io",
-        "secret": false
-      },
-      {
-        "name": "privateKey",
-        "label": "API Key",
-        "description": "The private key for your Ghost account",
-        "example": "1234567890abcdef12345678:abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "accept": "application/json"
-      }
-    }
-  },
-  {
-    "id": "nango:ghost-content",
-    "name": "Ghost (Content API)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/ghost-content",
-    "keyUrl": "https://nango.dev/docs/integrations/all/ghost-content",
-    "baseUrl": "https://${adminDomain}/ghost/api/content",
-    "logo": "https://app.nango.dev/images/template-logos/ghost-content.svg",
-    "credentials": [
-      {
-        "name": "adminDomain",
-        "label": "Ghost Admin Domain",
-        "description": "The domain of your Ghost Admin which can be different from your main domain",
-        "example": "mock.ghost.io",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The content API key for your Ghost account",
-        "example": "a1b2c3d4e5f6g7h8i9j0k1l2m3",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/tags",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:github-pat",
-    "name": "Github (Personal Access Token)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/github-pat/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/github-pat/connect",
-    "baseUrl": "https://api.github.com",
-    "logo": "https://app.nango.dev/images/template-logos/github-pat.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "Personal Access Token",
-        "description": "The Personal Access Token to your Github account",
-        "example": "github_pat_***********************xRIoxmseCYRHDDIOFfTOyKex",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/user",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}",
-        "accept": "application/vnd.github+json"
-      }
-    }
-  },
-  {
-    "id": "nango:gitlab-pat",
-    "name": "GitLab  (Personal Access Token)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/gitlab-pat/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/gitlab-pat/connect",
-    "baseUrl": "https://${hostname}",
-    "logo": "https://app.nango.dev/images/template-logos/gitlab-pat.svg",
-    "credentials": [
-      {
-        "name": "hostname",
-        "label": "Hostname",
-        "description": "The hostname of your Gitlab instance",
-        "example": "gitlab.com",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "Personal Access Token",
-        "description": "The Personal Access Token for your GitLab account",
-        "example": "glpat-PMJoma_*******.***.***xwve",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/api/v4/users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "private-token": "${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:glean",
     "name": "Glean",
     "category": "data",
@@ -7244,35 +5400,6 @@ export const NANGO_APPS: ApiApp[] = [
         "content-type": "application/json"
       }
     }
-  },
-  {
-    "id": "nango:gong",
-    "name": "Gong (Basic Auth)",
-    "category": "comms",
-    "description": "communication API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/gong/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/gong/connect",
-    "baseUrl": "https://api.gong.io",
-    "logo": "https://app.nango.dev/images/template-logos/gong.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "Access Key",
-        "description": "Your Gong Access Key",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Access Key Secret",
-        "description": "Your Gong Access Key Secret",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {}
   },
   {
     "id": "nango:google-gemini",
@@ -7374,42 +5501,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:gorgias-basic",
-    "name": "Gorgias (Basic Auth)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/gorgias-basic/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/gorgias-basic/connect",
-    "baseUrl": "https://${subdomain}.gorgias.com",
-    "logo": "https://app.nango.dev/images/template-logos/gorgias-basic.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Gorgias Domain",
-        "description": "The subdomain of your Gorgias account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "Your Gorgias account Username",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "API Key",
-        "description": "Your Gorgias API Key",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:grafana",
     "name": "Grafana",
     "category": "dev",
@@ -7441,40 +5532,6 @@ export const NANGO_APPS: ApiApp[] = [
         "description": "Calls the service to confirm your credentials work",
         "method": "GET",
         "path": "/api/access-control/user/permissions",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:grain-api-key",
-    "name": "Grain (API Key)",
-    "category": "media",
-    "description": "video API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/grain-api-key",
-    "keyUrl": "https://nango.dev/docs/integrations/all/grain-api-key",
-    "baseUrl": "https://api.grain.com",
-    "logo": "https://app.nango.dev/images/template-logos/grain-api-key.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The personal access token to your Grain account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/_/public-api/me",
         "params": []
       }
     ],
@@ -7583,226 +5640,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:greenhouse-assessment",
-    "name": "Greenhouse (Assessment API)",
-    "category": "data",
-    "description": "recruiting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/greenhouse-assessment/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/greenhouse-assessment/connect",
-    "baseUrl": "https://${baseUrl}",
-    "logo": "https://app.nango.dev/images/template-logos/greenhouse-assessment.svg",
-    "credentials": [
-      {
-        "name": "baseUrl",
-        "label": "Assessment Base Url",
-        "description": "The Assessment API Base Url you want to connect to",
-        "example": "www.testing-partner.com",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "API key",
-        "description": "The API Key of your Greenhouse account",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Password",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/list_tests",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:greenhouse-basic",
-    "name": "Greenhouse (Basic Auth)",
-    "category": "data",
-    "description": "recruiting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/greenhouse-basic/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/greenhouse-basic/connect",
-    "baseUrl": "https://${resource}.greenhouse.io",
-    "logo": "https://app.nango.dev/images/template-logos/greenhouse-basic.svg",
-    "credentials": [
-      {
-        "name": "resource",
-        "label": "Greenhouse API Domain",
-        "description": "The Greenhouse API product domain you want to connect to",
-        "example": "harvest",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "API key",
-        "description": "The API Key of your Greenhouse account",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Password",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/candidates/",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:greenhouse-harvest",
-    "name": "Greenhouse (Harvest API)",
-    "category": "data",
-    "description": "recruiting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/greenhouse-harvest/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/greenhouse-harvest/connect",
-    "baseUrl": "https://harvest.greenhouse.io",
-    "logo": "https://app.nango.dev/images/template-logos/greenhouse-harvest.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "API key",
-        "description": "The API Key of your Greenhouse account",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Password",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/candidates",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:greenhouse-job-board",
-    "name": "Greenhouse (Job Board API)",
-    "category": "data",
-    "description": "recruiting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/greenhouse-job-board/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/greenhouse-job-board/connect",
-    "baseUrl": "https://boards-api.greenhouse.io",
-    "logo": "https://app.nango.dev/images/template-logos/greenhouse-job-board.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "API key",
-        "description": "The API Key of your Greenhouse account",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Password",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:greenhouse-onboarding",
-    "name": "Greenhouse (Onboarding API)",
-    "category": "data",
-    "description": "recruiting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/greenhouse-onboarding/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/greenhouse-onboarding/connect",
-    "baseUrl": "https://onboarding-api.greenhouse.io",
-    "logo": "https://app.nango.dev/images/template-logos/greenhouse-onboarding.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "Access Key",
-        "description": "The Access Key to your Greenhouse Onboarding account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Secret Key",
-        "description": "The Secret Key to your Greenhouse Onboarding account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/graphql?query=%7B__schema%7Btypes%7Bname,kind,fields%7Bname%7D%7D%7D%7D",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:greenhouse-harvest-oauth2-cc",
-    "name": "Greenhouse Harvest (Client Credentials V3)",
-    "category": "data",
-    "description": "recruiting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/greenhouse-harvest-oauth2-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/greenhouse-harvest-oauth2-cc/connect",
-    "baseUrl": "https://harvest.greenhouse.io",
-    "logo": "https://app.nango.dev/images/template-logos/greenhouse-harvest-oauth2-cc.svg",
-    "credentials": [
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "Your Greenhouse client ID for authentication",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Client Secret",
-        "description": "Your Greenhouse client secret for authentication",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:grist",
     "name": "Grist",
     "category": "data",
@@ -7879,47 +5716,6 @@ export const NANGO_APPS: ApiApp[] = [
       }
     ],
     "authTemplate": {}
-  },
-  {
-    "id": "nango:guru-scim",
-    "name": "Guru (SCIM)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/guru-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/guru-scim/connect",
-    "baseUrl": "https://api.getguru.com/api/scim",
-    "logo": "https://app.nango.dev/images/template-logos/guru-scim.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "SCIM Username",
-        "description": "The SCIM username for your Guru account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "SCIM Token",
-        "description": "The SCIM token for your Guru account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v2/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "content-type": "application/scim+json"
-      }
-    }
   },
   {
     "id": "nango:hackerrank-work",
@@ -8270,32 +6066,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:holded-v2",
-    "name": "Holded (v2)",
-    "category": "finance",
-    "description": "accounting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/holded-v2/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/holded-v2/connect",
-    "baseUrl": "https://api.holded.com/api",
-    "logo": "https://app.nango.dev/images/template-logos/holded-v2.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Holded account",
-        "example": "pat_************************_************************************************************24d4",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:humaans-io",
     "name": "Humaans.io",
     "category": "data",
@@ -8529,47 +6299,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:ingenious-build-pat",
-    "name": "INGENIOUS.BUILD (Personal Access Token)",
-    "category": "data",
-    "description": "ERP API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/ingenious-build-pat/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/ingenious-build-pat/connect",
-    "baseUrl": "https://${subdomain}.ingenious.build",
-    "logo": "https://app.nango.dev/images/template-logos/ingenious-build-pat.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "INGENIOUS.BUILD Domain",
-        "description": "The subdomain of your INGENIOUS.BUILD account",
-        "example": "domain",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "Access Token",
-        "description": "The Access Token for your INGENIOUS.BUILD account",
-        "example": "rczP********************************fT42",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/api/v2/pub/contacts?page=1&limit=1",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "accesstoken": "${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:insightly",
     "name": "Insightly",
     "category": "data",
@@ -8640,35 +6369,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:ironclad-cc",
-    "name": "Ironclad (Client Credentials)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/ironclad-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/ironclad-cc/connect",
-    "baseUrl": "https://${subdomain}.ironcladapp.com",
-    "logo": "https://app.nango.dev/images/template-logos/ironclad-cc.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Subdomain",
-        "description": "Your Ironclad environment subdomain.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:itglue",
     "name": "IT Glue",
     "category": "data",
@@ -8709,71 +6409,6 @@ export const NANGO_APPS: ApiApp[] = [
         "content-type": "application/vnd.api+json"
       }
     }
-  },
-  {
-    "id": "nango:jamf-basic",
-    "name": "Jamf Pro (Basic Auth)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/jamf-basic",
-    "keyUrl": "https://nango.dev/docs/integrations/all/jamf-basic",
-    "baseUrl": "https://${instance}.jamfcloud.com",
-    "logo": "https://app.nango.dev/images/template-logos/jamf-basic.svg",
-    "credentials": [
-      {
-        "name": "instance",
-        "label": "Jamf Pro Instance",
-        "description": "Your Jamf Pro instance",
-        "example": "example",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "Your Jamf Pro username",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Your Jamf Pro password",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:jamf",
-    "name": "Jamf Pro (Client Credentials)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/jamf",
-    "keyUrl": "https://nango.dev/docs/integrations/all/jamf",
-    "baseUrl": "https://${instance}.jamfcloud.com",
-    "logo": "https://app.nango.dev/images/template-logos/jamf.svg",
-    "credentials": [
-      {
-        "name": "instance",
-        "label": "Jamf Pro Instance",
-        "description": "Your Jamf Pro instance",
-        "example": "example",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
   },
   {
     "id": "nango:jamie",
@@ -8863,119 +6498,6 @@ export const NANGO_APPS: ApiApp[] = [
         "authorization": "Bearer ${apiKey}"
       }
     }
-  },
-  {
-    "id": "nango:jira-basic",
-    "name": "Jira (Basic Auth)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/jira-basic/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/jira-basic/connect",
-    "baseUrl": "https://${subdomain}.atlassian.net",
-    "logo": "https://app.nango.dev/images/template-logos/jira-basic.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Jira Domain",
-        "description": "The subdomain of your Jira account",
-        "example": "domain",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "Email Address",
-        "description": "The Email Address of your Jira account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "API Key",
-        "description": "The API Key of your Jira account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/rest/api/3/myself",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:jira-data-center-api-key",
-    "name": "Jira Data Center (API Key)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/jira-data-center-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/jira-data-center-api-key/connect",
-    "baseUrl": "${baseUrl}",
-    "logo": "https://app.nango.dev/images/template-logos/jira-data-center-api-key.svg",
-    "credentials": [
-      {
-        "name": "baseUrl",
-        "label": "Instance Base Url",
-        "description": "The base Url for your Jira Data Center instance",
-        "example": "https://foobar.atlassian.net",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Jira Data Center",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:jira-data-center-basic",
-    "name": "Jira Data Center (Basic Auth)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/jira-data-center-basic/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/jira-data-center-basic/connect",
-    "baseUrl": "${baseUrl}",
-    "logo": "https://app.nango.dev/images/template-logos/jira-data-center-basic.svg",
-    "credentials": [
-      {
-        "name": "baseUrl",
-        "label": "Instance Base Url",
-        "description": "The base Url for your Jira Data Center instance",
-        "example": "https://foobar.atlassian.net",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "The username for your Jira Data Center",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "The password for your Jira Data Center",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {}
   },
   {
     "id": "nango:jobdiva",
@@ -9070,40 +6592,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {
       "headers": {
         "apikey": "${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:judgeme",
-    "name": "Judge.me (API Key)",
-    "category": "comms",
-    "description": "marketing API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/judgeme/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/judgeme/connect",
-    "baseUrl": "https://api.judge.me",
-    "logo": "https://app.nango.dev/images/template-logos/judgeme.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Token",
-        "description": "Your Judge.me private API token",
-        "example": "UiSz*******************9uyE",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/api/v1/reviews",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "x-api-token": "${apiKey}"
       }
     }
   },
@@ -9216,47 +6704,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:keeper-scim",
-    "name": "Keeper (SCIM)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/keeper-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/keeper-scim/connect",
-    "baseUrl": "https://keepersecurity.com/api/rest/scim/v2/${node}",
-    "logo": "https://app.nango.dev/images/template-logos/keeper-scim.svg",
-    "credentials": [
-      {
-        "name": "node",
-        "label": "Node",
-        "description": "The node id to your Keeper account",
-        "example": "123435384338765",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your node keeper account",
-        "example": "J9b7kgdL2gf14d5F9p67zYXVrTZPTMEnl3/EmwwI9K2=",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:kintone-user-api",
     "name": "Kintone User API",
     "category": "data",
@@ -9294,41 +6741,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:klaviyo",
-    "name": "Klaviyo (API Key)",
-    "category": "comms",
-    "description": "marketing API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/klaviyo/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/klaviyo/connect",
-    "baseUrl": "https://a.klaviyo.com",
-    "logo": "https://app.nango.dev/images/template-logos/klaviyo.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Klaviyo account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/api/accounts",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Klaviyo-API-Key ${apiKey}",
-        "revision": "2024-07-15"
       }
     }
   },
@@ -9748,64 +7160,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:lever-basic-sandbox",
-    "name": "Lever (Basic Auth Sandbox))",
-    "category": "data",
-    "description": "recruiting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/lever-basic-sandbox",
-    "keyUrl": "https://nango.dev/docs/integrations/all/lever-basic-sandbox",
-    "baseUrl": "https://api.sandbox.lever.co",
-    "logo": "https://app.nango.dev/images/template-logos/lever-basic-sandbox.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "User name",
-        "description": "The API Key of your Lever sandbox account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:lever-basic",
-    "name": "Lever (Basic Auth)",
-    "category": "data",
-    "description": "recruiting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/lever-basic/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/lever-basic/connect",
-    "baseUrl": "https://api.lever.co",
-    "logo": "https://app.nango.dev/images/template-logos/lever-basic.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "User name",
-        "description": "The API Key of your lever account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:lightfield",
     "name": "Lightfield",
     "category": "data",
@@ -10026,47 +7380,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:loom-scim",
-    "name": "Loom (SCIM)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/loom-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/loom-scim/connect",
-    "baseUrl": "https://${domain}/scim",
-    "logo": "https://app.nango.dev/images/template-logos/loom-scim.svg",
-    "credentials": [
-      {
-        "name": "domain",
-        "label": "Loom SCIM Bridge URL",
-        "description": "The domain for your Loom SCIM Bridge",
-        "example": "scim.example.com",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "SCIM API Key",
-        "description": "Your Loom SCIM API Key",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:loop-returns",
     "name": "Loop Returns",
     "category": "data",
@@ -10128,42 +7441,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:lucid-scim",
-    "name": "Lucid (SCIM)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/lucid-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/lucid-scim/connect",
-    "baseUrl": "https://users.lucid.app/scim",
-    "logo": "https://app.nango.dev/images/template-logos/lucid-scim.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The SCIM API key generated from the Lucid admin panel",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v2/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}",
-        "accept": "application/json",
-        "content-type": "application/json"
-      }
-    }
-  },
-  {
     "id": "nango:luma",
     "name": "Luma",
     "category": "data",
@@ -10188,40 +7465,6 @@ export const NANGO_APPS: ApiApp[] = [
         "description": "Calls the service to confirm your credentials work",
         "method": "GET",
         "path": "/public/v1/user/get-self",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "x-luma-api-key": "${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:luma-v2",
-    "name": "Luma (v2)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/luma-v2/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/luma-v2/connect",
-    "baseUrl": "https://public-api.luma.com",
-    "logo": "https://app.nango.dev/images/template-logos/luma-v2.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Luma account",
-        "example": "secret-a1B2c3D4e5F6g7H8i9J0k1L2m",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/users/get-self",
         "params": []
       }
     ],
@@ -10691,71 +7934,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:microsoft-oauth2-cc-cert",
-    "name": "Microsoft (Client Credentials - Certificate)",
-    "category": "comms",
-    "description": "communication API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/microsoft-oauth2-cc-cert/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/microsoft-oauth2-cc-cert/connect",
-    "baseUrl": "https://graph.microsoft.com",
-    "logo": "https://app.nango.dev/images/template-logos/microsoft-oauth2-cc-cert.svg",
-    "credentials": [
-      {
-        "name": "clientId",
-        "label": "Client ID",
-        "description": "The application (client) ID assigned to your app in Azure.",
-        "example": "11112222-bbbb-3333-cccc-4444dddd5555",
-        "secret": false
-      },
-      {
-        "name": "privateKey",
-        "label": "Private Key",
-        "description": "The RSA private key (PEM format) matching the certificate uploaded to your Azure app registration.",
-        "example": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\n-----END PRIVATE KEY-----",
-        "secret": true
-      },
-      {
-        "name": "certificateThumbprint",
-        "label": "Certificate Thumbprint (x5t#S256)",
-        "description": "The base64url-encoded SHA-256 thumbprint of your certificate.",
-        "example": "rCnkMH5GKJI03tRpdjBh8OG2U8I",
-        "secret": false
-      },
-      {
-        "name": "assertion",
-        "label": "Assertion",
-        "description": "",
-        "example": "",
-        "secret": false
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:microsoft-oauth2-cc",
-    "name": "Microsoft (Client Credentials)",
-    "category": "comms",
-    "description": "communication API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/microsoft-oauth2-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/microsoft-oauth2-cc/connect",
-    "baseUrl": "https://graph.microsoft.com",
-    "logo": "https://app.nango.dev/images/template-logos/microsoft-oauth2-cc.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:microsoft-business-central",
     "name": "Microsoft Business Central",
     "category": "data",
@@ -10777,35 +7955,6 @@ export const NANGO_APPS: ApiApp[] = [
         "label": "Tenant ID",
         "description": "The unique identifier for your organization that uses Microsoft services",
         "example": "a1b2c3d4-e5f6-47a8-9b0c-d1234567890f",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:microsoft-dynamics-365-finance-and-operations-cc",
-    "name": "Microsoft Dynamics 365 Finance and Operations (Client Credentials)",
-    "category": "data",
-    "description": "ERP API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/microsoft-dynamics-365-finance-and-operations-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/microsoft-dynamics-365-finance-and-operations-cc/connect",
-    "baseUrl": "https://${environmentUrl}",
-    "logo": "https://app.nango.dev/images/template-logos/microsoft-dynamics-365-finance-and-operations-cc.svg",
-    "credentials": [
-      {
-        "name": "environmentUrl",
-        "label": "Environment URL",
-        "description": "The domain of your Finance and Operations environment.",
-        "example": "mycompany.operations.dynamics.com",
         "secret": false
       },
       {
@@ -11003,40 +8152,6 @@ export const NANGO_APPS: ApiApp[] = [
     "basic": false,
     "tools": [],
     "authTemplate": {}
-  },
-  {
-    "id": "nango:miro-scim",
-    "name": "Miro (SCIM API)",
-    "category": "media",
-    "description": "design API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/miro-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/miro-scim/connect",
-    "baseUrl": "https://miro.com/api",
-    "logo": "https://app.nango.dev/images/template-logos/miro-scim.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Miro scim account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/scim/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
   },
   {
     "id": "nango:missive",
@@ -11283,39 +8398,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {
       "headers": {
         "x-n8n-api-key": "${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:namely-pat",
-    "name": "Namely (PAT)",
-    "category": "data",
-    "description": "HR API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/namely-pat/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/namely-pat/connect",
-    "baseUrl": "https://${company}.namely.com/api",
-    "logo": "https://app.nango.dev/images/template-logos/namely-pat.svg",
-    "credentials": [
-      {
-        "name": "company",
-        "label": "Company Name",
-        "description": "The name of your Namely company",
-        "example": "example",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "Personal Access Token",
-        "description": "The Personal Access Token for your Namely account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
       }
     }
   },
@@ -11666,40 +8748,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:notion-scim",
-    "name": "Notion (SCIM API)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/notion-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/notion-scim/connect",
-    "baseUrl": "https://api.notion.com/scim",
-    "logo": "https://app.nango.dev/images/template-logos/notion-scim.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Notion scim account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v2/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:nyne-ai",
     "name": "Nyne AI",
     "category": "data",
@@ -11768,153 +8816,6 @@ export const NANGO_APPS: ApiApp[] = [
         "x-api-token": "${apiKey}"
       }
     }
-  },
-  {
-    "id": "nango:odoo-api-key",
-    "name": "Odoo (API Key)",
-    "category": "data",
-    "description": "ERP API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/odoo-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/odoo-api-key/connect",
-    "baseUrl": "https://${serverUrl}/json",
-    "logo": "https://app.nango.dev/images/template-logos/odoo-api-key.svg",
-    "credentials": [
-      {
-        "name": "serverUrl",
-        "label": "Domain",
-        "description": "The domain of your Odoo instance.",
-        "example": "mycompany.odoo.com",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "Your Odoo API key.",
-        "example": "20d6113f****************************2921",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "authorization": "bearer ${apiKey}",
-        "content-type": "application/json"
-      }
-    }
-  },
-  {
-    "id": "nango:odoo-cc",
-    "name": "Odoo (Client Credentials)",
-    "category": "data",
-    "description": "ERP API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/odoo-cc/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/odoo-cc/connect",
-    "baseUrl": "https://${serverUrl}/restapi",
-    "logo": "https://app.nango.dev/images/template-logos/odoo-cc.svg",
-    "credentials": [
-      {
-        "name": "serverUrl",
-        "label": "Domain",
-        "description": "The domain to your Odoo account",
-        "example": "example.odoo.com",
-        "secret": false
-      },
-      {
-        "name": "consumerId",
-        "label": "Consumer ID",
-        "description": "Your App Consumer ID",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "consumerSecret",
-        "label": "Consumer Secret",
-        "description": "Your App Consumer Secret",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:okta-api-key",
-    "name": "Okta (API Token)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/okta-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/okta-api-key/connect",
-    "baseUrl": "https://${hostname}",
-    "logo": "https://app.nango.dev/images/template-logos/okta-api-key.svg",
-    "credentials": [
-      {
-        "name": "hostname",
-        "label": "Okta Domain",
-        "description": "The full hostname of your Okta account.",
-        "example": "dev-12345678.okta.com",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API Token",
-        "description": "The API token generated from your Okta org.",
-        "example": "00qJ-P************************************",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/api/v1/users/me",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "SSWS ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:okta-cc",
-    "name": "Okta (Client Credentials)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/okta-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/okta-cc/connect",
-    "baseUrl": "https://${hostname}",
-    "logo": "https://app.nango.dev/images/template-logos/okta-cc.svg",
-    "credentials": [
-      {
-        "name": "hostname",
-        "label": "Okta Domain",
-        "description": "The full hostname of your Okta account",
-        "example": "dev-12345678.okta.com",
-        "secret": false
-      },
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "The Client ID of your Okta API Services application",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_private_key",
-        "label": "Private Key (JWK)",
-        "description": "The private JWK JSON (including kid, kty, n, e, d, p, q, dp, dq, qi) whose public key is registered in your Okta API Services application",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
   },
   {
     "id": "nango:omni",
@@ -12089,41 +8990,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:openai-admin",
-    "name": "OpenAI (Admin)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/openai-admin/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/openai-admin/connect",
-    "baseUrl": "https://api.openai.com",
-    "logo": "https://app.nango.dev/images/template-logos/openai-admin.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "Admin Key",
-        "description": "The Admin API key for your OpenAI account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/organization/users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}",
-        "content-type": "application/json"
-      }
-    }
-  },
-  {
     "id": "nango:optum-real",
     "name": "Optum Real",
     "category": "data",
@@ -12187,46 +9053,6 @@ export const NANGO_APPS: ApiApp[] = [
     "basic": false,
     "tools": [],
     "authTemplate": {}
-  },
-  {
-    "id": "nango:oracle-hcm",
-    "name": "Oracle Fusion Cloud (HCM)",
-    "category": "data",
-    "description": "HR API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/oracle-hcm/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/oracle-hcm/connect",
-    "baseUrl": "https://${restServerUrl}",
-    "logo": "https://app.nango.dev/images/template-logos/oracle-hcm.svg",
-    "credentials": [
-      {
-        "name": "restServerUrl",
-        "label": "REST Server URL",
-        "description": "The REST server URL for your Oracle Fusion Cloud",
-        "example": "servername.fa.us2.oraclecloud.com",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "Your Oracle Cloud service username.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Your Oracle Cloud service password.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "content-type": "application/vnd.oracle.adf.resourceitem+json"
-      }
-    }
   },
   {
     "id": "nango:orange-logic",
@@ -12406,40 +9232,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:pandadoc-api-key",
-    "name": "Pandadoc (API Key)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/pandadoc-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/pandadoc-api-key/connect",
-    "baseUrl": "https://api.pandadoc.com",
-    "logo": "https://app.nango.dev/images/template-logos/pandadoc-api-key.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Pandadoc account",
-        "example": "3039ba033eb1410caa0a2227158d63c9d6502cd8",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/public/v1/members/current",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "API-Key ${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:passportal",
     "name": "Passportal",
     "category": "comms",
@@ -12605,64 +9397,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:paylocity-nextgen",
-    "name": "Paylocity (NextGen)",
-    "category": "data",
-    "description": "HR API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/paylocity-nextgen/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/paylocity-nextgen/connect",
-    "baseUrl": "https://${environment}.paylocity.com",
-    "logo": "https://app.nango.dev/images/template-logos/paylocity-nextgen.svg",
-    "credentials": [
-      {
-        "name": "environment",
-        "label": "Environment",
-        "description": "Your Paylocity NextGen environment.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:paylocity",
-    "name": "Paylocity (Weblink)",
-    "category": "data",
-    "description": "HR API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/paylocity/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/paylocity/connect",
-    "baseUrl": "https://${environment}.paylocity.com",
-    "logo": "https://app.nango.dev/images/template-logos/paylocity.svg",
-    "credentials": [
-      {
-        "name": "environment",
-        "label": "Paylocity Environment",
-        "description": "Your Paylocity Weblink environment.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:pendo",
     "name": "Pendo",
     "category": "data",
@@ -12693,69 +9427,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {
       "headers": {
         "x-pendo-integration-key": "${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:pendo-oauth",
-    "name": "Pendo (OAuth)",
-    "category": "data",
-    "description": "analytics API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/pendo-oauth/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/pendo-oauth/connect",
-    "baseUrl": "https://app.pendo.io",
-    "logo": "https://app.nango.dev/images/template-logos/pendo-oauth.svg",
-    "credentials": [
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "Your Pendo OAuth client ID",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Client Secret",
-        "description": "Your Pendo OAuth client secret",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:pennylane-company-api",
-    "name": "Pennylane (Company API)",
-    "category": "finance",
-    "description": "accounting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/pennylane-company-api/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/pennylane-company-api/connect",
-    "baseUrl": "https://app.pennylane.com",
-    "logo": "https://app.nango.dev/images/template-logos/pennylane-company-api.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Token",
-        "description": "The company API token for your Pennylane account",
-        "example": "aZ9b4Lp3QhN7vXyK1sTcO0WfR8jMdEuD5GrIi2-H6PnU",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/api/external/v2/me",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
       }
     }
   },
@@ -12865,54 +9536,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:personio",
-    "name": "Personio (v1)",
-    "category": "data",
-    "description": "HR API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/personio/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/personio/connect",
-    "baseUrl": "https://api.personio.de/v1",
-    "logo": "https://app.nango.dev/images/template-logos/personio.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:personio-v2",
-    "name": "Personio (v2)",
-    "category": "data",
-    "description": "HR API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/personio-v2",
-    "keyUrl": "https://nango.dev/docs/integrations/all/personio-v2",
-    "baseUrl": "https://api.personio.de/v2",
-    "logo": "https://app.nango.dev/images/template-logos/personio-v2.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "content-type": "application/x-www-form-urlencoded"
-      }
-    }
-  },
-  {
     "id": "nango:personio-recruiting",
     "name": "Personio Recruiting",
     "category": "data",
@@ -12988,91 +9611,6 @@ export const NANGO_APPS: ApiApp[] = [
     "keyUrl": "https://nango.dev/docs/integrations/all/pingboard",
     "baseUrl": "https://app.pingboard.com/api/v2",
     "logo": "https://app.nango.dev/images/template-logos/pingboard.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:pingone-cc",
-    "name": "PingOne (Client Credentials)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/pingone-cc/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/pingone-cc/connect",
-    "baseUrl": "https://api.pingone.${tld}",
-    "logo": "https://app.nango.dev/images/template-logos/pingone-cc.svg",
-    "credentials": [
-      {
-        "name": "tld",
-        "label": "Top Level Domain",
-        "description": "The top level domain for your PingOne account.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:pipedream",
-    "name": "Pipedream (API Key)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/pipedream/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/pipedream/connect",
-    "baseUrl": "https://api.pipedream.com",
-    "logo": "https://app.nango.dev/images/template-logos/pipedream.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API Key for your Pipedream account",
-        "example": "9a1b2c3d4e5f67890abcdeffedcba123",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/users/me",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:pipedream-oauth2-cc",
-    "name": "Pipedream (Client Credentials)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/pipedream-oauth2-cc/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/pipedream-oauth2-cc/connect",
-    "baseUrl": "https://api.pipedream.com",
-    "logo": "https://app.nango.dev/images/template-logos/pipedream-oauth2-cc.svg",
     "credentials": [
       {
         "name": "apiKey",
@@ -13185,47 +9723,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:planning-center-online-pat",
-    "name": "Planning Center Online (Personal Access Token)",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/planning-center-online-pat/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/planning-center-online-pat/connect",
-    "baseUrl": "https://api.planningcenteronline.com",
-    "logo": "https://app.nango.dev/images/template-logos/planning-center-online-pat.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "Client ID",
-        "description": "The Client ID for your Planning Center Personal Access Token.",
-        "example": "01h2jk3lm4np5qrst6uvw",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Secret",
-        "description": "The Secret for your Planning Center Personal Access Token.",
-        "example": "7f8e9d0c1b2a3847564930210fedcba9876543210fedcba9876543210",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/current/v2/me",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "accept": "application/json"
-      }
-    }
-  },
-  {
     "id": "nango:podscribe",
     "name": "Podscribe",
     "category": "comms",
@@ -13317,83 +9814,6 @@ export const NANGO_APPS: ApiApp[] = [
         "authorization": "Bearer ${apiKey}"
       }
     }
-  },
-  {
-    "id": "nango:private-api-basic",
-    "name": "Private API (Basic Auth)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/private-api-basic/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/private-api-basic/connect",
-    "baseUrl": "https://my-private-api",
-    "logo": "https://app.nango.dev/images/template-logos/private-api-basic.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "Your username",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Your password",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:private-api-bearer",
-    "name": "Private API (Bearer Auth)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/private-api-bearer/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/private-api-bearer/connect",
-    "baseUrl": "https://my-private-api",
-    "logo": "https://app.nango.dev/images/template-logos/private-api-bearer.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "Your API Key",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:private-api-generic",
-    "name": "Private API (Generic)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/private-api-generic/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/private-api-generic/connect",
-    "baseUrl": "https://api.nango.dev",
-    "logo": "https://app.nango.dev/images/template-logos/private-api-generic.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "Your API Key",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
   },
   {
     "id": "nango:prive",
@@ -13528,42 +9948,6 @@ export const NANGO_APPS: ApiApp[] = [
         "params": []
       }
     ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:pushpay-chms-v1",
-    "name": "Pushpay ChMS (v1)",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/pushpay-chms-v1/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/pushpay-chms-v1/connect",
-    "baseUrl": "https://${subdomain}.ccbchurch.com",
-    "logo": "https://app.nango.dev/images/template-logos/pushpay-chms-v1.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Church subdomain",
-        "description": "The subdomain for your Pushpay ChMS site.",
-        "example": "yourchurch",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "API username",
-        "description": "The API login created in Pushpay ChMS API Admin.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "API password",
-        "description": "The password for your Pushpay ChMS API user.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
     "authTemplate": {}
   },
   {
@@ -14161,42 +10545,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:redtail-crm-sandbox",
-    "name": "Redtail CRM (Sandbox)",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/redtail-crm-sandbox/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/redtail-crm-sandbox/connect",
-    "baseUrl": "https://review.crm.redtailtechnology.com/api/public",
-    "logo": "https://app.nango.dev/images/template-logos/redtail-crm-sandbox.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "The username for your Redtail CRM account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "The password for your Redtail CRM account",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API Key for your Redtail CRM account",
-        "example": "f1c2d3a4-5b67-4c89-ae01-123456789abc",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:refiner",
     "name": "Refiner",
     "category": "data",
@@ -14224,32 +10572,6 @@ export const NANGO_APPS: ApiApp[] = [
         "params": []
       }
     ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:render-mcp",
-    "name": "Render (MCP)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/render-mcp/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/render-mcp/connect",
-    "baseUrl": "https://mcp.render.com",
-    "logo": "https://app.nango.dev/images/template-logos/render-mcp.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "Your Render API key from Account Settings.",
-        "example": "rnd_****************************",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
     "authTemplate": {
       "headers": {
         "authorization": "Bearer ${apiKey}"
@@ -14541,42 +10863,6 @@ export const NANGO_APPS: ApiApp[] = [
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "user-agent": "Node.js/20.12.2 (linux; x64)"
-      }
-    }
-  },
-  {
-    "id": "nango:roam-scim",
-    "name": "Roam (SCIM API)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/roam-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/roam-scim/connect",
-    "baseUrl": "https://api.ro.am/scim",
-    "logo": "https://app.nango.dev/images/template-logos/roam-scim.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "SCIM API Token",
-        "description": "The SCIM API token generated from your Roam organization settings.",
-        "example": "rmk-uu9zt58h-EYHyLJ3ay4Mc-wuWQTOk-Y2yY-gZlW7Ys8AdVXBRZks_SGrCyZ09_IDvX9ikahdxushGYKcT77Fjw",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v2/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}",
-        "accept": "application/json",
-        "content-type": "application/json"
       }
     }
   },
@@ -14908,35 +11194,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:sage-intacct-cc",
-    "name": "Sage Intacct (Client Credentials)",
-    "category": "finance",
-    "description": "accounting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/sage-intacct-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/sage-intacct-cc/connect",
-    "baseUrl": "https://api.intacct.com/ia/api",
-    "logo": "https://app.nango.dev/images/template-logos/sage-intacct-cc.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "The Web Services user ID in userId@companyId|entityId format. Required if not using Session ID.",
-        "example": "Admin@MyCompany|Central Region",
-        "secret": false
-      },
-      {
-        "name": "sessionId",
-        "label": "Session ID",
-        "description": "A valid UI or API session ID. Required if not using Username.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:sage-member",
     "name": "SAGE Member",
     "category": "comms",
@@ -14951,136 +11208,6 @@ export const NANGO_APPS: ApiApp[] = [
         "label": "Authentication Key",
         "description": "The authentication key for your SAGE Member user.",
         "example": "56edbbe3********************141a",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:salesforce-cc",
-    "name": "Salesforce (Client Credentials)",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/salesforce-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/salesforce-cc/connect",
-    "baseUrl": "${instance_url}",
-    "logo": "https://app.nango.dev/images/template-logos/salesforce-cc.svg",
-    "credentials": [
-      {
-        "name": "instance_url",
-        "label": "Instance_url",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:salesforce-cdp",
-    "name": "Salesforce (Data Cloud)",
-    "category": "data",
-    "description": "file storage API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/salesforce-cdp/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/salesforce-cdp/connect",
-    "baseUrl": "${instance_url}",
-    "logo": "https://app.nango.dev/images/template-logos/salesforce-cdp.svg",
-    "credentials": [
-      {
-        "name": "instance_url",
-        "label": "Instance_url",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "jwt",
-        "label": "Encoded JWT",
-        "description": "This is your pre-generated, encoded JSON Web Token (JWT)",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:salesforce-jwt",
-    "name": "Salesforce (JWT)",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/salesforce-jwt/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/salesforce-jwt/connect",
-    "baseUrl": "${instance_url}",
-    "logo": "https://app.nango.dev/images/template-logos/salesforce-jwt.svg",
-    "credentials": [
-      {
-        "name": "instance_url",
-        "label": "Instance_url",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "clientId",
-        "label": "Consumer Key",
-        "description": "The Consumer Key from your Salesforce Connected App.",
-        "example": "3MVG9dAEux2v1sLsg0e52***************CJpGsXgqg8E",
-        "secret": false
-      },
-      {
-        "name": "clientSecret",
-        "label": "Consumer Secret",
-        "description": "The Consumer Secret from your Salesforce Connected App.",
-        "example": "954F73F4C234***************9D069B8FCF83B5",
-        "secret": true
-      },
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "The Salesforce username of the user the JWT will act on behalf of.",
-        "example": "john@acme.com",
-        "secret": false
-      },
-      {
-        "name": "privateKey",
-        "label": "Private Key",
-        "description": "The private key that matches the certificate you uploaded to the Connected App.",
-        "example": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\\n-----END PRIVATE KEY-----",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:salesmsg",
-    "name": "Salesmsg (PAT)",
-    "category": "comms",
-    "description": "communication API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/salesmsg/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/salesmsg/connect",
-    "baseUrl": "https://api.salesmessage.com/pub",
-    "logo": "https://app.nango.dev/images/template-logos/salesmsg.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "Personal Access Token",
-        "description": "Your Salesmsg Personal Access Token (PAT).",
-        "example": "eyJhbGciOi***.eyJzdWIiOi***.xxxxxxxxxxxx",
         "secret": true
       }
     ],
@@ -15187,56 +11314,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:sap-concur-password",
-    "name": "SAP Concur (Password Grant)",
-    "category": "data",
-    "description": "ERP API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/sap-concur-password/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/sap-concur-password/connect",
-    "baseUrl": "https://${region}.api.concursolutions.com",
-    "logo": "https://app.nango.dev/images/template-logos/sap-concur-password.svg",
-    "credentials": [
-      {
-        "name": "region",
-        "label": "Region",
-        "description": "The SAP Concur Data Center region.",
-        "example": "us",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "Your SAP Concur username or userId.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Your SAP Concur account password.",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "clientId",
-        "label": "Client ID",
-        "description": "Your OAuth application client_id supplied by App Management.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "clientSecret",
-        "label": "Client Secret",
-        "description": "Your OAuth application client_secret supplied by App Management.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:sap-fieldglass",
     "name": "SAP Fieldglass",
     "category": "data",
@@ -15276,42 +11353,6 @@ export const NANGO_APPS: ApiApp[] = [
       }
     ],
     "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:sap-odata-basic",
-    "name": "SAP S/4HANA Cloud (Basic Auth)",
-    "category": "data",
-    "description": "ERP API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/sap-odata-basic/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/sap-odata-basic/connect",
-    "baseUrl": "https://${apiServer}",
-    "logo": "https://app.nango.dev/images/template-logos/sap-odata-basic.svg",
-    "credentials": [
-      {
-        "name": "apiServer",
-        "label": "API Server",
-        "description": "The API base URL of the SAP S/4HANA cloud API service you want to connect to",
-        "example": "eu10.cfapps.eu10.hana.ondemand.com",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
     "tools": [],
     "authTemplate": {}
   },
@@ -15374,71 +11415,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:sedna-basic",
-    "name": "Sedna (Basic Auth)",
-    "category": "comms",
-    "description": "communication API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/sedna-basic",
-    "keyUrl": "https://nango.dev/docs/integrations/all/sedna-basic",
-    "baseUrl": "https://${tenant}.sednanetwork.com/platform",
-    "logo": "https://app.nango.dev/images/template-logos/sedna-basic.svg",
-    "credentials": [
-      {
-        "name": "tenant",
-        "label": "Tenant",
-        "description": "The tenant name to your sedna account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:sedna",
-    "name": "Sedna (OAuth)",
-    "category": "comms",
-    "description": "communication API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/sedna",
-    "keyUrl": "https://nango.dev/docs/integrations/all/sedna",
-    "baseUrl": "https://${tenant}.sednanetwork.com/platform",
-    "logo": "https://app.nango.dev/images/template-logos/sedna.svg",
-    "credentials": [
-      {
-        "name": "tenant",
-        "label": "Tenant",
-        "description": "The tenant name to your sedna account",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:sellercloud",
     "name": "Sellercloud",
     "category": "data",
@@ -15482,35 +11458,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:sellsy-oauth2-cc",
-    "name": "Sellsy (Client Credentials)",
-    "category": "finance",
-    "description": "accounting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/sellsy-oauth2-cc/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/sellsy-oauth2-cc/connect",
-    "baseUrl": "https://api.sellsy.com",
-    "logo": "https://app.nango.dev/images/template-logos/sellsy-oauth2-cc.svg",
-    "credentials": [
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "Your Client ID",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Secret shopper",
-        "description": "Your Secret shopper",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:semble",
     "name": "Semble",
     "category": "data",
@@ -15537,36 +11484,6 @@ export const NANGO_APPS: ApiApp[] = [
     ],
     "basic": false,
     "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:semrush",
-    "name": "Semrush (v3)",
-    "category": "comms",
-    "description": "marketing API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/semrush/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/semrush/connect",
-    "baseUrl": "https://api.semrush.com",
-    "logo": "https://app.nango.dev/images/template-logos/semrush.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "Your Semrush API key",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/management/v1/projects",
-        "params": []
-      }
-    ],
     "authTemplate": {}
   },
   {
@@ -15672,99 +11589,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:servicenow-oauth2-cc",
-    "name": "ServiceNow (Client Credentials)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/servicenow-oauth2-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/servicenow-oauth2-cc/connect",
-    "baseUrl": "https://${hostname}",
-    "logo": "https://app.nango.dev/images/template-logos/servicenow-oauth2-cc.svg",
-    "credentials": [
-      {
-        "name": "hostname",
-        "label": "ServiceNow Domain",
-        "description": "The full hostname of your ServiceNow instance",
-        "example": "dev12345.service-now.com",
-        "secret": false
-      },
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "The Client ID from your ServiceNow OAuth Application",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Client Secret",
-        "description": "The Client Secret from your ServiceNow OAuth Application",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:servicenow-jwt",
-    "name": "ServiceNow (JWT)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/servicenow-jwt/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/servicenow-jwt/connect",
-    "baseUrl": "https://${hostname}",
-    "logo": "https://app.nango.dev/images/template-logos/servicenow-jwt.svg",
-    "credentials": [
-      {
-        "name": "hostname",
-        "label": "ServiceNow Domain",
-        "description": "The full hostname of your ServiceNow instance",
-        "example": "dev12345.service-now.com",
-        "secret": false
-      },
-      {
-        "name": "clientId",
-        "label": "Client ID",
-        "description": "The Client ID from your ServiceNow OAuth JWT API endpoint",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "clientSecret",
-        "label": "Client Secret",
-        "description": "The Client Secret from your ServiceNow OAuth JWT API endpoint",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "keyId",
-        "label": "Key ID",
-        "description": "The Key ID configured in your ServiceNow JWT verifier map",
-        "example": "nango-servicenow-key",
-        "secret": true
-      },
-      {
-        "name": "privateKey",
-        "label": "Private Key",
-        "description": "The RSA private key matching the certificate in your ServiceNow JWT verifier map",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "userIdentifier",
-        "label": "User Identifier",
-        "description": "The user's value in the User Field configured on your ServiceNow OAuth JWT API endpoint",
-        "example": "nango_integration",
-        "secret": false
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:setmore",
     "name": "Setmore",
     "category": "data",
@@ -15785,109 +11609,6 @@ export const NANGO_APPS: ApiApp[] = [
     "basic": false,
     "tools": [],
     "authTemplate": {}
-  },
-  {
-    "id": "nango:sharepoint-online-oauth2-cc",
-    "name": "SharePoint Online (Client Credentials V2)",
-    "category": "data",
-    "description": "file storage API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/sharepoint-online-oauth2-cc/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/sharepoint-online-oauth2-cc/connect",
-    "baseUrl": "https://graph.microsoft.com",
-    "logo": "https://app.nango.dev/images/template-logos/sharepoint-online-oauth2-cc.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:sharepoint-online-v1",
-    "name": "SharePoint Online (v1)",
-    "category": "data",
-    "description": "file storage API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/sharepoint-online-v1/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/sharepoint-online-v1/connect",
-    "baseUrl": "https://${tenantName}.sharepoint.com",
-    "logo": "https://app.nango.dev/images/template-logos/sharepoint-online-v1.svg",
-    "credentials": [
-      {
-        "name": "tenantName",
-        "label": "Tenant Name",
-        "description": "The initial domain name for your Microsoft services tenant",
-        "example": "mycompany",
-        "secret": false
-      },
-      {
-        "name": "clientId",
-        "label": "Client ID",
-        "description": "Your application Client ID",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "assertion",
-        "label": "Client Assertion",
-        "description": "Your generated client assertion",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "accept": "application/json;odata=verbose"
-      }
-    }
-  },
-  {
-    "id": "nango:shipbob-pat",
-    "name": "ShipBob (Personal Access Token)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/shipbob-pat/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/shipbob-pat/connect",
-    "baseUrl": "https://${apiSubdomain}.shipbob.com",
-    "logo": "https://app.nango.dev/images/template-logos/shipbob-pat.svg",
-    "credentials": [
-      {
-        "name": "apiSubdomain",
-        "label": "API Subdomain",
-        "description": "The ShipBob API subdomain of the environment you want to connect to.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "Personal Access Token",
-        "description": "Your ShipBob Personal Access Token",
-        "example": "6E4647BB**************************806E464161FBB996DD8E87EEA86DB926-1",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/2026-01/channel",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
   },
   {
     "id": "nango:shippo",
@@ -15920,191 +11641,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {
       "headers": {
         "authorization": "ShippoToken ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:shipstation",
-    "name": "Shipstation (v1)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/shipstation/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/shipstation/connect",
-    "baseUrl": "https://ssapi.shipstation.com",
-    "logo": "https://app.nango.dev/images/template-logos/shipstation.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "API Key",
-        "description": "Your ShipStation API key",
-        "example": "0ff30856c5634da1b5ce1953fdaf3dcd",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "API Secret",
-        "description": "Your Shipstation API secret",
-        "example": "17f1c62148b044c687f80e1060224a4e",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/users",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:shipstation-v2",
-    "name": "Shipstation (v2)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/shipstation-v2/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/shipstation-v2/connect",
-    "baseUrl": "https://api.shipstation.com",
-    "logo": "https://app.nango.dev/images/template-logos/shipstation-v2.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API Key for your Shipstation account",
-        "example": "zEfcI+rouT0q1fjQWHBOYnsGYiax3rGDjtt3O5UhFIw",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v2/users?page_size=1",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "api-key": "${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:shopify-api-key",
-    "name": "Shopify (API Key)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/shopify-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/shopify-api-key/connect",
-    "baseUrl": "https://${subdomain}.myshopify.com",
-    "logo": "https://app.nango.dev/images/template-logos/shopify-api-key.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Shopify Domain",
-        "description": "The subdomain of your Shopify account",
-        "example": "domain",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API Access Token",
-        "description": "The API access token generated",
-        "example": "shpat_***************c03266f",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "POST",
-        "path": "/admin/api/2024-10/graphql.json?query=%7B__schema%7Btypes%7Bname%2Ckind%2Cfields%7Bname%7D%7D%7D%7D",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "x-shopify-access-token": "${apiKey}",
-        "content-type": "application/json"
-      }
-    }
-  },
-  {
-    "id": "nango:shopify-cc",
-    "name": "Shopify (Client Credentials)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/shopify-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/shopify-cc/connect",
-    "baseUrl": "https://${subdomain}.myshopify.com",
-    "logo": "https://app.nango.dev/images/template-logos/shopify-cc.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Shopify Store Domain",
-        "description": "The subdomain of the Shopify store the app is installed in.",
-        "example": "my-store",
-        "secret": false
-      },
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "The Client ID for your Shopify app.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Client Secret",
-        "description": "The Client Secret for your Shopify app.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:shopify-scim",
-    "name": "Shopify (SCIM API)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/shopify-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/shopify-scim/connect",
-    "baseUrl": "https://shopifyscim.com/scim",
-    "logo": "https://app.nango.dev/images/template-logos/shopify-scim.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "SCIM API Token",
-        "description": "The SCIM API token generated from your Shopify organization settings.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v2/Users",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}",
-        "accept": "application/json",
-        "content-type": "application/json"
       }
     }
   },
@@ -16204,42 +11740,6 @@ export const NANGO_APPS: ApiApp[] = [
         "name": "password",
         "label": "Password",
         "description": "Your ShopVox login password.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:shopware",
-    "name": "Shopware (Admin API)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/shopware/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/shopware/connect",
-    "baseUrl": "https://${shopwareUrl}/api",
-    "logo": "https://app.nango.dev/images/template-logos/shopware.svg",
-    "credentials": [
-      {
-        "name": "shopwareUrl",
-        "label": "Shopware URL",
-        "description": "The hostname of your Shopware instance.",
-        "example": "myshop.example.com",
-        "secret": false
-      },
-      {
-        "name": "client_id",
-        "label": "Access key ID",
-        "description": "The Access key ID of yout integration.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Secret access key",
-        "description": "The Secret access key of your integration.",
         "example": "",
         "secret": true
       }
@@ -16471,62 +11971,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:snowflake-jwt",
-    "name": "Snowflake (JWT)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/snowflake-jwt/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/snowflake-jwt/connect",
-    "baseUrl": "https://${subdomain}.snowflakecomputing.com",
-    "logo": "https://app.nango.dev/images/template-logos/snowflake-jwt.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Subdomain",
-        "description": "The subdomain for your Snowflake instance",
-        "example": "KXOPMLU-RE00572",
-        "secret": false
-      },
-      {
-        "name": "accountIdentifier",
-        "label": "Account Identifier",
-        "description": "The unique identifier for your Snowflake account.",
-        "example": "KXOPMLU-RE00572",
-        "secret": false
-      },
-      {
-        "name": "userName",
-        "label": "User Name",
-        "description": "The username for your Snowflake account used for authentication",
-        "example": "MYUSER",
-        "secret": false
-      },
-      {
-        "name": "privateKey",
-        "label": "Private Key",
-        "description": "The private key associated with your Snowflake account for JWT authentication",
-        "example": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\\n-----END PRIVATE KEY-----",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "POST",
-        "path": "/api/v2/statements",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "accept": "application/json",
-        "x-snowflake-authorization-token-type": "KEYPAIR_JWT"
-      }
-    }
-  },
-  {
     "id": "nango:sophos-central",
     "name": "Sophos Central",
     "category": "dev",
@@ -16595,28 +12039,6 @@ export const NANGO_APPS: ApiApp[] = [
         "authorization": "Bearer ${apiKey}"
       }
     }
-  },
-  {
-    "id": "nango:spotify-oauth2-cc",
-    "name": "Spotify (Client Credentials)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/spotify-oauth2-cc",
-    "keyUrl": "https://nango.dev/docs/integrations/all/spotify-oauth2-cc",
-    "baseUrl": "https://api.spotify.com",
-    "logo": "https://app.nango.dev/images/template-logos/spotify-oauth2-cc.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
   },
   {
     "id": "nango:statamic",
@@ -16742,40 +12164,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {
       "headers": {
         "x-retextion-access-token": "${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:stedi",
-    "name": "Stedi (Healthcare)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/stedi/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/stedi/connect",
-    "baseUrl": "https://healthcare.us.stedi.com",
-    "logo": "https://app.nango.dev/images/template-logos/stedi.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "Your Stedi API key.",
-        "example": "test_JX***************48l",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/2024-04-01/payers?pageSize=10",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "${apiKey}"
       }
     }
   },
@@ -16934,35 +12322,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:stripe-api-key",
-    "name": "Stripe (API Key)",
-    "category": "finance",
-    "description": "payments API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/stripe-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/stripe-api-key/connect",
-    "baseUrl": "https://api.stripe.com",
-    "logo": "https://app.nango.dev/images/template-logos/stripe-api-key.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "Restricted API Key",
-        "description": "Your Stripe restricted API Key",
-        "example": "rk_live_51On1GfAemfaBCd0eHq***************BV5007KeuAVcO",
-        "secret": true
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:supabase",
     "name": "Supabase",
     "category": "dev",
@@ -16993,33 +12352,6 @@ export const NANGO_APPS: ApiApp[] = [
       "headers": {
         "authorization": "Bearer ${apiKey}",
         "apikey": "${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:supabase-mcp",
-    "name": "Supabase (MCP)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/supabase-mcp/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/supabase-mcp/connect",
-    "baseUrl": "https://mcp.supabase.com",
-    "logo": "https://app.nango.dev/images/template-logos/supabase-mcp.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "Personal Access Token",
-        "description": "Your Supabase account personal access token.",
-        "example": "sbp_*******************************23d",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}",
-        "content-type": "application/json"
       }
     }
   },
@@ -17111,116 +12443,6 @@ export const NANGO_APPS: ApiApp[] = [
         "x-api-key": "${apiKey}"
       }
     }
-  },
-  {
-    "id": "nango:tableau",
-    "name": "Tableau (PAT)",
-    "category": "data",
-    "description": "analytics API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/tableau/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/tableau/connect",
-    "baseUrl": "https://${hostname}/api/${version}",
-    "logo": "https://app.nango.dev/images/template-logos/tableau.svg",
-    "credentials": [
-      {
-        "name": "version",
-        "label": "API Version",
-        "description": "The version of the Tableau API to use",
-        "example": "3.26",
-        "secret": false
-      },
-      {
-        "name": "hostname",
-        "label": "HostName",
-        "description": "The domain of your Tableau instance",
-        "example": "dub01.online.tableau.com",
-        "secret": false
-      },
-      {
-        "name": "pat",
-        "label": "Personal Access Token",
-        "description": "Your Personal Access Token",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "secret",
-        "label": "Personal Access Token Secret",
-        "description": "Your Personal Access Token Secret",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "contentUrl",
-        "label": "Content Url",
-        "description": "Your content URL",
-        "example": "test-eaec4a3fe2",
-        "secret": false
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "accept": "application/json",
-        "content-type": "application/json"
-      }
-    }
-  },
-  {
-    "id": "nango:tailscale-api-key",
-    "name": "Tailscale (API Key)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/tailscale-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/tailscale-api-key/connect",
-    "baseUrl": "https://api.tailscale.com/api",
-    "logo": "https://app.nango.dev/images/template-logos/tailscale-api-key.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Access Token",
-        "description": "The API Access Token for your Tailscale account",
-        "example": "tskey-api-k7Hpb9Lcv611CNTRL-WJ9YG52LqXJXY9oJ7RtmXJdzWkdRMgBG",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:tailscale",
-    "name": "Tailscale (OAuth)",
-    "category": "dev",
-    "description": "developer tools API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/tailscale/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/tailscale/connect",
-    "baseUrl": "https://api.tailscale.com/api",
-    "logo": "https://app.nango.dev/images/template-logos/tailscale.svg",
-    "credentials": [
-      {
-        "name": "clientId",
-        "label": "Client ID",
-        "description": "Your OAuth Client ID",
-        "example": "kcLBRFmtYZ11CNTRL",
-        "secret": false
-      },
-      {
-        "name": "clientSecret",
-        "label": "Client secret",
-        "description": "Your OAuth Client secret",
-        "example": "tskey-client-kdC27MPR3X11CNTRL-tjtxjop8mdawckVitWkNdaBaNRtZ48GN",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
   },
   {
     "id": "nango:talentlms",
@@ -17572,40 +12794,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:thrivecart-api-key",
-    "name": "ThriveCart (API Key)",
-    "category": "finance",
-    "description": "payments API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/thrivecart-api-key",
-    "keyUrl": "https://nango.dev/docs/integrations/all/thrivecart-api-key",
-    "baseUrl": "https://thrivecart.com/api/external",
-    "logo": "https://app.nango.dev/images/template-logos/thrivecart-api-key.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your ThriveCart account",
-        "example": "ASYDV5S8-0BSO1SH2-4BH5PO7U-YF8SV3CZ",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/ping",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:timetastic",
     "name": "Timetastic",
     "category": "data",
@@ -17916,157 +13104,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:transporeon-oauth2-cc",
-    "name": "Transporeon Appointment Scheduling (Client Credentials)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/transporeon-oauth2-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/transporeon-oauth2-cc/connect",
-    "baseUrl": "https://yard-management-planning-api.dev.eu.trimble-transportation.com",
-    "logo": "https://app.nango.dev/images/template-logos/transporeon-oauth2-cc.svg",
-    "credentials": [
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "Your API client ID.",
-        "example": "username@companyId",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Client Secret",
-        "description": "Your API client secret",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:transporeon-carrier-basic",
-    "name": "Transporeon Carrier Interface (Basic Auth)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/transporeon-carrier-basic/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/transporeon-carrier-basic/connect",
-    "baseUrl": "https://${apiHost}/carrier_interface/openapi",
-    "logo": "https://app.nango.dev/images/template-logos/transporeon-carrier-basic.svg",
-    "credentials": [
-      {
-        "name": "apiHost",
-        "label": "API Host",
-        "description": "The Transporeon Carrier Interface host to connect to.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "Your Transporeon username.",
-        "example": "demo@123",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Your Transporeon password.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/transport",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:transporeon-carrier-oauth2-cc",
-    "name": "Transporeon Carrier Interface (Client Credentials)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/transporeon-carrier-oauth2-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/transporeon-carrier-oauth2-cc/connect",
-    "baseUrl": "https://${apiHost}/carrier_interface/openapi",
-    "logo": "https://app.nango.dev/images/template-logos/transporeon-carrier-oauth2-cc.svg",
-    "credentials": [
-      {
-        "name": "apiHost",
-        "label": "API Host",
-        "description": "The Transporeon Carrier Interface host to connect to.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "Your API client ID.",
-        "example": "username@companyId",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Client Secret",
-        "description": "Your API client secret",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/transport",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:trello-scim",
-    "name": "Trello (SCIM API)",
-    "category": "data",
-    "description": "productivity API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/trello-scim/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/trello-scim/connect",
-    "baseUrl": "https://trello.com/scim",
-    "logo": "https://app.nango.dev/images/template-logos/trello-scim.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Trello scim account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v2/users?sortBy=displayName&count=10",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:trigger-dev",
     "name": "Trigger.dev",
     "category": "dev",
@@ -18171,35 +13208,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:trustpilot-cc",
-    "name": "Trustpilot (Client Credentials)",
-    "category": "comms",
-    "description": "marketing API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/trustpilot-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/trustpilot-cc/connect",
-    "baseUrl": "https://api.trustpilot.com",
-    "logo": "https://app.nango.dev/images/template-logos/trustpilot-cc.svg",
-    "credentials": [
-      {
-        "name": "client_id",
-        "label": "API Key",
-        "description": "Your Trustpilot application's API Key.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "API Secret",
-        "description": "Your Trustpilot application's API Secret.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:twenty-crm",
     "name": "Twenty CRM",
     "category": "data",
@@ -18209,47 +13217,6 @@ export const NANGO_APPS: ApiApp[] = [
     "baseUrl": "https://api.twenty.com/rest",
     "logo": "https://app.nango.dev/images/template-logos/twenty-crm.svg",
     "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Twenty CRM account",
-        "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMTIxMjEyMS0yNmExLTRkODktYjQ2YS0wNDI0NTViODM3N2YiLCJ0eXBlIjoiQVBJX0tFWSIsIndvcmtzcGFjZUlkIjoiMjEyMTIxMjEtMjZhMS00ZDg5LWI0NmEtMDQyNDU1YjgzNzdmIiwiaWF0IjoxNzMxMzA5MzQwLCJleHAiOjQ4ODQ5MDU3MzksImp0aSI6ImVmZTg4MjcxLTM4OWItNDk5Mi04MjYwLWZjNGIxZmYxYjRiMSJ9.n3tohFIEBBRMsyas_agbh3-KvKXYUnjyhrYzTHYC3vc",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/companies",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:twenty-crm-self-hosted",
-    "name": "Twenty CRM (Self Hosted)",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/twenty-crm-self-hosted",
-    "keyUrl": "https://nango.dev/docs/integrations/all/twenty-crm-self-hosted",
-    "baseUrl": "https://${domain}/rest",
-    "logo": "https://app.nango.dev/images/template-logos/twenty-crm-self-hosted.svg",
-    "credentials": [
-      {
-        "name": "domain",
-        "label": "Twenty CRM domain",
-        "description": "The domain of your Twnety CRM instance",
-        "example": "domain",
-        "secret": false
-      },
       {
         "name": "apiKey",
         "label": "API Key",
@@ -18304,28 +13271,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:twitter-oauth2-cc",
-    "name": "Twitter (Client Credentials)",
-    "category": "comms",
-    "description": "marketing API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/twitter-oauth2-cc",
-    "keyUrl": "https://nango.dev/docs/integrations/all/twitter-oauth2-cc",
-    "baseUrl": "https://api.twitter.com",
-    "logo": "https://app.nango.dev/images/template-logos/twitter-oauth2-cc.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:typefully",
     "name": "Typefully",
     "category": "data",
@@ -18360,126 +13305,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:typefully-v2",
-    "name": "Typefully (API v2)",
-    "category": "data",
-    "description": "analytics API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/typefully-v2/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/typefully-v2/connect",
-    "baseUrl": "https://api.typefully.com",
-    "logo": "https://app.nango.dev/images/template-logos/typefully-v2.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "Your Typefully v2 API key.",
-        "example": "aNVlyR********************YxeIDz",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v2/me",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:ukg-pro-wfm-ropc",
-    "name": "UKG Pro (Workforce Management ROPC)",
-    "category": "data",
-    "description": "HR API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/ukg-pro-wfm-ropc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/ukg-pro-wfm-ropc/connect",
-    "baseUrl": "https://${hostname}/api",
-    "logo": "https://app.nango.dev/images/template-logos/ukg-pro-wfm-ropc.svg",
-    "credentials": [
-      {
-        "name": "hostname",
-        "label": "Tenant URL",
-        "description": "The tenant URL of your UKG Pro instance",
-        "example": "wfm.us1.ukg.com",
-        "secret": false
-      },
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "Client ID for a client configured for the ROPC flow.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Client Secret",
-        "description": "Client Secret for that client.",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "Username of the WFM user to authenticate as.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Password for that WFM user.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:ukg-pro-cc",
-    "name": "UKG Pro HCM (Client Credentials)",
-    "category": "data",
-    "description": "HR API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/ukg-pro-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/ukg-pro-cc/connect",
-    "baseUrl": "https://${hostname}",
-    "logo": "https://app.nango.dev/images/template-logos/ukg-pro-cc.svg",
-    "credentials": [
-      {
-        "name": "hostname",
-        "label": "Recruiting Application Domain",
-        "description": "Recruiting application domain from your UKG Pro Recruiting URL.",
-        "example": "recruiting.example.ultipro.com",
-        "secret": false
-      },
-      {
-        "name": "client_id",
-        "label": "Client ID",
-        "description": "Unique identifier of the identity client provided by UKG customer support.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "client_secret",
-        "label": "Client Secret",
-        "description": "Client secret associated with the client ID provided by UKG customer support.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:ukg-ready",
     "name": "UKG Ready",
     "category": "data",
@@ -18496,28 +13321,6 @@ export const NANGO_APPS: ApiApp[] = [
         "example": "secure.us.rdy.ukg",
         "secret": false
       },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:adobe-umapi",
-    "name": "UMAPI (Adobe User Management API)",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/adobe-umapi/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/adobe-umapi/connect",
-    "baseUrl": "https://usermanagement.adobe.io",
-    "logo": "https://app.nango.dev/images/template-logos/adobe-umapi.svg",
-    "credentials": [
       {
         "name": "apiKey",
         "label": "API key",
@@ -18646,69 +13449,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:valley-api-key",
-    "name": "Valley (API Key)",
-    "category": "comms",
-    "description": "marketing API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/valley-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/valley-api-key/connect",
-    "baseUrl": "https://api.joinvalley.co/api",
-    "logo": "https://app.nango.dev/images/template-logos/valley-api-key.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Valley account",
-        "example": "valley_a3f4c8d2e1b9a7**********************************************c5d8e2f1",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/auth/verify-api-key",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "x-api-key": "${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:valley",
-    "name": "Valley (OAuth)",
-    "category": "comms",
-    "description": "marketing API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/valley/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/valley/connect",
-    "baseUrl": "https://api.joinvalley.co/api",
-    "logo": "https://app.nango.dev/images/template-logos/valley.svg",
-    "credentials": [
-      {
-        "name": "email",
-        "label": "Email",
-        "description": "Your Valley email address",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Your Valley password",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:vanta",
     "name": "Vanta",
     "category": "dev",
@@ -18760,40 +13500,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:veed",
-    "name": "VEED (via fal.ai)",
-    "category": "media",
-    "description": "video API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/veed/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/veed/connect",
-    "baseUrl": "https://queue.fal.run/veed",
-    "logo": "https://app.nango.dev/images/template-logos/veed.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The fal.ai API key for your VEED integration.",
-        "example": "0c******-****-****-****-************:164f14cd************************",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "POST",
-        "path": "/fabric-1.0",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Key ${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:veeva-vault",
     "name": "Veeva Vault",
     "category": "data",
@@ -18828,46 +13534,6 @@ export const NANGO_APPS: ApiApp[] = [
         "name": "password",
         "label": "Password",
         "description": "Your Vault password associated with your assigned Vault user name",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "accept": "application/json"
-      }
-    }
-  },
-  {
-    "id": "nango:veeva-vault-oauth",
-    "name": "Veeva Vault (OAuth 2.0 / OIDC)",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/veeva-vault-oauth/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/veeva-vault-oauth/connect",
-    "baseUrl": "https://${subdomain}.veevavault.com/api",
-    "logo": "https://app.nango.dev/images/template-logos/veeva-vault-oauth.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Vault DNS (subdomain)",
-        "description": "The Vault DNS subdomain of the Veeva Vault you want to connect to",
-        "example": "myvault",
-        "secret": false
-      },
-      {
-        "name": "clientId",
-        "label": "Client ID",
-        "description": "The client ID of the client credentials application configured in your identity provider.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "clientSecret",
-        "label": "Client Secret",
-        "description": "The client secret of the client credentials application configured in your identity provider.",
         "example": "",
         "secret": true
       }
@@ -18939,43 +13605,6 @@ export const NANGO_APPS: ApiApp[] = [
         "x-application-key": "${apiKey}"
       }
     }
-  },
-  {
-    "id": "nango:vimeo-basic",
-    "name": "Vimeo (Basic Auth)",
-    "category": "media",
-    "description": "video API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/vimeo-basic",
-    "keyUrl": "https://nango.dev/docs/integrations/all/vimeo-basic",
-    "baseUrl": "https://api.vimeo.com",
-    "logo": "https://app.nango.dev/images/template-logos/vimeo-basic.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/",
-        "params": []
-      }
-    ],
-    "authTemplate": {}
   },
   {
     "id": "nango:vtex",
@@ -19136,40 +13765,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:wise-api-key",
-    "name": "Wise (API Key)",
-    "category": "finance",
-    "description": "banking API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/wise-api-key/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/wise-api-key/connect",
-    "baseUrl": "https://api.wise.com",
-    "logo": "https://app.nango.dev/images/template-logos/wise-api-key.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Token",
-        "description": "Your Wise Personal API Token",
-        "example": "12345678-1234-1234-1234-123456789abc",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/v1/profiles",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:wiza",
     "name": "Wiza",
     "category": "data",
@@ -19248,39 +13843,6 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
-    "id": "nango:workable",
-    "name": "Workable (API Key)",
-    "category": "data",
-    "description": "recruiting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/workable/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/workable/connect",
-    "baseUrl": "https://${subdomain}.workable.com",
-    "logo": "https://app.nango.dev/images/template-logos/workable.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Workable Domain",
-        "description": "The subdomain of your Workable account",
-        "example": "domain",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key for your Workable account",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:workato",
     "name": "Workato",
     "category": "data",
@@ -19312,85 +13874,6 @@ export const NANGO_APPS: ApiApp[] = [
         "authorization": "Bearer ${apiKey}"
       }
     }
-  },
-  {
-    "id": "nango:workday-cc",
-    "name": "Workday (Client Credentials)",
-    "category": "data",
-    "description": "HR API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/workday-cc/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/workday-cc/connect",
-    "baseUrl": "https://${tokenDomain}/ccx/api",
-    "logo": "https://app.nango.dev/images/template-logos/workday-cc.svg",
-    "credentials": [
-      {
-        "name": "tokenDomain",
-        "label": "Token Domain",
-        "description": "The hostname of your Workday tenant.",
-        "example": "wd3-impl-services1.workday.com",
-        "secret": false
-      },
-      {
-        "name": "clientId",
-        "label": "Client ID",
-        "description": "Your Workday API Client ID.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "clientSecret",
-        "label": "Client Secret",
-        "description": "Your Workday API Client Secret.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:workday-refresh-token",
-    "name": "Workday (Refresh Token Auth)",
-    "category": "data",
-    "description": "HR API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/workday-refresh-token/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/workday-refresh-token/connect",
-    "baseUrl": "https://${tokenDomain}/ccx/api",
-    "logo": "https://app.nango.dev/images/template-logos/workday-refresh-token.svg",
-    "credentials": [
-      {
-        "name": "tokenDomain",
-        "label": "Token Domain",
-        "description": "The domain used to obtain the token for your Workday account",
-        "example": "wd3-impl-services1.workday.com",
-        "secret": false
-      },
-      {
-        "name": "clientId",
-        "label": "Client ID",
-        "description": "Your Workday API Client ID",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "clientSecret",
-        "label": "Client Secret",
-        "description": "Your Workday API Client Secret",
-        "example": "",
-        "secret": true
-      },
-      {
-        "name": "refreshToken",
-        "label": "Refresh Token",
-        "description": "Your Workday refresh token for the Integration System User",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
   },
   {
     "id": "nango:workday-adaptive-planning",
@@ -19432,35 +13915,6 @@ export const NANGO_APPS: ApiApp[] = [
       }
     ],
     "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:workday-adaptive-planning-basic",
-    "name": "Workday Adaptive Planning (Basic Auth)",
-    "category": "finance",
-    "description": "accounting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/workday-adaptive-planning-basic/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/workday-adaptive-planning-basic/connect",
-    "baseUrl": "https://api.adaptiveplanning.com/api/rest",
-    "logo": "https://app.nango.dev/images/template-logos/workday-adaptive-planning-basic.svg",
-    "credentials": [
-      {
-        "name": "username",
-        "label": "Username",
-        "description": "Your Workday Adaptive Planning username.",
-        "example": "",
-        "secret": false
-      },
-      {
-        "name": "password",
-        "label": "Password",
-        "description": "Your Workday Adaptive Planning password.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": true,
     "tools": [],
     "authTemplate": {}
   },
@@ -19609,28 +14063,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:xero-oauth2-cc",
-    "name": "Xero (Client Credentials)",
-    "category": "finance",
-    "description": "accounting API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/xero-oauth2-cc/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/xero-oauth2-cc/connect",
-    "baseUrl": "https://api.xero.com",
-    "logo": "https://app.nango.dev/images/template-logos/xero-oauth2-cc.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
     "id": "nango:yokoy",
     "name": "Yokoy",
     "category": "finance",
@@ -19730,6 +14162,5728 @@ export const NANGO_APPS: ApiApp[] = [
     "authTemplate": {}
   },
   {
+    "id": "nango:zero",
+    "name": "Zero",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/zero/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/zero/connect",
+    "baseUrl": "https://api.zero.inc",
+    "logo": "https://app.nango.dev/images/template-logos/zero.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key generated from your Zero account.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/workspaces",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:zigpoll",
+    "name": "Zigpoll",
+    "category": "comms",
+    "description": "marketing API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/zigpoll/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/zigpoll/connect",
+    "baseUrl": "https://v1.zigpoll.com",
+    "logo": "https://app.nango.dev/images/template-logos/zigpoll.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "Your Zigpoll private API key.",
+        "example": "3f7b2d4e-****-****-****-************",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:zoominfo",
+    "name": "ZoomInfo",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/zoominfo/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/zoominfo/connect",
+    "baseUrl": "https://api.zoominfo.com",
+    "logo": "https://app.nango.dev/images/template-logos/zoominfo.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:zorus",
+    "name": "Zorus",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/zorus/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/zorus/connect",
+    "baseUrl": "https://developer.zorustech.com",
+    "logo": "https://app.nango.dev/images/template-logos/zorus.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Token",
+        "description": "The API token generated from the Zorus Portal.",
+        "example": "1_a1b2c3d4-e5f6-7890-abcd-1234567890ab",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/api/customers/search",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Impersonation ${apiKey}",
+        "zorus-api-version": "1.0"
+      }
+    }
+  },
+  {
+    "id": "nango:zuora",
+    "name": "Zuora",
+    "category": "data",
+    "description": "ERP API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/zuora/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/zuora/connect",
+    "baseUrl": "https://${subdomain}.zuora.com",
+    "logo": "https://app.nango.dev/images/template-logos/zuora.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "Subdomain",
+        "description": "The Subdomain to your Zuora Base URL",
+        "example": "rest.test",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:1password-events",
+    "name": "1Password (Events API)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/1password-events/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/1password-events/connect",
+    "baseUrl": "https://${domain}",
+    "logo": "https://app.nango.dev/images/template-logos/1password-events.svg",
+    "credentials": [
+      {
+        "name": "domain",
+        "label": "Events API Domain",
+        "description": "The regional Events API domain for your 1Password account.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "Bearer Token",
+        "description": "Your 1Password Events Reporting bearer token",
+        "example": "eyJhbGciOiJF*************.*************CJ9.eyJ**************************************************.***********",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/auth/introspect",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:1password-scim",
+    "name": "1Password (SCIM)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/1password-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/1password-scim/connect",
+    "baseUrl": "https://${domain}/scim",
+    "logo": "https://app.nango.dev/images/template-logos/1password-scim.svg",
+    "credentials": [
+      {
+        "name": "domain",
+        "label": "1Password SCIM Bridge URL",
+        "description": "The domain for your 1Password SCIM Bridge. Note this URL is a service hosted in your infrastructure so needs to be setup already by your IT team. Please see the instructions for more info.",
+        "example": "scim.example.com",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "Your 1Password SCIM API Key",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:1password-users",
+    "name": "1Password (Users API)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/1password-users/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/1password-users/connect",
+    "baseUrl": "https://${domain}/v1beta1/accounts/${accountId}",
+    "logo": "https://app.nango.dev/images/template-logos/1password-users.svg",
+    "credentials": [
+      {
+        "name": "accountId",
+        "label": "Account ID",
+        "description": "Your 1Password account ID.",
+        "example": "XLQMR47VZPBKJHSGWNCYFDE3T9",
+        "secret": false
+      },
+      {
+        "name": "domain",
+        "label": "API Domain",
+        "description": "The regional API domain for your 1Password account.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "Your 1Password OAuth application Client ID.",
+        "example": "5ab87915-2deb-429c-a1e2-8b0495900f45",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Client Secret",
+        "description": "Your 1Password OAuth application Client Secret.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:addepar-basic",
+    "name": "Addepar",
+    "category": "data",
+    "description": "analytics API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/addepar-basic/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/addepar-basic/connect",
+    "baseUrl": "https://${subdomain}.addepar.com/api",
+    "logo": "https://app.nango.dev/images/template-logos/addepar-basic.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "Firm Domain",
+        "description": "Your Addepar Firm domain",
+        "example": "myfirm",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "API Key",
+        "description": "Your Addepar API Key",
+        "example": "5ab87915-2deb-429c-a1e2-8b0495900f45",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "API Secret",
+        "description": "Your Addepar API Secret",
+        "example": "zidcISqfSGh05JsWwuY9ZdSCkXrhANHvCX0U0gkE",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:adoxx-cc",
+    "name": "ADOXX",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/adoxx-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/adoxx-cc/connect",
+    "baseUrl": "https://${baseUrl}/rest",
+    "logo": "https://app.nango.dev/images/template-logos/adoxx-cc.svg",
+    "credentials": [
+      {
+        "name": "baseUrl",
+        "label": "Base URL",
+        "description": "The base URL of your ADOXX instance, including the product/version path segment.",
+        "example": "yourcompany.com:8000/ADOXX",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:affinity",
+    "name": "Affinity",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/affinity/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/affinity/connect",
+    "baseUrl": "https://api.affinity.co",
+    "logo": "https://app.nango.dev/images/template-logos/affinity.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "API Key",
+        "description": "Your Affinity API Key",
+        "example": "nrlW2KR5m-qUCA-rTqKb_EUK1swERlenqn70KNMMrTM",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/auth/whoami",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:affinity-v2",
+    "name": "Affinity",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/affinity-v2/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/affinity-v2/connect",
+    "baseUrl": "https://api.affinity.co",
+    "logo": "https://app.nango.dev/images/template-logos/affinity-v2.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API Key for your Affinity account",
+        "example": "nrlW2KR5m-qUCA-rTqKb_EUK1swERlenqn70KNMMrTM",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/auth/whoami",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:agiloft-cc",
+    "name": "Agiloft",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/agiloft-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/agiloft-cc/connect",
+    "baseUrl": "https://${hostname}",
+    "logo": "https://app.nango.dev/images/template-logos/agiloft-cc.svg",
+    "credentials": [
+      {
+        "name": "hostname",
+        "label": "Hostname",
+        "description": "The hostname of your Agiloft instance.",
+        "example": "example.agiloft.com",
+        "secret": false
+      },
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "The Client ID from your Agiloft API application settings.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Client Secret",
+        "description": "The Client Secret from your Agiloft API application settings.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:aircall-basic",
+    "name": "Aircall",
+    "category": "comms",
+    "description": "customer support API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/aircall-basic/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/aircall-basic/connect",
+    "baseUrl": "https://api.aircall.io",
+    "logo": "https://app.nango.dev/images/template-logos/aircall-basic.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "API ID",
+        "description": "The Application ID (API ID) for your Aircall account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "API Token",
+        "description": "The Admin API Key (API Token) for your Aircall account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/ping",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:airtable-pat",
+    "name": "Airtable",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/airtable-pat/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/airtable-pat/connect",
+    "baseUrl": "https://api.airtable.com",
+    "logo": "https://app.nango.dev/images/template-logos/airtable-pat.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "Personal Access Token",
+        "description": "The Personal Access Token for your Airtable account",
+        "example": "patoXxYzA1B2C3D4Ef.98a7b6c5d4e3f2g1h0i9j8k7l6m5n4o3p2q1r0s9t8u7v6w5x4y3z2a1b0cdef",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:amplitude",
+    "name": "Amplitude (Event Streaming API)",
+    "category": "data",
+    "description": "analytics API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/amplitude/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/amplitude/connect",
+    "baseUrl": "https://${hostname}",
+    "logo": "https://app.nango.dev/images/template-logos/amplitude.svg",
+    "credentials": [
+      {
+        "name": "hostname",
+        "label": "Hostname",
+        "description": "The hostname associated with your server residency.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "API Key",
+        "description": "Your Amplitude API Key",
+        "example": "64371a39e74ad915af75674c0696e356",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Secret Key",
+        "description": "Your Amplitude secret key",
+        "example": "6GhPfVz47PKJGSLcDDc9jL5E4Mn",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/2/events/list",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:apollo",
+    "name": "Apollo",
+    "category": "comms",
+    "description": "marketing API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/apollo/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/apollo/connect",
+    "baseUrl": "https://app.apollo.io/api",
+    "logo": "https://app.nango.dev/images/template-logos/apollo.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Apollo account",
+        "example": "eh_3LUIFtj04rG4KF_FoFw",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "x-api-key": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:asana-scim",
+    "name": "Asana (SCIM API)",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/asana-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/asana-scim/connect",
+    "baseUrl": "https://app.asana.com/api",
+    "logo": "https://app.nango.dev/images/template-logos/asana-scim.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Asana scim account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/1.0/scim/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:atlassian-service-account-api-token",
+    "name": "Atlassian Service Account (API Token)",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/atlassian-service-account-api-token/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/atlassian-service-account-api-token/connect",
+    "baseUrl": "https://api.atlassian.com",
+    "logo": "https://app.nango.dev/images/template-logos/atlassian-service-account-api-token.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "Service Account Email",
+        "description": "The email address of your Atlassian service account",
+        "example": "bot@serviceaccount.atlassian.com",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "API Token",
+        "description": "Your Atlassian service account API token",
+        "example": "ATSTT3xFfGF07SUw*******************************RvxLUHWs8ZV58TfHI=610694C8",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:atlassian-service-account-oauth2",
+    "name": "Atlassian Service Account (OAuth 2.0)",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/atlassian-service-account-oauth2/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/atlassian-service-account-oauth2/connect",
+    "baseUrl": "https://api.atlassian.com",
+    "logo": "https://app.nango.dev/images/template-logos/atlassian-service-account-oauth2.svg",
+    "credentials": [
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "The OAuth 2.0 client ID from your service account credential",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Client Secret",
+        "description": "The OAuth 2.0 client secret from your service account credential",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:auth0-cc",
+    "name": "Auth0",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/auth0-cc/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/auth0-cc/connect",
+    "baseUrl": "https://${hostname}",
+    "logo": "https://app.nango.dev/images/template-logos/auth0-cc.svg",
+    "credentials": [
+      {
+        "name": "hostname",
+        "label": "HostName",
+        "description": "Your Auth0 host name",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:avalara-sandbox",
+    "name": "Avalara",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/avalara-sandbox/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/avalara-sandbox/connect",
+    "baseUrl": "https://sandbox-rest.avatax.com/api/v2",
+    "logo": "https://app.nango.dev/images/template-logos/avalara-sandbox.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "User Name / Account ID",
+        "description": "Avalara User Name / Account ID",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password / License Key",
+        "description": "Avalara Password / License Key",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/utilities/subscriptions",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:aws-scim",
+    "name": "AWS (SCIM)",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/aws-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/aws-scim/connect",
+    "baseUrl": "${scimEndpoint}",
+    "logo": "https://app.nango.dev/images/template-logos/aws-scim.svg",
+    "credentials": [
+      {
+        "name": "scimEndpoint",
+        "label": "SCIM Endpoint",
+        "description": "The SCIM Endpoint mentioned in the AWS IAM Identity Center",
+        "example": "https://scim.ap-south-1.amazonaws.com/lSweb811432-ac8a-4a86-8332-f29hha4f5650/scim/v2",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "SCIM Access Token",
+        "description": "The SCIM Access Token generated from your AWS IAM Identity Center",
+        "example": "878374852-dea1-47d5-9ae0-4d00a0bdbb13:ff7d4f04-7385-4add-befe-a9ed18341d0d:l6uepDQrHfNOiOYXZ7HYZL8hlvsYHSG7Cnx104tkRLmDbO8l/p5GxLv6Id5BCLicmjeKvhrlqrPvL6VMcAnJS6oitQrz3ZiZr18rnybzyISRlyjxktYtIK1R80YJXBH6U7NSvwGsu5gDbUZDGlCDeh+FFhL8tmUuHytvxuhz3jNhsh&8X9xiLBg=:ICn/+PhEST+8/pizxTmoA0DW9JcQTL4EVRh0z6DpJwQ4vFQ+iwAxNjh16SHdUovAJyMjT+TPDwI8gN63DLE+9EV+lcV+i2H/OTDE4x7L18WRz3ndMf/4dY98mJ41qRYBgh63Pi8PdXkAex2l8HJLMkzjjPirN+8DCBfPVKK+z/nCc04RXWIz6XOmqwgB1sV5jwfAxPhuV6vqgVosoSngSw7Y2Zon70PiI5UbTTZffF6QWFU7i9b3dgMMDAH6f9vm11EB6YpJt/XC74L1pDvKXiSzhel7b7dYzGvrXK0rN29cnjn0o58VYCOgk9c05p/nRsEaSs2Y/v7BqgxXUvI+Aw==",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}",
+        "accept": "application/json",
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:bamboohr-basic",
+    "name": "BambooHR",
+    "category": "data",
+    "description": "HR API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/bamboohr-basic/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/bamboohr-basic/connect",
+    "baseUrl": "https://api.bamboohr.com/api/gateway.php/${subdomain}",
+    "logo": "https://app.nango.dev/images/template-logos/bamboohr-basic.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "BambooHR Domain",
+        "description": "The subdomain of your BambooHR account",
+        "example": "domain",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "API key",
+        "description": "The API Key of your BambooHR account",
+        "example": "59d783083fb25565aba21744e6bba90de8634de0",
+        "secret": true
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Password",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/meta/fields",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:blackbaud-basic",
+    "name": "Blackbaud",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/blackbaud-basic",
+    "keyUrl": "https://nango.dev/docs/integrations/all/blackbaud-basic",
+    "baseUrl": "https://${hostName}",
+    "logo": "https://app.nango.dev/images/template-logos/blackbaud-basic.svg",
+    "credentials": [
+      {
+        "name": "hostName",
+        "label": "Host Name",
+        "description": "Your Blackbaud host name",
+        "example": "https://altrurig01bo3.blackbaudhosting.com",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "Your Username",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Your Password",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "content-type": "application/soap+xml; charset=utf-8"
+      }
+    }
+  },
+  {
+    "id": "nango:brex-api-key",
+    "name": "Brex",
+    "category": "finance",
+    "description": "banking API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/brex-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/brex-api-key/connect",
+    "baseUrl": "https://platform.brexapis.com",
+    "logo": "https://app.nango.dev/images/template-logos/brex-api-key.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Token",
+        "description": "The API Token to your Brex account",
+        "example": "bxt_vRUwQT3snBmA1IDVq5iK1kXc4N0bhxr377z4",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:builder-io-private",
+    "name": "Builder.io (Private)",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/builder-io-private/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/builder-io-private/connect",
+    "baseUrl": "https://${domain}",
+    "logo": "https://app.nango.dev/images/template-logos/builder-io-private.svg",
+    "credentials": [
+      {
+        "name": "domain",
+        "label": "Domain",
+        "description": "The domain used to access your Builder.io write API.",
+        "example": "builder.io",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The private key for your Builder.io account.",
+        "example": "bpk-****************************",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/api/v1/write/page",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:builder-io-public",
+    "name": "Builder.io (Public)",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/builder-io-public/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/builder-io-public/connect",
+    "baseUrl": "https://${domain}",
+    "logo": "https://app.nango.dev/images/template-logos/builder-io-public.svg",
+    "credentials": [
+      {
+        "name": "domain",
+        "label": "Domain",
+        "description": "The domain used to access your Builder.io content API.",
+        "example": "cdn.builder.io",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The public api key for your Builder.io account.",
+        "example": "bb209fb71eh2412dbe0114bdae18fd15",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v1/content/page",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:cal-com-v1",
+    "name": "Cal.com",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/cal-com-v1/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/cal-com-v1/connect",
+    "baseUrl": "https://api.cal.com/v1",
+    "logo": "https://app.nango.dev/images/template-logos/cal-com-v1.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Cal.com account",
+        "example": "cal_xxxxxx",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:cal-com-v2",
+    "name": "Cal.com",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/cal-com-v2/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/cal-com-v2/connect",
+    "baseUrl": "https://api.cal.com/v2",
+    "logo": "https://app.nango.dev/images/template-logos/cal-com-v2.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Cal.com account",
+        "example": "cal_xxxxxx",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:canva-scim",
+    "name": "Canva (SCIM API)",
+    "category": "media",
+    "description": "design API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/canva-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/canva-scim/connect",
+    "baseUrl": "https://www.canva.com/_scim",
+    "logo": "https://app.nango.dev/images/template-logos/canva-scim.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Canva scim account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}",
+        "accept": "application/json",
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:chatgpt-enterprise",
+    "name": "ChatGPT Enterprise (SCIM API)",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/chatgpt-enterprise/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/chatgpt-enterprise/connect",
+    "baseUrl": "https://${scimEndpoint}",
+    "logo": "https://app.nango.dev/images/template-logos/chatgpt-enterprise.svg",
+    "credentials": [
+      {
+        "name": "scimEndpoint",
+        "label": "SCIM Endpoint",
+        "description": "The SCIM endpoint URL.",
+        "example": "api.workos.com/scim/v2.0/acme",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "SCIM Token",
+        "description": "Your SCIM API token.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}",
+        "accept": "application/scim+json",
+        "content-type": "application/scim+json"
+      }
+    }
+  },
+  {
+    "id": "nango:checkout-com-sandbox",
+    "name": "Checkout.com",
+    "category": "finance",
+    "description": "payments API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/checkout-com-sandbox/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/checkout-com-sandbox/connect",
+    "baseUrl": "https://api.sandbox.checkout.com",
+    "logo": "https://app.nango.dev/images/template-logos/checkout-com-sandbox.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "content-type": "application/json",
+        "accept": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:confluence-basic",
+    "name": "Confluence",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/confluence-basic/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/confluence-basic/connect",
+    "baseUrl": "https://${subdomain}.atlassian.net",
+    "logo": "https://app.nango.dev/images/template-logos/confluence-basic.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "Confluence Subdomain",
+        "description": "The subdomain of your Confluence account",
+        "example": "subdomain",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "Email Address",
+        "description": "The email address for your Confluence account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "API token",
+        "description": "The API token for your Confluence account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/wiki/api/v2/spaces",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:connectwise-psa-staging",
+    "name": "ConnectWise PSA (Staging)",
+    "category": "comms",
+    "description": "customer support API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/connectwise-psa-staging",
+    "keyUrl": "https://nango.dev/docs/integrations/all/connectwise-psa-staging",
+    "baseUrl": "https://api-staging.connectwisedev.com/v4_6_release/apis/3.0",
+    "logo": "https://app.nango.dev/images/template-logos/connectwise-psa-staging.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:copper-api-key",
+    "name": "Copper",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/copper-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/copper-api-key/connect",
+    "baseUrl": "https://api.copper.com/developer_api",
+    "logo": "https://app.nango.dev/images/template-logos/copper-api-key.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Copper account",
+        "example": "4f3c12efb9659a0b5c123b568745dbf9",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/account",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "x-pw-accesstoken": "${apiKey}",
+        "x-pw-application": "developer_api",
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:databricks-account",
+    "name": "Databricks (Account Level)",
+    "category": "data",
+    "description": "analytics API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/databricks-account",
+    "keyUrl": "https://nango.dev/docs/integrations/all/databricks-account",
+    "baseUrl": "https://accounts.cloud.databricks.com/api/2.0/accounts/${accountId}",
+    "logo": "https://app.nango.dev/images/template-logos/databricks-account.svg",
+    "credentials": [
+      {
+        "name": "accountId",
+        "label": "Account ID",
+        "description": "The ID to your account",
+        "example": "123e4567-e89b-12d3-a456-426614174000",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:databricks-workspace",
+    "name": "Databricks (Workspace Level)",
+    "category": "data",
+    "description": "analytics API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/databricks-workspace",
+    "keyUrl": "https://nango.dev/docs/integrations/all/databricks-workspace",
+    "baseUrl": "https://${databricksInstance}/api/2.0",
+    "logo": "https://app.nango.dev/images/template-logos/databricks-workspace.svg",
+    "credentials": [
+      {
+        "name": "databricksInstance",
+        "label": "Databricks Instance",
+        "description": "The instance to your databricks deployment",
+        "example": "dbc-a1b2345c-d6e7.cloud.databricks.com",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:datto-rmm-password-grant",
+    "name": "Datto RMM (Password Grant)",
+    "category": "comms",
+    "description": "customer support API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/datto-rmm-password-grant/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/datto-rmm-password-grant/connect",
+    "baseUrl": "https://${platform}-api.centrastage.net/api",
+    "logo": "https://app.nango.dev/images/template-logos/datto-rmm-password-grant.svg",
+    "credentials": [
+      {
+        "name": "platform",
+        "label": "Platform",
+        "description": "The Datto RMM platform (region) for your account.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "default_username",
+        "label": "Default_username",
+        "description": "",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "default_password",
+        "label": "Default_password",
+        "description": "",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "username",
+        "label": "API Key",
+        "description": "Your Datto RMM API Key",
+        "example": "AB7KLM90PQW4XJ8H2TUVN1YZ3R5C6FDG",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "API Secret Key",
+        "description": "Your Datto RMM Secret Key",
+        "example": "9XQ7MZB4H1L2WKC0RDFTPY5J8VUNSG3E",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:dynatrace-oauth",
+    "name": "Dynatrace",
+    "category": "data",
+    "description": "analytics API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/dynatrace-oauth/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/dynatrace-oauth/connect",
+    "baseUrl": "https://api.dynatrace.com",
+    "logo": "https://app.nango.dev/images/template-logos/dynatrace-oauth.svg",
+    "credentials": [
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "Your Dynatrace OAuth client ID.",
+        "example": "dt0s03.****************",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Client Secret",
+        "description": "Your Dynatrace OAuth client secret.",
+        "example": "dt0s03.5NJ******.GYWJPBF******************",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:ecu360",
+    "name": "ECU360 (Test)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/ecu360/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/ecu360/connect",
+    "baseUrl": "https://apim-test.ecu360.com",
+    "logo": "https://app.nango.dev/images/template-logos/ecu360.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "Your ECU360 API Key",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "userName",
+        "label": "Username",
+        "description": "Your ECU360 username",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Your ECU360 password",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:emarsys-oauth",
+    "name": "Emarsys",
+    "category": "comms",
+    "description": "marketing API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/emarsys-oauth/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/emarsys-oauth/connect",
+    "baseUrl": "https://api.emarsys.net",
+    "logo": "https://app.nango.dev/images/template-logos/emarsys-oauth.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:emarsys",
+    "name": "Emarsys Core API (WSSE)",
+    "category": "comms",
+    "description": "marketing API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/emarsys",
+    "keyUrl": "https://nango.dev/docs/integrations/all/emarsys",
+    "baseUrl": "https://api.emarsys.net",
+    "logo": "https://app.nango.dev/images/template-logos/emarsys.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "ID",
+        "description": "The ID of your Emarsys WSSE API Credentials",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Client Secret",
+        "description": "The Client Secret of your Emarsys WSSE API Credentials",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/settings",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:epc-gov-uk",
+    "name": "Energy Performance Certificates (Gov.UK)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/epc-gov-uk/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/epc-gov-uk/connect",
+    "baseUrl": "https://api.get-energy-performance-data.communities.gov.uk",
+    "logo": "https://app.nango.dev/images/template-logos/epc-gov-uk.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API bearer token of your account.",
+        "example": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/codes",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}",
+        "accept": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:epost-klara",
+    "name": "ePost (KLARA)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/epost-klara/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/epost-klara/connect",
+    "baseUrl": "https://api.klara.ch",
+    "logo": "https://app.nango.dev/images/template-logos/epost-klara.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "Your KLARA API key.",
+        "example": "0b6df221-****-****-****-********e06d",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "x-api-key": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:facebook-system-user",
+    "name": "Facebook (System User Token)",
+    "category": "comms",
+    "description": "marketing API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/facebook-system-user/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/facebook-system-user/connect",
+    "baseUrl": "https://graph.facebook.com",
+    "logo": "https://app.nango.dev/images/template-logos/facebook-system-user.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "System User Access Token",
+        "description": "A long-lived access token generated for a system user.",
+        "example": "EAAM5b*******************TgZDZD",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v22.0/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:factorial-api-key",
+    "name": "Factorial",
+    "category": "data",
+    "description": "HR API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/factorial-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/factorial-api-key/connect",
+    "baseUrl": "https://api.factorialhr.com/api",
+    "logo": "https://app.nango.dev/images/template-logos/factorial-api-key.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API Key generated from your Factorial account",
+        "example": "eyJraWQiOiJmYWN.******************************.*****************************",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/2026-07-01/resources/api_public/credentials",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "x-api-key": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:fern",
+    "name": "Fern (Public API)",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/fern/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/fern/connect",
+    "baseUrl": "https://${baseUrl}",
+    "logo": "https://app.nango.dev/images/template-logos/fern.svg",
+    "credentials": [
+      {
+        "name": "baseUrl",
+        "label": "Docs URL",
+        "description": "The domain of your Fern docs site.",
+        "example": "docs.example.com",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "Fern API key",
+        "description": "Your Fern API key.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "fern_api_key": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:figma-scim",
+    "name": "Figma (SCIM)",
+    "category": "media",
+    "description": "design API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/figma-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/figma-scim/connect",
+    "baseUrl": "https://${host}/scim/v2/${tenantId}",
+    "logo": "https://app.nango.dev/images/template-logos/figma-scim.svg",
+    "credentials": [
+      {
+        "name": "tenantId",
+        "label": "Tenant ID",
+        "description": "The tenant ID of your Figma account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "host",
+        "label": "Host",
+        "description": "The Figma host for your account.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Token",
+        "description": "The API token for your Figma account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:fillout-api-key",
+    "name": "Fillout",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/fillout-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/fillout-api-key/connect",
+    "baseUrl": "https://${hostname}",
+    "logo": "https://app.nango.dev/images/template-logos/fillout-api-key.svg",
+    "credentials": [
+      {
+        "name": "hostname",
+        "label": "Hostname",
+        "description": "The hostname of your Fillout account",
+        "example": "api.fillout.com",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Fillout account",
+        "example": "sk_prod_n5ZEod5AwJQCtG3ncuzgXvpSWx19joz4KMSJlC2nVul9B48zhkCLuPc9Kq97tK7smlOcMChnk1uyaUeZ5Gm4GVrUUnDMxHI7TZH_31032",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/api/forms",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:fiserv",
+    "name": "Fiserv",
+    "category": "finance",
+    "description": "banking API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/fiserv",
+    "keyUrl": "https://nango.dev/docs/integrations/all/fiserv",
+    "baseUrl": "https://${hostUrl}",
+    "logo": "https://app.nango.dev/images/template-logos/fiserv.svg",
+    "credentials": [
+      {
+        "name": "hostUrl",
+        "label": "Domain",
+        "description": "The domain of your Fiserv account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:fiserv-api-key",
+    "name": "Fiserv",
+    "category": "finance",
+    "description": "banking API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/fiserv-api-key",
+    "keyUrl": "https://nango.dev/docs/integrations/all/fiserv-api-key",
+    "baseUrl": "https://prod.emea.api.fiservapps.com",
+    "logo": "https://app.nango.dev/images/template-logos/fiserv-api-key.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Fiserv account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/sandbox/exp/v1/authorisations",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "api-key": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:front-api-key",
+    "name": "Front",
+    "category": "comms",
+    "description": "customer support API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/front-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/front-api-key/connect",
+    "baseUrl": "https://api2.frontapp.com",
+    "logo": "https://app.nango.dev/images/template-logos/front-api-key.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Token",
+        "description": "Your Front API token.",
+        "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.****",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:ghost-admin",
+    "name": "Ghost (Admin API)",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/ghost-admin",
+    "keyUrl": "https://nango.dev/docs/integrations/all/ghost-admin",
+    "baseUrl": "https://${adminDomain}/ghost/api/admin",
+    "logo": "https://app.nango.dev/images/template-logos/ghost-admin.svg",
+    "credentials": [
+      {
+        "name": "adminDomain",
+        "label": "Ghost Admin Domain",
+        "description": "The domain of your Ghost Admin which can be different from your main domain",
+        "example": "mock.ghost.io",
+        "secret": false
+      },
+      {
+        "name": "privateKey",
+        "label": "API Key",
+        "description": "The private key for your Ghost account",
+        "example": "1234567890abcdef12345678:abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "accept": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:ghost-content",
+    "name": "Ghost (Content API)",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/ghost-content",
+    "keyUrl": "https://nango.dev/docs/integrations/all/ghost-content",
+    "baseUrl": "https://${adminDomain}/ghost/api/content",
+    "logo": "https://app.nango.dev/images/template-logos/ghost-content.svg",
+    "credentials": [
+      {
+        "name": "adminDomain",
+        "label": "Ghost Admin Domain",
+        "description": "The domain of your Ghost Admin which can be different from your main domain",
+        "example": "mock.ghost.io",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The content API key for your Ghost account",
+        "example": "a1b2c3d4e5f6g7h8i9j0k1l2m3",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/tags",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:github-pat",
+    "name": "Github",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/github-pat/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/github-pat/connect",
+    "baseUrl": "https://api.github.com",
+    "logo": "https://app.nango.dev/images/template-logos/github-pat.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "Personal Access Token",
+        "description": "The Personal Access Token to your Github account",
+        "example": "github_pat_***********************xRIoxmseCYRHDDIOFfTOyKex",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/user",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}",
+        "accept": "application/vnd.github+json"
+      }
+    }
+  },
+  {
+    "id": "nango:gitlab-pat",
+    "name": "GitLab",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/gitlab-pat/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/gitlab-pat/connect",
+    "baseUrl": "https://${hostname}",
+    "logo": "https://app.nango.dev/images/template-logos/gitlab-pat.svg",
+    "credentials": [
+      {
+        "name": "hostname",
+        "label": "Hostname",
+        "description": "The hostname of your Gitlab instance",
+        "example": "gitlab.com",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "Personal Access Token",
+        "description": "The Personal Access Token for your GitLab account",
+        "example": "glpat-PMJoma_*******.***.***xwve",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v4/users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "private-token": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:gong",
+    "name": "Gong",
+    "category": "comms",
+    "description": "communication API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/gong/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/gong/connect",
+    "baseUrl": "https://api.gong.io",
+    "logo": "https://app.nango.dev/images/template-logos/gong.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "Access Key",
+        "description": "Your Gong Access Key",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Access Key Secret",
+        "description": "Your Gong Access Key Secret",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:gorgias-basic",
+    "name": "Gorgias",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/gorgias-basic/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/gorgias-basic/connect",
+    "baseUrl": "https://${subdomain}.gorgias.com",
+    "logo": "https://app.nango.dev/images/template-logos/gorgias-basic.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "Gorgias Domain",
+        "description": "The subdomain of your Gorgias account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "Your Gorgias account Username",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "API Key",
+        "description": "Your Gorgias API Key",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:grain-api-key",
+    "name": "Grain",
+    "category": "media",
+    "description": "video API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/grain-api-key",
+    "keyUrl": "https://nango.dev/docs/integrations/all/grain-api-key",
+    "baseUrl": "https://api.grain.com",
+    "logo": "https://app.nango.dev/images/template-logos/grain-api-key.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The personal access token to your Grain account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/_/public-api/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:greenhouse-basic",
+    "name": "Greenhouse",
+    "category": "data",
+    "description": "recruiting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/greenhouse-basic/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/greenhouse-basic/connect",
+    "baseUrl": "https://${resource}.greenhouse.io",
+    "logo": "https://app.nango.dev/images/template-logos/greenhouse-basic.svg",
+    "credentials": [
+      {
+        "name": "resource",
+        "label": "Greenhouse API Domain",
+        "description": "The Greenhouse API product domain you want to connect to",
+        "example": "harvest",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "API key",
+        "description": "The API Key of your Greenhouse account",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Password",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/candidates/",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:greenhouse-assessment",
+    "name": "Greenhouse (Assessment API)",
+    "category": "data",
+    "description": "recruiting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/greenhouse-assessment/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/greenhouse-assessment/connect",
+    "baseUrl": "https://${baseUrl}",
+    "logo": "https://app.nango.dev/images/template-logos/greenhouse-assessment.svg",
+    "credentials": [
+      {
+        "name": "baseUrl",
+        "label": "Assessment Base Url",
+        "description": "The Assessment API Base Url you want to connect to",
+        "example": "www.testing-partner.com",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "API key",
+        "description": "The API Key of your Greenhouse account",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Password",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/list_tests",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:greenhouse-harvest",
+    "name": "Greenhouse (Harvest API)",
+    "category": "data",
+    "description": "recruiting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/greenhouse-harvest/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/greenhouse-harvest/connect",
+    "baseUrl": "https://harvest.greenhouse.io",
+    "logo": "https://app.nango.dev/images/template-logos/greenhouse-harvest.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "API key",
+        "description": "The API Key of your Greenhouse account",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Password",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/candidates",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:greenhouse-job-board",
+    "name": "Greenhouse (Job Board API)",
+    "category": "data",
+    "description": "recruiting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/greenhouse-job-board/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/greenhouse-job-board/connect",
+    "baseUrl": "https://boards-api.greenhouse.io",
+    "logo": "https://app.nango.dev/images/template-logos/greenhouse-job-board.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "API key",
+        "description": "The API Key of your Greenhouse account",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Password",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:greenhouse-onboarding",
+    "name": "Greenhouse (Onboarding API)",
+    "category": "data",
+    "description": "recruiting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/greenhouse-onboarding/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/greenhouse-onboarding/connect",
+    "baseUrl": "https://onboarding-api.greenhouse.io",
+    "logo": "https://app.nango.dev/images/template-logos/greenhouse-onboarding.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "Access Key",
+        "description": "The Access Key to your Greenhouse Onboarding account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Secret Key",
+        "description": "The Secret Key to your Greenhouse Onboarding account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/graphql?query=%7B__schema%7Btypes%7Bname,kind,fields%7Bname%7D%7D%7D%7D",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:greenhouse-harvest-oauth2-cc",
+    "name": "Greenhouse Harvest (Client Credentials V3)",
+    "category": "data",
+    "description": "recruiting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/greenhouse-harvest-oauth2-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/greenhouse-harvest-oauth2-cc/connect",
+    "baseUrl": "https://harvest.greenhouse.io",
+    "logo": "https://app.nango.dev/images/template-logos/greenhouse-harvest-oauth2-cc.svg",
+    "credentials": [
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "Your Greenhouse client ID for authentication",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Client Secret",
+        "description": "Your Greenhouse client secret for authentication",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:guru-scim",
+    "name": "Guru (SCIM)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/guru-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/guru-scim/connect",
+    "baseUrl": "https://api.getguru.com/api/scim",
+    "logo": "https://app.nango.dev/images/template-logos/guru-scim.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "SCIM Username",
+        "description": "The SCIM username for your Guru account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "SCIM Token",
+        "description": "The SCIM token for your Guru account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "content-type": "application/scim+json"
+      }
+    }
+  },
+  {
+    "id": "nango:holded-v2",
+    "name": "Holded",
+    "category": "finance",
+    "description": "accounting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/holded-v2/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/holded-v2/connect",
+    "baseUrl": "https://api.holded.com/api",
+    "logo": "https://app.nango.dev/images/template-logos/holded-v2.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Holded account",
+        "example": "pat_************************_************************************************************24d4",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:ingenious-build-pat",
+    "name": "INGENIOUS.BUILD",
+    "category": "data",
+    "description": "ERP API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/ingenious-build-pat/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/ingenious-build-pat/connect",
+    "baseUrl": "https://${subdomain}.ingenious.build",
+    "logo": "https://app.nango.dev/images/template-logos/ingenious-build-pat.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "INGENIOUS.BUILD Domain",
+        "description": "The subdomain of your INGENIOUS.BUILD account",
+        "example": "domain",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "Access Token",
+        "description": "The Access Token for your INGENIOUS.BUILD account",
+        "example": "rczP********************************fT42",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v2/pub/contacts?page=1&limit=1",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "accesstoken": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:ironclad-cc",
+    "name": "Ironclad",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/ironclad-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/ironclad-cc/connect",
+    "baseUrl": "https://${subdomain}.ironcladapp.com",
+    "logo": "https://app.nango.dev/images/template-logos/ironclad-cc.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "Subdomain",
+        "description": "Your Ironclad environment subdomain.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:jamf",
+    "name": "Jamf Pro",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/jamf",
+    "keyUrl": "https://nango.dev/docs/integrations/all/jamf",
+    "baseUrl": "https://${instance}.jamfcloud.com",
+    "logo": "https://app.nango.dev/images/template-logos/jamf.svg",
+    "credentials": [
+      {
+        "name": "instance",
+        "label": "Jamf Pro Instance",
+        "description": "Your Jamf Pro instance",
+        "example": "example",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:jamf-basic",
+    "name": "Jamf Pro",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/jamf-basic",
+    "keyUrl": "https://nango.dev/docs/integrations/all/jamf-basic",
+    "baseUrl": "https://${instance}.jamfcloud.com",
+    "logo": "https://app.nango.dev/images/template-logos/jamf-basic.svg",
+    "credentials": [
+      {
+        "name": "instance",
+        "label": "Jamf Pro Instance",
+        "description": "Your Jamf Pro instance",
+        "example": "example",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "Your Jamf Pro username",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Your Jamf Pro password",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:jira-basic",
+    "name": "Jira",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/jira-basic/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/jira-basic/connect",
+    "baseUrl": "https://${subdomain}.atlassian.net",
+    "logo": "https://app.nango.dev/images/template-logos/jira-basic.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "Jira Domain",
+        "description": "The subdomain of your Jira account",
+        "example": "domain",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "Email Address",
+        "description": "The Email Address of your Jira account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "API Key",
+        "description": "The API Key of your Jira account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/rest/api/3/myself",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:jira-data-center-api-key",
+    "name": "Jira Data Center",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/jira-data-center-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/jira-data-center-api-key/connect",
+    "baseUrl": "${baseUrl}",
+    "logo": "https://app.nango.dev/images/template-logos/jira-data-center-api-key.svg",
+    "credentials": [
+      {
+        "name": "baseUrl",
+        "label": "Instance Base Url",
+        "description": "The base Url for your Jira Data Center instance",
+        "example": "https://foobar.atlassian.net",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Jira Data Center",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:jira-data-center-basic",
+    "name": "Jira Data Center",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/jira-data-center-basic/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/jira-data-center-basic/connect",
+    "baseUrl": "${baseUrl}",
+    "logo": "https://app.nango.dev/images/template-logos/jira-data-center-basic.svg",
+    "credentials": [
+      {
+        "name": "baseUrl",
+        "label": "Instance Base Url",
+        "description": "The base Url for your Jira Data Center instance",
+        "example": "https://foobar.atlassian.net",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "The username for your Jira Data Center",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "The password for your Jira Data Center",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:judgeme",
+    "name": "Judge.me",
+    "category": "comms",
+    "description": "marketing API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/judgeme/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/judgeme/connect",
+    "baseUrl": "https://api.judge.me",
+    "logo": "https://app.nango.dev/images/template-logos/judgeme.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Token",
+        "description": "Your Judge.me private API token",
+        "example": "UiSz*******************9uyE",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v1/reviews",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "x-api-token": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:keeper-scim",
+    "name": "Keeper (SCIM)",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/keeper-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/keeper-scim/connect",
+    "baseUrl": "https://keepersecurity.com/api/rest/scim/v2/${node}",
+    "logo": "https://app.nango.dev/images/template-logos/keeper-scim.svg",
+    "credentials": [
+      {
+        "name": "node",
+        "label": "Node",
+        "description": "The node id to your Keeper account",
+        "example": "123435384338765",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your node keeper account",
+        "example": "J9b7kgdL2gf14d5F9p67zYXVrTZPTMEnl3/EmwwI9K2=",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:klaviyo",
+    "name": "Klaviyo",
+    "category": "comms",
+    "description": "marketing API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/klaviyo/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/klaviyo/connect",
+    "baseUrl": "https://a.klaviyo.com",
+    "logo": "https://app.nango.dev/images/template-logos/klaviyo.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Klaviyo account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/accounts",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Klaviyo-API-Key ${apiKey}",
+        "revision": "2024-07-15"
+      }
+    }
+  },
+  {
+    "id": "nango:lever-basic",
+    "name": "Lever",
+    "category": "data",
+    "description": "recruiting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/lever-basic/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/lever-basic/connect",
+    "baseUrl": "https://api.lever.co",
+    "logo": "https://app.nango.dev/images/template-logos/lever-basic.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "User name",
+        "description": "The API Key of your lever account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:lever-basic-sandbox",
+    "name": "Lever (Basic Auth Sandbox))",
+    "category": "data",
+    "description": "recruiting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/lever-basic-sandbox",
+    "keyUrl": "https://nango.dev/docs/integrations/all/lever-basic-sandbox",
+    "baseUrl": "https://api.sandbox.lever.co",
+    "logo": "https://app.nango.dev/images/template-logos/lever-basic-sandbox.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "User name",
+        "description": "The API Key of your Lever sandbox account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:loom-scim",
+    "name": "Loom (SCIM)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/loom-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/loom-scim/connect",
+    "baseUrl": "https://${domain}/scim",
+    "logo": "https://app.nango.dev/images/template-logos/loom-scim.svg",
+    "credentials": [
+      {
+        "name": "domain",
+        "label": "Loom SCIM Bridge URL",
+        "description": "The domain for your Loom SCIM Bridge",
+        "example": "scim.example.com",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "SCIM API Key",
+        "description": "Your Loom SCIM API Key",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:lucid-scim",
+    "name": "Lucid (SCIM)",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/lucid-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/lucid-scim/connect",
+    "baseUrl": "https://users.lucid.app/scim",
+    "logo": "https://app.nango.dev/images/template-logos/lucid-scim.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The SCIM API key generated from the Lucid admin panel",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}",
+        "accept": "application/json",
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:luma-v2",
+    "name": "Luma",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/luma-v2/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/luma-v2/connect",
+    "baseUrl": "https://public-api.luma.com",
+    "logo": "https://app.nango.dev/images/template-logos/luma-v2.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Luma account",
+        "example": "secret-a1B2c3D4e5F6g7H8i9J0k1L2m",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/users/get-self",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "x-luma-api-key": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:microsoft-oauth2-cc",
+    "name": "Microsoft",
+    "category": "comms",
+    "description": "communication API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/microsoft-oauth2-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/microsoft-oauth2-cc/connect",
+    "baseUrl": "https://graph.microsoft.com",
+    "logo": "https://app.nango.dev/images/template-logos/microsoft-oauth2-cc.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:microsoft-oauth2-cc-cert",
+    "name": "Microsoft (Client Credentials - Certificate)",
+    "category": "comms",
+    "description": "communication API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/microsoft-oauth2-cc-cert/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/microsoft-oauth2-cc-cert/connect",
+    "baseUrl": "https://graph.microsoft.com",
+    "logo": "https://app.nango.dev/images/template-logos/microsoft-oauth2-cc-cert.svg",
+    "credentials": [
+      {
+        "name": "clientId",
+        "label": "Client ID",
+        "description": "The application (client) ID assigned to your app in Azure.",
+        "example": "11112222-bbbb-3333-cccc-4444dddd5555",
+        "secret": false
+      },
+      {
+        "name": "privateKey",
+        "label": "Private Key",
+        "description": "The RSA private key (PEM format) matching the certificate uploaded to your Azure app registration.",
+        "example": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\n-----END PRIVATE KEY-----",
+        "secret": true
+      },
+      {
+        "name": "certificateThumbprint",
+        "label": "Certificate Thumbprint (x5t#S256)",
+        "description": "The base64url-encoded SHA-256 thumbprint of your certificate.",
+        "example": "rCnkMH5GKJI03tRpdjBh8OG2U8I",
+        "secret": false
+      },
+      {
+        "name": "assertion",
+        "label": "Assertion",
+        "description": "",
+        "example": "",
+        "secret": false
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:microsoft-dynamics-365-finance-and-operations-cc",
+    "name": "Microsoft Dynamics 365 Finance and Operations",
+    "category": "data",
+    "description": "ERP API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/microsoft-dynamics-365-finance-and-operations-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/microsoft-dynamics-365-finance-and-operations-cc/connect",
+    "baseUrl": "https://${environmentUrl}",
+    "logo": "https://app.nango.dev/images/template-logos/microsoft-dynamics-365-finance-and-operations-cc.svg",
+    "credentials": [
+      {
+        "name": "environmentUrl",
+        "label": "Environment URL",
+        "description": "The domain of your Finance and Operations environment.",
+        "example": "mycompany.operations.dynamics.com",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:miro-scim",
+    "name": "Miro (SCIM API)",
+    "category": "media",
+    "description": "design API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/miro-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/miro-scim/connect",
+    "baseUrl": "https://miro.com/api",
+    "logo": "https://app.nango.dev/images/template-logos/miro-scim.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Miro scim account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/scim/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:namely-pat",
+    "name": "Namely (PAT)",
+    "category": "data",
+    "description": "HR API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/namely-pat/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/namely-pat/connect",
+    "baseUrl": "https://${company}.namely.com/api",
+    "logo": "https://app.nango.dev/images/template-logos/namely-pat.svg",
+    "credentials": [
+      {
+        "name": "company",
+        "label": "Company Name",
+        "description": "The name of your Namely company",
+        "example": "example",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "Personal Access Token",
+        "description": "The Personal Access Token for your Namely account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:notion-scim",
+    "name": "Notion (SCIM API)",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/notion-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/notion-scim/connect",
+    "baseUrl": "https://api.notion.com/scim",
+    "logo": "https://app.nango.dev/images/template-logos/notion-scim.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Notion scim account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:odoo-cc",
+    "name": "Odoo",
+    "category": "data",
+    "description": "ERP API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/odoo-cc/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/odoo-cc/connect",
+    "baseUrl": "https://${serverUrl}/restapi",
+    "logo": "https://app.nango.dev/images/template-logos/odoo-cc.svg",
+    "credentials": [
+      {
+        "name": "serverUrl",
+        "label": "Domain",
+        "description": "The domain to your Odoo account",
+        "example": "example.odoo.com",
+        "secret": false
+      },
+      {
+        "name": "consumerId",
+        "label": "Consumer ID",
+        "description": "Your App Consumer ID",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "consumerSecret",
+        "label": "Consumer Secret",
+        "description": "Your App Consumer Secret",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:odoo-api-key",
+    "name": "Odoo",
+    "category": "data",
+    "description": "ERP API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/odoo-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/odoo-api-key/connect",
+    "baseUrl": "https://${serverUrl}/json",
+    "logo": "https://app.nango.dev/images/template-logos/odoo-api-key.svg",
+    "credentials": [
+      {
+        "name": "serverUrl",
+        "label": "Domain",
+        "description": "The domain of your Odoo instance.",
+        "example": "mycompany.odoo.com",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "Your Odoo API key.",
+        "example": "20d6113f****************************2921",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "authorization": "bearer ${apiKey}",
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:okta-cc",
+    "name": "Okta",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/okta-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/okta-cc/connect",
+    "baseUrl": "https://${hostname}",
+    "logo": "https://app.nango.dev/images/template-logos/okta-cc.svg",
+    "credentials": [
+      {
+        "name": "hostname",
+        "label": "Okta Domain",
+        "description": "The full hostname of your Okta account",
+        "example": "dev-12345678.okta.com",
+        "secret": false
+      },
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "The Client ID of your Okta API Services application",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_private_key",
+        "label": "Private Key (JWK)",
+        "description": "The private JWK JSON (including kid, kty, n, e, d, p, q, dp, dq, qi) whose public key is registered in your Okta API Services application",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:okta-api-key",
+    "name": "Okta (API Token)",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/okta-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/okta-api-key/connect",
+    "baseUrl": "https://${hostname}",
+    "logo": "https://app.nango.dev/images/template-logos/okta-api-key.svg",
+    "credentials": [
+      {
+        "name": "hostname",
+        "label": "Okta Domain",
+        "description": "The full hostname of your Okta account.",
+        "example": "dev-12345678.okta.com",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Token",
+        "description": "The API token generated from your Okta org.",
+        "example": "00qJ-P************************************",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/v1/users/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "SSWS ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:openai-admin",
+    "name": "OpenAI (Admin)",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/openai-admin/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/openai-admin/connect",
+    "baseUrl": "https://api.openai.com",
+    "logo": "https://app.nango.dev/images/template-logos/openai-admin.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "Admin Key",
+        "description": "The Admin API key for your OpenAI account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/organization/users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}",
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:oracle-hcm",
+    "name": "Oracle Fusion Cloud (HCM)",
+    "category": "data",
+    "description": "HR API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/oracle-hcm/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/oracle-hcm/connect",
+    "baseUrl": "https://${restServerUrl}",
+    "logo": "https://app.nango.dev/images/template-logos/oracle-hcm.svg",
+    "credentials": [
+      {
+        "name": "restServerUrl",
+        "label": "REST Server URL",
+        "description": "The REST server URL for your Oracle Fusion Cloud",
+        "example": "servername.fa.us2.oraclecloud.com",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "Your Oracle Cloud service username.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Your Oracle Cloud service password.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "content-type": "application/vnd.oracle.adf.resourceitem+json"
+      }
+    }
+  },
+  {
+    "id": "nango:pandadoc-api-key",
+    "name": "Pandadoc",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/pandadoc-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/pandadoc-api-key/connect",
+    "baseUrl": "https://api.pandadoc.com",
+    "logo": "https://app.nango.dev/images/template-logos/pandadoc-api-key.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Pandadoc account",
+        "example": "3039ba033eb1410caa0a2227158d63c9d6502cd8",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/public/v1/members/current",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "API-Key ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:paylocity-nextgen",
+    "name": "Paylocity (NextGen)",
+    "category": "data",
+    "description": "HR API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/paylocity-nextgen/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/paylocity-nextgen/connect",
+    "baseUrl": "https://${environment}.paylocity.com",
+    "logo": "https://app.nango.dev/images/template-logos/paylocity-nextgen.svg",
+    "credentials": [
+      {
+        "name": "environment",
+        "label": "Environment",
+        "description": "Your Paylocity NextGen environment.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:paylocity",
+    "name": "Paylocity (Weblink)",
+    "category": "data",
+    "description": "HR API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/paylocity/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/paylocity/connect",
+    "baseUrl": "https://${environment}.paylocity.com",
+    "logo": "https://app.nango.dev/images/template-logos/paylocity.svg",
+    "credentials": [
+      {
+        "name": "environment",
+        "label": "Paylocity Environment",
+        "description": "Your Paylocity Weblink environment.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:pendo-oauth",
+    "name": "Pendo",
+    "category": "data",
+    "description": "analytics API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/pendo-oauth/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/pendo-oauth/connect",
+    "baseUrl": "https://app.pendo.io",
+    "logo": "https://app.nango.dev/images/template-logos/pendo-oauth.svg",
+    "credentials": [
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "Your Pendo OAuth client ID",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Client Secret",
+        "description": "Your Pendo OAuth client secret",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:pennylane-company-api",
+    "name": "Pennylane (Company API)",
+    "category": "finance",
+    "description": "accounting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/pennylane-company-api/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/pennylane-company-api/connect",
+    "baseUrl": "https://app.pennylane.com",
+    "logo": "https://app.nango.dev/images/template-logos/pennylane-company-api.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Token",
+        "description": "The company API token for your Pennylane account",
+        "example": "aZ9b4Lp3QhN7vXyK1sTcO0WfR8jMdEuD5GrIi2-H6PnU",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/api/external/v2/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:personio",
+    "name": "Personio",
+    "category": "data",
+    "description": "HR API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/personio/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/personio/connect",
+    "baseUrl": "https://api.personio.de/v1",
+    "logo": "https://app.nango.dev/images/template-logos/personio.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:personio-v2",
+    "name": "Personio",
+    "category": "data",
+    "description": "HR API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/personio-v2",
+    "keyUrl": "https://nango.dev/docs/integrations/all/personio-v2",
+    "baseUrl": "https://api.personio.de/v2",
+    "logo": "https://app.nango.dev/images/template-logos/personio-v2.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "content-type": "application/x-www-form-urlencoded"
+      }
+    }
+  },
+  {
+    "id": "nango:pingone-cc",
+    "name": "PingOne",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/pingone-cc/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/pingone-cc/connect",
+    "baseUrl": "https://api.pingone.${tld}",
+    "logo": "https://app.nango.dev/images/template-logos/pingone-cc.svg",
+    "credentials": [
+      {
+        "name": "tld",
+        "label": "Top Level Domain",
+        "description": "The top level domain for your PingOne account.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:pipedream",
+    "name": "Pipedream",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/pipedream/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/pipedream/connect",
+    "baseUrl": "https://api.pipedream.com",
+    "logo": "https://app.nango.dev/images/template-logos/pipedream.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API Key for your Pipedream account",
+        "example": "9a1b2c3d4e5f67890abcdeffedcba123",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/users/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:pipedream-oauth2-cc",
+    "name": "Pipedream",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/pipedream-oauth2-cc/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/pipedream-oauth2-cc/connect",
+    "baseUrl": "https://api.pipedream.com",
+    "logo": "https://app.nango.dev/images/template-logos/pipedream-oauth2-cc.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:planning-center-online-pat",
+    "name": "Planning Center Online",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/planning-center-online-pat/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/planning-center-online-pat/connect",
+    "baseUrl": "https://api.planningcenteronline.com",
+    "logo": "https://app.nango.dev/images/template-logos/planning-center-online-pat.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "Client ID",
+        "description": "The Client ID for your Planning Center Personal Access Token.",
+        "example": "01h2jk3lm4np5qrst6uvw",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Secret",
+        "description": "The Secret for your Planning Center Personal Access Token.",
+        "example": "7f8e9d0c1b2a3847564930210fedcba9876543210fedcba9876543210",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/current/v2/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "accept": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:private-api-basic",
+    "name": "Private API",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/private-api-basic/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/private-api-basic/connect",
+    "baseUrl": "https://my-private-api",
+    "logo": "https://app.nango.dev/images/template-logos/private-api-basic.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "Your username",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Your password",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:private-api-bearer",
+    "name": "Private API (Bearer Auth)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/private-api-bearer/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/private-api-bearer/connect",
+    "baseUrl": "https://my-private-api",
+    "logo": "https://app.nango.dev/images/template-logos/private-api-bearer.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "Your API Key",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:private-api-generic",
+    "name": "Private API (Generic)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/private-api-generic/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/private-api-generic/connect",
+    "baseUrl": "https://api.nango.dev",
+    "logo": "https://app.nango.dev/images/template-logos/private-api-generic.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "Your API Key",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:pushpay-chms-v1",
+    "name": "Pushpay ChMS",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/pushpay-chms-v1/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/pushpay-chms-v1/connect",
+    "baseUrl": "https://${subdomain}.ccbchurch.com",
+    "logo": "https://app.nango.dev/images/template-logos/pushpay-chms-v1.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "Church subdomain",
+        "description": "The subdomain for your Pushpay ChMS site.",
+        "example": "yourchurch",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "API username",
+        "description": "The API login created in Pushpay ChMS API Admin.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "API password",
+        "description": "The password for your Pushpay ChMS API user.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:redtail-crm-sandbox",
+    "name": "Redtail CRM",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/redtail-crm-sandbox/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/redtail-crm-sandbox/connect",
+    "baseUrl": "https://review.crm.redtailtechnology.com/api/public",
+    "logo": "https://app.nango.dev/images/template-logos/redtail-crm-sandbox.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "The username for your Redtail CRM account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "The password for your Redtail CRM account",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API Key for your Redtail CRM account",
+        "example": "f1c2d3a4-5b67-4c89-ae01-123456789abc",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:render-mcp",
+    "name": "Render (MCP)",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/render-mcp/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/render-mcp/connect",
+    "baseUrl": "https://mcp.render.com",
+    "logo": "https://app.nango.dev/images/template-logos/render-mcp.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "Your Render API key from Account Settings.",
+        "example": "rnd_****************************",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:roam-scim",
+    "name": "Roam (SCIM API)",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/roam-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/roam-scim/connect",
+    "baseUrl": "https://api.ro.am/scim",
+    "logo": "https://app.nango.dev/images/template-logos/roam-scim.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "SCIM API Token",
+        "description": "The SCIM API token generated from your Roam organization settings.",
+        "example": "rmk-uu9zt58h-EYHyLJ3ay4Mc-wuWQTOk-Y2yY-gZlW7Ys8AdVXBRZks_SGrCyZ09_IDvX9ikahdxushGYKcT77Fjw",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}",
+        "accept": "application/json",
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:sage-intacct-cc",
+    "name": "Sage Intacct",
+    "category": "finance",
+    "description": "accounting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/sage-intacct-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/sage-intacct-cc/connect",
+    "baseUrl": "https://api.intacct.com/ia/api",
+    "logo": "https://app.nango.dev/images/template-logos/sage-intacct-cc.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "The Web Services user ID in userId@companyId|entityId format. Required if not using Session ID.",
+        "example": "Admin@MyCompany|Central Region",
+        "secret": false
+      },
+      {
+        "name": "sessionId",
+        "label": "Session ID",
+        "description": "A valid UI or API session ID. Required if not using Username.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:salesforce-cc",
+    "name": "Salesforce",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/salesforce-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/salesforce-cc/connect",
+    "baseUrl": "${instance_url}",
+    "logo": "https://app.nango.dev/images/template-logos/salesforce-cc.svg",
+    "credentials": [
+      {
+        "name": "instance_url",
+        "label": "Instance_url",
+        "description": "",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:salesforce-jwt",
+    "name": "Salesforce",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/salesforce-jwt/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/salesforce-jwt/connect",
+    "baseUrl": "${instance_url}",
+    "logo": "https://app.nango.dev/images/template-logos/salesforce-jwt.svg",
+    "credentials": [
+      {
+        "name": "instance_url",
+        "label": "Instance_url",
+        "description": "",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "clientId",
+        "label": "Consumer Key",
+        "description": "The Consumer Key from your Salesforce Connected App.",
+        "example": "3MVG9dAEux2v1sLsg0e52***************CJpGsXgqg8E",
+        "secret": false
+      },
+      {
+        "name": "clientSecret",
+        "label": "Consumer Secret",
+        "description": "The Consumer Secret from your Salesforce Connected App.",
+        "example": "954F73F4C234***************9D069B8FCF83B5",
+        "secret": true
+      },
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "The Salesforce username of the user the JWT will act on behalf of.",
+        "example": "john@acme.com",
+        "secret": false
+      },
+      {
+        "name": "privateKey",
+        "label": "Private Key",
+        "description": "The private key that matches the certificate you uploaded to the Connected App.",
+        "example": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\\n-----END PRIVATE KEY-----",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:salesforce-cdp",
+    "name": "Salesforce (Data Cloud)",
+    "category": "data",
+    "description": "file storage API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/salesforce-cdp/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/salesforce-cdp/connect",
+    "baseUrl": "${instance_url}",
+    "logo": "https://app.nango.dev/images/template-logos/salesforce-cdp.svg",
+    "credentials": [
+      {
+        "name": "instance_url",
+        "label": "Instance_url",
+        "description": "",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "jwt",
+        "label": "Encoded JWT",
+        "description": "This is your pre-generated, encoded JSON Web Token (JWT)",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:salesmsg",
+    "name": "Salesmsg (PAT)",
+    "category": "comms",
+    "description": "communication API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/salesmsg/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/salesmsg/connect",
+    "baseUrl": "https://api.salesmessage.com/pub",
+    "logo": "https://app.nango.dev/images/template-logos/salesmsg.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "Personal Access Token",
+        "description": "Your Salesmsg Personal Access Token (PAT).",
+        "example": "eyJhbGciOi***.eyJzdWIiOi***.xxxxxxxxxxxx",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:sap-concur-password",
+    "name": "SAP Concur (Password Grant)",
+    "category": "data",
+    "description": "ERP API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/sap-concur-password/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/sap-concur-password/connect",
+    "baseUrl": "https://${region}.api.concursolutions.com",
+    "logo": "https://app.nango.dev/images/template-logos/sap-concur-password.svg",
+    "credentials": [
+      {
+        "name": "region",
+        "label": "Region",
+        "description": "The SAP Concur Data Center region.",
+        "example": "us",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "Your SAP Concur username or userId.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Your SAP Concur account password.",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "clientId",
+        "label": "Client ID",
+        "description": "Your OAuth application client_id supplied by App Management.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "clientSecret",
+        "label": "Client Secret",
+        "description": "Your OAuth application client_secret supplied by App Management.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:sap-odata-basic",
+    "name": "SAP S/4HANA Cloud",
+    "category": "data",
+    "description": "ERP API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/sap-odata-basic/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/sap-odata-basic/connect",
+    "baseUrl": "https://${apiServer}",
+    "logo": "https://app.nango.dev/images/template-logos/sap-odata-basic.svg",
+    "credentials": [
+      {
+        "name": "apiServer",
+        "label": "API Server",
+        "description": "The API base URL of the SAP S/4HANA cloud API service you want to connect to",
+        "example": "eu10.cfapps.eu10.hana.ondemand.com",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:sedna",
+    "name": "Sedna",
+    "category": "comms",
+    "description": "communication API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/sedna",
+    "keyUrl": "https://nango.dev/docs/integrations/all/sedna",
+    "baseUrl": "https://${tenant}.sednanetwork.com/platform",
+    "logo": "https://app.nango.dev/images/template-logos/sedna.svg",
+    "credentials": [
+      {
+        "name": "tenant",
+        "label": "Tenant",
+        "description": "The tenant name to your sedna account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:sedna-basic",
+    "name": "Sedna",
+    "category": "comms",
+    "description": "communication API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/sedna-basic",
+    "keyUrl": "https://nango.dev/docs/integrations/all/sedna-basic",
+    "baseUrl": "https://${tenant}.sednanetwork.com/platform",
+    "logo": "https://app.nango.dev/images/template-logos/sedna-basic.svg",
+    "credentials": [
+      {
+        "name": "tenant",
+        "label": "Tenant",
+        "description": "The tenant name to your sedna account",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:sellsy-oauth2-cc",
+    "name": "Sellsy",
+    "category": "finance",
+    "description": "accounting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/sellsy-oauth2-cc/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/sellsy-oauth2-cc/connect",
+    "baseUrl": "https://api.sellsy.com",
+    "logo": "https://app.nango.dev/images/template-logos/sellsy-oauth2-cc.svg",
+    "credentials": [
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "Your Client ID",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Secret shopper",
+        "description": "Your Secret shopper",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:semrush",
+    "name": "Semrush",
+    "category": "comms",
+    "description": "marketing API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/semrush/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/semrush/connect",
+    "baseUrl": "https://api.semrush.com",
+    "logo": "https://app.nango.dev/images/template-logos/semrush.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "Your Semrush API key",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/management/v1/projects",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:servicenow-jwt",
+    "name": "ServiceNow",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/servicenow-jwt/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/servicenow-jwt/connect",
+    "baseUrl": "https://${hostname}",
+    "logo": "https://app.nango.dev/images/template-logos/servicenow-jwt.svg",
+    "credentials": [
+      {
+        "name": "hostname",
+        "label": "ServiceNow Domain",
+        "description": "The full hostname of your ServiceNow instance",
+        "example": "dev12345.service-now.com",
+        "secret": false
+      },
+      {
+        "name": "clientId",
+        "label": "Client ID",
+        "description": "The Client ID from your ServiceNow OAuth JWT API endpoint",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "clientSecret",
+        "label": "Client Secret",
+        "description": "The Client Secret from your ServiceNow OAuth JWT API endpoint",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "keyId",
+        "label": "Key ID",
+        "description": "The Key ID configured in your ServiceNow JWT verifier map",
+        "example": "nango-servicenow-key",
+        "secret": true
+      },
+      {
+        "name": "privateKey",
+        "label": "Private Key",
+        "description": "The RSA private key matching the certificate in your ServiceNow JWT verifier map",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "userIdentifier",
+        "label": "User Identifier",
+        "description": "The user's value in the User Field configured on your ServiceNow OAuth JWT API endpoint",
+        "example": "nango_integration",
+        "secret": false
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:servicenow-oauth2-cc",
+    "name": "ServiceNow",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/servicenow-oauth2-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/servicenow-oauth2-cc/connect",
+    "baseUrl": "https://${hostname}",
+    "logo": "https://app.nango.dev/images/template-logos/servicenow-oauth2-cc.svg",
+    "credentials": [
+      {
+        "name": "hostname",
+        "label": "ServiceNow Domain",
+        "description": "The full hostname of your ServiceNow instance",
+        "example": "dev12345.service-now.com",
+        "secret": false
+      },
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "The Client ID from your ServiceNow OAuth Application",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Client Secret",
+        "description": "The Client Secret from your ServiceNow OAuth Application",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:sharepoint-online-v1",
+    "name": "SharePoint Online",
+    "category": "data",
+    "description": "file storage API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/sharepoint-online-v1/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/sharepoint-online-v1/connect",
+    "baseUrl": "https://${tenantName}.sharepoint.com",
+    "logo": "https://app.nango.dev/images/template-logos/sharepoint-online-v1.svg",
+    "credentials": [
+      {
+        "name": "tenantName",
+        "label": "Tenant Name",
+        "description": "The initial domain name for your Microsoft services tenant",
+        "example": "mycompany",
+        "secret": false
+      },
+      {
+        "name": "clientId",
+        "label": "Client ID",
+        "description": "Your application Client ID",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "assertion",
+        "label": "Client Assertion",
+        "description": "Your generated client assertion",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "accept": "application/json;odata=verbose"
+      }
+    }
+  },
+  {
+    "id": "nango:sharepoint-online-oauth2-cc",
+    "name": "SharePoint Online (Client Credentials V2)",
+    "category": "data",
+    "description": "file storage API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/sharepoint-online-oauth2-cc/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/sharepoint-online-oauth2-cc/connect",
+    "baseUrl": "https://graph.microsoft.com",
+    "logo": "https://app.nango.dev/images/template-logos/sharepoint-online-oauth2-cc.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:shipbob-pat",
+    "name": "ShipBob",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/shipbob-pat/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/shipbob-pat/connect",
+    "baseUrl": "https://${apiSubdomain}.shipbob.com",
+    "logo": "https://app.nango.dev/images/template-logos/shipbob-pat.svg",
+    "credentials": [
+      {
+        "name": "apiSubdomain",
+        "label": "API Subdomain",
+        "description": "The ShipBob API subdomain of the environment you want to connect to.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "Personal Access Token",
+        "description": "Your ShipBob Personal Access Token",
+        "example": "6E4647BB**************************806E464161FBB996DD8E87EEA86DB926-1",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/2026-01/channel",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:shipstation",
+    "name": "Shipstation",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/shipstation/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/shipstation/connect",
+    "baseUrl": "https://ssapi.shipstation.com",
+    "logo": "https://app.nango.dev/images/template-logos/shipstation.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "API Key",
+        "description": "Your ShipStation API key",
+        "example": "0ff30856c5634da1b5ce1953fdaf3dcd",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "API Secret",
+        "description": "Your Shipstation API secret",
+        "example": "17f1c62148b044c687f80e1060224a4e",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/users",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:shipstation-v2",
+    "name": "Shipstation",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/shipstation-v2/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/shipstation-v2/connect",
+    "baseUrl": "https://api.shipstation.com",
+    "logo": "https://app.nango.dev/images/template-logos/shipstation-v2.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API Key for your Shipstation account",
+        "example": "zEfcI+rouT0q1fjQWHBOYnsGYiax3rGDjtt3O5UhFIw",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/users?page_size=1",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "api-key": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:shopify-cc",
+    "name": "Shopify",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/shopify-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/shopify-cc/connect",
+    "baseUrl": "https://${subdomain}.myshopify.com",
+    "logo": "https://app.nango.dev/images/template-logos/shopify-cc.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "Shopify Store Domain",
+        "description": "The subdomain of the Shopify store the app is installed in.",
+        "example": "my-store",
+        "secret": false
+      },
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "The Client ID for your Shopify app.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Client Secret",
+        "description": "The Client Secret for your Shopify app.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:shopify-api-key",
+    "name": "Shopify",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/shopify-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/shopify-api-key/connect",
+    "baseUrl": "https://${subdomain}.myshopify.com",
+    "logo": "https://app.nango.dev/images/template-logos/shopify-api-key.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "Shopify Domain",
+        "description": "The subdomain of your Shopify account",
+        "example": "domain",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Access Token",
+        "description": "The API access token generated",
+        "example": "shpat_***************c03266f",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/admin/api/2024-10/graphql.json?query=%7B__schema%7Btypes%7Bname%2Ckind%2Cfields%7Bname%7D%7D%7D%7D",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "x-shopify-access-token": "${apiKey}",
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:shopify-scim",
+    "name": "Shopify (SCIM API)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/shopify-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/shopify-scim/connect",
+    "baseUrl": "https://shopifyscim.com/scim",
+    "logo": "https://app.nango.dev/images/template-logos/shopify-scim.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "SCIM API Token",
+        "description": "The SCIM API token generated from your Shopify organization settings.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/Users",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}",
+        "accept": "application/json",
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:shopware",
+    "name": "Shopware (Admin API)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/shopware/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/shopware/connect",
+    "baseUrl": "https://${shopwareUrl}/api",
+    "logo": "https://app.nango.dev/images/template-logos/shopware.svg",
+    "credentials": [
+      {
+        "name": "shopwareUrl",
+        "label": "Shopware URL",
+        "description": "The hostname of your Shopware instance.",
+        "example": "myshop.example.com",
+        "secret": false
+      },
+      {
+        "name": "client_id",
+        "label": "Access key ID",
+        "description": "The Access key ID of yout integration.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Secret access key",
+        "description": "The Secret access key of your integration.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:snowflake-jwt",
+    "name": "Snowflake",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/snowflake-jwt/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/snowflake-jwt/connect",
+    "baseUrl": "https://${subdomain}.snowflakecomputing.com",
+    "logo": "https://app.nango.dev/images/template-logos/snowflake-jwt.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "Subdomain",
+        "description": "The subdomain for your Snowflake instance",
+        "example": "KXOPMLU-RE00572",
+        "secret": false
+      },
+      {
+        "name": "accountIdentifier",
+        "label": "Account Identifier",
+        "description": "The unique identifier for your Snowflake account.",
+        "example": "KXOPMLU-RE00572",
+        "secret": false
+      },
+      {
+        "name": "userName",
+        "label": "User Name",
+        "description": "The username for your Snowflake account used for authentication",
+        "example": "MYUSER",
+        "secret": false
+      },
+      {
+        "name": "privateKey",
+        "label": "Private Key",
+        "description": "The private key associated with your Snowflake account for JWT authentication",
+        "example": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\\n-----END PRIVATE KEY-----",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/api/v2/statements",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "accept": "application/json",
+        "x-snowflake-authorization-token-type": "KEYPAIR_JWT"
+      }
+    }
+  },
+  {
+    "id": "nango:spotify-oauth2-cc",
+    "name": "Spotify",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/spotify-oauth2-cc",
+    "keyUrl": "https://nango.dev/docs/integrations/all/spotify-oauth2-cc",
+    "baseUrl": "https://api.spotify.com",
+    "logo": "https://app.nango.dev/images/template-logos/spotify-oauth2-cc.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:stedi",
+    "name": "Stedi (Healthcare)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/stedi/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/stedi/connect",
+    "baseUrl": "https://healthcare.us.stedi.com",
+    "logo": "https://app.nango.dev/images/template-logos/stedi.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "Your Stedi API key.",
+        "example": "test_JX***************48l",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/2024-04-01/payers?pageSize=10",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:stripe-api-key",
+    "name": "Stripe",
+    "category": "finance",
+    "description": "payments API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/stripe-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/stripe-api-key/connect",
+    "baseUrl": "https://api.stripe.com",
+    "logo": "https://app.nango.dev/images/template-logos/stripe-api-key.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "Restricted API Key",
+        "description": "Your Stripe restricted API Key",
+        "example": "rk_live_51On1GfAemfaBCd0eHq***************BV5007KeuAVcO",
+        "secret": true
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:supabase-mcp",
+    "name": "Supabase (MCP)",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/supabase-mcp/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/supabase-mcp/connect",
+    "baseUrl": "https://mcp.supabase.com",
+    "logo": "https://app.nango.dev/images/template-logos/supabase-mcp.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "Personal Access Token",
+        "description": "Your Supabase account personal access token.",
+        "example": "sbp_*******************************23d",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}",
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:tableau",
+    "name": "Tableau (PAT)",
+    "category": "data",
+    "description": "analytics API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/tableau/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/tableau/connect",
+    "baseUrl": "https://${hostname}/api/${version}",
+    "logo": "https://app.nango.dev/images/template-logos/tableau.svg",
+    "credentials": [
+      {
+        "name": "version",
+        "label": "API Version",
+        "description": "The version of the Tableau API to use",
+        "example": "3.26",
+        "secret": false
+      },
+      {
+        "name": "hostname",
+        "label": "HostName",
+        "description": "The domain of your Tableau instance",
+        "example": "dub01.online.tableau.com",
+        "secret": false
+      },
+      {
+        "name": "pat",
+        "label": "Personal Access Token",
+        "description": "Your Personal Access Token",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "secret",
+        "label": "Personal Access Token Secret",
+        "description": "Your Personal Access Token Secret",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "contentUrl",
+        "label": "Content Url",
+        "description": "Your content URL",
+        "example": "test-eaec4a3fe2",
+        "secret": false
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "accept": "application/json",
+        "content-type": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:tailscale",
+    "name": "Tailscale",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/tailscale/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/tailscale/connect",
+    "baseUrl": "https://api.tailscale.com/api",
+    "logo": "https://app.nango.dev/images/template-logos/tailscale.svg",
+    "credentials": [
+      {
+        "name": "clientId",
+        "label": "Client ID",
+        "description": "Your OAuth Client ID",
+        "example": "kcLBRFmtYZ11CNTRL",
+        "secret": false
+      },
+      {
+        "name": "clientSecret",
+        "label": "Client secret",
+        "description": "Your OAuth Client secret",
+        "example": "tskey-client-kdC27MPR3X11CNTRL-tjtxjop8mdawckVitWkNdaBaNRtZ48GN",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:tailscale-api-key",
+    "name": "Tailscale",
+    "category": "dev",
+    "description": "developer tools API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/tailscale-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/tailscale-api-key/connect",
+    "baseUrl": "https://api.tailscale.com/api",
+    "logo": "https://app.nango.dev/images/template-logos/tailscale-api-key.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Access Token",
+        "description": "The API Access Token for your Tailscale account",
+        "example": "tskey-api-k7Hpb9Lcv611CNTRL-WJ9YG52LqXJXY9oJ7RtmXJdzWkdRMgBG",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:thrivecart-api-key",
+    "name": "ThriveCart",
+    "category": "finance",
+    "description": "payments API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/thrivecart-api-key",
+    "keyUrl": "https://nango.dev/docs/integrations/all/thrivecart-api-key",
+    "baseUrl": "https://thrivecart.com/api/external",
+    "logo": "https://app.nango.dev/images/template-logos/thrivecart-api-key.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your ThriveCart account",
+        "example": "ASYDV5S8-0BSO1SH2-4BH5PO7U-YF8SV3CZ",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/ping",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:transporeon-oauth2-cc",
+    "name": "Transporeon Appointment Scheduling",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/transporeon-oauth2-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/transporeon-oauth2-cc/connect",
+    "baseUrl": "https://yard-management-planning-api.dev.eu.trimble-transportation.com",
+    "logo": "https://app.nango.dev/images/template-logos/transporeon-oauth2-cc.svg",
+    "credentials": [
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "Your API client ID.",
+        "example": "username@companyId",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Client Secret",
+        "description": "Your API client secret",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:transporeon-carrier-basic",
+    "name": "Transporeon Carrier Interface",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/transporeon-carrier-basic/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/transporeon-carrier-basic/connect",
+    "baseUrl": "https://${apiHost}/carrier_interface/openapi",
+    "logo": "https://app.nango.dev/images/template-logos/transporeon-carrier-basic.svg",
+    "credentials": [
+      {
+        "name": "apiHost",
+        "label": "API Host",
+        "description": "The Transporeon Carrier Interface host to connect to.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "Your Transporeon username.",
+        "example": "demo@123",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Your Transporeon password.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/transport",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:transporeon-carrier-oauth2-cc",
+    "name": "Transporeon Carrier Interface",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/transporeon-carrier-oauth2-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/transporeon-carrier-oauth2-cc/connect",
+    "baseUrl": "https://${apiHost}/carrier_interface/openapi",
+    "logo": "https://app.nango.dev/images/template-logos/transporeon-carrier-oauth2-cc.svg",
+    "credentials": [
+      {
+        "name": "apiHost",
+        "label": "API Host",
+        "description": "The Transporeon Carrier Interface host to connect to.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "Your API client ID.",
+        "example": "username@companyId",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Client Secret",
+        "description": "Your API client secret",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/transport",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:trello-scim",
+    "name": "Trello (SCIM API)",
+    "category": "data",
+    "description": "productivity API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/trello-scim/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/trello-scim/connect",
+    "baseUrl": "https://trello.com/scim",
+    "logo": "https://app.nango.dev/images/template-logos/trello-scim.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Trello scim account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/users?sortBy=displayName&count=10",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:trustpilot-cc",
+    "name": "Trustpilot",
+    "category": "comms",
+    "description": "marketing API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/trustpilot-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/trustpilot-cc/connect",
+    "baseUrl": "https://api.trustpilot.com",
+    "logo": "https://app.nango.dev/images/template-logos/trustpilot-cc.svg",
+    "credentials": [
+      {
+        "name": "client_id",
+        "label": "API Key",
+        "description": "Your Trustpilot application's API Key.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "API Secret",
+        "description": "Your Trustpilot application's API Secret.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:twenty-crm-self-hosted",
+    "name": "Twenty CRM (Self Hosted)",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/twenty-crm-self-hosted",
+    "keyUrl": "https://nango.dev/docs/integrations/all/twenty-crm-self-hosted",
+    "baseUrl": "https://${domain}/rest",
+    "logo": "https://app.nango.dev/images/template-logos/twenty-crm-self-hosted.svg",
+    "credentials": [
+      {
+        "name": "domain",
+        "label": "Twenty CRM domain",
+        "description": "The domain of your Twnety CRM instance",
+        "example": "domain",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Twenty CRM account",
+        "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMTIxMjEyMS0yNmExLTRkODktYjQ2YS0wNDI0NTViODM3N2YiLCJ0eXBlIjoiQVBJX0tFWSIsIndvcmtzcGFjZUlkIjoiMjEyMTIxMjEtMjZhMS00ZDg5LWI0NmEtMDQyNDU1YjgzNzdmIiwiaWF0IjoxNzMxMzA5MzQwLCJleHAiOjQ4ODQ5MDU3MzksImp0aSI6ImVmZTg4MjcxLTM4OWItNDk5Mi04MjYwLWZjNGIxZmYxYjRiMSJ9.n3tohFIEBBRMsyas_agbh3-KvKXYUnjyhrYzTHYC3vc",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/companies",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:twitter-oauth2-cc",
+    "name": "Twitter",
+    "category": "comms",
+    "description": "marketing API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/twitter-oauth2-cc",
+    "keyUrl": "https://nango.dev/docs/integrations/all/twitter-oauth2-cc",
+    "baseUrl": "https://api.twitter.com",
+    "logo": "https://app.nango.dev/images/template-logos/twitter-oauth2-cc.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:typefully-v2",
+    "name": "Typefully (API v2)",
+    "category": "data",
+    "description": "analytics API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/typefully-v2/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/typefully-v2/connect",
+    "baseUrl": "https://api.typefully.com",
+    "logo": "https://app.nango.dev/images/template-logos/typefully-v2.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "Your Typefully v2 API key.",
+        "example": "aNVlyR********************YxeIDz",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v2/me",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:ukg-pro-wfm-ropc",
+    "name": "UKG Pro (Workforce Management ROPC)",
+    "category": "data",
+    "description": "HR API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/ukg-pro-wfm-ropc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/ukg-pro-wfm-ropc/connect",
+    "baseUrl": "https://${hostname}/api",
+    "logo": "https://app.nango.dev/images/template-logos/ukg-pro-wfm-ropc.svg",
+    "credentials": [
+      {
+        "name": "hostname",
+        "label": "Tenant URL",
+        "description": "The tenant URL of your UKG Pro instance",
+        "example": "wfm.us1.ukg.com",
+        "secret": false
+      },
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "Client ID for a client configured for the ROPC flow.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Client Secret",
+        "description": "Client Secret for that client.",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "Username of the WFM user to authenticate as.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Password for that WFM user.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:ukg-pro-cc",
+    "name": "UKG Pro HCM",
+    "category": "data",
+    "description": "HR API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/ukg-pro-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/ukg-pro-cc/connect",
+    "baseUrl": "https://${hostname}",
+    "logo": "https://app.nango.dev/images/template-logos/ukg-pro-cc.svg",
+    "credentials": [
+      {
+        "name": "hostname",
+        "label": "Recruiting Application Domain",
+        "description": "Recruiting application domain from your UKG Pro Recruiting URL.",
+        "example": "recruiting.example.ultipro.com",
+        "secret": false
+      },
+      {
+        "name": "client_id",
+        "label": "Client ID",
+        "description": "Unique identifier of the identity client provided by UKG customer support.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "client_secret",
+        "label": "Client Secret",
+        "description": "Client secret associated with the client ID provided by UKG customer support.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:adobe-umapi",
+    "name": "UMAPI (Adobe User Management API)",
+    "category": "data",
+    "description": "Connect with your own API credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/adobe-umapi/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/adobe-umapi/connect",
+    "baseUrl": "https://usermanagement.adobe.io",
+    "logo": "https://app.nango.dev/images/template-logos/adobe-umapi.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:valley-api-key",
+    "name": "Valley",
+    "category": "comms",
+    "description": "marketing API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/valley-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/valley-api-key/connect",
+    "baseUrl": "https://api.joinvalley.co/api",
+    "logo": "https://app.nango.dev/images/template-logos/valley-api-key.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Valley account",
+        "example": "valley_a3f4c8d2e1b9a7**********************************************c5d8e2f1",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/auth/verify-api-key",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "x-api-key": "${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:valley",
+    "name": "Valley",
+    "category": "comms",
+    "description": "marketing API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/valley/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/valley/connect",
+    "baseUrl": "https://api.joinvalley.co/api",
+    "logo": "https://app.nango.dev/images/template-logos/valley.svg",
+    "credentials": [
+      {
+        "name": "email",
+        "label": "Email",
+        "description": "Your Valley email address",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Your Valley password",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:veed",
+    "name": "VEED (via fal.ai)",
+    "category": "media",
+    "description": "video API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/veed/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/veed/connect",
+    "baseUrl": "https://queue.fal.run/veed",
+    "logo": "https://app.nango.dev/images/template-logos/veed.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The fal.ai API key for your VEED integration.",
+        "example": "0c******-****-****-****-************:164f14cd************************",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "POST",
+        "path": "/fabric-1.0",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Key ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:veeva-vault-oauth",
+    "name": "Veeva Vault (OAuth 2.0 / OIDC)",
+    "category": "data",
+    "description": "CRM API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/veeva-vault-oauth/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/veeva-vault-oauth/connect",
+    "baseUrl": "https://${subdomain}.veevavault.com/api",
+    "logo": "https://app.nango.dev/images/template-logos/veeva-vault-oauth.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "Vault DNS (subdomain)",
+        "description": "The Vault DNS subdomain of the Veeva Vault you want to connect to",
+        "example": "myvault",
+        "secret": false
+      },
+      {
+        "name": "clientId",
+        "label": "Client ID",
+        "description": "The client ID of the client credentials application configured in your identity provider.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "clientSecret",
+        "label": "Client Secret",
+        "description": "The client secret of the client credentials application configured in your identity provider.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "accept": "application/json"
+      }
+    }
+  },
+  {
+    "id": "nango:vimeo-basic",
+    "name": "Vimeo",
+    "category": "media",
+    "description": "video API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/vimeo-basic",
+    "keyUrl": "https://nango.dev/docs/integrations/all/vimeo-basic",
+    "baseUrl": "https://api.vimeo.com",
+    "logo": "https://app.nango.dev/images/template-logos/vimeo-basic.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/",
+        "params": []
+      }
+    ],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:wise-api-key",
+    "name": "Wise",
+    "category": "finance",
+    "description": "banking API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/wise-api-key/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/wise-api-key/connect",
+    "baseUrl": "https://api.wise.com",
+    "logo": "https://app.nango.dev/images/template-logos/wise-api-key.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API Token",
+        "description": "Your Wise Personal API Token",
+        "example": "12345678-1234-1234-1234-123456789abc",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [
+      {
+        "name": "Check connection",
+        "description": "Calls the service to confirm your credentials work",
+        "method": "GET",
+        "path": "/v1/profiles",
+        "params": []
+      }
+    ],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:workable",
+    "name": "Workable",
+    "category": "data",
+    "description": "recruiting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/workable/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/workable/connect",
+    "baseUrl": "https://${subdomain}.workable.com",
+    "logo": "https://app.nango.dev/images/template-logos/workable.svg",
+    "credentials": [
+      {
+        "name": "subdomain",
+        "label": "Workable Domain",
+        "description": "The subdomain of your Workable account",
+        "example": "domain",
+        "secret": false
+      },
+      {
+        "name": "apiKey",
+        "label": "API Key",
+        "description": "The API key for your Workable account",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {
+      "headers": {
+        "authorization": "Bearer ${apiKey}"
+      }
+    }
+  },
+  {
+    "id": "nango:workday-cc",
+    "name": "Workday",
+    "category": "data",
+    "description": "HR API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/workday-cc/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/workday-cc/connect",
+    "baseUrl": "https://${tokenDomain}/ccx/api",
+    "logo": "https://app.nango.dev/images/template-logos/workday-cc.svg",
+    "credentials": [
+      {
+        "name": "tokenDomain",
+        "label": "Token Domain",
+        "description": "The hostname of your Workday tenant.",
+        "example": "wd3-impl-services1.workday.com",
+        "secret": false
+      },
+      {
+        "name": "clientId",
+        "label": "Client ID",
+        "description": "Your Workday API Client ID.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "clientSecret",
+        "label": "Client Secret",
+        "description": "Your Workday API Client Secret.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:workday-refresh-token",
+    "name": "Workday (Refresh Token Auth)",
+    "category": "data",
+    "description": "HR API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/workday-refresh-token/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/workday-refresh-token/connect",
+    "baseUrl": "https://${tokenDomain}/ccx/api",
+    "logo": "https://app.nango.dev/images/template-logos/workday-refresh-token.svg",
+    "credentials": [
+      {
+        "name": "tokenDomain",
+        "label": "Token Domain",
+        "description": "The domain used to obtain the token for your Workday account",
+        "example": "wd3-impl-services1.workday.com",
+        "secret": false
+      },
+      {
+        "name": "clientId",
+        "label": "Client ID",
+        "description": "Your Workday API Client ID",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "clientSecret",
+        "label": "Client Secret",
+        "description": "Your Workday API Client Secret",
+        "example": "",
+        "secret": true
+      },
+      {
+        "name": "refreshToken",
+        "label": "Refresh Token",
+        "description": "Your Workday refresh token for the Integration System User",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:workday-adaptive-planning-basic",
+    "name": "Workday Adaptive Planning",
+    "category": "finance",
+    "description": "accounting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/api-integrations/workday-adaptive-planning-basic/connect",
+    "keyUrl": "https://nango.dev/docs/api-integrations/workday-adaptive-planning-basic/connect",
+    "baseUrl": "https://api.adaptiveplanning.com/api/rest",
+    "logo": "https://app.nango.dev/images/template-logos/workday-adaptive-planning-basic.svg",
+    "credentials": [
+      {
+        "name": "username",
+        "label": "Username",
+        "description": "Your Workday Adaptive Planning username.",
+        "example": "",
+        "secret": false
+      },
+      {
+        "name": "password",
+        "label": "Password",
+        "description": "Your Workday Adaptive Planning password.",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": true,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
+    "id": "nango:xero-oauth2-cc",
+    "name": "Xero",
+    "category": "finance",
+    "description": "accounting API — connect with your own credentials",
+    "docsUrl": "https://nango.dev/docs/integrations/all/xero-oauth2-cc/connect",
+    "keyUrl": "https://nango.dev/docs/integrations/all/xero-oauth2-cc/connect",
+    "baseUrl": "https://api.xero.com",
+    "logo": "https://app.nango.dev/images/template-logos/xero-oauth2-cc.svg",
+    "credentials": [
+      {
+        "name": "apiKey",
+        "label": "API key",
+        "description": "",
+        "example": "",
+        "secret": true
+      }
+    ],
+    "basic": false,
+    "tools": [],
+    "authTemplate": {}
+  },
+  {
     "id": "nango:zapier-scim",
     "name": "Zapier (SCIM API)",
     "category": "dev",
@@ -19814,74 +19968,6 @@ export const NANGO_APPS: ApiApp[] = [
     }
   },
   {
-    "id": "nango:zero",
-    "name": "Zero",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/zero/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/zero/connect",
-    "baseUrl": "https://api.zero.inc",
-    "logo": "https://app.nango.dev/images/template-logos/zero.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "The API key generated from your Zero account.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/api/workspaces",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Bearer ${apiKey}"
-      }
-    }
-  },
-  {
-    "id": "nango:zigpoll",
-    "name": "Zigpoll",
-    "category": "comms",
-    "description": "marketing API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/zigpoll/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/zigpoll/connect",
-    "baseUrl": "https://v1.zigpoll.com",
-    "logo": "https://app.nango.dev/images/template-logos/zigpoll.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Key",
-        "description": "Your Zigpoll private API key.",
-        "example": "3f7b2d4e-****-****-****-************",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "GET",
-        "path": "/me",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "${apiKey}"
-      }
-    }
-  },
-  {
     "id": "nango:zoom-cc",
     "name": "Zoom (Server-to-Server OAuth)",
     "category": "media",
@@ -19902,92 +19988,6 @@ export const NANGO_APPS: ApiApp[] = [
         "name": "client_secret",
         "label": "Client Secret",
         "description": "Your Zoom app's Client Secret.",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:zoominfo",
-    "name": "ZoomInfo",
-    "category": "data",
-    "description": "CRM API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/zoominfo/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/zoominfo/connect",
-    "baseUrl": "https://api.zoominfo.com",
-    "logo": "https://app.nango.dev/images/template-logos/zoominfo.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
-        "example": "",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [],
-    "authTemplate": {}
-  },
-  {
-    "id": "nango:zorus",
-    "name": "Zorus",
-    "category": "data",
-    "description": "Connect with your own API credentials",
-    "docsUrl": "https://nango.dev/docs/api-integrations/zorus/connect",
-    "keyUrl": "https://nango.dev/docs/api-integrations/zorus/connect",
-    "baseUrl": "https://developer.zorustech.com",
-    "logo": "https://app.nango.dev/images/template-logos/zorus.svg",
-    "credentials": [
-      {
-        "name": "apiKey",
-        "label": "API Token",
-        "description": "The API token generated from the Zorus Portal.",
-        "example": "1_a1b2c3d4-e5f6-7890-abcd-1234567890ab",
-        "secret": true
-      }
-    ],
-    "basic": false,
-    "tools": [
-      {
-        "name": "Check connection",
-        "description": "Calls the service to confirm your credentials work",
-        "method": "POST",
-        "path": "/api/customers/search",
-        "params": []
-      }
-    ],
-    "authTemplate": {
-      "headers": {
-        "authorization": "Impersonation ${apiKey}",
-        "zorus-api-version": "1.0"
-      }
-    }
-  },
-  {
-    "id": "nango:zuora",
-    "name": "Zuora",
-    "category": "data",
-    "description": "ERP API — connect with your own credentials",
-    "docsUrl": "https://nango.dev/docs/integrations/all/zuora/connect",
-    "keyUrl": "https://nango.dev/docs/integrations/all/zuora/connect",
-    "baseUrl": "https://${subdomain}.zuora.com",
-    "logo": "https://app.nango.dev/images/template-logos/zuora.svg",
-    "credentials": [
-      {
-        "name": "subdomain",
-        "label": "Subdomain",
-        "description": "The Subdomain to your Zuora Base URL",
-        "example": "rest.test",
-        "secret": false
-      },
-      {
-        "name": "apiKey",
-        "label": "API key",
-        "description": "",
         "example": "",
         "secret": true
       }
