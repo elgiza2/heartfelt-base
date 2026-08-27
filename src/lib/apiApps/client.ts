@@ -25,6 +25,37 @@ export async function listApiApps(): Promise<ApiAppRow[]> {
   return (data as ApiAppRow[]) ?? [];
 }
 
+/** Save several named credentials (each service asks for its own fields). */
+export async function saveApiAppCredentials(
+  appId: string,
+  values: Record<string, string>,
+  extra?: { name?: string; logo?: string; spec?: unknown },
+): Promise<void> {
+  const entries = Object.entries(values)
+    .map(([name, value]) => [name, value.trim()] as const)
+    .filter(([, value]) => value.length > 0);
+  if (entries.length === 0) throw new Error("Fill in the credentials");
+  const last = entries[entries.length - 1][1];
+  const { data: auth } = await supabase.auth.getUser();
+  const uid = auth.user?.id;
+  if (!uid) throw new Error("Sign in to add credentials");
+  const { error } = await supabase.from("user_api_apps").upsert(
+    {
+      user_id: uid,
+      app_id: appId,
+      key_value: JSON.stringify(Object.fromEntries(entries)),
+      key_hint: `••••${last.slice(-4)}`,
+      enabled: true,
+      display_name: extra?.name ?? null,
+      logo_url: extra?.logo ?? null,
+      spec: (extra?.spec ?? null) as any,
+    },
+    { onConflict: "user_id,app_id" },
+  );
+  if (error) throw new Error(error.message);
+  notifyTurnContextChanged();
+}
+
 export async function saveApiAppKey(
   appId: string,
   key: string,
