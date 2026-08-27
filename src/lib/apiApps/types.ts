@@ -35,6 +35,21 @@ export type ApiAppCategory =
   | "comms"
   | "dev";
 
+/** One named credential the service asks for (its own label, not a generic key). */
+export type ApiAppCredential = {
+  name: string;
+  label: string;
+  description?: string;
+  example?: string;
+  secret?: boolean;
+};
+
+/** How the saved credentials travel on every request, e.g. `{ "x-api-key": "${apiKey}" }`. */
+export type ApiAppAuthTemplate = {
+  headers?: Record<string, string>;
+  params?: Record<string, string>;
+};
+
 export type ApiApp = {
   id: string;
   name: string;
@@ -43,7 +58,10 @@ export type ApiApp = {
   docsUrl: string;
   keyUrl: string;
   baseUrl: string;
-  auth: ApiAppAuth;
+  auth?: ApiAppAuth;
+  /** Named fields shown in the setup form; falls back to a single key field. */
+  credentials?: ApiAppCredential[];
+  authTemplate?: ApiAppAuthTemplate;
   logo: string;
   tools: ApiAppTool[];
 };
