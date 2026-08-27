@@ -32,7 +32,8 @@ export const INTEGRATION_CATEGORIES = [
   "Automation",
 ] as const;
 
-export const integrations: Integration[] = [
+/** Hand-curated, first-class integrations. Always shown first. */
+export const curatedIntegrations: Integration[] = [
   // ── Native (first-party) ──
   {
     id: "github",
