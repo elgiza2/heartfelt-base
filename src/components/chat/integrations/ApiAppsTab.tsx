@@ -1,16 +1,30 @@
-/** The APIs tab: 1,000 services you connect with your own API key.
+/** The APIs tab: real REST services you connect with your own API key.
  *
- *  Nothing here uses OAuth — each row opens a key field, the user pastes the
- *  service's API key once and the app becomes usable from chat.
+ *  Every row is backed by a published OpenAPI description (curated apps first,
+ *  then the live APIs.guru directory), so opening one reads its real base URL,
+ *  auth scheme and endpoints. The moment the user pastes their key the endpoints
+ *  become callable from chat — nothing here is a placeholder entry.
  */
 import { useEffect, useMemo, useState } from "react";
-import { Check, ChevronLeft } from "lucide-react";
-import { KEY_API_APPS } from "@/lib/apiApps/fromCatalog";
-import type { ApiApp } from "@/lib/apiApps/types";
+import { Check, ChevronLeft, Loader2 } from "lucide-react";
+import { toast } from "sonner";
+import { API_APPS } from "@/lib/apiApps/catalog";
+import { fetchDirectory, loadDirectoryApp, type DirectoryEntry } from "@/lib/apiApps/directory";
+import { rankEntries } from "@/lib/apiApps/ranked";
 import { listApiApps } from "@/lib/apiApps/client";
+import type { ApiApp } from "@/lib/apiApps/types";
 import ApiAppLogo from "./ApiAppLogo";
 
 const PAGE_SIZE = 60;
+
+type Row = {
+  id: string;
+  name: string;
+  description: string;
+  logo: string;
+  entry?: DirectoryEntry;
+  app?: ApiApp;
+};
 
 export default function ApiAppsTab({
   query = "",
@@ -23,6 +37,23 @@ export default function ApiAppsTab({
 }) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [saved, setSaved] = useState<Record<string, boolean>>({});
+  const [entries, setEntries] = useState<DirectoryEntry[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [opening, setOpening] = useState<string | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    void fetchDirectory()
+      .then((list) => {
+        if (alive) setEntries(list);
+      })
+      .finally(() => {
+        if (alive) setLoading(false);
+      });
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   useEffect(() => {
     let alive = true;
@@ -39,52 +70,89 @@ export default function ApiAppsTab({
     };
   }, [reloadKey]);
 
+  const rows = useMemo<Row[]>(() => {
+    const curated: Row[] = API_APPS.map((app) => ({
+      id: app.id,
+      name: app.name,
+      description: app.description,
+      logo: app.logo,
+      app,
+    }));
+    const directory: Row[] = rankEntries(entries).map((entry) => ({
+      id: entry.id,
+      name: entry.name,
+      description: entry.description,
+      logo: entry.logo,
+      entry,
+    }));
+    return [...curated, ...directory];
+  }, [entries]);
+
   const list = useMemo(() => {
     const q = query.trim().toLowerCase();
     const matches = q
-      ? KEY_API_APPS.filter(
-          (app) =>
-            app.name.toLowerCase().includes(q) || app.description.toLowerCase().includes(q),
+      ? rows.filter(
+          (row) =>
+            row.name.toLowerCase().includes(q) ||
+            row.description.toLowerCase().includes(q) ||
+            row.id.toLowerCase().includes(q),
         )
-      : KEY_API_APPS;
-
+      : rows;
     return [...matches].sort(
       (a, b) => Number(Boolean(saved[b.id])) - Number(Boolean(saved[a.id])),
     );
-  }, [query, saved]);
+  }, [rows, query, saved]);
 
   useEffect(() => setVisibleCount(PAGE_SIZE), [query]);
+
+  const open = async (row: Row) => {
+    if (row.app) {
+      onOpen(row.app);
+      return;
+    }
+    if (!row.entry) return;
+    setOpening(row.id);
+    try {
+      onOpen(await loadDirectoryApp(row.entry));
+    } catch (e: any) {
+      toast.error(e?.message || "Could not read this service");
+    } finally {
+      setOpening(null);
+    }
+  };
 
   const visible = list.slice(0, visibleCount);
 
   return (
     <div dir="ltr" className="pb-3">
       <div className="flex items-center justify-between px-2 pb-2 pt-2 text-[12px] text-foreground/40">
-        <span>Connect with your own API key</span>
-        <span>{list.length.toLocaleString()} APIs</span>
+        <span>Paste your API key and it works right away</span>
+        <span>{loading ? "Loading…" : `${list.length.toLocaleString()} APIs`}</span>
       </div>
 
-      {visible.map((app) => {
-        const hasKey = Boolean(saved[app.id]);
+      {visible.map((row) => {
+        const hasKey = Boolean(saved[row.id]);
         return (
           <button
-            key={app.id}
+            key={row.id}
             type="button"
-            onClick={() => onOpen(app)}
-            data-api-integration={app.id}
+            onClick={() => void open(row)}
+            data-api-integration={row.id}
             className="flex w-full items-center gap-3 px-2 py-2.5 text-left transition-opacity active:opacity-60"
             style={{ border: 0, background: "transparent", minHeight: 58 }}
           >
-            <ApiAppLogo app={app} size={40} />
+            <ApiAppLogo app={{ name: row.name, logo: row.logo } as ApiApp} size={40} />
             <span className="min-w-0 flex-1">
               <span className="block truncate text-[14.5px] font-medium text-foreground">
-                {app.name}
+                {row.name}
               </span>
               <span className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/40">
-                {hasKey ? "API key saved" : app.description}
+                {hasKey ? "API key saved" : row.description}
               </span>
             </span>
-            {hasKey ? (
+            {opening === row.id ? (
+              <Loader2 className="h-[18px] w-[18px] shrink-0 animate-spin text-foreground/45" />
+            ) : hasKey ? (
               <Check className="h-[18px] w-[18px] shrink-0 text-primary" />
             ) : (
               <ChevronLeft className="h-[18px] w-[18px] shrink-0 text-foreground/35" />
@@ -104,7 +172,7 @@ export default function ApiAppsTab({
         </button>
       )}
 
-      {list.length === 0 && (
+      {!loading && list.length === 0 && (
         <p className="py-8 text-center text-[13px] text-foreground/40">No results</p>
       )}
     </div>
