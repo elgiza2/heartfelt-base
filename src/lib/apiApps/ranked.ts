@@ -225,11 +225,69 @@ export function brandRank(id: string): number {
   return BRANDS.length + (demoted ? 1000 : 0);
 }
 
-/** Within one publisher, its flagship API (shortest, unversioned key) first. */
+/** Sub-services people actually reach for inside the very large clouds. */
+const FLAGSHIP_SERVICES = [
+  "gmail",
+  "drive",
+  "sheets",
+  "docs",
+  "slides",
+  "calendar",
+  "youtube",
+  "analytics",
+  "bigquery",
+  "translate",
+  "storage",
+  "vision",
+  "speech",
+  "maps",
+  "ads",
+  "adsense",
+  "firebase",
+  "people",
+  "tasks",
+  "forms",
+  "chat",
+  "gemini",
+  "graph",
+  "outlook",
+  "teams",
+  "onedrive",
+  "sharepoint",
+  "dynamics",
+  "s3",
+  "ec2",
+  "lambda",
+  "sns",
+  "sqs",
+  "rds",
+  "dynamodb",
+  "cloudfront",
+  "ses",
+  "iam",
+  "cognito",
+  "eks",
+  "blob",
+  "cosmos",
+  "keyvault",
+  "openai",
+  "monitor",
+  "sql",
+  "compute",
+  "resources",
+  "search",
+  "payments",
+  "checkout",
+  "billing",
+];
+
+/** Within one publisher, its flagship API first. */
 function flagshipScore(id: string): number {
   const k = key(id);
   const parts = k.split(":");
-  return (parts.length > 1 ? 1 : 0) + Math.min(9, Math.floor(k.length / 20));
+  const service = parts.slice(1).join(":");
+  const flagship = FLAGSHIP_SERVICES.some((s) => service.includes(s)) ? 0 : 4;
+  return flagship + (parts.length > 1 ? 1 : 0) + Math.min(9, Math.floor(k.length / 24));
 }
 
 /**
