@@ -206,9 +206,11 @@ export function providerOf(id: string): string {
   return k.split(":")[0] ?? k;
 }
 
-/** True for entries that can never work, so they are removed from the tab. */
+/** True for entries removed from the tab: blocked providers, private hosts and self-test specs. */
 export function isHidden(id: string): boolean {
   const k = key(id);
+  const provider = k.split(":")[0] ?? k;
+  if (BLOCKED_PROVIDERS.includes(provider)) return true;
   return HIDDEN.some((bad) => k.includes(bad));
 }
 
