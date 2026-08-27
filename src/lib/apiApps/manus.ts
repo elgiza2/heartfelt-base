@@ -5,7 +5,8 @@
  *  API so the user pastes their own key once and the listed endpoints become
  *  callable from chat. Order follows the Manus list, most used first.
  */
-import type { ApiApp, ApiAppCategory } from "./types";
+import { serviceLogo } from "./logos.generated";
+import type { ApiApp, ApiAppCategory, ApiAppCredential } from "./types";
 
 type Seed = {
   id: string;
@@ -1232,6 +1233,133 @@ const SEEDS: Seed[] = [
   },
 ];
 
+
+/** What each service actually asks for, with its own field names.
+ *  Anything not listed here takes a single API key. */
+const CREDENTIALS: Record<string, ApiAppCredential[]> = {
+  slack: [{ name: "apiKey", label: "Bot user OAuth token", example: "xoxb-…", secret: true }],
+  notion: [
+    { name: "apiKey", label: "Internal integration secret", example: "ntn_…", secret: true },
+  ],
+  zapier: [{ name: "apiKey", label: "Zapier NLA API key", secret: true }],
+  asana: [{ name: "apiKey", label: "Personal access token", secret: true }],
+  monday: [{ name: "apiKey", label: "API token (v2)", secret: true }],
+  make: [
+    { name: "apiKey", label: "API token", secret: true },
+    { name: "zone", label: "Zone", description: "The part before make.com in your URL, e.g. eu1", example: "eu1" },
+  ],
+  linear: [{ name: "apiKey", label: "Personal API key", example: "lin_api_…", secret: true }],
+  atlassian: [
+    { name: "email", label: "Atlassian account email" },
+    { name: "apiKey", label: "API token", secret: true },
+  ],
+  clickup: [{ name: "apiKey", label: "Personal API token", example: "pk_…", secret: true }],
+  openai: [{ name: "apiKey", label: "Secret key", example: "sk-…", secret: true }],
+  supabase: [
+    {
+      name: "apiKey",
+      label: "Personal access token",
+      description: "Account → Access tokens. Used for the Management API (projects, functions).",
+      example: "sbp_…",
+      secret: true,
+    },
+  ],
+  vercel: [{ name: "apiKey", label: "Access token", secret: true }],
+  anthropic: [{ name: "apiKey", label: "API key", example: "sk-ant-…", secret: true }],
+  neon: [{ name: "apiKey", label: "API key", secret: true }],
+  gemini: [{ name: "apiKey", label: "Google AI Studio API key", secret: true }],
+  "prisma-postgres": [{ name: "apiKey", label: "Service token", secret: true }],
+  sentry: [{ name: "apiKey", label: "Auth token", secret: true }],
+  huggingface: [{ name: "apiKey", label: "Access token", example: "hf_…", secret: true }],
+  perplexity: [{ name: "apiKey", label: "API key", example: "pplx-…", secret: true }],
+  cohere: [{ name: "apiKey", label: "API key", secret: true }],
+  hubspot: [{ name: "apiKey", label: "Private app access token", example: "pat-…", secret: true }],
+  intercom: [{ name: "apiKey", label: "Access token", secret: true }],
+  elevenlabs: [{ name: "apiKey", label: "API key", secret: true }],
+  stripe: [{ name: "apiKey", label: "Secret key", example: "sk_live_…", secret: true }],
+  grok: [{ name: "apiKey", label: "xAI API key", example: "xai-…", secret: true }],
+  paypal: [
+    { name: "clientId", label: "Client ID" },
+    { name: "apiKey", label: "Client secret", secret: true },
+  ],
+  openrouter: [{ name: "apiKey", label: "API key", example: "sk-or-…", secret: true }],
+  revenuecat: [{ name: "apiKey", label: "Secret API key (v2)", secret: true }],
+  ahrefs: [{ name: "apiKey", label: "API token", secret: true }],
+  close: [{ name: "apiKey", label: "API key", secret: true }],
+  xero: [
+    { name: "apiKey", label: "Access token", secret: true },
+    { name: "tenantId", label: "Tenant ID", description: "The organisation the token should act on" },
+  ],
+  similarweb: [{ name: "apiKey", label: "API key", secret: true }],
+  dropbox: [{ name: "apiKey", label: "Access token", example: "sl.…", secret: true }],
+  flux: [{ name: "apiKey", label: "BFL API key", secret: true }],
+  airtable: [{ name: "apiKey", label: "Personal access token", example: "pat…", secret: true }],
+  dify: [{ name: "apiKey", label: "App API key", example: "app-…", secret: true }],
+  kling: [{ name: "apiKey", label: "API token (JWT)", secret: true }],
+  gmail: [
+    {
+      name: "apiKey",
+      label: "OAuth access token",
+      description: "Token with the gmail.readonly / gmail.send scope",
+      secret: true,
+    },
+  ],
+  "google-calendar": [
+    { name: "apiKey", label: "OAuth access token", description: "Token with the calendar scope", secret: true },
+  ],
+  "google-drive": [
+    { name: "apiKey", label: "OAuth access token", description: "Token with the drive scope", secret: true },
+  ],
+  tripo: [{ name: "apiKey", label: "API key", example: "tsk_…", secret: true }],
+  cloudflare: [{ name: "apiKey", label: "API token", secret: true }],
+  posthog: [{ name: "apiKey", label: "Personal API key", example: "phx_…", secret: true }],
+  n8n: [
+    { name: "apiKey", label: "API key", secret: true },
+    { name: "host", label: "Instance host", description: "Your n8n host, e.g. myteam.app.n8n.cloud", example: "myteam.app.n8n.cloud" },
+  ],
+  "outlook-mail": [
+    { name: "apiKey", label: "Microsoft Graph access token", description: "Token with the Mail.Read scope", secret: true },
+  ],
+  canva: [{ name: "apiKey", label: "Access token", secret: true }],
+  webflow: [{ name: "apiKey", label: "Site API token", secret: true }],
+  "outlook-calendar": [
+    { name: "apiKey", label: "Microsoft Graph access token", description: "Token with the Calendars.Read scope", secret: true },
+  ],
+  wix: [
+    { name: "apiKey", label: "API key", secret: true },
+    { name: "siteId", label: "Site ID" },
+  ],
+  granola: [{ name: "apiKey", label: "API token", secret: true }],
+  fireflies: [{ name: "apiKey", label: "API key", secret: true }],
+  tldv: [{ name: "apiKey", label: "API key", secret: true }],
+  firecrawl: [{ name: "apiKey", label: "API key", example: "fc-…", secret: true }],
+  todoist: [{ name: "apiKey", label: "API token", secret: true }],
+  polygon: [{ name: "apiKey", label: "API key", secret: true }],
+  zoominfo: [{ name: "apiKey", label: "JWT access token", secret: true }],
+  mailchimp: [
+    { name: "apiKey", label: "API key", secret: true },
+    { name: "dc", label: "Server prefix", description: "The part after the dash in your key, e.g. us21", example: "us21" },
+  ],
+  apollo: [{ name: "apiKey", label: "API key", secret: true }],
+  metabase: [
+    { name: "apiKey", label: "API key", secret: true },
+    { name: "host", label: "Metabase host", description: "e.g. metabase.mycompany.com", example: "metabase.mycompany.com" },
+  ],
+  explorium: [{ name: "apiKey", label: "API key", secret: true }],
+  jsonbin: [{ name: "apiKey", label: "Master key", secret: true }],
+  heygen: [{ name: "apiKey", label: "API key", secret: true }],
+  github: [{ name: "apiKey", label: "Personal access token", example: "ghp_…", secret: true }],
+  apify: [{ name: "apiKey", label: "API token", example: "apify_api_…", secret: true }],
+};
+
+/** Services whose host depends on the account, filled from the fields above. */
+const HOSTS: Record<string, string> = {
+  make: "https://${zone}.make.com/api/v2",
+  n8n: "https://${host}/api/v1",
+  mailchimp: "https://${dc}.api.mailchimp.com/3.0",
+  metabase: "https://${host}/api",
+};
+
 const ICONS: Record<string, string> = {
   monday: "mondaydotcom",
   "google-calendar": "googlecalendar",
@@ -1251,6 +1379,15 @@ const ICONS: Record<string, string> = {
   "prisma-postgres": "prisma",
 };
 
+/** The credential travels exactly the way each service documents it. */
+function buildTemplate(seed: Seed) {
+  const fields = CREDENTIALS[seed.id] ?? [];
+  const basic = fields.some((f) => f.name === "email");
+  if (basic) return undefined; // handled by the auth scheme below
+  if (seed.auth.type === "query") return { params: { [seed.auth.name]: "${apiKey}" } };
+  return { headers: { [seed.auth.name]: `${seed.auth.prefix ?? ""}\${apiKey}` } };
+}
+
 /** The Manus connector line-up, as key-based API apps. */
 export const MANUS_APPS: ApiApp[] = SEEDS.map((seed) => ({
   id: seed.id,
@@ -1259,9 +1396,16 @@ export const MANUS_APPS: ApiApp[] = SEEDS.map((seed) => ({
   description: seed.description,
   docsUrl: seed.docs,
   keyUrl: seed.key,
-  baseUrl: seed.base,
+  baseUrl: HOSTS[seed.id] ?? seed.base,
   auth: seed.auth,
-  logo: seed.icon ?? `https://cdn.simpleicons.org/${ICONS[seed.id] ?? seed.id}`,
+  credentials: CREDENTIALS[seed.id] ?? [
+    { name: "apiKey", label: "API key", secret: true },
+  ],
+  authTemplate: buildTemplate(seed),
+  logo:
+    seed.icon ??
+    serviceLogo(seed.name) ??
+    `https://cdn.simpleicons.org/${ICONS[seed.id] ?? seed.id}`,
   tools: seed.tools.map((tool) => ({
     name: tool.name,
     description: tool.description,
