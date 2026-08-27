@@ -139,10 +139,6 @@ const IMPORTED_IDS = publicApiIds;
 
 /** Publisher familiarity for everything outside the curated lists. */
 const BRANDS = [
-  "googleapis.com",
-  "microsoft.com",
-  "azure.com",
-  "amazonaws.com",
   "twilio.com",
   "nexmo.com",
   "vonage.com",
