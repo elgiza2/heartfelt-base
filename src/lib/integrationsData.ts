@@ -1,6 +1,8 @@
 // Integrations catalog — uses real brand logos via Clearbit Logo API (logo.clearbit.com/<domain>).
 // Clearbit returns the real, color-accurate logo for nearly every public company.
 
+import { generatedIntegrations } from "./integrationsCatalog.generated";
+
 export type IntegrationType = "oauth" | "notification" | "service" | "pipedream";
 
 export interface Integration {
@@ -32,7 +34,8 @@ export const INTEGRATION_CATEGORIES = [
   "Automation",
 ] as const;
 
-export const integrations: Integration[] = [
+/** Hand-curated, first-class integrations. Always shown first. */
+export const curatedIntegrations: Integration[] = [
   // ── Native (first-party) ──
   {
     id: "github",
@@ -1090,4 +1093,27 @@ export const integrations: Integration[] = [
     pipedreamSlug: "konnectify",
     domain: "konnectify.co",
   },
+];
+
+// The long tail (1000 of the most widely used business apps) is generated from
+// the public Pipedream component registry, so each entry already has ready-made
+// actions and triggers behind the same connect flow.
+const seen = new Set<string>();
+for (const item of curatedIntegrations) {
+  seen.add(item.app);
+  if (item.pipedreamSlug) seen.add(item.pipedreamSlug);
+  seen.add(item.id);
+}
+
+export const integrations: Integration[] = [
+  ...curatedIntegrations,
+  ...generatedIntegrations.filter((item) => {
+    if (seen.has(item.app) || seen.has(item.id) || (item.pipedreamSlug && seen.has(item.pipedreamSlug))) {
+      return false;
+    }
+    seen.add(item.app);
+    seen.add(item.id);
+    if (item.pipedreamSlug) seen.add(item.pipedreamSlug);
+    return true;
+  }),
 ];

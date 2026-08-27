@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import { m as motion, AnimatePresence } from "framer-motion";
 import {
   Camera,
@@ -941,7 +941,26 @@ const PlusSkillsBody = (p: PlusContentProps) => (
   </div>
 );
 
-const PlusIntegrationsBody = (p: PlusContentProps) => (
+const INTEGRATIONS_PAGE_SIZE = 60;
+
+const PlusIntegrationsBody = (p: PlusContentProps) => {
+  const [visibleCount, setVisibleCount] = useState(INTEGRATIONS_PAGE_SIZE);
+
+  // Reset paging whenever the query/category changes so results start at the top.
+  useEffect(() => {
+    setVisibleCount(INTEGRATIONS_PAGE_SIZE);
+  }, [p.integrationsQuery, p.integrationsCategory]);
+
+  const ordered = useMemo(() => {
+    const connectedMap = p.userIntegrations as Record<string, boolean>;
+    return [...p.filteredIntegrations].sort(
+      (a, b) => Number(!!connectedMap[b.app]) - Number(!!connectedMap[a.app]),
+    );
+  }, [p.filteredIntegrations, p.userIntegrations]);
+
+  const visible = ordered.slice(0, visibleCount);
+
+  return (
   <div className="flex flex-1 min-h-0 flex-col">
     <div className="pb-3 shrink-0">
       <div className="flex gap-2 overflow-x-auto no-scrollbar px-1 pb-1">
@@ -969,11 +988,7 @@ const PlusIntegrationsBody = (p: PlusContentProps) => (
           No apps match "{p.integrationsQuery}"
         </div>
       )}
-      {[...p.filteredIntegrations].sort((a, b) => {
-        const ca = !!(p.userIntegrations as Record<string, boolean>)[a.app];
-        const cb = !!(p.userIntegrations as Record<string, boolean>)[b.app];
-        return Number(cb) - Number(ca);
-      }).map((it) => {
+      {visible.map((it) => {
         const connected =
           (Array.isArray(p.userIntegrations)
             ? p.userIntegrations.some((n) => n.toLowerCase() === it.name.toLowerCase())
@@ -1035,9 +1050,19 @@ const PlusIntegrationsBody = (p: PlusContentProps) => (
           </motion.button>
         );
       })}
+      {visibleCount < ordered.length && (
+        <button
+          type="button"
+          onClick={() => setVisibleCount((c) => c + INTEGRATIONS_PAGE_SIZE * 2)}
+          className="w-full h-11 rounded-[16px] bg-foreground/[0.06] border border-foreground/12 text-[12.5px] font-semibold text-foreground active:bg-foreground/[0.1] transition-colors"
+        >
+          Show more apps ({ordered.length - visibleCount} left)
+        </button>
+      )}
     </div>
   </div>
-);
+  );
+};
 
 const PlusTools = (p: PlusContentProps) => {
   const isSkills = p.plusView === "skills";
