@@ -177,7 +177,19 @@ export async function handleApiApp(_req: Request, admin: any, body: any): Promis
     for (const [name, value] of Object.entries(template?.headers ?? {})) {
       headers[name] = fill(value);
     }
+    const hasAuthHeader = Object.keys(headers).some((h) => h.toLowerCase() === "authorization");
+    if (!hasAuthHeader) {
+      const user = creds["username"] ?? creds["email"];
+      if (basicAuth || user) {
+        // Username/password services: HTTP Basic, exactly as they document it.
+        const pass = creds["password"] ?? creds["apiKey"] ?? "";
+        headers["Authorization"] = `Basic ${btoa(`${user ?? ""}:${pass}`)}`;
+      } else if (key && !Object.keys(template?.params ?? {}).length && !auth) {
+        headers["Authorization"] = `Bearer ${key}`;
+      }
+    }
     if (appId === "notion") headers["Notion-Version"] = "2022-06-28";
+
 
 
     let payload: string | undefined;
