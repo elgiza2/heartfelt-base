@@ -100,7 +100,7 @@ export default function ApiAppsTab({
             className="flex w-full items-center gap-3 px-2 py-2.5 text-left transition-opacity active:opacity-60"
             style={{ border: 0, background: "transparent", minHeight: 58 }}
           >
-            <ApiAppLogo app={{ name: row.name, logo: row.logo } as ApiApp} size={40} />
+            <ApiAppLogo app={row.app ?? ({ name: row.name, logo: row.logo } as ApiApp)} size={40} />
             <span className="min-w-0 flex-1">
               <span className="block truncate text-[14.5px] font-medium text-foreground">
                 {row.name}

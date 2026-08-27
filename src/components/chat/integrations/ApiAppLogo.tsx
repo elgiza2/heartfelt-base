@@ -16,7 +16,20 @@ function domain(app: ApiApp): string | null {
 /** Prefer the service favicon because registry artwork often includes a baked-in tile. */
 function sourcesFor(app: ApiApp): string[] {
   const host = domain(app);
+  const simpleIconAliases: Record<string, string> = {
+    "x (twitter)": "x",
+    "google drive": "googledrive",
+    "google calendar": "googlecalendar",
+    "google sheets": "googlesheets",
+    "google docs": "googledocs",
+    "microsoft teams": "microsoftteams",
+    "facebook": "facebook",
+  };
+  const simpleIconSlug =
+    simpleIconAliases[app.name.trim().toLowerCase()] ??
+    app.name.toLowerCase().replace(/\([^)]*\)/g, "").replace(/[^a-z0-9]/g, "");
   return [
+    simpleIconSlug ? `https://cdn.simpleicons.org/${simpleIconSlug}` : null,
     host ? `https://icons.duckduckgo.com/ip3/${host}.ico` : null,
     app.logo,
   ].filter(Boolean) as string[];
@@ -50,7 +63,7 @@ export default function ApiAppLogo({ app, size = 38 }: { app: ApiApp; size?: num
         alt={app.name}
         loading="lazy"
         onError={() => setStep((current) => current + 1)}
-        style={{ width: size * 0.68, height: size * 0.68, objectFit: "contain", background: "transparent" }}
+        style={{ width: size * 0.68, height: size * 0.68, objectFit: "contain", backgroundColor: "transparent" }}
       />
     </span>
   );
