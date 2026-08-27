@@ -5,7 +5,7 @@
  *  a single key. All colours come from the design tokens.
  */
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Check, ChevronLeft, ChevronRight, Loader2, Trash2 } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, Loader2, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import type { ApiApp } from "@/lib/apiApps/types";
 import {
