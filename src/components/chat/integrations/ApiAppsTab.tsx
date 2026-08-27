@@ -86,7 +86,16 @@ export default function ApiAppsTab({
       logo: entry.logo,
       entry,
     }));
-    return [...curated, ...directory];
+    // One row per recognisable name, curated apps winning ties.
+    const unique: Row[] = [];
+    const names = new Set<string>();
+    for (const row of [...curated, ...directory]) {
+      const name = row.name.trim().toLowerCase();
+      if (names.has(name)) continue;
+      names.add(name);
+      unique.push(row);
+    }
+    return unique;
   }, [entries]);
 
   const list = useMemo(() => {
