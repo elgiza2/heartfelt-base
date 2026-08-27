@@ -1092,3 +1092,26 @@ export const curatedIntegrations: Integration[] = [
     domain: "konnectify.co",
   },
 ];
+
+// The long tail (1000 of the most widely used business apps) is generated from
+// the public Pipedream component registry, so each entry already has ready-made
+// actions and triggers behind the same connect flow.
+const seen = new Set<string>();
+for (const item of curatedIntegrations) {
+  seen.add(item.app);
+  if (item.pipedreamSlug) seen.add(item.pipedreamSlug);
+  seen.add(item.id);
+}
+
+export const integrations: Integration[] = [
+  ...curatedIntegrations,
+  ...generatedIntegrations.filter((item) => {
+    if (seen.has(item.app) || seen.has(item.id) || (item.pipedreamSlug && seen.has(item.pipedreamSlug))) {
+      return false;
+    }
+    seen.add(item.app);
+    seen.add(item.id);
+    if (item.pipedreamSlug) seen.add(item.pipedreamSlug);
+    return true;
+  }),
+];
