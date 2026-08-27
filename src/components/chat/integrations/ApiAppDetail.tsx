@@ -5,7 +5,7 @@
  *  a single key. All colours come from the design tokens.
  */
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Check, ChevronRight, Loader2, Trash2 } from "lucide-react";
+import { ArrowUpRight, Check, ChevronLeft, ChevronRight, Loader2, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import type { ApiApp } from "@/lib/apiApps/types";
 import {
@@ -115,7 +115,7 @@ export default function ApiAppDetail({
           className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-foreground/[0.06] text-foreground/70 transition-opacity active:opacity-60"
           style={{ border: 0 }}
         >
-          <ChevronRight className="h-[18px] w-[18px]" />
+          <ChevronLeft className="h-[18px] w-[18px]" />
         </button>
         <span className="flex-1 truncate text-[14px] font-medium text-foreground/70">
           {app.name}
@@ -275,7 +275,7 @@ export default function ApiAppDetail({
                     {tool.description}
                   </span>
                 </span>
-                <ChevronRight className="h-4 w-4 shrink-0 rotate-180 text-foreground/25" />
+                <ChevronRight className="h-4 w-4 shrink-0 text-foreground/25" />
               </button>
             ))}
           </div>
