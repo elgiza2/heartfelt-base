@@ -87,10 +87,7 @@ export default function ApiAppsTab({
 
   return (
     <div dir="ltr" className="pb-3">
-      <div className="flex items-center justify-between px-2 pb-2 pt-2 text-[12px] text-foreground/40">
-        <span>Paste your API key and it works right away</span>
-        <span>{`${list.length} apps`}</span>
-      </div>
+      <div className="pt-1" />
 
       {visible.map((row) => {
         const hasKey = Boolean(saved[row.id]);

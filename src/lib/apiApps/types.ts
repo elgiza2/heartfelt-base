@@ -62,6 +62,8 @@ export type ApiApp = {
   /** Named fields shown in the setup form; falls back to a single key field. */
   credentials?: ApiAppCredential[];
   authTemplate?: ApiAppAuthTemplate;
+  /** Credentials go out as HTTP Basic (username/password style services). */
+  basic?: boolean;
   logo: string;
   tools: ApiAppTool[];
 };

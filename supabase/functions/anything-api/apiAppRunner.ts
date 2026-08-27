@@ -82,8 +82,15 @@ export async function handleApiApp(_req: Request, admin: any, body: any): Promis
 
     const appId = String(body?.app ?? "");
     let spec = body?.spec as
-      | { baseUrl: string; auth?: Auth | null; authTemplate?: AuthTemplate | null; tool: ToolSpec }
+      | {
+          baseUrl: string;
+          auth?: Auth | null;
+          authTemplate?: AuthTemplate | null;
+          basic?: boolean;
+          tool: ToolSpec;
+        }
       | undefined;
+
     if (!appId || !spec?.tool) {
       return json({ ok: false, error: "Missing request details" }, 400);
     }
@@ -106,7 +113,9 @@ export async function handleApiApp(_req: Request, admin: any, body: any): Promis
         baseUrl: String(row.spec.baseUrl),
         auth: (row.spec.auth ?? null) as Auth | null,
         authTemplate: (row.spec.authTemplate ?? null) as AuthTemplate | null,
+        basic: Boolean(row.spec.basic),
         tool: saved,
+
       };
     }
     if (!spec?.baseUrl) return json({ ok: false, error: "Missing request details" }, 400);
@@ -135,6 +144,8 @@ export async function handleApiApp(_req: Request, admin: any, body: any): Promis
     const params = (body?.params ?? {}) as Record<string, unknown>;
     const auth = spec.auth;
     const template = spec.authTemplate;
+    const basicAuth = Boolean(spec.basic);
+
     const tool = spec.tool;
 
     // Build the path, filling {placeholders} from params (and the key when needed).
@@ -177,7 +188,19 @@ export async function handleApiApp(_req: Request, admin: any, body: any): Promis
     for (const [name, value] of Object.entries(template?.headers ?? {})) {
       headers[name] = fill(value);
     }
+    const hasAuthHeader = Object.keys(headers).some((h) => h.toLowerCase() === "authorization");
+    if (!hasAuthHeader) {
+      const user = creds["username"] ?? creds["email"];
+      if (basicAuth || user) {
+        // Username/password services: HTTP Basic, exactly as they document it.
+        const pass = creds["password"] ?? creds["apiKey"] ?? "";
+        headers["Authorization"] = `Basic ${btoa(`${user ?? ""}:${pass}`)}`;
+      } else if (key && !Object.keys(template?.params ?? {}).length && !auth) {
+        headers["Authorization"] = `Bearer ${key}`;
+      }
+    }
     if (appId === "notion") headers["Notion-Version"] = "2022-06-28";
+
 
 
     let payload: string | undefined;
