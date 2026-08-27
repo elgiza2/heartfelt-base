@@ -1,12 +1,11 @@
-/** The APIs tab: real REST services you connect with your own API key.
+/** The APIs tab: the Manus connector line-up, connected with your own API key.
  *
- *  Every row is backed by a published OpenAPI description (curated apps first,
- *  then the live APIs.guru directory), so opening one reads its real base URL,
- *  auth scheme and endpoints. The moment the user pastes their key the endpoints
- *  become callable from chat — nothing here is a placeholder entry.
+ *  Rows come from `manus.ts` — the same apps Manus ships as connectors — each
+ *  wired to its real REST base URL, auth header and endpoints, so the moment
+ *  the user pastes a key the endpoints are callable from chat.
  */
 import { useEffect, useMemo, useState } from "react";
-import { Check, ChevronLeft, Loader2 } from "lucide-react";
+import { Check, ChevronLeft } from "lucide-react";
 import { MANUS_APPS } from "@/lib/apiApps/manus";
 import { listApiApps } from "@/lib/apiApps/client";
 import type { ApiApp } from "@/lib/apiApps/types";
@@ -33,8 +32,6 @@ export default function ApiAppsTab({
 }) {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [saved, setSaved] = useState<Record<string, boolean>>({});
-  const [opening] = useState<string | null>(null);
-  const loading = false;
 
   useEffect(() => {
     let alive = true;
@@ -90,21 +87,14 @@ export default function ApiAppsTab({
     <div dir="ltr" className="pb-3">
       <div className="flex items-center justify-between px-2 pb-2 pt-2 text-[12px] text-foreground/40">
         <span>Paste your API key and it works right away</span>
-        <span>{loading ? "Loading…" : `${list.length.toLocaleString()} APIs`}</span>
+        <span>{`${list.length} apps`}</span>
       </div>
 
-      {visible.map((row, index) => {
+      {visible.map((row) => {
         const hasKey = Boolean(saved[row.id]);
-        const divider = false;
         return (
           <div key={row.id}>
-          {divider && (
-            <p key="divider" className="px-2 pb-1 pt-4 text-[12px] text-foreground/35">
-              More APIs
-            </p>
-          )}
           <button
-
             type="button"
             onClick={() => open(row)}
             data-api-integration={row.id}
@@ -120,9 +110,7 @@ export default function ApiAppsTab({
                 {hasKey ? "API key saved" : row.description}
               </span>
             </span>
-            {opening === row.id ? (
-              <Loader2 className="h-[18px] w-[18px] shrink-0 animate-spin text-foreground/45" />
-            ) : hasKey ? (
+            {hasKey ? (
               <Check className="h-[18px] w-[18px] shrink-0 text-primary" />
             ) : (
               <ChevronLeft className="h-[18px] w-[18px] shrink-0 text-foreground/35" />
@@ -143,7 +131,7 @@ export default function ApiAppsTab({
         </button>
       )}
 
-      {!loading && list.length === 0 && (
+      {list.length === 0 && (
         <p className="py-8 text-center text-[13px] text-foreground/40">No results</p>
       )}
     </div>
