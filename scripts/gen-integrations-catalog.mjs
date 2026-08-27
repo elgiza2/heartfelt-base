@@ -46,7 +46,7 @@ const PRIORITY = [
 ];
 
 const CATEGORY_RULES = [
-  [/(^|_)(github|gitlab|bitbucket|jenkins|circleci|docker|npm|vercel|netlify|render|railway|heroku|fly|cloudflare|aws|azure|gcp|google_cloud|supabase|firebase|mongodb|postgres|mysql|redis|sentry|datadog|new_relic|grafana|pagerduty|opsgenie|api|dev|sdk|code|deploy|server|kubernetes)/, "Development"],
+  [/(^|_)(github|gitlab|bitbucket|jenkins|circleci|docker|npm|vercel|netlify|render|railway|heroku|fly|cloudflare|aws|azure|gcp|google_cloud|supabase|firebase|mongodb|postgres|mysql|redis|sentry|datadog|new_relic|grafana|pagerduty|opsgenie|deploy|kubernetes|terraform|linode|vultr|namecheap|godaddy|dns|ssh|webhook_?relay)/, "Development"],
   [/(mail|smtp|email|newsletter|sendgrid|mailgun|postmark|resend|klaviyo|mailchimp|brevo|drip|campaign)/, "Marketing"],
   [/(slack|discord|teams|telegram|whatsapp|chat|sms|twilio|voice|call|zoom|meet|webex|messenger|signal)/, "Communication"],
   [/(crm|sales|hubspot|salesforce|pipedrive|close|lead|prospect|apollo|outreach|deal)/, "Sales & CRM"],
@@ -66,6 +66,20 @@ const CATEGORY_RULES = [
   [/(seo|ads|advert|adwords|keyword|semrush|ahrefs|search_console|ppc)/, "Marketing"],
   [/(zapier|make|n8n|automat|workflow|integrat|webhook|pipe)/, "Automation"],
   [/(cms|wordpress|webflow|wix|squarespace|contentful|sanity|strapi|ghost|blog|site)/, "Website & CMS"],
+  [/(crypto|coin|bitcoin|binance|wallet|blockchain|nft|web3)/, "Crypto & Web3"],
+  [/(bank|loan|tax|expense|payroll_?tax|finance|budget|ledger)/, "Payments & Finance"],
+  [/(school|course|learn|student|education|training|lms)/, "Education"],
+  [/(health|medical|patient|clinic|fitness|therapy|dental)/, "Health"],
+  [/(travel|flight|hotel|booking_?com|airbnb|maps|location|weather)/, "Travel & Location"],
+  [/(real_?estate|property|rental|tenant|lease)/, "Real Estate"],
+  [/(legal|law|compliance|contract|gdpr|policy)/, "Legal & Compliance"],
+  [/(print|label|logistic|delivery|courier|warehouse|inventory|fleet|supply)/, "Logistics"],
+  [/(restaurant|food|menu|pos|retail|salon|spa|booking)/, "Retail & Local"],
+  [/(sheet|table|database|data|etl|sync|import|export)/, "Data"],
+  [/(sign|verify|auth|identity|password|security|scan|firewall|vpn)/, "Security & Identity"],
+  [/(review|reputation|feedback|nps|testimonial)/, "Reviews & Feedback"],
+  [/(call|dial|phone|telephony|ivr|contact_?center)/, "Communication"],
+  [/(subscription|member|community|forum|donat|fundrais|nonprofit)/, "Community"],
 ];
 
 const NAME_OVERRIDES = {
