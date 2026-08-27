@@ -18,7 +18,6 @@ function sourcesFor(app: ApiApp): string[] {
   const host = domain(app);
   return [
     app.logo,
-    host ? `https://logo.clearbit.com/${host}` : null,
     host ? `https://icons.duckduckgo.com/ip3/${host}.ico` : null,
   ].filter(Boolean) as string[];
 }

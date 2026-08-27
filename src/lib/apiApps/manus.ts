@@ -1360,24 +1360,14 @@ const HOSTS: Record<string, string> = {
   metabase: "https://${host}/api",
 };
 
-const ICONS: Record<string, string> = {
-  monday: "mondaydotcom",
-  "google-calendar": "googlecalendar",
-  "google-drive": "googledrive",
-  "outlook-mail": "microsoftoutlook",
-  "outlook-calendar": "microsoftoutlook",
-  gemini: "googlegemini",
-  tldv: "tldv",
-  polygon: "polygondotio",
-  jsonbin: "json",
-  paypal: "paypal",
-  grok: "x",
-  flux: "flux",
-  granola: "granola",
-  tripo: "tripo",
-  prisma: "prisma",
-  "prisma-postgres": "prisma",
-};
+/** Brand mark from the service's own domain, for apps the registry misses. */
+function brandIcon(seed: Seed): string {
+  const host = new URL(seed.docs || seed.base).hostname.replace(
+    /^(api|api-m|www|app|console|dashboard|platform|graph|open|developer|developers|docs|docs-|cloud)\./,
+    "",
+  );
+  return `https://icons.duckduckgo.com/ip3/${host}.ico`;
+}
 
 /** The credential travels exactly the way each service documents it. */
 function buildTemplate(seed: Seed) {
@@ -1402,10 +1392,7 @@ export const MANUS_APPS: ApiApp[] = SEEDS.map((seed) => ({
     { name: "apiKey", label: "API key", secret: true },
   ],
   authTemplate: buildTemplate(seed),
-  logo:
-    seed.icon ??
-    serviceLogo(seed.name) ??
-    `https://cdn.simpleicons.org/${ICONS[seed.id] ?? seed.id}`,
+  logo: seed.icon ?? serviceLogo(seed.name) ?? brandIcon(seed),
   tools: seed.tools.map((tool) => ({
     name: tool.name,
     description: tool.description,
