@@ -262,7 +262,11 @@ export const DraggablePlusSheet = ({
       onWheel={(e) => {
         if (e.deltaY > 0 && !expandedRef.current) snapTo("expanded");
       }}
-      className="mobile-plus-glass-menu md:hidden fixed left-0 right-0 bottom-0 z-overlay flex flex-col rounded-t-[28px] outline-none will-change-transform"
+      className={`mobile-plus-glass-menu fixed bottom-0 left-0 right-0 z-overlay flex flex-col rounded-t-[28px] outline-none will-change-transform ${
+        sheetKind === "integrations"
+          ? "md:mx-auto md:max-w-[640px] md:rounded-t-[24px]"
+          : "md:hidden"
+      }`}
     >
       <div data-sheet-grip className="shrink-0 cursor-grab touch-none pt-2.5 pb-3 active:cursor-grabbing">
         <motion.div
