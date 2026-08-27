@@ -117,7 +117,12 @@ export async function runApiTool(
       app: appId,
       tool,
       params,
-      spec: { baseUrl: app.baseUrl, auth: app.auth, tool: spec },
+      spec: {
+        baseUrl: app.baseUrl,
+        auth: app.auth ?? null,
+        authTemplate: app.authTemplate ?? null,
+        tool: spec,
+      },
     },
   });
   if (error && !data) throw new Error(error.message || "Request failed");
